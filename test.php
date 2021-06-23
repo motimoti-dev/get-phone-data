@@ -1,8 +1,7 @@
 <pre><code>
 データ一覧
-ああああ
 </code></pre>
-<pre><code>
+
 <?php
 require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
 error_reporting(E_ALL & ~E_NOTICE); 
@@ -10,7 +9,6 @@ error_reporting(E_ALL & ~E_NOTICE);
 //print_r($html->find(".specs-photo-main a img",0)->src);
 //print_r($html->find('img')->src);
 //print_r($html->find("span[data-spec='storage-hl']",0)->plaintext);//print_r($html->find('img')->src);
-?></code></pre><?php
 $urls = [
     "https://www.gsmarena.com/xiaomi_mi_11x-10775.php",
     "https://www.gsmarena.com/acer_iconia_talk_s-8306.php",
@@ -181,22 +179,14 @@ print_r($html->find("td[data-spec='colors']",0)->plaintext);//
 echo "\n価格\n";
 print_r($html->find("td[data-spec='price']",0)->plaintext);//
 echo "\n\n";
-
 ?>
 </pre>
-<style>
-    th,td{border:1px solid gray;}
-</style>
-<table>
-    <tr>
-        <th></th>
-        <td></td>
-    </tr>
-</table>
 <?php }?>
 <?php
+print_r($data);
 /*for ($i = 0 ;$i <=42; $i++) {
     echo $i.":";
     print_r($html->find(".nfo", $i)->plaintext);
     echo "\n";
 }*/?>
+
