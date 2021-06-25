@@ -79,12 +79,12 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
         font-size: 13px;
     }
 </style>
-<?php /*
-$ot_t = 'sp-band-5g-n1,sp-band-5g-n2,sp-band-5g-n3,sp-band-5g-n5,sp-band-5g-n7,sp-band-5g-n8,sp-band-5g-n12,sp-band-5g-n14,sp-band-5g-n18,sp-band-5g-n20,sp-band-5g-n25,sp-band-5g-n28,sp-band-5g-n29,sp-band-5g-n30,sp-band-5g-n34,sp-band-5g-n38,sp-band-5g-n39,sp-band-5g-n40,sp-band-5g-n41,sp-band-5g-n48,sp-band-5g-n50,sp-band-5g-n51,sp-band-5g-n65,sp-band-5g-n66,sp-band-5g-n70,sp-band-5g-n71,sp-band-5g-n74,sp-band-5g-n75,sp-band-5g-n76,sp-band-5g-n77,sp-band-5g-n78,sp-band-5g-n79,sp-band-5g-n80,sp-band-5g-n81,sp-band-5g-n82,sp-band-5g-n83,sp-band-5g-n84,sp-band-5g-n86,sp-band-5g-n89,sp-band-5g-n90,sp-band-5g-n257,sp-band-5g-n258,sp-band-5g-n260,sp-band-5g-n261';
-                                        $ot_t = explode(',',$ot_t);
-                                        foreach($ot_t as $ot_t1){
-                                            echo "['$ot_t1',],"."<br>";
-                                        }/*/?>
+<?php /**//*
+$ot_t = 'sp-band-4g-1,sp-band-4g-2,sp-band-4g-3,sp-band-4g-4,sp-band-4g-5,sp-band-4g-6,sp-band-4g-7,sp-band-4g-8,sp-band-4g-10,sp-band-4g-11,sp-band-4g-12,sp-band-4g-13,sp-band-4g-14,sp-band-4g-17,sp-band-4g-18,sp-band-4g-19,sp-band-4g-20,sp-band-4g-21,sp-band-4g-22,sp-band-4g-23,sp-band-4g-24,sp-band-4g-25,sp-band-4g-26,sp-band-4g-27,sp-band-4g-28,sp-band-4g-29,sp-band-4g-30,sp-band-4g-31,sp-band-4g-32,sp-band-4g-33,sp-band-4g-34,sp-band-4g-35,sp-band-4g-36,sp-band-4g-37,sp-band-4g-38,sp-band-4g-39,sp-band-4g-40,sp-band-4g-41,sp-band-4g-42,sp-band-4g-43,sp-band-4g-44,sp-band-4g-45,sp-band-4g-46,sp-band-4g-47,sp-band-4g-48,sp-band-4g-49,sp-band-4g-50,sp-band-4g-51,sp-band-4g-52,sp-band-4g-65,sp-band-4g-66,sp-band-4g-67,sp-band-4g-68,sp-band-4g-69,sp-band-4g-70,sp-band-4g-71,sp-band-4g-72,sp-band-4g-73,sp-band-4g-74,sp-band-4g-75,sp-band-4g-76,sp-band-4g-85,sp-band-4g-252,sp-band-4g-255';
+$ot_t = explode(',',$ot_t);
+foreach($ot_t as $ot_t1){
+echo "['$ot_t1',],"."<br>";
+}*//**/?>
 <?php
 global $data_table,$data_table_title,$data_context;
 $data_table = [];
@@ -112,6 +112,47 @@ function gen_table(){
                     $table_forcus_num = $i;
                 }
             }
+            $forcus_ot_4g = [
+                ['sp-band-4g-1',1],['sp-band-4g-2',2],['sp-band-4g-3',3],
+                ['sp-band-4g-4',4],['sp-band-4g-5',5],['sp-band-4g-6',6],
+                ['sp-band-4g-7',7],['sp-band-4g-8',8],['sp-band-4g-10',10],
+                ['sp-band-4g-11',11],['sp-band-4g-12',12],['sp-band-4g-13',13],
+                ['sp-band-4g-14',14],['sp-band-4g-17',17],['sp-band-4g-18',18],
+                ['sp-band-4g-19',19],['sp-band-4g-20',20],['sp-band-4g-21',21],
+                ['sp-band-4g-22',22],['sp-band-4g-23',23],['sp-band-4g-24',24],
+                ['sp-band-4g-25',25],['sp-band-4g-26',26],['sp-band-4g-27',27],
+                ['sp-band-4g-28',28],['sp-band-4g-29',29],['sp-band-4g-30',30],
+                ['sp-band-4g-31',31],['sp-band-4g-32',32],['sp-band-4g-33',33],
+                ['sp-band-4g-34',34],['sp-band-4g-35',35],['sp-band-4g-36',36],
+                ['sp-band-4g-37',37],['sp-band-4g-38',38],['sp-band-4g-39',39],
+                ['sp-band-4g-40',40],['sp-band-4g-41',41],['sp-band-4g-42',42],
+                ['sp-band-4g-43',43],['sp-band-4g-44',44],['sp-band-4g-45',45],
+                ['sp-band-4g-46',46],['sp-band-4g-47',47],['sp-band-4g-48',48],
+                ['sp-band-4g-49',49],['sp-band-4g-50',50],['sp-band-4g-51',51],
+                ['sp-band-4g-52',52],['sp-band-4g-65',65],['sp-band-4g-66',66],
+                ['sp-band-4g-67',67],['sp-band-4g-68',68],['sp-band-4g-69',69],
+                ['sp-band-4g-70',70],['sp-band-4g-71',71],['sp-band-4g-72',72],
+                ['sp-band-4g-73',73],['sp-band-4g-74',74],['sp-band-4g-75',75],
+                ['sp-band-4g-76',76],['sp-band-4g-85',85],['sp-band-4g-252',252],
+                ['sp-band-4g-255',255]
+            ];
+            $forcus_ot_5g = [
+                ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
+                ['sp-band-5g-n5',5],['sp-band-5g-n7',7],['sp-band-5g-n8',8],
+                ['sp-band-5g-n12',12],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
+                ['sp-band-5g-n20',20],['sp-band-5g-n25',25],['sp-band-5g-n28',28],
+                ['sp-band-5g-n29',29],['sp-band-5g-n30',30],['sp-band-5g-n34',34],
+                ['sp-band-5g-n38',38],['sp-band-5g-n39',39],['sp-band-5g-n40',40],
+                ['sp-band-5g-n41',41],['sp-band-5g-n48',48],['sp-band-5g-n50',50],
+                ['sp-band-5g-n51',51],['sp-band-5g-n65',65],['sp-band-5g-n66',66],
+                ['sp-band-5g-n70',70],['sp-band-5g-n71',71],['sp-band-5g-n74',74],
+                ['sp-band-5g-n75',75],['sp-band-5g-n76',76],['sp-band-5g-n77',77],
+                ['sp-band-5g-n78',78],['sp-band-5g-n79',79],['sp-band-5g-n80',80],
+                ['sp-band-5g-n81',81],['sp-band-5g-n82',82],['sp-band-5g-n83',83],
+                ['sp-band-5g-n84',84],['sp-band-5g-n86',86],['sp-band-5g-n89',89],
+                ['sp-band-5g-n90',90],['sp-band-5g-n257',257],['sp-band-5g-n258',258],
+                ['sp-band-5g-n260',260],['sp-band-5g-n261',261]
+            ];
             $ot_html01 = $html->find( 'table', $table_forcus_num );
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
@@ -145,9 +186,36 @@ function gen_table(){
                         break;
 
                     case '4G bands':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
-                        $data[] = ["sp-band-6",$ot_html01->find('.nfo', $i)->plaintext];
+                        //5Gのバンド
+                        //ex.1, 3, 28, 41, 78, 79 SA/NSA
+                        //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
+                        if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
+                            //4Gテキスト
+                            $data[] = ["sp-band-6",$ot_html01->find('.nfo', $i)->plaintext];
+                            //4G対応
+                            $data[] = ["sp-band-3","No"];
+                            $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
+                            echo "ot count".count($ot)."ot";
+                            if(count($ot) != 0){
+                                print_r($ot);
+                                $counter = count($ot);
+                                for($n = 0 ;$n <= $counter; $n ++){//count($ot)
+                                    $ot[$n] = str_replace(',', '', $ot[$n]);
+                                    if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
+                                        echo "4G band error".$ot[$n];
+                                    //$forcus_counter = count($forcus_ot);
+                                    foreach($forcus_ot as $data_ot){
+                                        if($data_ot[1] == $ot[$n]){
+                                            $data[] = [$data_ot[0],"Yes"];
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
+                        }else{
+                            //4G非対応
+                            $data[] = ["sp-band-2","No"];
+                        }
                         break;
 
                     case '5G bands':
@@ -160,69 +228,20 @@ function gen_table(){
                             //5G対応
                             $data[] = ["sp-band-3","No"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
-                            echo "ot count".count($ot);
+                            echo "ot count".count($ot)."ot";
                             if(count($ot) != 0){
-                                for($n = 0 ;$n <= 2; $n ++){//count($ot)
+                                print_r($ot);
+                                $counter = count($ot);
+                                for($n = 0 ;$n <= $counter; $n ++){//count($ot)
                                     $ot[$n] = str_replace(',', '', $ot[$n]);
                                     if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
                                         echo "5G band error".$ot[$n];
-
-                                        $forcus_ot = [
-                                            ['sp-band-5g-n1',1],
-                                            ['sp-band-5g-n2',2],
-                                            ['sp-band-5g-n3',3],
-                                            ['sp-band-5g-n5',5],
-                                            ['sp-band-5g-n7',7],
-                                            ['sp-band-5g-n8',8],
-                                            ['sp-band-5g-n12',12],
-                                            ['sp-band-5g-n14',14],
-                                            ['sp-band-5g-n18',18],
-                                            ['sp-band-5g-n20',20],
-                                            ['sp-band-5g-n25',25],
-                                            ['sp-band-5g-n28',28],
-                                            ['sp-band-5g-n29',29],
-                                            ['sp-band-5g-n30',30],
-                                            ['sp-band-5g-n34',34],
-                                            ['sp-band-5g-n38',38],
-                                            ['sp-band-5g-n39',39],
-                                            ['sp-band-5g-n40',40],
-                                            ['sp-band-5g-n41',41],
-                                            ['sp-band-5g-n48',48],
-                                            ['sp-band-5g-n50',50],
-                                            ['sp-band-5g-n51',51],
-                                            ['sp-band-5g-n65',65],
-                                            ['sp-band-5g-n66',66],
-                                            ['sp-band-5g-n70',70],
-                                            ['sp-band-5g-n71',71],
-                                            ['sp-band-5g-n74',74],
-                                            ['sp-band-5g-n75',75],
-                                            ['sp-band-5g-n76',76],
-                                            ['sp-band-5g-n77',77],
-                                            ['sp-band-5g-n78',88],
-                                            ['sp-band-5g-n79',79],
-                                            ['sp-band-5g-n80',80],
-                                            ['sp-band-5g-n81',81],
-                                            ['sp-band-5g-n82',82],
-                                            ['sp-band-5g-n83',83],
-                                            ['sp-band-5g-n84',84],
-                                            ['sp-band-5g-n86',86],
-                                            ['sp-band-5g-n89',98],
-                                            ['sp-band-5g-n90',90],
-                                            ['sp-band-5g-n257',257],
-                                            ['sp-band-5g-n258',258],
-                                            ['sp-band-5g-n260',260],
-                                            ['sp-band-5g-n261',261],
-                                        ];
-                                        foreach($forcus_ot as $data){
-
+                                    
+                                    foreach($forcus_ot_5g as $data_ot){
+                                        if($data_ot[1] == $ot[$n]){
+                                            $data[] = [$data_ot[0],"Yes"];
+                                            continue;
                                         }
-                                    switch($ot[$n]){
-                                        case 1:
-                                            $data[] = ["sp-band-5g-n1","Yes"];
-                                            break;
-
-                                        default:
-                                            break;
                                     }
                                 }
                             }
