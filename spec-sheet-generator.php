@@ -79,6 +79,12 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
         font-size: 13px;
     }
 </style>
+<?php /*
+$ot_t = 'sp-band-5g-n1,sp-band-5g-n2,sp-band-5g-n3,sp-band-5g-n5,sp-band-5g-n7,sp-band-5g-n8,sp-band-5g-n12,sp-band-5g-n14,sp-band-5g-n18,sp-band-5g-n20,sp-band-5g-n25,sp-band-5g-n28,sp-band-5g-n29,sp-band-5g-n30,sp-band-5g-n34,sp-band-5g-n38,sp-band-5g-n39,sp-band-5g-n40,sp-band-5g-n41,sp-band-5g-n48,sp-band-5g-n50,sp-band-5g-n51,sp-band-5g-n65,sp-band-5g-n66,sp-band-5g-n70,sp-band-5g-n71,sp-band-5g-n74,sp-band-5g-n75,sp-band-5g-n76,sp-band-5g-n77,sp-band-5g-n78,sp-band-5g-n79,sp-band-5g-n80,sp-band-5g-n81,sp-band-5g-n82,sp-band-5g-n83,sp-band-5g-n84,sp-band-5g-n86,sp-band-5g-n89,sp-band-5g-n90,sp-band-5g-n257,sp-band-5g-n258,sp-band-5g-n260,sp-band-5g-n261';
+                                        $ot_t = explode(',',$ot_t);
+                                        foreach($ot_t as $ot_t1){
+                                            echo "['$ot_t1',],"."<br>";
+                                        }/*/?>
 <?php
 global $data_table,$data_table_title,$data_context;
 $data_table = [];
@@ -97,35 +103,7 @@ function gen_table(){
     $out_html .= "</table></div>";
     echo $out_html;
 }?>
-
-<p>url:<?php echo $url;?></p>
-<div class="table-row">
-    <div class="table-column" style="background:#bddeff;">
-        <?php
-            $data_table_title = "発売日とメーカー";
-            $data_table = [];
-            $data_table[] = ["メーカー","Xiaomi"];
-            $data_table[] = ["発表日","2019-03-25"];
-            $data_table[] = ["発売日","-"];
-            $data_table[] = ["端末名","Xiaomi Mi 9"];
-            $data_table[] = ["モデル番号","M1902F1G"];
-            $data_table[] = ["地域","中国"];
-            $data_table[] = ["追加説明","-"];
-            gen_table();
-        ?>
-        <?php
-            $data_table_title = "発売日とメーカー";
-            $data_table = [];
-            $data_table[] = ["メーカー",''];
-            $data_table[] = ["発表日",$html->find("span[data-spec='released-hl']",0)->plaintext];
-            $data_table[] = ["発売日",""];
-            $data_table[] = ["端末名",$html->find(".specs-phone-name-title",0)->plaintext];
-            $data_table[] = ["モデル番号","M1902F1G"];
-            $data_table[] = ["地域","中国"];
-            $data_table[] = ["追加説明","-"];
-            gen_table();
-        ?>
-        <?php
+<?php
             //発売日とメーカーのデータ
             //$data[] = ["sp-launch-0",''];
             $table_forcus_num = 0;
@@ -141,37 +119,137 @@ function gen_table(){
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Technology':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //通信技術
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $data[] = ["sp-band-8",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
 
                     case '2G bands':
                         //状態
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $data[] = ["sp-band-4",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
 
                     case '3G bands':
                         //状態
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //example
+                        /*
+                        N/A
+                        GSM 1800
+                        GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2
+                        GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2
+                        CDMA 800
+                        */
+                        $data[] = ["sp-band-5",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
 
                     case '4G bands':
                         //状態
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $data[] = ["sp-band-6",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
 
                     case '5G bands':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //5Gのバンド
+                        //ex.1, 3, 28, 41, 78, 79 SA/NSA
+                        //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
+                        if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
+                            //5Gテキスト
+                            $data[] = ["sp-band-7",$ot_html01->find('.nfo', $i)->plaintext];
+                            //5G対応
+                            $data[] = ["sp-band-3","No"];
+                            $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
+                            echo "ot count".count($ot);
+                            if(count($ot) != 0){
+                                for($n = 0 ;$n <= 2; $n ++){//count($ot)
+                                    $ot[$n] = str_replace(',', '', $ot[$n]);
+                                    if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
+                                        echo "5G band error".$ot[$n];
+
+                                        $forcus_ot = [
+                                            ['sp-band-5g-n1',1],
+                                            ['sp-band-5g-n2',2],
+                                            ['sp-band-5g-n3',3],
+                                            ['sp-band-5g-n5',5],
+                                            ['sp-band-5g-n7',7],
+                                            ['sp-band-5g-n8',8],
+                                            ['sp-band-5g-n12',12],
+                                            ['sp-band-5g-n14',14],
+                                            ['sp-band-5g-n18',18],
+                                            ['sp-band-5g-n20',20],
+                                            ['sp-band-5g-n25',25],
+                                            ['sp-band-5g-n28',28],
+                                            ['sp-band-5g-n29',29],
+                                            ['sp-band-5g-n30',30],
+                                            ['sp-band-5g-n34',34],
+                                            ['sp-band-5g-n38',38],
+                                            ['sp-band-5g-n39',39],
+                                            ['sp-band-5g-n40',40],
+                                            ['sp-band-5g-n41',41],
+                                            ['sp-band-5g-n48',48],
+                                            ['sp-band-5g-n50',50],
+                                            ['sp-band-5g-n51',51],
+                                            ['sp-band-5g-n65',65],
+                                            ['sp-band-5g-n66',66],
+                                            ['sp-band-5g-n70',70],
+                                            ['sp-band-5g-n71',71],
+                                            ['sp-band-5g-n74',74],
+                                            ['sp-band-5g-n75',75],
+                                            ['sp-band-5g-n76',76],
+                                            ['sp-band-5g-n77',77],
+                                            ['sp-band-5g-n78',88],
+                                            ['sp-band-5g-n79',79],
+                                            ['sp-band-5g-n80',80],
+                                            ['sp-band-5g-n81',81],
+                                            ['sp-band-5g-n82',82],
+                                            ['sp-band-5g-n83',83],
+                                            ['sp-band-5g-n84',84],
+                                            ['sp-band-5g-n86',86],
+                                            ['sp-band-5g-n89',98],
+                                            ['sp-band-5g-n90',90],
+                                            ['sp-band-5g-n257',257],
+                                            ['sp-band-5g-n258',258],
+                                            ['sp-band-5g-n260',260],
+                                            ['sp-band-5g-n261',261],
+                                        ];
+                                        foreach($forcus_ot as $data){
+
+                                        }
+                                    switch($ot[$n]){
+                                        case 1:
+                                            $data[] = ["sp-band-5g-n1","Yes"];
+                                            break;
+
+                                        default:
+                                            break;
+                                    }
+                                }
+                            }
+                        }else{
+                            //5G非対応
+                            $data[] = ["sp-band-3","No"];
+                        }
+                        
                         break;
 
                     case 'Speed':
-                        //状態
+                        //速度
+                        //N/Aじゃなければ保存、そもそもSpeedがない場合は保存されない。
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
+                            //速度テキスト
+                            $data[] = ["sp-band-9",$ot_html01->find('.nfo', $i)->plaintext];
+                        }
                         break;
 
                     default:
-                        //echo 'Speed';
+                        
+                        //example
+                        /*
+                        GPRS
+                        EDGE
+                        */
                         echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
@@ -681,6 +759,34 @@ function gen_table(){
                 }
             }
         ?>
+<p>url:<?php echo $url;?></p>
+<div class="table-row">
+    <div class="table-column" style="background:#bddeff;">
+        <?php
+            $data_table_title = "発売日とメーカー";
+            $data_table = [];
+            $data_table[] = ["メーカー","Xiaomi"];
+            $data_table[] = ["発表日","2019-03-25"];
+            $data_table[] = ["発売日","-"];
+            $data_table[] = ["端末名","Xiaomi Mi 9"];
+            $data_table[] = ["モデル番号","M1902F1G"];
+            $data_table[] = ["地域","中国"];
+            $data_table[] = ["追加説明","-"];
+            gen_table();
+        ?>
+        <?php
+            $data_table_title = "発売日とメーカー";
+            $data_table = [];
+            $data_table[] = ["メーカー",''];
+            $data_table[] = ["発表日",$html->find("span[data-spec='released-hl']",0)->plaintext];
+            $data_table[] = ["発売日",""];
+            $data_table[] = ["端末名",$html->find(".specs-phone-name-title",0)->plaintext];
+            $data_table[] = ["モデル番号","M1902F1G"];
+            $data_table[] = ["地域","中国"];
+            $data_table[] = ["追加説明","-"];
+            gen_table();
+        ?>
+        
 
         <?php
             $data_table_title = "data";
@@ -1018,3 +1124,7 @@ function gen_table(){
         <?php gen_table();?>    
     </div>
 </div>
+
+<?php 
+print_r($data);
+?>
