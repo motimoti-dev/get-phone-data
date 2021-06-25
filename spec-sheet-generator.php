@@ -1,6 +1,17 @@
 <?php 
-//spec-sheet のテンプレです！これをベースに作ってください。　もち「はい。」
+//spec-sheetのジェネレーター、スクレイピングしたデータを出力
+require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
+error_reporting(E_ALL & ~E_NOTICE); 
+$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
+$html = file_get_html($url);
 ?>
+<?php //echo substr_count($html,'table');?>
+<?php
+$data = [];
+$table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
+?>
+<?php //echo $html->find( 'table', 0 );?>
+<?php //echo $html->find( 'table', 0 )->find('th', 0);?>
 <style>
 	/*ul tag belong spection data.*/
 	.spec-ul{list-style-type:none;margin:0;padding:0}
@@ -87,7 +98,7 @@ function gen_table(){
     echo $out_html;
 }?>
 
-<p>url:</p>
+<p>url:<?php echo $url;?></p>
 <div class="table-row">
     <div class="table-column" style="background:#bddeff;">
         <?php
@@ -103,9 +114,579 @@ function gen_table(){
             gen_table();
         ?>
         <?php
+            $data_table_title = "発売日とメーカー";
+            $data_table = [];
+            $data_table[] = ["メーカー",''];
+            $data_table[] = ["発表日",$html->find("span[data-spec='released-hl']",0)->plaintext];
+            $data_table[] = ["発売日",""];
+            $data_table[] = ["端末名",$html->find(".specs-phone-name-title",0)->plaintext];
+            $data_table[] = ["モデル番号","M1902F1G"];
+            $data_table[] = ["地域","中国"];
+            $data_table[] = ["追加説明","-"];
+            gen_table();
+        ?>
+        <?php
+            //発売日とメーカーのデータ
+            //$data[] = ["sp-launch-0",''];
+            $table_forcus_num = 0;
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Network'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Technology':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case '2G bands':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case '3G bands':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case '4G bands':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case '5G bands':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Speed':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Launch'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Announced':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Status':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Body'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Dimensions':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Weight':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Build':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'SIM':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+            
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Display'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Type':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Size':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Resolution':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Protection':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Platform'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'OS':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Chipset':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'CPU':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'GPU':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+            
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Memory'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Card slot':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Internal':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Main Camera'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Single':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Dual':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Triple':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Quad':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Five':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Six':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Features':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Video':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Selfie Camera'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Single':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Dual':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Triple':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Quad':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Five':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Six':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Features':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Video':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Sound'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Loudspeaker':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case '3.5mm jack':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Comms'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'WLAN':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Bluetooth':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    case 'Bluetooth':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    case 'NFC':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Infrared port':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    case 'Radio':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'USB':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Features'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Sensors':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Battery'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Type':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Charging':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Misc'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Colors':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Models':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    case 'SAR':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    case 'SAR EU':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Price':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+
+            for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Tests'){
+                    $table_forcus_num = $i;
+                }
+            }
+            $ot_html01 = $html->find( 'table', $table_forcus_num );
+            $ot_td_num = substr_count($ot_html01,'<tr');
+            for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
+                //echo $ot_html01->find('.ttl', 0);
+                switch($ot_html01->find('.ttl', $i)->plaintext){
+                    
+                    case 'Performance':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Display':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    case 'Camera':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    case 'Loudspeaker':
+                        //発表
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+
+                    case 'Battery life':
+                        //状態
+                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                    
+                    default:
+                        //echo 'Speed';
+                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        break;
+                }
+            }
+        ?>
+
+        <?php
             $data_table_title = "data";
             $data_table = [];
             $data_table[] = ["sp-launch-0","メーカー"];
+            $data_table[] = ["取得","手打ち"];
             $data_table[] = ["sp-launch-1","発表日"];
             $data_table[] = ["sp-launch-2","発売日"];
             $data_table[] = ["sp-launch-3",""];
@@ -129,6 +710,7 @@ function gen_table(){
             $data_table[] = ['<svg viewBox="0 0 384 512" class="sp-data"><path d="M352 0H32C14.33 0 0 14.33 0 32v224h384V32c0-17.67-14.33-32-32-32zM0 320c0 35.35 28.66 64 64 64h64v64c0 35.35 28.66 64 64 64s64-28.65 64-64v-64h64c35.34 0 64-28.65 64-64v-32H0v32zm192 104c13.25 0 24 10.74 24 24 0 13.25-10.75 24-24 24s-24-10.75-24-24c0-13.26 10.75-24 24-24z"></path></svg>色',"<div style=\"line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#e180ff\"></div>ラベンダーバイオレット<br><div style=\"line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#006ef5\"></div>オーシャンブルー<br><div style=\"line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#454545\"></div>ピアノブラック<br>"];
             $data_table_title = "デザイン";
             gen_table();?>
+        
         <?php
             $data_table_title = "data";
             $data_table = [];
