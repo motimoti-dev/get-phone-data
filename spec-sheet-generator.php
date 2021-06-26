@@ -2,7 +2,8 @@
 //spec-sheetのジェネレーター、スクレイピングしたデータを出力
 require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
 error_reporting(E_ALL & ~E_NOTICE); 
-$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
+//$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
+$url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
 $html = file_get_html($url);
 ?>
 <?php //echo substr_count($html,'table');?>
@@ -112,68 +113,57 @@ function gen_table(){
                     $table_forcus_num = $i;
                 }
             }
-            $forcus_ot_4g = [
-                ['sp-band-4g-1',1],['sp-band-4g-2',2],['sp-band-4g-3',3],
-                ['sp-band-4g-4',4],['sp-band-4g-5',5],['sp-band-4g-6',6],
-                ['sp-band-4g-7',7],['sp-band-4g-8',8],['sp-band-4g-10',10],
-                ['sp-band-4g-11',11],['sp-band-4g-12',12],['sp-band-4g-13',13],
-                ['sp-band-4g-14',14],['sp-band-4g-17',17],['sp-band-4g-18',18],
-                ['sp-band-4g-19',19],['sp-band-4g-20',20],['sp-band-4g-21',21],
-                ['sp-band-4g-22',22],['sp-band-4g-23',23],['sp-band-4g-24',24],
-                ['sp-band-4g-25',25],['sp-band-4g-26',26],['sp-band-4g-27',27],
-                ['sp-band-4g-28',28],['sp-band-4g-29',29],['sp-band-4g-30',30],
-                ['sp-band-4g-31',31],['sp-band-4g-32',32],['sp-band-4g-33',33],
-                ['sp-band-4g-34',34],['sp-band-4g-35',35],['sp-band-4g-36',36],
-                ['sp-band-4g-37',37],['sp-band-4g-38',38],['sp-band-4g-39',39],
-                ['sp-band-4g-40',40],['sp-band-4g-41',41],['sp-band-4g-42',42],
-                ['sp-band-4g-43',43],['sp-band-4g-44',44],['sp-band-4g-45',45],
-                ['sp-band-4g-46',46],['sp-band-4g-47',47],['sp-band-4g-48',48],
-                ['sp-band-4g-49',49],['sp-band-4g-50',50],['sp-band-4g-51',51],
-                ['sp-band-4g-52',52],['sp-band-4g-65',65],['sp-band-4g-66',66],
-                ['sp-band-4g-67',67],['sp-band-4g-68',68],['sp-band-4g-69',69],
-                ['sp-band-4g-70',70],['sp-band-4g-71',71],['sp-band-4g-72',72],
-                ['sp-band-4g-73',73],['sp-band-4g-74',74],['sp-band-4g-75',75],
-                ['sp-band-4g-76',76],['sp-band-4g-85',85],['sp-band-4g-252',252],
-                ['sp-band-4g-255',255]
-            ];
-            $forcus_ot_5g = [
-                ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
-                ['sp-band-5g-n5',5],['sp-band-5g-n7',7],['sp-band-5g-n8',8],
-                ['sp-band-5g-n12',12],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
-                ['sp-band-5g-n20',20],['sp-band-5g-n25',25],['sp-band-5g-n28',28],
-                ['sp-band-5g-n29',29],['sp-band-5g-n30',30],['sp-band-5g-n34',34],
-                ['sp-band-5g-n38',38],['sp-band-5g-n39',39],['sp-band-5g-n40',40],
-                ['sp-band-5g-n41',41],['sp-band-5g-n48',48],['sp-band-5g-n50',50],
-                ['sp-band-5g-n51',51],['sp-band-5g-n65',65],['sp-band-5g-n66',66],
-                ['sp-band-5g-n70',70],['sp-band-5g-n71',71],['sp-band-5g-n74',74],
-                ['sp-band-5g-n75',75],['sp-band-5g-n76',76],['sp-band-5g-n77',77],
-                ['sp-band-5g-n78',78],['sp-band-5g-n79',79],['sp-band-5g-n80',80],
-                ['sp-band-5g-n81',81],['sp-band-5g-n82',82],['sp-band-5g-n83',83],
-                ['sp-band-5g-n84',84],['sp-band-5g-n86',86],['sp-band-5g-n89',89],
-                ['sp-band-5g-n90',90],['sp-band-5g-n257',257],['sp-band-5g-n258',258],
-                ['sp-band-5g-n260',260],['sp-band-5g-n261',261]
-            ];
+            
             $ot_html01 = $html->find( 'table', $table_forcus_num );
             $ot_td_num = substr_count($ot_html01,'<tr');
+            $before_ttl = '';
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Technology':
                         //通信技術
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $before_ttl = 'Technology';
                         $data[] = ["sp-band-8",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
 
                     case '2G bands':
                         //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $before_ttl = '2G bands';
+                        $forcus_ot_3g = [
+                            ["sp-band-2g-gsm-400",["GSM",400]],
+                            ["sp-band-2g-gsm-700",["GSM",700]],
+                            ["sp-band-2g-gsm-800",["GSM",800]],
+                            ["sp-band-2g-gsm-850",["GSM",850]],
+                            ["sp-band-2g-gsm-900",["GSM",900]],
+                            ["sp-band-2g-gsm-1700",["GSM",1700]],
+                            ["sp-band-2g-gsm-1800",["GSM",1800]],
+                            ["sp-band-2g-gsm-1900",["GSM",1900]],
+                            ["sp-band-2g-gsm-2000",["GSM",2000]],
+                            ["sp-band-2g-cdma-800",["CDMA",800]],
+                            ["sp-band-2g-cdma-2000",["CDMA",2000]],
+                            ["sp-band-2g-TD-SCDMA",["TD SCDMA",0]],
+                        ];
+                        
                         $data[] = ["sp-band-4",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
 
                     case '3G bands':
                         //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $before_ttl = '3G bands';
+                        $forcus_ot_3g = [
+                            ["sp-band-3g-hsdpa-800",["HSDPA",800]],
+                            ["sp-band-3g-hsdpa-850",["HSDPA",850]],
+                            ["sp-band-3g-hsdpa-900",["HSDPA",900]],
+                            ["sp-band-3g-hsdpa-1000",["HSDPA",1000]],
+                            ["sp-band-3g-hsdpa-1700",["HSDPA",1700]],
+                            ["sp-band-3g-hsdpa-1700-aws",["HSDPA-aws",1700]],
+                            ["sp-band-3g-hsdpa-1500",["HSDPA",1500]],
+                            ["sp-band-3g-hsdpa-1900",["HSDPA",1900]],
+                            ["sp-band-3g-hsdpa-2100",["HSDPA",2100]],
+                            ["sp-band-3g-cdma-2000",["CDMA",2000]],
+                        ];
+                        
                         //example
                         /*
                         N/A
@@ -188,6 +178,7 @@ function gen_table(){
                     case '4G bands':
                         //5Gのバンド
                         //ex.1, 3, 28, 41, 78, 79 SA/NSA
+                        $before_ttl = '4G bands';
                         //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
                             //4Gテキスト
@@ -195,7 +186,30 @@ function gen_table(){
                             //4G対応
                             $data[] = ["sp-band-3","No"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
-                            echo "ot count".count($ot)."ot";
+                            $forcus_ot_4g = [
+                                ['sp-band-4g-1',1],['sp-band-4g-2',2],['sp-band-4g-3',3],
+                                ['sp-band-4g-4',4],['sp-band-4g-5',5],['sp-band-4g-6',6],
+                                ['sp-band-4g-7',7],['sp-band-4g-8',8],['sp-band-4g-10',10],
+                                ['sp-band-4g-11',11],['sp-band-4g-12',12],['sp-band-4g-13',13],
+                                ['sp-band-4g-14',14],['sp-band-4g-17',17],['sp-band-4g-18',18],
+                                ['sp-band-4g-19',19],['sp-band-4g-20',20],['sp-band-4g-21',21],
+                                ['sp-band-4g-22',22],['sp-band-4g-23',23],['sp-band-4g-24',24],
+                                ['sp-band-4g-25',25],['sp-band-4g-26',26],['sp-band-4g-27',27],
+                                ['sp-band-4g-28',28],['sp-band-4g-29',29],['sp-band-4g-30',30],
+                                ['sp-band-4g-31',31],['sp-band-4g-32',32],['sp-band-4g-33',33],
+                                ['sp-band-4g-34',34],['sp-band-4g-35',35],['sp-band-4g-36',36],
+                                ['sp-band-4g-37',37],['sp-band-4g-38',38],['sp-band-4g-39',39],
+                                ['sp-band-4g-40',40],['sp-band-4g-41',41],['sp-band-4g-42',42],
+                                ['sp-band-4g-43',43],['sp-band-4g-44',44],['sp-band-4g-45',45],
+                                ['sp-band-4g-46',46],['sp-band-4g-47',47],['sp-band-4g-48',48],
+                                ['sp-band-4g-49',49],['sp-band-4g-50',50],['sp-band-4g-51',51],
+                                ['sp-band-4g-52',52],['sp-band-4g-65',65],['sp-band-4g-66',66],
+                                ['sp-band-4g-67',67],['sp-band-4g-68',68],['sp-band-4g-69',69],
+                                ['sp-band-4g-70',70],['sp-band-4g-71',71],['sp-band-4g-72',72],
+                                ['sp-band-4g-73',73],['sp-band-4g-74',74],['sp-band-4g-75',75],
+                                ['sp-band-4g-76',76],['sp-band-4g-85',85],['sp-band-4g-252',252],
+                                ['sp-band-4g-255',255]
+                            ];
                             if(count($ot) != 0){
                                 print_r($ot);
                                 $counter = count($ot);
@@ -204,7 +218,7 @@ function gen_table(){
                                     if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
                                         echo "4G band error".$ot[$n];
                                     //$forcus_counter = count($forcus_ot);
-                                    foreach($forcus_ot as $data_ot){
+                                    foreach($forcus_ot_4g as $data_ot){
                                         if($data_ot[1] == $ot[$n]){
                                             $data[] = [$data_ot[0],"Yes"];
                                             continue;
@@ -220,6 +234,7 @@ function gen_table(){
 
                     case '5G bands':
                         //5Gのバンド
+                        $before_ttl = '5G bands';
                         //ex.1, 3, 28, 41, 78, 79 SA/NSA
                         //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
@@ -228,7 +243,23 @@ function gen_table(){
                             //5G対応
                             $data[] = ["sp-band-3","No"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
-                            echo "ot count".count($ot)."ot";
+                            $forcus_ot_5g = [
+                                ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
+                                ['sp-band-5g-n5',5],['sp-band-5g-n7',7],['sp-band-5g-n8',8],
+                                ['sp-band-5g-n12',12],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
+                                ['sp-band-5g-n20',20],['sp-band-5g-n25',25],['sp-band-5g-n28',28],
+                                ['sp-band-5g-n29',29],['sp-band-5g-n30',30],['sp-band-5g-n34',34],
+                                ['sp-band-5g-n38',38],['sp-band-5g-n39',39],['sp-band-5g-n40',40],
+                                ['sp-band-5g-n41',41],['sp-band-5g-n48',48],['sp-band-5g-n50',50],
+                                ['sp-band-5g-n51',51],['sp-band-5g-n65',65],['sp-band-5g-n66',66],
+                                ['sp-band-5g-n70',70],['sp-band-5g-n71',71],['sp-band-5g-n74',74],
+                                ['sp-band-5g-n75',75],['sp-band-5g-n76',76],['sp-band-5g-n77',77],
+                                ['sp-band-5g-n78',78],['sp-band-5g-n79',79],['sp-band-5g-n80',80],
+                                ['sp-band-5g-n81',81],['sp-band-5g-n82',82],['sp-band-5g-n83',83],
+                                ['sp-band-5g-n84',84],['sp-band-5g-n86',86],['sp-band-5g-n89',89],
+                                ['sp-band-5g-n90',90],['sp-band-5g-n257',257],['sp-band-5g-n258',258],
+                                ['sp-band-5g-n260',260],['sp-band-5g-n261',261]
+                            ];
                             if(count($ot) != 0){
                                 print_r($ot);
                                 $counter = count($ot);
@@ -236,10 +267,12 @@ function gen_table(){
                                     $ot[$n] = str_replace(',', '', $ot[$n]);
                                     if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
                                         echo "5G band error".$ot[$n];
-                                    
+                                        
                                     foreach($forcus_ot_5g as $data_ot){
                                         if($data_ot[1] == $ot[$n]){
-                                            $data[] = [$data_ot[0],"Yes"];
+                                            if(!in_array ([$data_ot[0],"Yes"] , $data)){
+                                                $data[] = [$data_ot[0],"Yes"];
+                                            }
                                             continue;
                                         }
                                     }
@@ -255,7 +288,7 @@ function gen_table(){
                     case 'Speed':
                         //速度
                         //N/Aじゃなければ保存、そもそもSpeedがない場合は保存されない。
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $before_ttl = 'Speed';
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
                             //速度テキスト
                             $data[] = ["sp-band-9",$ot_html01->find('.nfo', $i)->plaintext];
@@ -269,6 +302,13 @@ function gen_table(){
                         GPRS
                         EDGE
                         */
+                        switch($before_ttl){
+                            case "":
+                                break;
+
+                            default:
+                                break;
+                        }
                         echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
