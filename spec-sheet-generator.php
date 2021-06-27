@@ -151,18 +151,7 @@ function gen_table(){
                     case '3G bands':
                         //状態
                         $before_ttl = '3G bands';
-                        $forcus_ot_3g = [
-                            ["sp-band-3g-hsdpa-800",["HSDPA",800]],
-                            ["sp-band-3g-hsdpa-850",["HSDPA",850]],
-                            ["sp-band-3g-hsdpa-900",["HSDPA",900]],
-                            ["sp-band-3g-hsdpa-1000",["HSDPA",1000]],
-                            ["sp-band-3g-hsdpa-1700",["HSDPA",1700]],
-                            ["sp-band-3g-hsdpa-1700-aws",["HSDPA-aws",1700]],
-                            ["sp-band-3g-hsdpa-1500",["HSDPA",1500]],
-                            ["sp-band-3g-hsdpa-1900",["HSDPA",1900]],
-                            ["sp-band-3g-hsdpa-2100",["HSDPA",2100]],
-                            ["sp-band-3g-cdma-2000",["CDMA",2000]],
-                        ];
+                        
                         
                         //example
                         /*
@@ -172,7 +161,60 @@ function gen_table(){
                         GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2
                         CDMA 800
                         */
-                        $data[] = ["sp-band-5",$ot_html01->find('.nfo', $i)->plaintext];
+                        if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
+                            //3Gテキスト
+                            $data[] = ["sp-band-1",$ot_html01->find('.nfo', $i)->plaintext];
+                            //3G対応
+                            $data[] = ["sp-band-5","No"];
+                            $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
+                            //HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100
+                            /*
+                            @[
+                                HSDPA
+                                850
+                                /
+                                900
+                                /
+                                1700(AWS)
+                                /
+                                1900
+                                /
+                                2100
+                            ]
+                            
+                            */
+                            $forcus_ot_3g = [
+                                ["sp-band-3g-hsdpa-800",["HSDPA",800]],
+                                ["sp-band-3g-hsdpa-850",["HSDPA",850]],
+                                ["sp-band-3g-hsdpa-900",["HSDPA",900]],
+                                ["sp-band-3g-hsdpa-1000",["HSDPA",1000]],
+                                ["sp-band-3g-hsdpa-1700",["HSDPA",1700]],
+                                ["sp-band-3g-hsdpa-1700-aws",["HSDPA-aws",1700]],
+                                ["sp-band-3g-hsdpa-1500",["HSDPA",1500]],
+                                ["sp-band-3g-hsdpa-1900",["HSDPA",1900]],
+                                ["sp-band-3g-hsdpa-2100",["HSDPA",2100]],
+                                ["sp-band-3g-cdma-2000",["CDMA",2000]],
+                            ];
+                            if(count($ot) != 0){
+                                print_r($ot);
+                                $counter = count($ot);
+                                for($n = 0 ;$n <= $counter; $n ++){//count($ot)
+                                    $ot[$n] = str_replace(',', '', $ot[$n]);
+                                    if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
+                                        echo "3G band error".$ot[$n];
+                                    //$forcus_counter = count($forcus_ot);
+                                    foreach($forcus_ot_3g as $data_ot){
+                                        if($data_ot[1] == $ot[$n]){
+                                            $data[] = [$data_ot[0],"Yes"];
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
+                        }else{
+                            //3G非対応
+                            $data[] = ["sp-band-5","No"];
+                        }
                         break;
 
                     case '4G bands':
@@ -295,20 +337,34 @@ function gen_table(){
                         }
                         break;
 
-                    default:
-                        
-                        //example
-                        /*
-                        GPRS
-                        EDGE
-                        */
+                    case '&nbsp;':
+                        //二行目の場合
                         switch($before_ttl){
-                            case "":
+                            case "2G bands":
                                 break;
 
+                            case "3G bands":
+                                break;
+
+                            case "4G bands":
+                                
+                                break;
+
+                            case "5G bands":
+                                break;
+                            
+                            case "Technology":
+                                break;
+                            
+                            case "Speed":
+                                break;
+                                
                             default:
                                 break;
                         }
+                        break;
+
+                    default:
                         echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
