@@ -1,7 +1,8 @@
 <?php 
 //spec-sheetのジェネレーター、スクレイピングしたデータを出力
 require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
-error_reporting(E_ALL & ~E_NOTICE); 
+error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(0);
 //$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
 $url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
 $html = file_get_html($url);
@@ -58,7 +59,7 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
         width:330px;
     }
     body{
-        margin:0
+        margin:20px
     }
     .table-icons {
         margin-right: 10px;
@@ -373,9 +374,11 @@ function gen_table(){
                         //二行目の場合
                         switch($before_ttl){
                             case "2G bands":
+
                                 break;
 
                             case "3G bands":
+
                                 break;
 
                             case "4G bands":
@@ -415,7 +418,49 @@ function gen_table(){
                     
                     case 'Announced':
                         //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        
+                        $month = "a";
+                        switch($month){
+                            case "January":
+                                break;
+
+                            case "February":
+                                break;
+
+                            case "March":
+                                break;
+                                    
+                            case "April":
+                                break;
+
+                            case "May":
+                                break;
+
+                            case "June":
+                                break;
+                                    
+                            case "July":
+                                break;
+
+                            case "August":
+                                break;
+
+                            case "September":
+                                break;
+                                    
+                            case "October":
+                                break;
+
+                            case "November":
+                                break;
+                                    
+                            case "December":
+                                break;
+                            
+                            default:
+                                break;
+                        }
+                        echo "<p>test ".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Status':
