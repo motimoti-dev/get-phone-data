@@ -123,8 +123,10 @@ function gen_table(){
                     
                     case 'Technology':
                         //通信技術
+                        if($ot_html01->find('.nfo', $i)->plaintext != "N/A"){
+                            $data[] = ["sp-band-8",$ot_html01->find('.nfo', $i)->plaintext];
+                        }
                         $before_ttl = 'Technology';
-                        $data[] = ["sp-band-8",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
 
                     case '2G bands':
@@ -151,8 +153,6 @@ function gen_table(){
                     case '3G bands':
                         //状態
                         $before_ttl = '3G bands';
-                        
-                        
                         //example
                         /*
                         N/A
@@ -168,47 +168,43 @@ function gen_table(){
                             $data[] = ["sp-band-5","No"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             //HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100
-                            /*
-                            @[
-                                HSDPA
-                                850
-                                /
-                                900
-                                /
-                                1700(AWS)
-                                /
-                                1900
-                                /
-                                2100
-                            ]
-                            
-                            */
                             $forcus_ot_3g = [
                                 ["sp-band-3g-hsdpa-800",["HSDPA",800]],
                                 ["sp-band-3g-hsdpa-850",["HSDPA",850]],
                                 ["sp-band-3g-hsdpa-900",["HSDPA",900]],
                                 ["sp-band-3g-hsdpa-1000",["HSDPA",1000]],
                                 ["sp-band-3g-hsdpa-1700",["HSDPA",1700]],
-                                ["sp-band-3g-hsdpa-1700-aws",["HSDPA-aws",1700]],
+                                ["sp-band-3g-hsdpa-1700-aws",["HSDPA",'1700(AWS)']],
                                 ["sp-band-3g-hsdpa-1500",["HSDPA",1500]],
                                 ["sp-band-3g-hsdpa-1900",["HSDPA",1900]],
                                 ["sp-band-3g-hsdpa-2100",["HSDPA",2100]],
-                                ["sp-band-3g-cdma-2000",["CDMA",2000]],
+                                ["sp-band-3g-cdma2000-1xev-do",["CDMA2000",'1xEV-DO']],
                             ];
                             if(count($ot) != 0){
-                                print_r($ot);
                                 $counter = count($ot);
-                                for($n = 0 ;$n <= $counter; $n ++){//count($ot)
-                                    $ot[$n] = str_replace(',', '', $ot[$n]);
-                                    if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
-                                        echo "3G band error".$ot[$n];
-                                    //$forcus_counter = count($forcus_ot);
-                                    foreach($forcus_ot_3g as $data_ot){
-                                        if($data_ot[1] == $ot[$n]){
-                                            $data[] = [$data_ot[0],"Yes"];
-                                            continue;
-                                        }
+                                if($ot[0] == "HSDPA"){
+                                    for($n = 1 ;$n <= $counter; $n ++){//hsdpaをスキップ
+                                    
+                                        $ot[$n] = str_replace(',', '', $ot[$n]);
+                                        if($ot[$n] != "/" && $ot[$n] != ''){//!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA"
+                                            $s = false;
+                                            foreach($forcus_ot_3g as $data_ot){
+                                                if($data_ot[1][0] == "HSDPA"){//hsdpa
+                                                    if($data_ot[1][1] == $ot[$n]){
+                                                        $data[] = [$data_ot[0],"Yes"];
+                                                        $s = true;
+                                                        continue;
+                                                    }                                                
+                                                }
+                                            }
+                                            if(!$s)//一度も該当しなかった場合
+                                                echo "<p>3G band error".$ot[$n]."</p>"; 
+                                        }else{
+                                            //スラッシュの場合
+                                        }    
                                     }
+                                }else{
+                                    echo '一行目がHSDPAじゃないので認識できていません。';
                                 }
                             }
                         }else{
