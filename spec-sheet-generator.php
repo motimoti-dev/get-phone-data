@@ -104,7 +104,51 @@ function gen_table(){
     }
     $out_html .= "</table></div>";
     echo $out_html;
-}?>
+}
+function month_str_to_num($month_str){
+    switch($month_str){
+        case "January":
+            return 1;
+
+        case "February":
+            return 2;
+
+        case "March":
+            return 3;
+                
+        case "April":
+            return 4;
+
+        case "May":
+            return 5;
+
+        case "June":
+            return 6;
+                
+        case "July":
+            return 7;
+
+        case "August":
+            return 8;
+
+        case "September":
+            return 9;
+                
+        case "October":
+            return 10;
+
+        case "November":
+            return 11;
+                
+        case "December":
+            return 12;
+        
+        default:
+            return false;
+    }
+}
+
+?>
 <?php
             //発売日とメーカーのデータ
             //$data[] = ["sp-launch-0",''];
@@ -134,10 +178,10 @@ function gen_table(){
                         //状態
                         $before_ttl = '2G bands';
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
-                            //3Gテキスト
-                            $data[] = ["sp-band-1",$ot_html01->find('.nfo', $i)->plaintext];
-                            //3G対応
-                            $data[] = ["sp-band-5","No"];
+                            //2Gテキスト
+                            $data[] = ["sp-band-4",$ot_html01->find('.nfo', $i)->plaintext];
+                            //2G対応
+                            $data[] = ["sp-band-0","Yes"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             //HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100
                             $forcus_ot_3g = [
@@ -200,9 +244,9 @@ function gen_table(){
                         */
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
                             //3Gテキスト
-                            $data[] = ["sp-band-1",$ot_html01->find('.nfo', $i)->plaintext];
+                            $data[] = ["sp-band-5",$ot_html01->find('.nfo', $i)->plaintext];
                             //3G対応
-                            $data[] = ["sp-band-5","No"];
+                            $data[] = ["sp-band-1","Yes"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             //HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100
                             $forcus_ot_3g = [
@@ -251,7 +295,7 @@ function gen_table(){
                         break;
 
                     case '4G bands':
-                        //5Gのバンド
+                        //4Gのバンド
                         //ex.1, 3, 28, 41, 78, 79 SA/NSA
                         $before_ttl = '4G bands';
                         //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
@@ -259,7 +303,7 @@ function gen_table(){
                             //4Gテキスト
                             $data[] = ["sp-band-6",$ot_html01->find('.nfo', $i)->plaintext];
                             //4G対応
-                            $data[] = ["sp-band-3","No"];
+                            $data[] = ["sp-band-2","Yes"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             $forcus_ot_4g = [
                                 ['sp-band-4g-1',1],['sp-band-4g-2',2],['sp-band-4g-3',3],
@@ -316,7 +360,7 @@ function gen_table(){
                             //5Gテキスト
                             $data[] = ["sp-band-7",$ot_html01->find('.nfo', $i)->plaintext];
                             //5G対応
-                            $data[] = ["sp-band-3","No"];
+                            $data[] = ["sp-band-3","Yes"];
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             $forcus_ot_5g = [
                                 ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
@@ -374,15 +418,54 @@ function gen_table(){
                         //二行目の場合
                         switch($before_ttl){
                             case "2G bands":
-
+                                $overwrite = "";
+                                $overwrite_num = 0;
+                                if($ot_html01->find('.nfo', $i)->plaintext != ""){
+                                    foreach($data as $data_ot){
+                                        if($data_ot[0] == "sp-band-4"){
+                                            $data[$overwrite_num] = ['sp-band-4',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            continue;
+                                        }else{
+                                            $overwrite_num++;
+                                        }
+                                    }
+                                }else{
+                                    //二行目以降が空の場合
+                                }
                                 break;
 
                             case "3G bands":
-
+                                $overwrite = "";
+                                $overwrite_num = 0;
+                                if($ot_html01->find('.nfo', $i)->plaintext != ""){
+                                    foreach($data as $data_ot){
+                                        if($data_ot[0] == "sp-band-5"){
+                                            $data[$overwrite_num] = ['sp-band-5',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            continue;
+                                        }else{
+                                            $overwrite_num++;
+                                        }
+                                    }
+                                }else{
+                                    //二行目以降が空の場合
+                                }
                                 break;
 
                             case "4G bands":
-                                
+                                $overwrite = "";
+                                $overwrite_num = 0;
+                                if($ot_html01->find('.nfo', $i)->plaintext != ""){
+                                    foreach($data as $data_ot){
+                                        if($data_ot[0] == "sp-band-6"){
+                                            $data[$overwrite_num] = ['sp-band-6',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            continue;
+                                        }else{
+                                            $overwrite_num++;
+                                        }
+                                    }
+                                }else{
+                                    //二行目以降が空の場合
+                                }
                                 break;
 
                             case "5G bands":
@@ -417,54 +500,78 @@ function gen_table(){
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Announced':
-                        //発表
-                        
-                        $month = "a";
-                        switch($month){
-                            case "January":
-                                break;
-
-                            case "February":
-                                break;
-
-                            case "March":
-                                break;
-                                    
-                            case "April":
-                                break;
-
-                            case "May":
-                                break;
-
-                            case "June":
-                                break;
-                                    
-                            case "July":
-                                break;
-
-                            case "August":
-                                break;
-
-                            case "September":
-                                break;
-                                    
-                            case "October":
-                                break;
-
-                            case "November":
-                                break;
-                                    
-                            case "December":
-                                break;
-                            
-                            default:
-                                break;
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
+                        $month = "";
+                        $day = "";
+                        $year = "";
+                        $month_r = "";
+                        $day_r = "";
+                        $year_r = "";
+                        if(!strpos($plaintext,'Released')){//Released [2016, March. Released 2016, April][2016, March 11. Released 2016, April 11]
+                            if(mb_strpos($plaintext, "Released" != 0)){
+                                $ot = explode("Released ",$plaintext);
+                                for($n = 0 ;$n <= count($ot); $n ++){//.を取り除く
+                                    $ot[$n] = str_replace('.', '', $ot[$n]);
+                                }
+                                $ot2 = explode(', ',$ot[0]);//$ot[0] = [2016, March ][2016, March 11 ]
+                                if(array_key_exists(1, $ot2)){
+                                    if($ot2[1] != " " && $ot2[1] != ""){
+                                        $month = str_replace(' ', '', $ot2[1]);//$ot2 = ['2016','March '],['2016','March ','11 ']
+                                    }
+                                }
+                                if(array_key_exists(2, $ot2)){
+                                    if($ot2[2] != " " && $ot2[2] != ""){
+                                        $day = str_replace(' ', '', $ot2[2]);//$ot2 = ['2016','March '],['2016','March ','11 ']
+                                    }
+                                }
+                                $year = $ot2[0];//$ot2 = ['2016','March '],['2016','March ','11 ']
+                                //$Released = $ot[1]
+                                $Released = $ot[1];
+                                $ot3 = explode(", ",$Released);
+                                $year_r = $ot3[0];
+                                if(strpos($ot3[1],' ')){
+                                    $ot4 = explode(" ",$ot3[1]);//['April']['April 11']
+                                    $day_r = $ot4[1];
+                                    $month_r = $ot4[0];
+                                }else{
+                                    $month_r = $ot3[1];
+                                }
+                            }else{
+                                //Releasedから始まった場合
+                                $Released = str_replace('Released ', '', $plaintext);//$Released['2016, April']['2016, April 11']
+                                $ot3 = explode(", ",$Released);
+                                $year_r = $ot3[0];
+                                if(strpos($ot3[1],' ')){
+                                    $ot4 = explode(" ",$ot3[1]);//['April']['April 11']
+                                    $day_r = $ot4[1];
+                                    $month_r = $ot4[0];
+                                }else{
+                                    $month_r = $ot3[1];
+                                }
+                            }
+                        }elseif($plaintext == "Not announced yet"){
+                            break;
+                        }else{//通常時["2019, February 20"]["2019, February"]
+                            $ot5 = explode(", ",$plaintext);
+                            $year = $ot5[0];
+                            if(strpos($ot5[1],' ')){
+                                $ot6 = explode(" ",$ot3[1]);//['April']['April 11']
+                                $day = $ot6[1];
+                                $month = $ot6[0];
+                            }else{
+                                $month = $ot5[1];
+                            }                            
                         }
-                        echo "<p>test ".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //発表
+                        //2019, February 20
+                        //Not announced yet
+                        //month_str_to_num();
                         break;
 
                     case 'Status':
                         //状態
+                        //Discontinued
+                        //既にRelesedがある場合は発表日はスキップ
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
@@ -1316,7 +1423,10 @@ function gen_table(){
         <?php gen_table();?>    
     </div>
 </div>
-
-<?php 
-print_r($data);
-?>
+<table>
+    <?php
+    foreach($data as $data_ot){
+        echo "<tr><th>".$data_ot[0]."</th><td>".$data_ot[1]."</td></tr>";
+    }
+    ?>
+</table>
