@@ -4,7 +4,8 @@ require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
 error_reporting(E_ALL & ~E_NOTICE);
 error_reporting(0);
 //$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
-$url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
+//$url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
+$url = 'https://www.gsmarena.com/plum_optimax_10-8089.php';
 $html = file_get_html($url);
 ?>
 <?php //echo substr_count($html,'table');?>
@@ -356,7 +357,7 @@ function month_str_to_num($month_str){
                         $before_ttl = '5G bands';
                         //ex.1, 3, 28, 41, 78, 79 SA/NSA
                         //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
-                        if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
+                        if(strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A') === false){
                             //5Gテキスト
                             $data[] = ["sp-band-7",$ot_html01->find('.nfo', $i)->plaintext];
                             //5G対応
@@ -469,6 +470,20 @@ function month_str_to_num($month_str){
                                 break;
 
                             case "5G bands":
+                                $overwrite = "";
+                                $overwrite_num = 0;
+                                if($ot_html01->find('.nfo', $i)->plaintext != ""){
+                                    foreach($data as $data_ot){
+                                        if($data_ot[0] == "sp-band-7"){
+                                            $data[$overwrite_num] = ['sp-band-7',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            continue;
+                                        }else{
+                                            $overwrite_num++;
+                                        }
+                                    }
+                                }else{
+                                    //二行目以降が空の場合
+                                }
                                 break;
                             
                             case "Technology":
@@ -507,41 +522,53 @@ function month_str_to_num($month_str){
                         $month_r = "";
                         $day_r = "";
                         $year_r = "";
-                        if(!strpos($plaintext,'Released')){//Released [2016, March. Released 2016, April][2016, March 11. Released 2016, April 11]
-                            if(mb_strpos($plaintext, "Released" != 0)){
+                        if(strpos($plaintext,'Released') !== false){//Released [2016, March. Released 2016, April][2016, March 11. Released 2016, April 11]
+                            echo "flag 1";
+                            if(mb_strpos($plaintext,"Released") != 0){
+                                echo "flag 2";
                                 $ot = explode("Released ",$plaintext);
-                                for($n = 0 ;$n <= count($ot); $n ++){//.を取り除く
+                                echo "flag 11";
+                                $conter = count($ot);
+                                for($n = 0 ;$n <= $counter; $n ++){//.を取り除く
                                     $ot[$n] = str_replace('.', '', $ot[$n]);
                                 }
+                                echo "flag 10";
                                 $ot2 = explode(', ',$ot[0]);//$ot[0] = [2016, March ][2016, March 11 ]
+                                echo "flag 9";
                                 if(array_key_exists(1, $ot2)){
                                     if($ot2[1] != " " && $ot2[1] != ""){
+                                        echo "flag 3";
                                         $month = str_replace(' ', '', $ot2[1]);//$ot2 = ['2016','March '],['2016','March ','11 ']
                                     }
                                 }
                                 if(array_key_exists(2, $ot2)){
                                     if($ot2[2] != " " && $ot2[2] != ""){
+                                        echo "flag 4";
                                         $day = str_replace(' ', '', $ot2[2]);//$ot2 = ['2016','March '],['2016','March ','11 ']
                                     }
                                 }
+                                echo "flag 8";
                                 $year = $ot2[0];//$ot2 = ['2016','March '],['2016','March ','11 ']
                                 //$Released = $ot[1]
                                 $Released = $ot[1];
                                 $ot3 = explode(", ",$Released);
                                 $year_r = $ot3[0];
-                                if(strpos($ot3[1],' ')){
+                                if(strpos($ot3[1],' ') !== false){
+                                    echo "flag 5";
                                     $ot4 = explode(" ",$ot3[1]);//['April']['April 11']
                                     $day_r = $ot4[1];
                                     $month_r = $ot4[0];
                                 }else{
                                     $month_r = $ot3[1];
                                 }
+                                echo "flag 7";
                             }else{
                                 //Releasedから始まった場合
+                                echo "flag 6";
                                 $Released = str_replace('Released ', '', $plaintext);//$Released['2016, April']['2016, April 11']
                                 $ot3 = explode(", ",$Released);
                                 $year_r = $ot3[0];
-                                if(strpos($ot3[1],' ')){
+                                if(strpos($ot3[1],' ') !== false){
                                     $ot4 = explode(" ",$ot3[1]);//['April']['April 11']
                                     $day_r = $ot4[1];
                                     $month_r = $ot4[0];
@@ -550,22 +577,58 @@ function month_str_to_num($month_str){
                                 }
                             }
                         }elseif($plaintext == "Not announced yet"){
+                            echo '未発表';
                             break;
                         }else{//通常時["2019, February 20"]["2019, February"]
+
                             $ot5 = explode(", ",$plaintext);
                             $year = $ot5[0];
-                            if(strpos($ot5[1],' ')){
-                                $ot6 = explode(" ",$ot3[1]);//['April']['April 11']
+                            if(strpos($ot5[1],' ') !== false){
+                                $ot6 = explode(" ",$ot5[1]);//['February 20']['February']
                                 $day = $ot6[1];
                                 $month = $ot6[0];
                             }else{
                                 $month = $ot5[1];
                             }                            
                         }
-                        //発表
+                        //発表~sp-launch-1~
                         //2019, February 20
                         //Not announced yet
-                        //month_str_to_num();
+                        $month = month_str_to_num($month);
+                        $month_r = month_str_to_num($month_r);
+                        if($month == false)
+                            $month = "";
+
+                        if($month_r == false)
+                            $month_r = "";
+
+                        echo $year."-".$month."-".$day;
+                        
+                        if($month != "" && $day != "" && $year != ""){
+                            //年月日
+                            $data[] = ["sp-launch-1",$year."-".$month."-".$day];
+                        }elseif($month != "" && $day == "" && $year != ""){
+                            //年月
+                            $data[] = ["sp-launch-1",$year."-".$month];
+                        }elseif($month == "" && $day == "" && $year != ""){
+                            //年のみ
+                            $data[] = ["sp-launch-1",$year];
+                        }else{
+                            //全部ない場合
+                        }
+                        
+                        if($month_r != "" && $day_r != "" && $year_r != ""){
+                            //年月日
+                            $data[] = ["sp-launch-2",$year_r."-".$month_r."-".$day_r];
+                        }elseif($month_r != "" && $day_r == "" && $year_r != ""){
+                            //年月
+                            $data[] = ["sp-launch-2",$year_r."-".$month_r];
+                        }elseif($month_r == "" && $day_r == "" && $year_r != ""){
+                            //年のみ
+                            $data[] = ["sp-launch-2",$year_r];
+                        }else{
+                            //全部ない場合
+                        }
                         break;
 
                     case 'Status':
