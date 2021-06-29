@@ -162,6 +162,28 @@ function is_data_key($key){
 function flag($flag_num){
     echo "<h2>$flag_num</h2>";
 }
+global $errors;
+$errors = [];
+function error_repo($error_pos,$txt){
+    global $errors;
+    $add_new_error = false;
+    $error_add_num = 0;
+    foreach($errors as $errors_in){
+        if($errors_in[0] == $error_pos){
+            $add_new_error = true;
+            continue;
+        }
+        $error_add_num ++;
+    }
+    if($add_new_error){
+        //echo 'error repo';
+        $errors[$error_add_num] = [$errors[$error_add_num][0],$errors[$error_add_num][1]+1,$errors[$error_add_num][2].":".$txt];
+    }else{
+        echo 'error repo';
+        $errors[] = [$error_pos,1,$txt];
+    }
+}
+
 ?>
 <?php
             //発売日とメーカーのデータ
@@ -230,13 +252,14 @@ function flag($flag_num){
                                                 }
                                             }
                                             if(!$s)//一度も該当しなかった場合
-                                                echo "<p>2G band error".$ot[$n]."</p>"; 
+                                                error_repo('2G bands',"3G band error".$ot[$n]);
+
                                         }else{
                                             //スラッシュの場合
                                         }    
                                     }
                                 }else{
-                                    echo '一行目がGSMじゃないので認識できていません。';
+                                    error_repo('2G bands','一行目がGSMじゃないので認識できていません。');
                                 }
                             }
                         }else{
@@ -293,13 +316,14 @@ function flag($flag_num){
                                                 }
                                             }
                                             if(!$s)//一度も該当しなかった場合
-                                                echo "<p>3G band error".$ot[$n]."</p>"; 
+                                                error_repo('3G bands',"3G band error".$ot[$n]);
+                                                
                                         }else{
                                             //スラッシュの場合
                                         }    
                                     }
                                 }else{
-                                    echo '一行目がHSDPAじゃないので認識できていません。';
+                                    error_repo('3G bands','一行目がHSDPAじゃないので認識できていません。');
                                 }
                             }
                         }else{
@@ -344,12 +368,12 @@ function flag($flag_num){
                                 ['sp-band-4g-255',255]
                             ];
                             if(count($ot) != 0){
-                                print_r($ot);
                                 $counter = count($ot);
                                 for($n = 0 ;$n <= $counter; $n ++){//count($ot)
                                     $ot[$n] = str_replace(',', '', $ot[$n]);
                                     if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
-                                        echo "4G band error".$ot[$n];
+                                        error_repo('4G bands',"4G band error".$ot[$n]);
+                                        
                                     //$forcus_counter = count($forcus_ot);
                                     foreach($forcus_ot_4g as $data_ot){
                                         if($data_ot[1] == $ot[$n]){
@@ -394,12 +418,11 @@ function flag($flag_num){
                                 ['sp-band-5g-n260',260],['sp-band-5g-n261',261]
                             ];
                             if(count($ot) != 0){
-                                print_r($ot);
                                 $counter = count($ot);
                                 for($n = 0 ;$n <= $counter; $n ++){//count($ot)
                                     $ot[$n] = str_replace(',', '', $ot[$n]);
                                     if(!is_numeric($ot[$n]) && $ot[$n] != 'Sub6' && $ot[$n] != "SA/NSA")
-                                        echo "5G band error".$ot[$n];
+                                        error_repo('5G bands',"5G band error".$ot[$n]);
                                         
                                     foreach($forcus_ot_5g as $data_ot){
                                         if($data_ot[1] == $ot[$n]){
@@ -511,7 +534,7 @@ function flag($flag_num){
                         break;
 
                     default:
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        error_repo('Network','out of index(('.$ot_html01->find('.nfo', $i)->plaintext);
                         break;
                 }
             }
@@ -524,7 +547,6 @@ function flag($flag_num){
             $ot_html01 = $html->find( 'table', $table_forcus_num );
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
-                //echo $ot_html01->find('.ttl', 0);
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Announced':
@@ -536,48 +558,37 @@ function flag($flag_num){
                         $day_r = "";
                         $year_r = "";
                         if(strpos($plaintext,'Released') !== false){//Released [2016, March. Released 2016, April][2016, March 11. Released 2016, April 11]
-                            echo "flag 1";
                             if(mb_strpos($plaintext,"Released") != 0){
-                                echo "flag 2";
                                 $ot = explode("Released ",$plaintext);
-                                echo "flag 11";
                                 $conter = count($ot);
                                 for($n = 0 ;$n <= $counter; $n ++){//.を取り除く
                                     $ot[$n] = str_replace('.', '', $ot[$n]);
                                 }
-                                echo "flag 10";
                                 $ot2 = explode(', ',$ot[0]);//$ot[0] = [2016, March ][2016, March 11 ]
-                                echo "flag 9";
                                 if(array_key_exists(1, $ot2)){
                                     if($ot2[1] != " " && $ot2[1] != ""){
-                                        echo "flag 3";
                                         $month = str_replace(' ', '', $ot2[1]);//$ot2 = ['2016','March '],['2016','March ','11 ']
                                     }
                                 }
                                 if(array_key_exists(2, $ot2)){
                                     if($ot2[2] != " " && $ot2[2] != ""){
-                                        echo "flag 4";
                                         $day = str_replace(' ', '', $ot2[2]);//$ot2 = ['2016','March '],['2016','March ','11 ']
                                     }
                                 }
-                                echo "flag 8";
                                 $year = $ot2[0];//$ot2 = ['2016','March '],['2016','March ','11 ']
                                 //$Released = $ot[1]
                                 $Released = $ot[1];
                                 $ot3 = explode(", ",$Released);
                                 $year_r = $ot3[0];
                                 if(strpos($ot3[1],' ') !== false){
-                                    echo "flag 5";
                                     $ot4 = explode(" ",$ot3[1]);//['April']['April 11']
                                     $day_r = $ot4[1];
                                     $month_r = $ot4[0];
                                 }else{
                                     $month_r = $ot3[1];
                                 }
-                                echo "flag 7";
                             }else{
                                 //Releasedから始まった場合
-                                echo "flag 6";
                                 $Released = str_replace('Released ', '', $plaintext);//$Released['2016, April']['2016, April 11']
                                 $ot3 = explode(", ",$Released);
                                 $year_r = $ot3[0];
@@ -668,23 +679,19 @@ function flag($flag_num){
                             break;
                         }
                         if(strpos($plaintext,'Available') !== false){//Available. Released 2021, January 29
-                            echo 'Available';
                             if(strpos($plaintext,'Released') !== false){//Released 2021, January 29
                                 
                                 if(is_data_key("sp-launch-2")){
                                     echo "sp-launch-2 is exists";
                                     break;
                                 }else{
-                                    echo "<h2>$plaintext</h2>";
                                     $plaintext = str_replace('Available. Released ','',$plaintext);//2021, January 29
                                     $ot1 = explode(", ",$plaintext);
                                     $month = "";
                                     $year = $ot1[0];
                                     $day = '';
-                                    echo '<p>flag 121</p>';
-                                    print_r($ot1);
+                                    
                                     if(array_key_exists(1, $ot1)){
-                                        echo '<p>flag 122</p>';
                                         if(strpos($ot1[1],' ') !== false){
                                             
                                             $ot2 = explode(" ",$ot1[1]);
@@ -733,25 +740,72 @@ function flag($flag_num){
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                $before_ttl = '';
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
-                    case 'Dimensions':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                    case 'Dimensions'://-
+                        //サイズ
+                        $before_ttl = 'Dimensions';
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
+                        if($plaintext !=  "-"){
+                            if(strpos($plaintext,'mm') !== false){//mmな場合 https://paiza.io/projects/fCSe7yXp79DD8Pvu1KYdUg?language=php
+                                $plaintext = substr($plaintext, 0, strcspn($plaintext,'mm'));//165.1 x 75.6 x 8.9ここ以降を消す mm (6.5 x 2.98 x 0.35 in)
+                                $ot = explode(" x ",$plaintext);
+                                $counter =count($ot);
+                                for($n ;$n <= $counter; $n++){
+                                    $ot[$n] = str_replace(' ','',$ot[$n]);
+                                    if(is_numeric($ot_ot)){
+                                        //seijou
+                                    }else{
+                                        echo 'error Dimensions';
+                                        break;
+                                    }
+                                }
+                                $data[] = ['sp-design-0',$ot[0]];//tate
+                                $data[] = ['sp-design-4',$ot[1]];//yoko
+                                $data[] = ['sp-design-5',$ot[2]];//atumi
+                            }
+                        }else{
+                            //空の場合終わる
+                            break;
+                        }
                         break;
 
                     case 'Weight':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //重さ
+                        $before_ttl = 'Weight';
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
+                        if($plaintext !=  "-"){
+                            if(strpos($plaintext,'g') !== false){//mmな場合 https://paiza.io/projects/fCSe7yXp79DD8Pvu1KYdUg?language=php
+                                $plaintext = substr($plaintext, 0, strcspn($plaintext,'g'));//165.1 x 75.6 x 8.9ここ以降を消す mm (6.5 x 2.98 x 0.35 in)
+                                $plaintext = str_replace(' ','',$plaintext);
+                                if(is_numeric($plaintext)){
+                                    //seijou
+                                    $data[] = ['sp-design-1',$plaintext];
+                                }else{
+                                    echo 'error Weight';
+                                    break;
+                                }
+                            }else{
+                                echo "error in Weight";
+                            }
+                        }else{
+                            //空の場合終わる
+                            break;
+                        }
+                        
                         break;
 
                     case 'Build':
-                        //状態
+                        //素材とか
+                        $before_ttl = 'Build';
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //手動
                         break;
 
                     case 'SIM':
                         //状態
+                        $before_ttl = 'SIM';
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
@@ -1572,4 +1626,20 @@ function flag($flag_num){
     }
     ?>
 </table>
-//
+<h2>ERRORS</h2>
+<div style='background:#bddeff'>
+    <div class="s-box">
+        <table class='data-table'>
+            <?php
+            foreach($errors as $errors_ot){
+                $ot = explode(':',$errors_ot[2]);
+                $ot2 = "";
+                foreach($ot as $ot3){
+                    $ot2 .= '・'.$ot3.'<br>';
+                }
+                echo "<tr><th>".$errors_ot[0]."(".$errors_ot[1].")</th><td>".$ot2."</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
+</div>
