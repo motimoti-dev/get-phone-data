@@ -5,7 +5,10 @@ error_reporting(E_ALL & ~E_NOTICE);
 error_reporting(0);
 //$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
 //$url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
-$url = 'https://www.gsmarena.com/plum_optimax_10-8089.php';
+//$url = 'https://www.gsmarena.com/plum_optimax_10-8089.php';
+//$url = 'https://www.gsmarena.com/huawei_p30_lite-9545.php';
+$url = 'https://www.gsmarena.com/samsung_galaxy_s21_ultra_5g-10596.php';
+
 $html = file_get_html($url);
 ?>
 <?php //echo substr_count($html,'table');?>
@@ -148,7 +151,17 @@ function month_str_to_num($month_str){
             return false;
     }
 }
-
+function is_data_key($key){
+    foreach($data as $data_in){
+        if($data_in[0] == $key){
+            return true;
+        }
+    }
+    return false;
+}
+function flag($flag_num){
+    echo "<h2>$flag_num</h2>";
+}
 ?>
 <?php
             //発売日とメーカーのデータ
@@ -633,9 +646,75 @@ function month_str_to_num($month_str){
 
                     case 'Status':
                         //状態
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                         //Discontinued
                         //既にRelesedがある場合は発表日はスキップ
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //Rumored
+                        //Available. Released 2021, January 29
+                        if($plaintext == "Discontinued"){//生産終了の場合はそのまま終了
+                            echo 'Discontinued';
+                            break;
+                        }
+                        if($plaintext == 'Rumored'){//噂というか、リークの場合
+                            echo 'Rumored';
+                            $data[] = ["sp-launch-12",'Yes'];
+                            break;
+                        }
+                        if(strpos($plaintext,'Coming soon') !== false){//Coming soon. Exp. release 2021, July 
+                            echo 'Coming soon';
+                            if(strpos($plaintext,'Exp') !== false){//Expp[release 2021, Q2]
+                                $data[] = ["sp-launch-12",explode("release ",$plaintext)[1]];
+                            }
+                            break;
+                        }
+                        if(strpos($plaintext,'Available') !== false){//Available. Released 2021, January 29
+                            echo 'Available';
+                            if(strpos($plaintext,'Released') !== false){//Released 2021, January 29
+                                
+                                if(is_data_key("sp-launch-2")){
+                                    echo "sp-launch-2 is exists";
+                                    break;
+                                }else{
+                                    echo "<h2>$plaintext</h2>";
+                                    $plaintext = str_replace('Available. Released ','',$plaintext);//2021, January 29
+                                    $ot1 = explode(", ",$plaintext);
+                                    $month = "";
+                                    $year = $ot1[0];
+                                    $day = '';
+                                    echo '<p>flag 121</p>';
+                                    print_r($ot1);
+                                    if(array_key_exists(1, $ot1)){
+                                        echo '<p>flag 122</p>';
+                                        if(strpos($ot1[1],' ') !== false){
+                                            
+                                            $ot2 = explode(" ",$ot1[1]);
+                                            if(is_numeric(month_str_to_num($ot2[0]))){
+                                                $month = month_str_to_num($ot2[0]);
+                                            }
+                                            if(is_numeric($ot2[1])){
+                                                $day = $ot2[1];
+                                            }
+                                        }else{
+                                            if(is_numeric(month_str_to_num($ot1[0]))){
+                                                $month = month_str_to_num($ot1[0]);
+                                            } 
+                                        }
+                                    }
+                                    if($month != "" && $day != ""){
+                                        //年月日
+                                        $data[] = ["sp-launch-2",$year."-".$month."-".$day];
+                                    }elseif($month != "" && $day == ""){
+                                        //年月
+                                        $data[] = ["sp-launch-2",$year."-".$month];
+                                    }else{
+                                        //年のみ
+                                        $data[] = ["sp-launch-2",$year];
+                                    }
+                                }
+                            }//Releasedがあるばあい
+                            break;
+                        }
+                        echo "<p>error in Status:$plaintext</p>";
                         break;
                     
                     default:
@@ -1493,3 +1572,4 @@ function month_str_to_num($month_str){
     }
     ?>
 </table>
+//
