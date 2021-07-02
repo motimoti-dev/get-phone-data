@@ -813,17 +813,54 @@ function tab_table($tab_txt){?>
                     case 'Build':
                         //素材とか
                         $before_ttl = 'Build';
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
-                        //手動
+                        $overwrite_num = 0;
+                        if($ot_html01->find('.nfo', $i)->plaintext != ""){
+                            foreach($data as $data_ot){
+                                if($data_ot[0] == "sp-design-2"){
+                                    $data[$overwrite_num] = ['sp-design-2',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                    continue;
+                                }else{
+                                    $overwrite_num++;
+                                }
+                            }
+                        }else{
+                            //二行目以降が空の場合
+                        }
+                        //手動で変更が必要
                         break;
 
-                    case 'SIM':
-                        //状態
+                    case 'SIM'://sp-network-3スロット
+                        //3スロット(nano sim × 2 sdカード)
+                        //sp-network-7 dual stand by
                         $before_ttl = 'SIM';
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $data[] = ["sp-network-3",$ot_html01->find('.nfo', $i)->plaintext];
                         break;
                     
                     default:
+                        switch($before_ttl){
+                            case 'Dimensions'://-
+                                //サイズ
+                                error_repo('Dimensions','2nd and subsequent lines');
+                                break;
+    
+                            case 'Weight':
+                                //重さ
+                                error_repo('Weight','2nd and subsequent lines');
+                                break;
+    
+                            case 'Build':
+                                //素材とか
+                                $data[] = ['sp-design-2',$ot_html01->find('.nfo', $i)->plaintext];
+                                break;
+    
+                            case 'SIM':
+                                //状態
+                                error_repo('SIM','2nd and subsequent lines');
+                                break;
+                        
+                            default:
+                                break;
+                        }
                         //echo 'Speed';
                         echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
@@ -839,6 +876,51 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                DISPLAY	    Type	    Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)
+                            Size	    5.9 inches, 84.0 cm2 (~82.9% screen-to-body ratio)
+                            Resolution	1080 x 2400 pixels, 20:9 ratio (~446 ppi density)
+                            Protection	Corning Gorilla Glass Victus
+                                        Always-on display
+
+                DISPLAY	    Type	    Dynamic AMOLED 2X, 120Hz, HDR10+
+                            Size    	6.9 inches, 116.7 cm2 (~91.7% screen-to-body ratio)
+                            Resolution	1440 x 3088 pixels (~496 ppi density)
+                            Protection	Corning Gorilla Glass Victus
+                                        Always-on display
+                                        120Hz@FHD/60Hz@QHD refresh rate
+
+                DISPLAY	    Type	    OLED, 1B colors, 240Hz, HDR10, Dolby Vision
+                            Size	    6.4 inches, 100.5 cm2 (~86.0% screen-to-body ratio)
+                            Resolution	1080 x 2340 pixels, 19.5:9 ratio (~403 ppi density)
+                            Protection	Corning Gorilla Glass 6
+
+                DISPLAY	    Type	    AMOLED, 90Hz
+                            Size	    6.67 inches, 105.6 cm2
+                            Resolution	1080 x 2460 pixels (~403 ppi density)
+
+                DISPLAY	    Type	    IPS LCD
+                            Size	    6.82 inches, 112.3 cm2 (~83.4% screen-to-body ratio)
+                            Resolution	720 x 1640 pixels, 20:9 ratio (~257 ppi density)
+
+                DISPLAY	    Type	    Foldable OLED, 90Hz
+                            Size	    8.0 inches, 205.0 cm2 (~86.9% screen-to-body ratio)
+                            Resolution	2200 x 2480 pixels (~414 ppi density)
+                                        Cover display:
+                                        OLED, 90Hz, 6.45 inches, 1160 x 2700 pixels
+
+                DISPLAY	    Type	    AMOLED, 1B colors, 120Hz, HDR10+, Dolby Vision, 900 nits (HBM), 1700 nits (peak)
+                            Size	    6.81 inches, 112.0 cm2 (~91.4% screen-to-body ratio)
+                            Resolution	1440 x 3200 pixels, 20:9 ratio (~515 ppi density)
+                            Protection	Corning Gorilla Glass Victus
+
+                DISPLAY	    Type	    Foldable AMOLED, 1B colors, HDR10+, Dolby Vision, 600 nits (typ), 900 nits (peak)
+                            Size	    8.01 inches, 198.7 cm2 (~85.9% screen-to-body ratio)
+                            Resolution	1860 x 2480 pixels, 4:3 ratio (~387 ppi density)
+                                        Cover display:
+                                        AMOLED, 90Hz, HDR10+, Dolby Vision, 650 nits (typ), 900 nits (peak)
+                                        6.52 inches, 840 x 2520 pixels, 27:9 ratio
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Type':
