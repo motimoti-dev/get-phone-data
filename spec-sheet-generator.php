@@ -7,12 +7,14 @@ error_reporting(0);
 //$url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
 //$url = 'https://www.gsmarena.com/plum_optimax_10-8089.php';
 //$url = 'https://www.gsmarena.com/huawei_p30_lite-9545.php';
-$url = 'https://www.gsmarena.com/samsung_galaxy_s21_ultra_5g-10596.php';
+//$url = 'https://www.gsmarena.com/samsung_galaxy_s21_ultra_5g-10596.php';
+$url = 'https://www.gsmarena.com/asus_zenfone_8-10893.php';
 
 $html = file_get_html($url);
 ?>
 <?php //echo substr_count($html,'table');?>
 <?php
+global $data;
 $data = [];
 $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
 ?>
@@ -179,11 +181,25 @@ function error_repo($error_pos,$txt){
         //echo 'error repo';
         $errors[$error_add_num] = [$errors[$error_add_num][0],$errors[$error_add_num][1]+1,$errors[$error_add_num][2].":".$txt];
     }else{
-        echo 'error repo';
         $errors[] = [$error_pos,1,$txt];
     }
 }
-
+function tab_table($tab_txt){?>
+    <div class="tab_content" id="<?php echo $tab_txt;?>_content">
+        <div class="s-box">
+            <table class='data-table'>
+                <?php
+                global $data;
+                foreach($data as $data_ot){
+                    if(strpos($data_ot[0],$tab_txt) !== false){
+                        echo "<tr><th>".$data_ot[0]."</th><td>".$data_ot[1]."</td></tr>";
+                    }
+                }
+                ?>
+            </table>
+        </div>
+    </div><?php
+}
 ?>
 <?php
             //発売日とメーカーのデータ
@@ -252,7 +268,7 @@ function error_repo($error_pos,$txt){
                                                 }
                                             }
                                             if(!$s)//一度も該当しなかった場合
-                                                error_repo('2G bands',"3G band error".$ot[$n]);
+                                                error_repo('2G bands',"2G band error".$ot[$n]);
 
                                         }else{
                                             //スラッシュの場合
@@ -601,7 +617,7 @@ function error_repo($error_pos,$txt){
                                 }
                             }
                         }elseif($plaintext == "Not announced yet"){
-                            echo '未発表';
+                            //未発表
                             break;
                         }else{//通常時["2019, February 20"]["2019, February"]
 
@@ -626,8 +642,6 @@ function error_repo($error_pos,$txt){
                         if($month_r == false)
                             $month_r = "";
 
-                        echo $year."-".$month."-".$day;
-                        
                         if($month != "" && $day != "" && $year != ""){
                             //年月日
                             $data[] = ["sp-launch-1",$year."-".$month."-".$day];
@@ -721,12 +735,12 @@ function error_repo($error_pos,$txt){
                             }//Releasedがあるばあい
                             break;
                         }
-                        echo "<p>error in Status:$plaintext</p>";
+                        error_repo('Status',$plaintext);
                         break;
                     
                     default:
                         //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        error_repo('LAUNCH','out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>");
                         break;
                 }
             }
@@ -757,7 +771,7 @@ function error_repo($error_pos,$txt){
                                     if(is_numeric($ot_ot)){
                                         //seijou
                                     }else{
-                                        echo 'error Dimensions';
+                                        error_repo('Dimensions','Flag 3');
                                         break;
                                     }
                                 }
@@ -783,11 +797,11 @@ function error_repo($error_pos,$txt){
                                     //seijou
                                     $data[] = ['sp-design-1',$plaintext];
                                 }else{
-                                    echo 'error Weight';
+                                    error_repo('Weight',$plaintext);
                                     break;
                                 }
                             }else{
-                                echo "error in Weight";
+                                error_repo('Weight',$plaintext);
                             }
                         }else{
                             //空の場合終わる
@@ -1619,15 +1633,8 @@ function error_repo($error_pos,$txt){
         <?php gen_table();?>    
     </div>
 </div>
-<table>
-    <?php
-    foreach($data as $data_ot){
-        echo "<tr><th>".$data_ot[0]."</th><td>".$data_ot[1]."</td></tr>";
-    }
-    ?>
-</table>
-<h2>ERRORS</h2>
 <div style='background:#bddeff'>
+    <h2>ERRORS</h2>
     <div class="s-box">
         <table class='data-table'>
             <?php
@@ -1642,4 +1649,106 @@ function error_repo($error_pos,$txt){
             ?>
         </table>
     </div>
+</div>
+<style>
+
+.tabs {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width:95%;
+    margin: 0 auto;
+}
+
+.tab_item {
+    width: calc(100%/13);
+    height: 50px;
+    border-bottom: 3px solid #5ab4bd;
+    background-color: #d9d9d9;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+.tab_item:hover {
+    opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+    display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+    display: none;
+    padding: 40px 40px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#launch:checked ~ #launch_content,
+#design:checked ~ #design_content, 
+#spec:checked ~ #spec_content,
+#screen:checked ~ #screen_content,
+#battery:checked ~ #battery_content,
+#camera:checked ~ #camera_content,
+#network:checked ~ #network_content,
+#band:checked ~ #band_content,
+#sensor:checked ~ #sensor_content,
+#security:checked ~ #security_content,
+#softwear:checked ~ #softwear_content,
+#extra:checked ~ #extra_content
+{
+    display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+    background-color: #5ab4bd;
+    color: #fff;
+}
+</style>
+<div class="tabs">
+    <input id="all" type="radio" name="tab_item" checked>
+    <label class="tab_item" for="all">概要</label>
+    <input id="launch" type="radio" name="tab_item">
+    <label class="tab_item" for="launch">発売日とメーカー</label>
+    <input id="design" type="radio" name="tab_item">
+    <label class="tab_item" for="design">デザイン</label>
+    <input id="spec" type="radio" name="tab_item">
+    <label class="tab_item" for="spec">性能</label>
+    <input id="screen" type="radio" name="tab_item">
+    <label class="tab_item" for="screen">スクリーン</label>
+    <input id="battery" type="radio" name="tab_item">
+    <label class="tab_item" for="battery">バッテリー</label>
+    <input id="camera" type="radio" name="tab_item">
+    <label class="tab_item" for="camera">カメラ</label>
+    <input id="network" type="radio" name="tab_item">
+    <label class="tab_item" for="network">ネットワーク</label>
+    <input id="band" type="radio" name="tab_item">
+    <label class="tab_item" for="band">バンド</label>
+    <input id="sensor" type="radio" name="tab_item">
+    <label class="tab_item" for="sensor">センサー</label>
+    <input id="security" type="radio" name="tab_item">
+    <label class="tab_item" for="security">セキュリティ</label>
+    <input id="softwear" type="radio" name="tab_item">
+    <label class="tab_item" for="softwear">ソフトウェア</label>
+    <input id="extra" type="radio" name="tab_item">
+    <label class="tab_item" for="extra">その他</label>
+    <?php
+    $table_txts = ['all','design','launch','spec','screen','battery','camera','network','band','sensor','security','softwear','extra'];
+    foreach($table_txts as $table_txt){
+        tab_table($table_txt);
+    }
+    ?>
 </div>
