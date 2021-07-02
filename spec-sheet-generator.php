@@ -959,6 +959,35 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                PLATFORM	OS	Android 10, MIUI 12
+Chipset	Qualcomm SM8350 Snapdragon 888 5G (5 nm)
+CPU	Octa-core (1x2.84 GHz Kryo 680 & 3x2.42 GHz Kryo 680 & 4x1.80 GHz Kryo 680)
+GPU	Adreno 660
+
+PLATFORM	OS	Android 11, ZenUI 8
+Chipset	Qualcomm SM8350 Snapdragon 888 5G (5 nm)
+CPU	Octa-core (1x2.84 GHz Kryo 680 & 3x2.42 GHz Kryo 680 & 4x1.80 GHz Kryo 680)
+GPU	Adreno 660
+
+PLATFORM	OS	Android 10, upgradable to Android 11, One UI 3.0
+Chipset	Exynos 990 (7 nm+) - Global
+Qualcomm SM8250 Snapdragon 865 5G+ (7 nm+) - USA
+CPU	Octa-core (2x2.73 GHz Mongoose M5 & 2x2.50 GHz Cortex-A76 & 4x2.0 GHz Cortex-A55) - Global
+Octa-core (1x3.0 GHz Kryo 585 & 3x2.42 GHz Kryo 585 & 4x1.8 GHz Kryo 585) - USA
+GPU	Mali-G77 MP11 - Global
+Adreno 650 - USA
+
+PLATFORM	OS	Android 11, XOS 7.6
+Chipset	Mediatek Helio G95 (12 nm)
+CPU	Octa-core (2x2.05 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)
+GPU	Mali-G76 MC4
+
+PLATFORM	OS	Android 11, HIOS 7.6
+Chipset	Mediatek Helio G95 (12 nm)
+CPU	Octa-core (2x2.05 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)
+GPU	Mali-G76 MC4
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'OS':
@@ -997,6 +1026,28 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                MEMORY	Card slot	microSDXC (dedicated slot)
+Internal	128GB 6GB RAM, 256GB 8GB RAM
+
+MEMORY	Card slot	microSDXC (dedicated slot)
+Internal	256GB 8GB RAM
+
+MEMORY	Card slot	Unspecified
+Internal	64GB 4GB RAM
+
+MEMORY	Card slot	No
+Internal	64GB 6GB RAM, 64GB 8GB RAM, 128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM
+&nbsp;	UFS 2.1
+
+MEMORY	Card slot	microSDXC (dedicated slot)
+Internal	32GB 3GB RAM
+&nbsp;	eMMC 5.0
+
+MEMORY	Card slot	NM (Nano Memory), up to 256GB (uses shared SIM slot)
+Internal	128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM, 512GB 8GB RAM
+&nbsp; 	UFS 2.1
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Card slot':
@@ -1025,6 +1076,71 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                MAIN CAMERA	Dual	64 MP, f/1.8, 26mm (wide), 1/1.73", 0.8µm, PDAF, OIS
+12 MP, f/2.2, 112˚, 14mm (ultrawide), 1/2.55", 1.4µm, dual pixel PDAF
+Features	LED flash, HDR, panorama
+Video	8K@24fps, 4K@30/60/120fps, 1080p@30/60/240fps, 720p@480fps; gyro-EIS, HDR
+
+MAIN CAMERA	Triple	64 MP, f/1.8, 25mm (wide), 1/1.72", 0.8µm, PDAF, OIS
+13 MP, f/1.9, 117˚, (ultrawide), 1/3.4", 1.0µm
+12 MP, f/2.2, 120˚, (ultrawide), 1/2.55", 1.4µm
+Features	LED flash, panorama, HDR
+Video	4K@30/60fps, 1080p@30/60fps, gyro-EIS
+
+MAIN CAMERA	Triple	64 MP, f/1.8, 26mm (wide), 1/1.72", 0.8µm, PDAF, OIS
+8 MP, f/2.4, 80mm (telephoto), PDAF, OIS, 3x optical zoom
+12 MP, f/2.2, 113˚, 17mm (ultrawide), 1/2.55", 1.4µm, dual pixel PDAF
+Features	Dual-LED flash, HDR, auto panorama (motorized rotation)
+Video	8K@30fps, 4K@30/60/120fps, 1080p@30/60/240fps, 720p@480fps; gyro-EIS, HDR
+
+MAIN CAMERA	Triple	108 MP, (wide), 1/1.72", 0.8µm, PDAF
+8 MP, f/3.4, 135mm (periscope telephoto), 1/4.0", PDAF, 5x optical zoom
+8 MP, 120˚ (ultrawide), 1/4.0", 1.12µm
+Features	Quad-LED flash, HDR, panorama
+Video	4K@30fps, 1080p@30fps
+
+MAIN CAMERA	Triple	50 MP, f/1.9, (wide), 1/1.3", 1.2µm, Dual Pixel PDAF, Laser AF
+13 MP, f/2.4, 50mm (telephoto), PDAF, 2x optical zoom
+8 MP, f/2.3, 120˚ (ultrawide), 1/4.0", 1.12µm, AF
+Features	Quad-LED flash, panorama, HDR
+Video	4K@30/60fps, 1080p@30fps
+
+MAIN CAMERA	Triple	16 MP, (wide), AF
+5 MP, (ultrawide)
+2 MP
+Features	LED flash, HDR, panorama
+Video	1080p@30fps
+
+MAIN CAMERA	Triple	48 MP, f/1.8, 27mm (wide), 1/2.0", 0.8µm, PDAF, Laser AF
+12 MP, f/2.2, 54mm (telephoto), 1/3.6", 1.0µm, PDAF, 2x optical zoom
+16 MP, f/2.2, 13mm (ultrawide), 1/3.0", 1.0µm, PDAF
+Features	Dual-LED flash, HDR, panorama
+Video	4K@30/60fps, 1080p@30/120/240fps, 1080p@960fps
+
+MAIN CAMERA	Single	20 MP, f/1.9, 26mm (wide), 1/2.4", 1.12µm, AF, OIS
+Features	Zeiss optics, triple-LED RGB flash, panorama, HDR
+Video	4K@30fps, stereo sound rec., 1080p@30/60fps (after SW update)
+
+MAIN CAMERA	Triple	108 MP, f/1.8, (wide), 1/1.52", 0.7µm, dual pixel PDAF
+8 MP, 80mm (telephoto/macro), liquid lens, PDAF, 3x optical zoom
+13 MP, f/2.4, 123˚ (ultrawide), 1.12µm
+Features	Dual LED flash, HDR, panorama
+Video	8K@24/30fps, 4K@30/60fps, 1080p@30/60fps, gyro-EIS
+
+MAIN CAMERA	Quad	40 MP, f/1.6, 27mm (wide), 1/1.7", PDAF, OIS
+8 MP, f/3.4, 125mm (periscope telephoto), 1/4.0", PDAF, OIS, 5x optical zoom
+20 MP, f/2.2, 16mm (ultrawide), 1/2.7", PDAF
+TOF 3D, (depth)
+Features	Leica optics, dual-LED dual-tone flash, panorama, HDR
+Video	4K@30fps, 1080p@60fps, 1080p@30fps (gyro-EIS), 720p@960fps
+
+MAIN CAMERA	Triple	108 MP, f/1.8, 26mm (wide), 1/1.33", 0.8µm, PDAF, Laser AF, OIS
+12 MP, f/3.0, 120mm (periscope telephoto), 1.0µm, PDAF, OIS, 5x optical zoom, 50x hybrid zoom
+12 MP, f/2.2, 120˚, 13mm (ultrawide), 1/2.55", 1.4µm
+Features	LED flash, auto-HDR, panorama
+Video	8K@24fps, 4K@30/60fps, 1080p@30/60/240fps, 720p@960fps, HDR10+, stereo sound rec., gyro-EIS & OIS
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Single':
@@ -1083,6 +1199,48 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                SELFIE CAMERA	Single	12 MP, f/2.5, 28mm (standard), 1/2.93", 1.22µm, dual pixel PDAF
+Video	4K@30fps, 1080p@30/60fps
+
+SELFIE CAMERA	Single	Motorized pop-up 32 MP, f/1.9, 26mm (wide), 1/2.8", 0.8µm
+Features	HDR
+Video	1080p@30fps
+
+SELFIE CAMERA	Triple	Motorized flip-up main camera module
+Features	Dual-LED flash, HDR, auto panorama (motorized rotation)
+Video	8K@30fps, 4K@30/60/120fps, 1080p@30/60/240fps, 720p@480fps; gyro-EIS, HDR
+
+SELFIE CAMERA	Single	48 MP, (wide)
+Video	1080p@30fps
+
+SELFIE CAMERA	Dual	48 MP, f/2.2, (wide), 1/2.0", 0.8µm
+8 MP, f/2.2, 105˚ (ultrawide), 1/4.0", 1.12µm
+Features	Dual-LED flash
+Video	1080p@30fps
+
+SELFIE CAMERA	Single	16 MP
+Video	1080p@30fps
+
+SELFIE CAMERA	Single	20 MP, f/2.0, (wide), 1/3", 0.9µm
+Features	HDR
+Video	1080p@30fps
+
+SELFIE CAMERA	Single	5 MP, f/2.4
+Video	1080p@30fps
+
+SELFIE CAMERA	Single	20 MP, 27mm (wide), 1/3.4", 0.8µm
+Features	HDR, panorama
+Video	1080p@30/60fps, 720p@120fps
+
+SELFIE CAMERA	Single	32 MP, f/2.0, 26mm (wide), 1/2.8", 0.8µm
+Features	HDR
+Video	1080p@30fps
+
+SELFIE CAMERA	Single	10 MP, f/2.2, 26mm (wide), 1/3.2", 1.22µm, Dual Pixel PDAF
+Features	Dual video call, Auto-HDR
+Video	4K@30/60fps, 1080p@30fps
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Single':
@@ -1141,6 +1299,38 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                SOUND	Loudspeaker	Yes, with stereo speakers
+3.5mm jack	Yes
+ 	32-bit/384kHz audio
+
+     SOUND	Loudspeaker	Yes
+3.5mm jack	No
+                
+SOUND	Loudspeaker	Yes, with stereo speakers
+3.5mm jack	No
+ 	24-bit/192kHz audio
+
+SOUND	Loudspeaker	Yes, with dual speakers
+3.5mm jack	Unspecified
+
+SOUND	Loudspeaker	Yes
+3.5mm jack	Yes
+
+SOUND	Loudspeaker	Yes, with stereo speakers
+3.5mm jack	No
+ 	24-bit/192kHz audio
+&nbsp; Tuned by JBL
+
+SOUND	Loudspeaker	Yes
+3.5mm jack	No
+ 	32-bit/384kHz audio
+
+     SOUND	Loudspeaker	Yes, with stereo speakers
+3.5mm jack	No
+ 	32-bit/384kHz audio
+Tuned by AKG
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Loudspeaker':
@@ -1169,6 +1359,87 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac/6e, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.2, A2DP, LE, aptX HD, aptX Adaptive
+GPS	Yes, with dual-band A-GPS, GLONASS, GALILEO, BDS, QZSS, NavIC
+NFC	Yes
+Radio	FM radio (market/region dependent)
+USB	USB Type-C 2.0, USB On-The-Go
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, DLNA, hotspot
+Bluetooth	5.1, A2DP, LE, aptX
+GPS	Yes, with dual-band A-GPS, GLONASS, BDS, GALILEO
+NFC	Yes
+Radio	FM radio
+USB	USB Type-C 3.1, USB On-The-Go
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.0, A2DP, LE, aptX Adaptive
+GPS	Yes, with dual-band A-GPS, GLONASS, GALILEO, BDS, QZSS, NavIC
+NFC	Yes
+Radio	No
+USB	USB Type-C
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.0, A2DP, LE
+GPS	Yes, with A-GPS
+NFC	Unspecified
+Radio	FM radio
+USB	USB Type-C 2.0, USB On-The-Go
+
+COMMS	WLAN	Wi-Fi 802.11 b/g/n/ac, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.0, A2DP, LE
+GPS	Yes, with A-GPS
+NFC	No
+Radio	FM radio
+USB	USB Type-C 2.0, USB On-The-Go
+
+COMMS	WLAN	Yes
+Bluetooth	Yes
+GPS	Yes, with A-GPS
+NFC	Yes
+Radio	No
+USB	Yes
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.2, A2DP, LE
+GPS	Yes, with dual-band A-GPS, GLONASS, BDS, GALILEO, QZSS, NavIC
+NFC	Yes
+Infrared port	Yes
+Radio	No
+USB	USB Type-C 2.0, USB On-The-Go
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac, dual-band, hotspot
+Bluetooth	4.1, A2DP
+GPS	Yes, with A-GPS, GLONASS, BDS
+NFC	Yes
+Radio	FM radio
+USB	USB Type-C 3.1
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac/6e, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.2, A2DP, LE
+GPS	Yes, with dual-band A-GPS, GLONASS, GALILEO, QZSS, NavIC, BDS (tri-band)
+NFC	Yes
+Infrared port	Yes
+Radio	No
+USB	USB Type-C
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.0, A2DP, aptX HD, LE
+GPS	Yes, with dual-band A-GPS, GLONASS, BDS, GALILEO, QZSS
+NFC	Yes
+Infrared port	Yes
+Radio	No
+USB	USB Type-C 3.1
+
+COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hotspot
+Bluetooth	5.0, A2DP, LE, aptX
+GPS	Yes, with A-GPS, GLONASS, BDS, GALILEO
+NFC	Yes
+Radio	FM radio (Snapdragon model only; market/operator dependent)
+USB	USB Type-C 3.2, USB On-The-Go
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'WLAN':
@@ -1222,6 +1493,33 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                FEATURES	Sensors	Fingerprint (under display, optical), accelerometer, gyro, proximity, compass
+
+                FEATURES	Sensors	Fingerprint (under display, optical), accelerometer, gyro, proximity, compass
+
+                FEATURES	Sensors	Fingerprint (side-mounted), accelerometer, gyro, proximity, compass
+
+                FEATURES	Sensors	Fingerprint (under display, optical), accelerometer, gyro, proximity, compass
+
+                FEATURES	Sensors	Fingerprint (side-mounted), accelerometer, proximity
+
+                FEATURES	Sensors	Fingerprint (side-mounted), accelerometer, gyro, proximity, compass, barometer, color spectrum
+
+                FEATURES	Sensors	Iris scanner, accelerometer, gyro, proximity, compass, barometer, sensor core
+ 	Microsoft Continuum support
+
+     FEATURES	Sensors	Fingerprint (side-mounted), accelerometer, gyro, proximity, compass, color spectrum, barometer
+
+     FEATURES	Sensors	Fingerprint (under display, optical), accelerometer, gyro, proximity, compass, color spectrum
+
+     FEATURES	Sensors	Fingerprint (under display, ultrasonic), accelerometer, gyro, proximity, compass, barometer
+ 	Samsung Wireless DeX (desktop experience support)
+ANT+
+Bixby natural language commands and dictation
+Samsung Pay (Visa, MasterCard certified)
+Ultra Wideband (UWB) support
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Sensors':
@@ -1245,6 +1543,60 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                BATTERY	Type	Li-Po 4000 mAh, non-removable
+Charging	Fast charging 30W, 60% in 25 min, 100% in 80 min (advertised)
+USB Power Delivery 3.0
+Reverse charging
+
+BATTERY	Type	Li-Po 4000 mAh, non-removable
+Charging	Fast charging
+Fast wireless charging 13W
+Quick Charge 4.0+
+
+BATTERY	Type	Li-Po 5000 mAh, non-removable
+Charging	Fast charging 30W, 60% in 34 min, 100% in 93 min (advertised)
+USB Power Delivery 3.0
+Reverse charging
+
+BATTERY	Type	Li-Po 4000 mAh, non-removable
+Charging	Fast Charging 160W, 100% in 10 min (advertised)
+Fast wireless charging 50W
+
+BATTERY	Type	Li-Po 4700 mAh, non-removable
+Charging	Fast charging 33W, 70% in 30 min (advertised)
+
+BATTERY	Type	Li-Po 5000 mAh, non-removable
+Charging	Fast charging 18W
+
+BATTERY	Type	Li-Po 5065 mAh, non-removable
+Charging	Fast charging 67W, 100% in 42 min (advertised)
+Power Delivery 3.0
+Quick Charge 3+
+
+BATTERY	Type	Li-Ion 3340 mAh, removable
+Charging	Fast charging 18W
+Qi wireless charging - market dependent
+Stand-by	Up to 288 h (2G) / Up to 288 h (3G)
+Talk time	Up to 25 h (2G) / Up to 19 h (3G)
+Music play	Up to 75 h
+
+BATTERY	Type	Li-Po 5020 mAh, non-removable
+Charging	Fast charging 67W, 100% in 37 min (advertised)
+Power Delivery 3.0
+Quick Charge 4+
+
+BATTERY	Type	Li-Po 4200 mAh, non-removable
+Charging	Fast charging 40W, 70% in 30 min (advertised)
+Fast wireless charging 15W
+Reverse wireless charging 2.5W
+
+BATTERY	Type	Li-Ion 4500 mAh, non-removable
+Charging	Fast charging 25W
+USB Power Delivery 3.0
+Fast Qi/PMA wireless charging 15W
+Reverse wireless charging 4.5W
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Type':
@@ -1273,6 +1625,45 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                MISC	Colors	Obsidian Black, Horizon Silver
+Models	ZS590KS, ZS590KS-2A007EU
+Price	$ 719.99 / £ 636.99
+                
+MISC	Colors	Aurora Gray, Illusion Sky
+Models	LMF100N, LM-F100N, LM-F100V, LM-F100
+SAR	1.13 W/kg (head)     1.06 W/kg (body)    
+Price	About 850 EUR
+
+MISC	Colors	Aurora Black, Pastel White
+Models	ZS671KS, ASUS_I002DD
+Price	$ 699.99 / € 799.00 / £ 756.21
+
+MISC	Colors	White; other colours
+Models	X6810
+
+MISC	Colors	Starry Night Blue, Monet Summer
+Models	AC8
+
+MISC	Colors	Nebula Black
+Price	About 170 EUR
+
+MISC	Colors	Black, Gray, Silver, Bruce Lee Yellow
+Price	$ 469.99
+
+MISC	Colors	Black, White
+Price	About 350 EUR
+
+MISC	Colors	Aurora, Amber Sunrise, Breathing Crystal, Black, Pearl White, Misty Lavender, Mystic Blue
+Models	VOG-L29, VOG-L09, VOG-AL00, VOG-TL00, VOG-L04, VOG-AL10, HW-02L
+Price	$ 374.99 / € 499.00 / £ 400.00 / ₹ 51,790
+
+MISC	Colors	Mystic Bronze, Mystic Black, Mystic White
+Models	SM-N986B, SM-N986B/DS, SM-N986U, SM-N986U1, SM-N986W, SM-N9860, SM-N986N
+SAR	0.71 W/kg (head)     1.18 W/kg (body)    
+SAR EU	0.34 W/kg (head)     1.47 W/kg (body)    
+Price	$ 980.99 / € 889.00 / £ 724.99
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Colors':
@@ -1308,6 +1699,7 @@ function tab_table($tab_txt){?>
             }
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
+                /**/
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Tests'){
                     $table_forcus_num = $i;
                 }
@@ -1316,6 +1708,71 @@ function tab_table($tab_txt){?>
             $ot_td_num = substr_count($ot_html01,'<tr');
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
+                /*
+                TESTS	Performance	AnTuTu: 676001 (v8) | 799738 (v9)
+GeekBench: 3604 (v5.1)
+GFXBench: 61fps (ES 3.1 onscreen)
+Display	Contrast ratio: Infinite (nominal)
+Camera	Photo / Video
+Loudspeaker	-27.9 LUFS (Good)
+Battery life	
+Endurance rating 88h
+
+TESTS	Performance	AnTuTu: 315688 (v8)
+GeekBench: 7898 (v4.4), 1952 (v5.1)
+GFXBench: 17fps (ES 3.1 onscreen)
+Display	Contrast ratio: Infinite (nominal)
+Camera	Photo / Video
+Loudspeaker	-30.9 LUFS (Below average)
+Battery life	
+Endurance rating 87h
+
+TESTS	Performance	AnTuTu: 602934 (v8)
+GeekBench: 3302 (v5.1)
+GFXBench: 46fps (ES 3.1 onscreen)
+Display	Contrast ratio: Infinite (nominal)
+Camera	Photo / Video
+Loudspeaker	-26.6 LUFS (Good)
+Battery life	
+Endurance rating 99h
+
+TESTS	Performance	AnTuTu: 309055 (v8)
+GeekBench: 1670 (v5.1)
+GFXBench: 17fps (ES 3.1 onscreen)
+Display	Contrast ratio: Infinite (nominal)
+Camera	Photo / Video
+Loudspeaker	-26.7 LUFS (Good)
+Battery life	
+Endurance rating 122h
+
+TESTS	Performance	Basemark OS II 2.0: 1472
+Basemark X: 32178
+Display	Contrast ratio: Infinite (nominal), 3.837 (sunlight)
+Camera	Photo / Video
+Loudspeaker	Voice 74dB / Noise 75dB / Ring 84dB
+Audio quality	Noise -91.6dB / Crosstalk -89.3dB
+Battery life	
+Endurance rating 62h
+
+TESTS	Performance	AnTuTu: 316156 (v7), 401208 (v8)
+GeekBench: 10014 (v4.4), 2521 (v5.1)
+GFXBench: 29fps (ES 3.1 onscreen)
+Display	Contrast ratio: Infinite (nominal), 5.119 (sunlight)
+Camera	Photo / Video
+Loudspeaker	-28.1 LUFS (Average)
+Audio quality	Noise -90.5dB / Crosstalk -93.0dB
+Battery life	
+Endurance rating 100h
+
+TESTS	Performance	AnTuTu: 508760 (v8)
+GeekBench: 2603 (v5.1)
+GFXBench: 42fps (ES 3.1 onscreen)
+Display	Contrast ratio: Infinite (nominal)
+Camera	Photo / Video
+Loudspeaker	-27.8 LUFS (Good)
+Battery life	
+Endurance rating 88h
+                */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Performance':
