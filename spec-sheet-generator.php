@@ -16,6 +16,9 @@ $html = file_get_html($url);
 <?php
 global $data;
 $data = [];
+global $data_view;
+$data_view = [];
+
 $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
 ?>
 <?php //echo $html->find( 'table', 0 );?>
@@ -201,6 +204,40 @@ function tab_table($tab_txt){?>
     </div><?php
 }
 ?>
+<style>
+.tagcloud a {
+    font-size: 1rem !important;
+    line-height: 1em;
+    color: #5f6ab5;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 8px 8px;
+    border: 1px solid #5f6ab5;
+    margin: 3px 3px 0 0;
+    border-radius: 4px;
+    text-decoration: none;
+}
+</style>
+<?php
+global $data_view,$ot_html01;
+$data_view = [];
+function data_viewer(){
+    global $data_view,$ot_html01;
+    echo $ot_html01;
+    $out_html = "<div class='tagcloud'>";
+    foreach($data_view as $data_view_ot){
+        $out_html .= "<a>".$data_view_ot[0].":".$data_view_ot[1]."</a>";
+    }
+    $out_html .= "</div>";
+    echo $out_html;
+    $data_view = [];
+}
+function add_data($add_data_1){
+    global $data_view,$data;
+    $data[] = $add_data_1;
+    $data_view[] = $add_data_1;
+}
+?>
 <?php
             //発売日とメーカーのデータ
             //$data[] = ["sp-launch-0",''];
@@ -221,7 +258,7 @@ function tab_table($tab_txt){?>
                     case 'Technology':
                         //通信技術
                         if($ot_html01->find('.nfo', $i)->plaintext != "N/A"){
-                            $data[] = ["sp-band-8",$ot_html01->find('.nfo', $i)->plaintext];
+                            add_data(["sp-band-8",$ot_html01->find('.nfo', $i)->plaintext]);
                         }
                         $before_ttl = 'Technology';
                         break;
@@ -231,9 +268,9 @@ function tab_table($tab_txt){?>
                         $before_ttl = '2G bands';
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
                             //2Gテキスト
-                            $data[] = ["sp-band-4",$ot_html01->find('.nfo', $i)->plaintext];
+                            add_data(["sp-band-4",$ot_html01->find('.nfo', $i)->plaintext]);
                             //2G対応
-                            $data[] = ["sp-band-0","Yes"];
+                            add_data(["sp-band-0","Yes"]);
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             //HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100
                             $forcus_ot_3g = [
@@ -261,7 +298,7 @@ function tab_table($tab_txt){?>
                                             foreach($forcus_ot_3g as $data_ot){
                                                 if($data_ot[1][0] == "GSM"){//hsdpa
                                                     if($data_ot[1][1] == $ot[$n]){
-                                                        $data[] = [$data_ot[0],"Yes"];
+                                                        add_data([$data_ot[0],"Yes"]);
                                                         $s = true;
                                                         continue;
                                                     }                                                
@@ -280,7 +317,7 @@ function tab_table($tab_txt){?>
                             }
                         }else{
                             //2G非対応
-                            $data[] = ["sp-band-0","No"];
+                            add_data(["sp-band-0","No"]);
                         }
                         break;
 
@@ -297,9 +334,9 @@ function tab_table($tab_txt){?>
                         */
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
                             //3Gテキスト
-                            $data[] = ["sp-band-5",$ot_html01->find('.nfo', $i)->plaintext];
+                            add_data(["sp-band-5",$ot_html01->find('.nfo', $i)->plaintext]);
                             //3G対応
-                            $data[] = ["sp-band-1","Yes"];
+                            add_data(["sp-band-1","Yes"]);
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             //HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100
                             $forcus_ot_3g = [
@@ -325,7 +362,7 @@ function tab_table($tab_txt){?>
                                             foreach($forcus_ot_3g as $data_ot){
                                                 if($data_ot[1][0] == "HSDPA"){//hsdpa
                                                     if($data_ot[1][1] == $ot[$n]){
-                                                        $data[] = [$data_ot[0],"Yes"];
+                                                        add_data([$data_ot[0],"Yes"]);
                                                         $s = true;
                                                         continue;
                                                     }                                                
@@ -344,7 +381,7 @@ function tab_table($tab_txt){?>
                             }
                         }else{
                             //3G非対応
-                            $data[] = ["sp-band-1","No"];
+                            add_data(["sp-band-1","No"]);
                         }
                         break;
 
@@ -355,9 +392,9 @@ function tab_table($tab_txt){?>
                         //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
                             //4Gテキスト
-                            $data[] = ["sp-band-6",$ot_html01->find('.nfo', $i)->plaintext];
+                            add_data(["sp-band-6",$ot_html01->find('.nfo', $i)->plaintext]);
                             //4G対応
-                            $data[] = ["sp-band-2","Yes"];
+                            add_data(["sp-band-6",$ot_html01->find('.nfo', $i)->plaintext]);
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             $forcus_ot_4g = [
                                 ['sp-band-4g-1',1],['sp-band-4g-2',2],['sp-band-4g-3',3],
@@ -394,6 +431,7 @@ function tab_table($tab_txt){?>
                                     foreach($forcus_ot_4g as $data_ot){
                                         if($data_ot[1] == $ot[$n]){
                                             $data[] = [$data_ot[0],"Yes"];
+                                            $data_view[] = [$data_ot[0],"Yes"];
                                             continue;
                                         }
                                     }
@@ -401,7 +439,7 @@ function tab_table($tab_txt){?>
                             }
                         }else{
                             //4G非対応
-                            $data[] = ["sp-band-2","No"];
+                            add_data(["sp-band-2","No"]);
                         }
                         break;
 
@@ -412,9 +450,9 @@ function tab_table($tab_txt){?>
                         //N/Sじゃない場合は保存、各バンドごとに対応していればYesを格納していく
                         if(strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A') === false){
                             //5Gテキスト
-                            $data[] = ["sp-band-7",$ot_html01->find('.nfo', $i)->plaintext];
+                            add_data(["sp-band-7",$ot_html01->find('.nfo', $i)->plaintext]);
                             //5G対応
-                            $data[] = ["sp-band-3","Yes"];
+                            add_data(["sp-band-3","Yes"]);
                             $ot = explode(" ",$ot_html01->find('.nfo', $i)->plaintext);
                             $forcus_ot_5g = [
                                 ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
@@ -443,7 +481,7 @@ function tab_table($tab_txt){?>
                                     foreach($forcus_ot_5g as $data_ot){
                                         if($data_ot[1] == $ot[$n]){
                                             if(!in_array ([$data_ot[0],"Yes"] , $data)){
-                                                $data[] = [$data_ot[0],"Yes"];
+                                                add_data([$data_ot[0],"Yes"]);
                                             }
                                             continue;
                                         }
@@ -452,7 +490,7 @@ function tab_table($tab_txt){?>
                             }
                         }else{
                             //5G非対応
-                            $data[] = ["sp-band-3","No"];
+                            add_data(["sp-band-3","No"]);
                         }
                         
                         break;
@@ -463,7 +501,7 @@ function tab_table($tab_txt){?>
                         $before_ttl = 'Speed';
                         if(!strpos($ot_html01->find('.nfo', $i)->plaintext,'N/A')){
                             //速度テキスト
-                            $data[] = ["sp-band-9",$ot_html01->find('.nfo', $i)->plaintext];
+                            add_data(["sp-band-9",$ot_html01->find('.nfo', $i)->plaintext]);
                         }
                         break;
 
@@ -476,7 +514,7 @@ function tab_table($tab_txt){?>
                                 if($ot_html01->find('.nfo', $i)->plaintext != ""){
                                     foreach($data as $data_ot){
                                         if($data_ot[0] == "sp-band-4"){
-                                            $data[$overwrite_num] = ['sp-band-4',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            add_data(['sp-band-4',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext]);
                                             continue;
                                         }else{
                                             $overwrite_num++;
@@ -493,7 +531,7 @@ function tab_table($tab_txt){?>
                                 if($ot_html01->find('.nfo', $i)->plaintext != ""){
                                     foreach($data as $data_ot){
                                         if($data_ot[0] == "sp-band-5"){
-                                            $data[$overwrite_num] = ['sp-band-5',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            add_data(['sp-band-5',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext]);
                                             continue;
                                         }else{
                                             $overwrite_num++;
@@ -510,7 +548,7 @@ function tab_table($tab_txt){?>
                                 if($ot_html01->find('.nfo', $i)->plaintext != ""){
                                     foreach($data as $data_ot){
                                         if($data_ot[0] == "sp-band-6"){
-                                            $data[$overwrite_num] = ['sp-band-6',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            add_data(['sp-band-6',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext]);
                                             continue;
                                         }else{
                                             $overwrite_num++;
@@ -527,7 +565,7 @@ function tab_table($tab_txt){?>
                                 if($ot_html01->find('.nfo', $i)->plaintext != ""){
                                     foreach($data as $data_ot){
                                         if($data_ot[0] == "sp-band-7"){
-                                            $data[$overwrite_num] = ['sp-band-7',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                            add_data(['sp-band-7',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext]);
                                             continue;
                                         }else{
                                             $overwrite_num++;
@@ -554,6 +592,8 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
+            
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Launch'){
@@ -644,26 +684,26 @@ function tab_table($tab_txt){?>
 
                         if($month != "" && $day != "" && $year != ""){
                             //年月日
-                            $data[] = ["sp-launch-1",$year."-".$month."-".$day];
+                            add_data(["sp-launch-1",$year."-".$month."-".$day]);
                         }elseif($month != "" && $day == "" && $year != ""){
                             //年月
-                            $data[] = ["sp-launch-1",$year."-".$month];
+                            add_data(["sp-launch-1",$year."-".$month]);
                         }elseif($month == "" && $day == "" && $year != ""){
                             //年のみ
-                            $data[] = ["sp-launch-1",$year];
+                            add_data(["sp-launch-1",$year]);
                         }else{
                             //全部ない場合
                         }
                         
                         if($month_r != "" && $day_r != "" && $year_r != ""){
                             //年月日
-                            $data[] = ["sp-launch-2",$year_r."-".$month_r."-".$day_r];
+                            add_data(["sp-launch-2",$year_r."-".$month_r."-".$day_r]);
                         }elseif($month_r != "" && $day_r == "" && $year_r != ""){
                             //年月
-                            $data[] = ["sp-launch-2",$year_r."-".$month_r];
+                            add_data(["sp-launch-2",$year_r."-".$month_r]);
                         }elseif($month_r == "" && $day_r == "" && $year_r != ""){
                             //年のみ
-                            $data[] = ["sp-launch-2",$year_r];
+                            add_data(["sp-launch-2",$year_r]);
                         }else{
                             //全部ない場合
                         }
@@ -682,13 +722,13 @@ function tab_table($tab_txt){?>
                         }
                         if($plaintext == 'Rumored'){//噂というか、リークの場合
                             echo 'Rumored';
-                            $data[] = ["sp-launch-12",'Yes'];
+                            add_data(["sp-launch-12",'Yes']);
                             break;
                         }
                         if(strpos($plaintext,'Coming soon') !== false){//Coming soon. Exp. release 2021, July 
                             echo 'Coming soon';
                             if(strpos($plaintext,'Exp') !== false){//Expp[release 2021, Q2]
-                                $data[] = ["sp-launch-12",explode("release ",$plaintext)[1]];
+                                add_data(["sp-launch-12",explode("release ",$plaintext)[1]]);
                             }
                             break;
                         }
@@ -723,13 +763,13 @@ function tab_table($tab_txt){?>
                                     }
                                     if($month != "" && $day != ""){
                                         //年月日
-                                        $data[] = ["sp-launch-2",$year."-".$month."-".$day];
+                                        add_data(["sp-launch-2",$year."-".$month."-".$day]);
                                     }elseif($month != "" && $day == ""){
                                         //年月
-                                        $data[] = ["sp-launch-2",$year."-".$month];
+                                        add_data(["sp-launch-2",$year."-".$month]);
                                     }else{
                                         //年のみ
-                                        $data[] = ["sp-launch-2",$year];
+                                        add_data(["sp-launch-2",$year]);
                                     }
                                 }
                             }//Releasedがあるばあい
@@ -744,6 +784,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Body'){
@@ -775,9 +816,9 @@ function tab_table($tab_txt){?>
                                         break;
                                     }
                                 }
-                                $data[] = ['sp-design-0',$ot[0]];//tate
-                                $data[] = ['sp-design-4',$ot[1]];//yoko
-                                $data[] = ['sp-design-5',$ot[2]];//atumi
+                                add_data(['sp-design-0',$ot[0]]);//tate
+                                add_data(['sp-design-4',$ot[1]]);//yoko
+                                add_data(['sp-design-5',$ot[2]]);//atumi
                             }
                         }else{
                             //空の場合終わる
@@ -795,7 +836,7 @@ function tab_table($tab_txt){?>
                                 $plaintext = str_replace(' ','',$plaintext);
                                 if(is_numeric($plaintext)){
                                     //seijou
-                                    $data[] = ['sp-design-1',$plaintext];
+                                    add_data(['sp-design-1',$plaintext]);
                                 }else{
                                     error_repo('Weight',$plaintext);
                                     break;
@@ -818,6 +859,7 @@ function tab_table($tab_txt){?>
                             foreach($data as $data_ot){
                                 if($data_ot[0] == "sp-design-2"){
                                     $data[$overwrite_num] = ['sp-design-2',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
+                                    $data_view[] = ['sp-design-2',$data_ot[1].':'.$ot_html01->find('.nfo', $i)->plaintext];
                                     continue;
                                 }else{
                                     $overwrite_num++;
@@ -833,7 +875,7 @@ function tab_table($tab_txt){?>
                         //3スロット(nano sim × 2 sdカード)
                         //sp-network-7 dual stand by
                         $before_ttl = 'SIM';
-                        $data[] = ["sp-network-3",$ot_html01->find('.nfo', $i)->plaintext];
+                        add_data(["sp-network-3",$ot_html01->find('.nfo', $i)->plaintext]);
                         break;
                     
                     default:
@@ -850,7 +892,7 @@ function tab_table($tab_txt){?>
     
                             case 'Build':
                                 //素材とか
-                                $data[] = ['sp-design-2',$ot_html01->find('.nfo', $i)->plaintext];
+                                add_data(['sp-design-2',$ot_html01->find('.nfo', $i)->plaintext]);
                                 break;
     
                             case 'SIM':
@@ -866,6 +908,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
             
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Display'){
@@ -950,6 +993,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Platform'){
@@ -1017,6 +1061,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
             
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Memory'){
@@ -1067,6 +1112,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Main Camera'){
@@ -1190,6 +1236,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Selfie Camera'){
@@ -1290,6 +1337,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Sound'){
@@ -1484,6 +1532,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Features'){
@@ -1534,6 +1583,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Battery'){
@@ -1616,6 +1666,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Misc'){
@@ -1698,6 +1749,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 /**/
@@ -1807,6 +1859,7 @@ function tab_table($tab_txt){?>
                         break;
                 }
             }
+            data_viewer();
         ?>
 <p>url:<?php echo $url;?></p>
 <div class="table-row">
@@ -2291,4 +2344,276 @@ input[name="tab_item"] {
         tab_table($table_txt);
     }
     ?>
+</div>
+<p>デバッグエリア</p>
+<style>
+#specs-list th {
+    border-right: medium none;
+    font: 16px Google-Oswald,Arial;
+    text-transform: uppercase;
+    width: 86px;
+}
+#specs-list td.nfo a, #specs-list th {
+    color: #d50000;
+}
+</style>
+<div id="specs-list">
+<table cellspacing="0" style="max-height: 111px;">
+<tbody><tr class="tr-hover">
+<th rowspan="15" scope="row">Network</th>
+<td class="ttl"><a href="network-bands.php3">Technology</a></td>
+<td class="nfo"><a href="#" class="link-network-detail" data-spec="nettech">GSM / HSPA / LTE</a></td>
+</tr>
+<tr class="tr-toggle">
+<td class="ttl"><a href="network-bands.php3">2G bands</a></td>
+<td class="nfo" data-spec="net2g">GSM 850 / 900 / 1800 / 1900 - SIM 1 &amp; SIM 2</td>
+</tr><tr class="tr-toggle">
+<td class="ttl"><a href="network-bands.php3">3G bands</a></td>
+<td class="nfo" data-spec="net3g">HSDPA 850 / 900 / 2100 </td>
+</tr>
+<tr class="tr-toggle">
+<td class="ttl"><a href="network-bands.php3">4G bands</a></td>
+<td class="nfo" data-spec="net4g">1, 3, 5, 8, 20, 38, 40, 41</td>
+</tr>
+<tr class="tr-toggle">
+<td class="ttl"><a href="glossary.php3?term=3g">Speed</a></td>
+<td class="nfo" data-spec="speed">HSPA 42.2/5.76 Mbps, LTE-A</td>
+</tr>
+	
+
+	
+
+
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="2" scope="row">Launch</th>
+<td class="ttl"><a href="glossary.php3?term=phone-life-cycle">Announced</a></td>
+<td class="nfo" data-spec="year">2021, June 21</td>
+</tr>	
+<tr>
+<td class="ttl"><a href="glossary.php3?term=phone-life-cycle">Status</a></td>
+<td class="nfo" data-spec="status">Available. Released 2021, June 28</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="6" scope="row">Body</th>
+<td class="ttl"><a href="#" onclick="helpW('h_dimens.htm');">Dimensions</a></td>
+<td class="nfo" data-spec="dimensions">159.3 x 74 x 9.3 mm (6.27 x 2.91 x 0.37 in)</td>
+</tr><tr>
+<td class="ttl"><a href="#" onclick="helpW('h_weight.htm');">Weight</a></td>
+<td class="nfo" data-spec="weight">196 g (6.91 oz)</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=build">Build</a></td>
+<td class="nfo" data-spec="build">Glass front, plastic frame, plastic back</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=sim">SIM</a></td>
+<td class="nfo" data-spec="sim">Dual SIM (Nano-SIM, dual stand-by)</td>
+</tr>
+		
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="5" scope="row">Display</th>
+<td class="ttl"><a href="glossary.php3?term=display-type">Type</a></td>
+<td class="nfo" data-spec="displaytype">Super AMOLED, 90Hz, 800 nits (HBM)</td>
+</tr>
+<tr>
+<td class="ttl"><a href="#" onclick="helpW('h_dsize.htm');">Size</a></td>
+<td class="nfo" data-spec="displaysize">6.4 inches, 98.9 cm<sup>2</sup> (~83.9% screen-to-body ratio)</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=resolution">Resolution</a></td>
+<td class="nfo" data-spec="displayresolution">1080 x 2400 pixels, 20:9 ratio (~411 ppi density)</td>
+</tr>
+		
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="4" scope="row">Platform</th>
+<td class="ttl"><a href="glossary.php3?term=os">OS</a></td>
+<td class="nfo" data-spec="os">Android 11, One UI 3.1</td>
+</tr>
+<tr><td class="ttl"><a href="glossary.php3?term=chipset">Chipset</a></td>
+<td class="nfo" data-spec="chipset">Mediatek Helio G80 (12 nm)</td>
+</tr>
+<tr><td class="ttl"><a href="glossary.php3?term=cpu">CPU</a></td>
+<td class="nfo" data-spec="cpu">Octa-core (2x2.0 GHz Cortex-A75 &amp; 6x1.8 GHz Cortex-A55)</td>
+</tr>
+<tr><td class="ttl"><a href="glossary.php3?term=gpu">GPU</a></td>
+<td class="nfo" data-spec="gpu">Mali-G52 MC2</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="5" scope="row">Memory</th>
+<td class="ttl"><a href="glossary.php3?term=memory-card-slot">Card slot</a></td>
+
+
+<td class="nfo" data-spec="memoryslot">microSDXC (dedicated slot)</td></tr>
+
+	
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=dynamic-memory">Internal</a></td>
+<td class="nfo" data-spec="internalmemory">64GB 4GB RAM, 128GB 6GB RAM</td>
+</tr>
+	
+
+<tr><td class="ttl">&nbsp;</td><td class="nfo" data-spec="memoryother">eMMC 5.1</td></tr>
+			
+
+
+</tbody></table>
+
+
+	<table cellspacing="0">
+	<tbody><tr>
+	<th rowspan="4" scope="row" class="small-line-height">Main Camera</th>
+		<td class="ttl"><a href="glossary.php3?term=camera">Quad</a></td>
+	<td class="nfo" data-spec="cam1modules">64 MP, f/1.8, 26mm (wide), 1/1.97", 0.7µm, PDAF<br>
+8 MP, f/2.2, 123˚, (ultrawide), 1/4.0", 1.12µm<br>
+2 MP, f/2.4, (macro)<br>
+2 MP, f/2.4, (depth)</td>
+	</tr>
+		<tr>
+	<td class="ttl"><a href="glossary.php3?term=camera">Features</a></td>
+	<td class="nfo" data-spec="cam1features">LED flash, panorama, HDR</td>
+	</tr>
+		<tr>
+	<td class="ttl"><a href="glossary.php3?term=camera">Video</a></td>
+	<td class="nfo" data-spec="cam1video">1080p@30fps</td>
+	</tr>
+		</tbody></table>
+
+
+	<table cellspacing="0">
+	<tbody><tr>
+	<th rowspan="4" scope="row" class="small-line-height">Selfie camera</th>
+		<td class="ttl"><a href="glossary.php3?term=secondary-camera">Single</a></td>
+	<td class="nfo" data-spec="cam2modules">20 MP, f/2.2, (wide)</td>
+	</tr>
+		<tr>
+	<td class="ttl"><a href="glossary.php3?term=secondary-camera">Video</a></td>
+	<td class="nfo" data-spec="cam2video">1080p@30fps</td>
+	</tr>
+		</tbody></table>
+
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="3" scope="row">Sound</th>
+<td class="ttl"><a href="glossary.php3?term=loudspeaker">Loudspeaker</a> </td>
+<td class="nfo">Yes</td>
+</tr>
+
+	
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=audio-jack">3.5mm jack</a> </td>
+<td class="nfo">Yes</td>
+</tr>
+	
+
+	
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="9" scope="row">Comms</th>
+<td class="ttl"><a href="glossary.php3?term=wi-fi">WLAN</a></td>
+<td class="nfo" data-spec="wlan">Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=bluetooth">Bluetooth</a></td>
+<td class="nfo" data-spec="bluetooth">5.0, A2DP, LE</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=gps">GPS</a></td>
+<td class="nfo" data-spec="gps">Yes, with A-GPS, GLONASS, BDS, GALILEO</td>
+</tr>  
+<tr>
+<td class="ttl"><a href="glossary.php3?term=nfc">NFC</a></td>
+<td class="nfo" data-spec="nfc">No</td>
+</tr>
+	
+	
+<tr>
+<td class="ttl"><a href="glossary.php3?term=fm-radio">Radio</a></td>
+<td class="nfo" data-spec="radio">Unspecified</td>
+</tr>
+   
+<tr>
+<td class="ttl"><a href="glossary.php3?term=usb">USB</a></td>
+<td class="nfo" data-spec="usb">USB Type-C 2.0, USB On-The-Go</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="9" scope="row">Features</th>
+<td class="ttl"><a href="glossary.php3?term=sensors">Sensors</a></td>
+<td class="nfo" data-spec="sensors">Fingerprint (side-mounted), accelerometer, gyro, proximity, compass</td>
+</tr>
+ 	
+	
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="7" scope="row">Battery</th>
+<td class="ttl"><a href="glossary.php3?term=rechargeable-battery-types">Type</a></td>
+<td class="nfo" data-spec="batdescription1">Li-Ion 6000 mAh, non-removable</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=battery-charging">Charging</a></td>
+<td class="nfo">Fast charging 15W</td>
+</tr>
+
+
+</tbody></table>
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="6" scope="row">Misc</th>
+<td class="ttl"><a href="glossary.php3?term=build">Colors</a></td>
+<td class="nfo" data-spec="colors">Black, Light Blue</td>
+</tr>
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=models">Models</a></td>
+<td class="nfo" data-spec="models">SM-M325FV, SM-M325FV/DS, SM-M325F/DS, SM-M325F</td>
+</tr>
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=sar">SAR</a></td>
+<td class="nfo" data-spec="sar-us">0.64 W/kg (head) &nbsp; &nbsp; </td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=sar">SAR EU</a></td>
+<td class="nfo" data-spec="sar-eu">0.56 W/kg (head) &nbsp; &nbsp; 1.57 W/kg (body) &nbsp; &nbsp; </td>
+</tr>
+
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=price">Price</a></td>
+<td class="nfo" data-spec="price"><a href="samsung_galaxy_m32-price-10887.php">£&thinsp;269.00 / ₹&thinsp;14,999</a></td>
+</tr>
+</tbody></table>
 </div>
