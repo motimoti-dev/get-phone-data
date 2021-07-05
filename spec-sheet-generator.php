@@ -1019,9 +1019,7 @@ function data_ref($key)
                     <th>関連スマホ</th>
                     <td><input type='text' name='sp-launch-10' value=""></td>
                 </tr>
-            </table>sp-launch-1:2021-5-12sp-launch-2:2021-5-13
-            
-            
+            </table>
             <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
@@ -1163,43 +1161,74 @@ function data_ref($key)
             <table class='data-table'>
                 <tr>
                     <th>重さ</th>
-                    <td><input type='text' name='sp-design-0' value="<?php echo data_ref('sp-design-0');?>"></td>
+                    <td><input type='text' name='sp-design-1' value="<?php echo data_ref('sp-design-1');?>"></td>
                 </tr>
                 <tr>
                     <th>縦</th>
-                    <td><input type='text' name='sp-design-4' value="<?php echo data_ref('sp-design-4');?>"></td>
+                    <td><input type='text' name='sp-design-0' value="<?php echo data_ref('sp-design-0');?>"></td>
                 </tr>
                 <tr>
                     <th>横</th>
-                    <td></td>
+                    <td><input type='text' name='sp-design-4' value="<?php echo data_ref('sp-design-4');?>"></td>
                 </tr>
                 <tr>
                     <th>厚み</th>
-                    <td></td>
+                    <td><input type='text' name='sp-design-5' value="<?php echo data_ref('sp-design-5');?>"></td>
                 </tr>
                 <tr>
                     <th>素材</th>
-                    <td></td>
+                    <td><input type='text' name='sp-design-2' value="<?php echo data_ref('sp-design-2');?>"></td>
                 </tr>
                 <tr>
                     <th>SIM</th>
-                    <td></td>
+                    <td><input type='text' name='sp-network-3' value="<?php echo data_ref('sp-network-3');?>"></td>
+                </tr>
+                <tr>
+                    <th>SIMカスタムtxt</th>
+                    <td><input type='text' name='sp-network-8' value="<?php echo data_ref('sp-network-8');?>"></td>
                 </tr>
                 <tr>
                     <th>Dual stand by</th>
-                    <td></td>
+                    <td><input type="checkbox" name="sp-network-7" value="Yes"<?php if(data_ref('sp-network-7') == 'Yes')echo ' checked';?>>対応</td>
                 </tr>
                 <tr>
                     <th>防水防塵</th>
-                    <td></td>
+                    <td>
+                        <input type="checkbox" name="sp-extra-6" value="Yes"<?php if(data_ref('sp-extra-6') == 'Yes')echo ' checked';?>>防水防塵対応
+                        <input type="checkbox" name="sp-extra-11" value="Yes"<?php if(data_ref('sp-extra-11') == 'Yes')echo ' checked';?>>IP 6X
+                        <input type="checkbox" name="sp-extra-12" value="Yes"<?php if(data_ref('sp-extra-12') == 'Yes')echo ' checked';?>>IP 5X
+                        <input type="checkbox" name="sp-extra-13" value="Yes"<?php if(data_ref('sp-extra-13') == 'Yes')echo ' checked';?>>IP 4X
+                        <input type="checkbox" name="sp-extra-14" value="Yes"<?php if(data_ref('sp-extra-14') == 'Yes')echo ' checked';?>>IP 3X
+                        <input type="checkbox" name="sp-extra-15" value="Yes"<?php if(data_ref('sp-extra-15') == 'Yes')echo ' checked';?>>IP 2X
+                        <input type="checkbox" name="sp-extra-16" value="Yes"<?php if(data_ref('sp-extra-16') == 'Yes')echo ' checked';?>>IP 1X
+                        <input type="checkbox" name="sp-extra-17" value="Yes"<?php if(data_ref('sp-extra-17') == 'Yes')echo ' checked';?>>IP 0X
+                        <input type="checkbox" name="sp-extra-18" value="Yes"<?php if(data_ref('sp-extra-18') == 'Yes')echo ' checked';?>>IP X0
+                        <input type="checkbox" name="sp-extra-19" value="Yes"<?php if(data_ref('sp-extra-19') == 'Yes')echo ' checked';?>>IP X1
+                        <input type="checkbox" name="sp-extra-20" value="Yes"<?php if(data_ref('sp-extra-20') == 'Yes')echo ' checked';?>>IP X2
+                        <input type="checkbox" name="sp-extra-21" value="Yes"<?php if(data_ref('sp-extra-21') == 'Yes')echo ' checked';?>>IP X3
+                        <input type="checkbox" name="sp-extra-22" value="Yes"<?php if(data_ref('sp-extra-22') == 'Yes')echo ' checked';?>>IP X4
+                        <input type="checkbox" name="sp-extra-23" value="Yes"<?php if(data_ref('sp-extra-23') == 'Yes')echo ' checked';?>>IP X5
+                        <input type="checkbox" name="sp-extra-24" value="Yes"<?php if(data_ref('sp-extra-24') == 'Yes')echo ' checked';?>>IP X6
+                        <input type="checkbox" name="sp-extra-25" value="Yes"<?php if(data_ref('sp-extra-25') == 'Yes')echo ' checked';?>>IP X7
+                        <input type="checkbox" name="sp-extra-26" value="Yes"<?php if(data_ref('sp-extra-26') == 'Yes')echo ' checked';?>>IP X8
+                        <input type="checkbox" name="sp-extra-27" value="Yes"<?php if(data_ref('sp-extra-27') == 'Yes')echo ' checked';?>>MIL-STD-810G
+                        <input type="checkbox" name="sp-extra-29" value="Yes"<?php if(data_ref('sp-extra-29') == 'Yes')echo ' checked';?>>MIL-STD-810F
+                        <input type="checkbox" name="sp-extra-30" value="Yes"<?php if(data_ref('sp-extra-30') == 'Yes')echo ' checked';?>>MIL-STD-810D
+                        
+                    </td>
                 </tr>
                 <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
+                    <th>IPカスタムtxt</th>
+                    <td><input type='text' name='sp-extra-7' value="<?php echo data_ref('sp-extra-7');?>"></td>
                 </tr>
                 <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>その他のやつ</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-28" value="Yes"<?php if(data_ref('sp-extra-28') == 'Yes')echo ' checked';?>>Apple Pay
+                        <input type="checkbox" name="sp-extra-31" value="Yes"<?php if(data_ref('sp-extra-31') == 'Yes')echo ' checked';?>>ポップアップゲーミングボタン
+                        <input type="checkbox" name="sp-extra-32" value="Yes"<?php if(data_ref('sp-extra-32') == 'Yes')echo ' checked';?>>スタイラスペン対応
+                        <input type="checkbox" name="sp-extra-33" value="Yes"<?php if(data_ref('sp-extra-33') == 'Yes')echo ' checked';?>>プロ・ショルダー・トリガー3.0(400Hz)
+                    </td>
                 </tr>
             </table>
             <?php
@@ -1267,17 +1296,17 @@ function data_ref($key)
 
                     case 'Size':
                         //
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        
                         break;
 
                     case 'Resolution':
                         //
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        
                         break;
 
                     case 'Protection':
                         //
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        
                         break;
                     
                     default:
@@ -1290,44 +1319,106 @@ function data_ref($key)
             ?>
             <table class='data-table'>
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>パネル種類（カスタムテキスト）</th>
+                    <td><input type='text' name='sp-screen-3' value="<?php echo data_ref('sp-screen-3');?>"></td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>画面補足情報（セカンドディスプレイなど）</th>
+                    <td><input type='text' name='sp-screen-13' value="<?php echo data_ref('sp-screen-13');?>"></td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
+                    <th>画面保護</th>
+                    <td><input type='text' name='sp-screen-0' value="<?php echo data_ref('sp-screen-0');?>"></td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
-                    <td></td>
+                    <th>インチ</th>
+                    <td><input type='text' name='sp-screen-1' value="<?php echo data_ref('sp-screen-1');?>"></td>
                 </tr>
                 <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>リフレッシュレート</th>
+                    <td><input type='text' name='sp-screen-8' value="<?php echo data_ref('sp-screen-8');?>"></td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
-                    <td></td>
+                    <th>タッチレート</th>
+                    <td><input type='text' name='sp-screen-9' value="<?php echo data_ref('sp-screen-9');?>"></td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
+                    <th>輝度typ</th>
+                    <td><input type='text' name='sp-screen-15' value="<?php echo data_ref('sp-screen-15');?>"></td>
                 </tr>
                 <tr>
-                    <th>防水防塵</th>
-                    <td></td>
+                    <th>最大輝度peak</th>
+                    <td><input type='text' name='sp-screen-11' value="<?php echo data_ref('sp-screen-11');?>"></td>
                 </tr>
                 <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
+                    <th>画面占有率</th>
+                    <td><input type='text' name='sp-screen-14' value="<?php echo data_ref('sp-screen-14');?>"></td>
                 </tr>
                 <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>縦px</th>
+                    <td><input type='text' name='sp-screen-16' value="<?php echo data_ref('sp-screen-16');?>"></td>
+                </tr>
+                <tr>
+                    <th>横px</th>
+                    <td><input type='text' name='sp-screen-4' value="<?php echo data_ref('sp-screen-4');?>"></td>
+                </tr>
+                <tr>
+                    <th>アスペクト比縦</th>
+                    <td><input type='text' name='sp-screen-2' value="<?php echo data_ref('sp-screen-2');?>"></td>
+                </tr>
+                <tr>
+                    <th>アスペクト比横</th>
+                    <td><input type='text' name='sp-screen-17' value="<?php echo data_ref('sp-screen-17');?>"></td>
+                </tr>
+                <tr>
+                    <th>DPI</th>
+                    <td><input type='text' name='sp-screen-6' value="<?php echo data_ref('sp-screen-6');?>"></td>
+                </tr>
+                <tr>
+                    <th>表示色</th>
+                    <td><input type='text' name='sp-screen-21' value="<?php echo data_ref('sp-screen-21');?>"></td>
+                </tr>
+                <tr>
+                    <th>コントラスト比</th>
+                    <td><input type='text' name='sp-screen-10' value="<?php echo data_ref('sp-screen-10');?>"></td>
+                </tr>
+                <tr>
+                    <th>湾曲ディスプレイの場合の角度</th>
+                    <td><input type='text' name='sp-screen-40' value="<?php echo data_ref('sp-screen-40');?>"></td>
+                </tr>
+                <tr>
+                    <th>インカメラタイプ</th>
+                    <td>
+                        <input type="checkbox" name="sp-screen-29" value="Yes"<?php if(data_ref('sp-screen-29') == 'Yes')echo ' checked';?>>ノッチ
+                        <input type="checkbox" name="sp-screen-30" value="Yes"<?php if(data_ref('sp-screen-30') == 'Yes')echo ' checked';?>>スライドカメラ
+                        <input type="checkbox" name="sp-screen-31" value="Yes"<?php if(data_ref('sp-screen-31') == 'Yes')echo ' checked';?>>フリップカメラ
+                        <input type="checkbox" name="sp-screen-32" value="Yes"<?php if(data_ref('sp-screen-32') == 'Yes')echo ' checked';?>>中央パンチホール
+                        <input type="checkbox" name="sp-screen-33" value="Yes"<?php if(data_ref('sp-screen-33') == 'Yes')echo ' checked';?>>左上パンチホール
+                        <input type="checkbox" name="sp-screen-34" value="Yes"<?php if(data_ref('sp-screen-34') == 'Yes')echo ' checked';?>>右上パンチホール
+                        <input type="checkbox" name="sp-screen-35" value="Yes"<?php if(data_ref('sp-screen-35') == 'Yes')echo ' checked';?>>ディスプレイ下
+                        <input type="checkbox" name="sp-screen-36" value="Yes"<?php if(data_ref('sp-screen-36') == 'Yes')echo ' checked';?>>ベゼル内
+                        <input type="checkbox" name="sp-screen-37" value="Yes"<?php if(data_ref('sp-screen-37') == 'Yes')echo ' checked';?>>カメラなし
+                        <input type="checkbox" name="sp-screen-38" value="Yes"<?php if(data_ref('sp-screen-38') == 'Yes')echo ' checked';?>>ポップアップ
+                    </td>
+                </tr>
+                <tr>
+                    <th>画面タイプ</th>
+                    <td>
+                        <input type="checkbox" name="sp-screen-23" value="Yes"<?php if(data_ref('sp-screen-23') == 'Yes')echo ' checked';?>>有機EL
+                        <input type="checkbox" name="sp-screen-24" value="Yes"<?php if(data_ref('sp-screen-24') == 'Yes')echo ' checked';?>>IPS
+                        <input type="checkbox" name="sp-screen-25" value="Yes"<?php if(data_ref('sp-screen-25') == 'Yes')echo ' checked';?>>TFT
+                        <input type="checkbox" name="sp-screen-26" value="Yes"<?php if(data_ref('sp-screen-26') == 'Yes')echo ' checked';?>>TN
+                    </td>
+                </tr>
+                <tr>
+                    <th>細かいやつら</th>
+                    <td>
+                        <input type="checkbox" name="sp-screen-39" value="Yes"<?php if(data_ref('sp-screen-39') == 'Yes')echo ' checked';?>>湾曲ディスプレイ    
+                        <input type="checkbox" name="sp-screen-27" value="Yes"<?php if(data_ref('sp-screen-27') == 'Yes')echo ' checked';?>>HDR10+
+                        <input type="checkbox" name="sp-screen-28" value="Yes"<?php if(data_ref('sp-screen-28') == 'Yes')echo ' checked';?>>HDR10
+                        <input type="checkbox" name="sp-screen-22" value="Yes"<?php if(data_ref('sp-screen-22') == 'Yes')echo ' checked';?>>Dolby Vision
+                        <input type="checkbox" name="sp-screen-20" value="Yes"<?php if(data_ref('sp-screen-20') == 'Yes')echo ' checked';?>>Always-on display    
+                    </td>
                 </tr>
             </table>
             <?php
