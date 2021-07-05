@@ -1,6 +1,9 @@
 <h1>スクレイピングの奴</h1>
-<form>
+<form id='form1'>
 <?php 
+foreach ( $_GET as $key => $value ) {
+    echo $key. "：".$value."<br>";
+}
 //spec-sheetのジェネレーター、スクレイピングしたデータを出力
 require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
 error_reporting(E_ALL & ~E_NOTICE);
@@ -91,8 +94,15 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
     .data-table td {
         font-size: 13px;
     }
-    textarea{
+    input[type="text"],textarea{
         width:100%;
+    }
+    table tr:nth-child(odd){
+	    background: #eee;
+    }
+    table[cellspacing="0"]{
+        border:2px gray solid;
+        border-radius:5px;
     }
 </style>
 <?php /**//*
@@ -629,17 +639,17 @@ function data_ref($key)
             <table class='data-table'>
                 <tr>
                     <th>技術</th>
-                    <td><textarea><?php echo data_ref('sp-band-8');?></textarea></td>
+                    <td><input type='text' name='sp-band-8' value="<?php echo data_ref('sp-band-8');?>"></td>
                 </tr>
                 <tr>
                     <th>速度</th>
-                    <td><textarea><?php echo data_ref('sp-band-9');?></textarea></td>
+                    <td><input type='text' name='sp-band-9' value="<?php echo data_ref('sp-band-9');?>"></td>
                 </tr>
                 <tr>
                     <th>バンド</th>
                     <td>
                         ・表示される5G<br><br>
-                        <textarea><?php echo data_ref('sp-band-7');?></textarea><br><br>
+                        <input type='text' name='sp-band-7' value="<?php echo data_ref('sp-band-7');?>"><br><br>
 
                         ・5G各バンド<br><br>
                         <?php 
@@ -672,7 +682,7 @@ function data_ref($key)
                         echo '<br><br>'.$out_txt;
                         ?><br><br>
                         ・表示される4G<br><br>
-                        <textarea><?php echo data_ref('sp-band-6');?></textarea>
+                        <input type='text' name='sp-band-6' value="<?php echo data_ref('sp-band-6');?>">
                         ・4G各バンド<br><br>
                         <?php
                         $b4gs = [
@@ -711,7 +721,7 @@ function data_ref($key)
                         echo '<br><br>'.$out_txt;
                         ?><br><br>
                         ・表示される3G<br><br>
-                        <textarea><?php echo data_ref('sp-band-5');?></textarea>
+                        <input type='text' name='sp-band-5' value="<?php echo data_ref('sp-band-5');?>">
                         ・3G各バンド<br><br>
                         <?php
                         $b3gs = [
@@ -738,7 +748,7 @@ function data_ref($key)
                         echo '<br><br>'.$out_txt;
                         ?><br><br>
                         ・表示される2G<br><br>
-                        <textarea><?php echo data_ref('sp-band-4');?></textarea>
+                        <input type='text' name='sp-band-4' value="<?php echo data_ref('sp-band-4');?>">
                         ・2G各バンド<br><br>
                         <?php
                         $b2gs = [
@@ -769,6 +779,19 @@ function data_ref($key)
                     </td>
                 </tr>
             </table>    
+            
+<input type="submit" value="送信">
+<div id="output_message"></div>
+  <script language="javascript" type="text/javascript">
+    function func1() {
+      var formData = new FormData(document.forms.form1);
+      formData.append("key1", "value1");
+      for (item of formData) {
+        console.log(item);
+      }
+      return false;
+    }
+  </script>
             <?php
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Launch'){
@@ -961,6 +984,45 @@ function data_ref($key)
                 }
             }
             data_viewer();
+            ?>
+            
+            <table class='data-table'>
+                <tr>
+                    <th>発表日</th>
+                    <td><input type='text' name='sp-launch-1' value="<?php echo data_ref('sp-launch-1');?>"></td>
+                </tr>
+                <tr>
+                    <th>発売日</th>
+                    <td><input type='text' name='sp-launch-2' value="<?php echo data_ref('sp-launch-2');?>"></td>
+                </tr>
+                <tr>
+                    <th>未発表の場合の期待される発表日</th>
+                    <td><input type='text' name='sp-launch-13' value=""></td>
+                </tr>
+                <tr>
+                    <th>細かいやつら</th>
+                    <td>
+                        <input type="checkbox" name="sp-launch-15" value="Yes">これがメイン表示の場合
+                        <input type="checkbox" name="sp-launch-12" value="Yes">リーク
+                        <input type="checkbox" name="sp-launch-14" value="Yes" <?php if(data_ref('sp-launch-2') == 'Yes')echo 'checked';?>>日本で発売されたやつ
+                    </td>
+                </tr>
+                <tr>
+                    <th>端末id(一意のid)</th>
+                    <td><input type='text' name='sp-launch-9' value=""></td>
+                </tr>
+                <tr>
+                    <th>メインiD</th>
+                    <td><input type='text' name='sp-launch-11' value=""></td>
+                </tr>
+                <tr>
+                    <th>関連スマホ</th>
+                    <td><input type='text' name='sp-launch-10' value=""></td>
+                </tr>
+            </table>sp-launch-1:2021-5-12sp-launch-2:2021-5-13
+            
+            
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Body'){
@@ -1097,7 +1159,50 @@ function data_ref($key)
                 }
             }
             data_viewer();
-            
+            ?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Display'){
                     $table_forcus_num = $i;
@@ -1182,6 +1287,50 @@ function data_ref($key)
                 }
             }
             data_viewer();
+            ?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Platform'){
@@ -1249,7 +1398,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
             
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Memory'){
@@ -1300,7 +1492,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Main Camera'){
@@ -1424,7 +1659,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Selfie Camera'){
@@ -1525,7 +1803,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Sound'){
@@ -1585,7 +1906,50 @@ function data_ref($key)
                         echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
-            }
+            }?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Comms'){
@@ -1720,7 +2084,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Features'){
@@ -1771,7 +2178,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Battery'){
@@ -1854,7 +2304,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Misc'){
@@ -1937,7 +2430,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
                 /**/
@@ -2047,8 +2583,50 @@ function data_ref($key)
                         break;
                 }
             }
-            data_viewer();
-        ?>
+            data_viewer();?>
+            <table class='data-table'>
+                <tr>
+                    <th>重さ</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>縦</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>横</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>厚み</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Apple Pay</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Samsung Aay</th>
+                    <td></td>
+                </tr>
+            </table>
+            
 </form>
 <p>url:<?php echo $url;?></p>
 <div class="table-row">
@@ -2806,3 +3384,4 @@ input[name="tab_item"] {
 </tr>
 </tbody></table>
 </div>
+</form>
