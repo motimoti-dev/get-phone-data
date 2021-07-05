@@ -1163,11 +1163,11 @@ function data_ref($key)
             <table class='data-table'>
                 <tr>
                     <th>重さ</th>
-                    <td></td>
+                    <td><input type='text' name='sp-design-0' value="<?php echo data_ref('sp-design-0');?>"></td>
                 </tr>
                 <tr>
                     <th>縦</th>
-                    <td></td>
+                    <td><input type='text' name='sp-design-4' value="<?php echo data_ref('sp-design-4');?>"></td>
                 </tr>
                 <tr>
                     <th>横</th>
