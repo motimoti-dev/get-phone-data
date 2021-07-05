@@ -1492,44 +1492,66 @@ function data_ref($key)
             data_viewer();?>
             <table class='data-table'>
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>OS</th>
+                    <td>
+                        <input type="checkbox" name="sp-softwear-0" value="Yes"<?php if(data_ref('sp-softwear-0') == 'Yes')echo ' checked';?>>Android
+                        <input type="checkbox" name="sp-softwear-1" value="Yes"<?php if(data_ref('sp-softwear-1') == 'Yes')echo ' checked';?>>Harmony
+                        <input type="checkbox" name="sp-softwear-2" value="Yes"<?php if(data_ref('sp-softwear-2') == 'Yes')echo ' checked';?>>iOS
+                        <input type="checkbox" name="sp-softwear-3" value="Yes"<?php if(data_ref('sp-softwear-3') == 'Yes')echo ' checked';?>>Microsoft Windows 10
+                        <input type="checkbox" name="sp-softwear-4" value="Yes"<?php if(data_ref('sp-softwear-4') == 'Yes')echo ' checked';?>>Android Go
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>OS ver</th>
+                    <td><input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-7');?>"></td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
+                    <th>GMS</th>
+                    <td><input type="checkbox" name="sp-softwear-6" value="Yes"<?php if(data_ref('sp-softwear-6') == 'Yes')echo ' checked';?>>非対応</td>
+                </tr>	
+                <tr>
+                    <th>OS更新可能なバージョン</th>
+                    <td><input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-9');?>"></td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
-                    <td></td>
+                    <th>UI</th>
+                    <td>
+                        <input type="checkbox" name="sp-softwear-13" value="Yes"<?php if(data_ref('sp-softwear-13') == 'Yes')echo ' checked';?>>MIUI
+                        <input type="checkbox" name="sp-softwear-14" value="Yes"<?php if(data_ref('sp-softwear-14') == 'Yes')echo ' checked';?>>color OS
+                        <input type="checkbox" name="sp-softwear-15" value="Yes"<?php if(data_ref('sp-softwear-15') == 'Yes')echo ' checked';?>>Magic UI
+                        <input type="checkbox" name="sp-softwear-16" value="Yes"<?php if(data_ref('sp-softwear-16') == 'Yes')echo ' checked';?>>ZenUI
+                        <input type="checkbox" name="sp-softwear-17" value="Yes"<?php if(data_ref('sp-softwear-17') == 'Yes')echo ' checked';?>>One UI
+                        <input type="checkbox" name="sp-softwear-18" value="Yes"<?php if(data_ref('sp-softwear-18') == 'Yes')echo ' checked';?>>XOS
+                        <input type="checkbox" name="sp-softwear-19" value="Yes"<?php if(data_ref('sp-softwear-19') == 'Yes')echo ' checked';?>>Android One
+                        <input type="checkbox" name="sp-softwear-20" value="Yes"<?php if(data_ref('sp-softwear-20') == 'Yes')echo ' checked';?>>AOSP
+                        <input type="checkbox" name="sp-softwear-21" value="Yes"<?php if(data_ref('sp-softwear-21') == 'Yes')echo ' checked';?>>EMUI
+                        <input type="checkbox" name="sp-softwear-22" value="Yes"<?php if(data_ref('sp-softwear-22') == 'Yes')echo ' checked';?>>Redmagic
+                        <input type="checkbox" name="sp-softwear-23" value="Yes"<?php if(data_ref('sp-softwear-23') == 'Yes')echo ' checked';?>>Joy UI
+                        <input type="checkbox" name="sp-softwear-24" value="Yes"<?php if(data_ref('sp-softwear-24') == 'Yes')echo ' checked';?>>HIOS
+                        <input type="checkbox" name="sp-softwear-25" value="Yes"<?php if(data_ref('sp-softwear-25') == 'Yes')echo ' checked';?>>realme UI
+                        <input type="checkbox" name="sp-softwear-26" value="Yes"<?php if(data_ref('sp-softwear-26') == 'Yes')echo ' checked';?>>OxygenOS
+                        <input type="checkbox" name="sp-softwear-27" value="Yes"<?php if(data_ref('sp-softwear-27') == 'Yes')echo ' checked';?>>OriginOS
+                        <input type="checkbox" name="sp-softwear-28" value="Yes"<?php if(data_ref('sp-softwear-28') == 'Yes')echo ' checked';?>>Funtouch
+                        <input type="checkbox" name="sp-softwear-29" value="Yes"<?php if(data_ref('sp-softwear-29') == 'Yes')echo ' checked';?>>Flyme
+                        <input type="checkbox" name="sp-softwear-30" value="Yes"<?php if(data_ref('sp-softwear-30') == 'Yes')echo ' checked';?>>ZUI
+                        <input type="checkbox" name="sp-softwear-31" value="Yes"<?php if(data_ref('sp-softwear-31') == 'Yes')echo ' checked';?>>ROG UI
+                    </td>
                 </tr>
                 <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>UI ver</th>
+                    <td><input type='text' name='sp-softwear-8' value="<?php echo data_ref('sp-softwear-8');?>"></td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
-                    <td></td>
+                    <th>UI更新可能なバージョン</th>
+                    <td><input type='text' name='sp-softwear-10' value="<?php echo data_ref('sp-softwear-10');?>"></td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
+                    <th>OS追加説明</th>
+                    <td><input type='text' name='sp-softwear-11' value="<?php echo data_ref('sp-softwear-11');?>"></td>
                 </tr>
                 <tr>
-                    <th>防水防塵</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>UI追加説明</th>
+                    <td><input type='text' name='sp-softwear-12' value="<?php echo data_ref('sp-softwear-12');?>"></td>
                 </tr>
             </table>
             <?php
@@ -1585,6 +1607,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
@@ -1752,6 +1776,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
@@ -1896,6 +1922,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
@@ -2177,6 +2205,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
@@ -2271,6 +2301,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
@@ -2397,6 +2429,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
@@ -2523,6 +2557,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
@@ -2676,6 +2712,8 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>重さ</th>
                     <td></td>
