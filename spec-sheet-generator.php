@@ -1666,13 +1666,9 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Card slot':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Internal':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
@@ -1683,47 +1679,41 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>Micro SDカード対応</th>
+                    <td><input type="checkbox" name="sp-spec-12" value="Yes"<?php if(data_ref('sp-spec-12') == 'Yes')echo ' checked';?>></td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>Micro SD最大容量</th>
+                    <td><input type='text' name='sp-spec-14' value="<?php echo data_ref('sp-spec-14');?>"></td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
+                    <th>NMカード対応</th>
+                    <td><input type="checkbox" name="sp-spec-20" value="Yes"<?php if(data_ref('sp-spec-20') == 'Yes')echo ' checked';?>></td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
-                    <td></td>
+                    <th>NMカード最大容量</th>
+                    <td><input type='text' name='sp-spec-21' value="<?php echo data_ref('sp-spec-21');?>"></td>
                 </tr>
                 <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>メモリGB(この構成のものだけ)</th>
+                    <td><input type='text' name='sp-spec-7' value="<?php echo data_ref('sp-spec-7');?>"></td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
-                    <td></td>
+                    <th>メモリ規格(この構成のものだけ)</th>
+                    <td><input type='text' name='sp-spec-6' value="<?php echo data_ref('sp-spec-6');?>"></td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
+                    <th>ストレージ規格(この構成のものだけ)</th>
+                    <td><input type='text' name='sp-spec-8' value="<?php echo data_ref('sp-spec-8');?>"></td>
                 </tr>
                 <tr>
-                    <th>防水防塵</th>
-                    <td></td>
+                    <th>ストレージGB(この構成のものだけ)</th>
+                    <td><input type='text' name='sp-spec-9' value="<?php echo data_ref('sp-spec-9');?>"></td>
                 </tr>
                 <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>他のバージョン</th>
+                    <td><input type='text' name='sp-spec-10' value="<?php echo data_ref('sp-spec-10');?>"></td>
                 </tr>
             </table>
             <?php
@@ -2075,7 +2065,7 @@ function data_ref($key)
                                         24-bit/192kHz audio
                         &nbsp;          Tuned by JBL
 
-                SOUND	Loudspeaker	    Yes
+                SOUND	Loudspeaker	    Yes, dual speakers
                         3.5mm jack	    No
                                         32-bit/384kHz audio
 
@@ -2083,6 +2073,8 @@ function data_ref($key)
                         3.5mm jack	    No
                                         32-bit/384kHz audio
                                         Tuned by AKG
+
+                                        
                 */
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
@@ -2105,52 +2097,75 @@ function data_ref($key)
             data_viewer();
             ?>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
-                <tr>sp-spec-6	メモリ規格
-                sp-spec-7	メモリGB(この構成のものだけ)
-                sp-spec-8	ストレージ規格
-sp-spec-9	ストレージGB
-sp-spec-18	メモリ規格ver
-sp-spec-19	ストレージ規格ver
-                    <th>重さ</th>
-                    <td></td>
+                <tr>
+                    <th>3.5mmイヤホンジャック</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-4" value="Yes"<?php if(data_ref('sp-extra-4') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>通話用スピーカー(Loudspeaker)</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-37" value="Yes"<?php if(data_ref('sp-extra-37') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
+                    <th>デュアルスピーカー</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-38" value="Yes"<?php if(data_ref('sp-extra-38') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
-                    <td></td>
+                    <th>デュアルスピーカー（ステレオ）</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-39" value="Yes"<?php if(data_ref('sp-extra-39') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>トリプルスピーカー（ステレオ）</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-40" value="Yes"<?php if(data_ref('sp-extra-40') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
-                    <td></td>
+                    <th>クアッドスピーカー(ステレオ)</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-41" value="Yes"<?php if(data_ref('sp-extra-41') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
+                    <th>24-bit/192kHz</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-44" value="Yes"<?php if(data_ref('sp-extra-44') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>防水防塵</th>
-                    <td></td>
+                    <th>32-bit/384kHz</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-45" value="Yes"<?php if(data_ref('sp-extra-45') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
+                    <th>Tuned by AKG</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-49" value="Yes"<?php if(data_ref('sp-extra-49') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>Tuned by JBL</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-48" value="Yes"<?php if(data_ref('sp-extra-48') == 'Yes')echo ' checked';?>>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tuned by Harman Kardon</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-47" value="Yes"<?php if(data_ref('sp-extra-47') == 'Yes')echo ' checked';?>>
+                    </td>
+                </tr>
+                <tr>
+                    <th>オーディオ追加説明</th>
+                    <td><input type='text' name='sp-extra-52' value="<?php echo data_ref('sp-extra-52');?>"></td>
                 </tr>
             </table>
             
