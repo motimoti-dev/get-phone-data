@@ -1,6 +1,8 @@
 <h1>スクレイピングの奴</h1>
 <form id='form1'>
 <?php 
+
+//繰り返したぐ生成するやつ　https://paiza.io/projects/iBS4BIH4fcK8_lyw0xAqjg?language=php
 foreach ( $_GET as $key => $value ) {
     echo $key. "：".$value."<br>";
 }
@@ -104,6 +106,15 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
         border:2px gray solid;
         border-radius:5px;
     }
+    td span:nth-child(odd){
+        color:red;
+    }
+    td span{
+        border:1px gray solid;
+        margin:5px;
+        border-radius:4px;
+    }
+    
 </style>
 <?php /**//*
 $ot_t = 'sp-band-4g-1,sp-band-4g-2,sp-band-4g-3,sp-band-4g-4,sp-band-4g-5,sp-band-4g-6,sp-band-4g-7,sp-band-4g-8,sp-band-4g-10,sp-band-4g-11,sp-band-4g-12,sp-band-4g-13,sp-band-4g-14,sp-band-4g-17,sp-band-4g-18,sp-band-4g-19,sp-band-4g-20,sp-band-4g-21,sp-band-4g-22,sp-band-4g-23,sp-band-4g-24,sp-band-4g-25,sp-band-4g-26,sp-band-4g-27,sp-band-4g-28,sp-band-4g-29,sp-band-4g-30,sp-band-4g-31,sp-band-4g-32,sp-band-4g-33,sp-band-4g-34,sp-band-4g-35,sp-band-4g-36,sp-band-4g-37,sp-band-4g-38,sp-band-4g-39,sp-band-4g-40,sp-band-4g-41,sp-band-4g-42,sp-band-4g-43,sp-band-4g-44,sp-band-4g-45,sp-band-4g-46,sp-band-4g-47,sp-band-4g-48,sp-band-4g-49,sp-band-4g-50,sp-band-4g-51,sp-band-4g-52,sp-band-4g-65,sp-band-4g-66,sp-band-4g-67,sp-band-4g-68,sp-band-4g-69,sp-band-4g-70,sp-band-4g-71,sp-band-4g-72,sp-band-4g-73,sp-band-4g-74,sp-band-4g-75,sp-band-4g-76,sp-band-4g-85,sp-band-4g-252,sp-band-4g-255';
@@ -236,6 +247,18 @@ function after_setting(){
     border: 1px solid #5f6ab5;
     margin: 3px 3px 0 0;
     border-radius: 4px;
+    text-decoration: none;
+}
+.tagcloud2 a {
+    font-size: .8rem !important;
+    line-height: .8em;
+    color: green;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 8px 8px;
+    border: 1px solid green;
+    margin: 3px 3px 0 0;
+    border-radius: 10px;
     text-decoration: none;
 }
 </style>
@@ -1222,6 +1245,10 @@ function data_ref($key)
                     <td><input type='text' name='sp-extra-7' value="<?php echo data_ref('sp-extra-7');?>"></td>
                 </tr>
                 <tr>
+                    <th>P2i撥水</th>
+                    <td><input type="checkbox" name="sp-extra-10" value="Yes"<?php if(data_ref('sp-extra-10') == 'Yes')echo ' checked';?>></td>
+                </tr>
+                <tr>
                     <th>その他のやつ</th>
                     <td>
                         <input type="checkbox" name="sp-extra-28" value="Yes"<?php if(data_ref('sp-extra-28') == 'Yes')echo ' checked';?>>Apple Pay
@@ -1464,28 +1491,19 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'OS':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //$ot_html01->find('.nfo', $i)->plaintext
                         break;
 
                     case 'Chipset':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'CPU':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'GPU':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
@@ -1553,7 +1571,65 @@ function data_ref($key)
                     <th>UI追加説明</th>
                     <td><input type='text' name='sp-softwear-12' value="<?php echo data_ref('sp-softwear-12');?>"></td>
                 </tr>
+                <tr>
+                    <th>SoC ID</th>
+                    <td><input type='text' name='sp-spec-11' value="<?php echo data_ref('sp-spec-11');?>"></td>
+                </tr>
+                <tr>
+                    <th>CPU構成(本来の構成と異なる場合)</th>
+                    <td><input type='text' name='sp-spec-2' value="<?php echo data_ref('sp-spec-2');?>"></td>
+                </tr>
+                <tr>
+                    <th>GPU構成(本来の構成と異なる場合)</th>
+                    <td><input type='text' name='sp-spec-4' value="<?php echo data_ref('sp-spec-4');?>"></td>
+                </tr>
             </table>
+            <h4>QualComm</h4>
+            <div class="tagcloud2">
+                <a>(0)SD215</a><a>(1)SD425</a>
+                <a>(2)SD429</a><a>(3)SD430</a>
+                <a>(4)SD435</a><a>(5)SD439</a>
+                <a>(6)SD450</a><a>(7)SD460</a>
+                <a>(8)SD480</a><a>(9)SD617</a>
+                <a>(10)SD625</a><a>(11)SD626</a>
+                <a>(12)SD630</a><a>(13)SD632</a>
+                <a>(14)SD636</a><a>(15)SD650</a>
+                <a>(16)SD660</a><a>(17)SD662</a>
+                <a>(18)SD665</a><a>(19)SD670</a>
+                <a>(20)SD675</a><a>(21)SD678</a>
+                <a>(22)SD690</a><a>(23)SD710</a>
+                <a>(24)SD712</a><a>(25)SD720G</a>
+                <a>(26)SD730</a><a>(27)SD730G</a>
+                <a>(28)SD732G</a><a>(29)SD750G</a>
+                <a>(30)SD765</a><a>(31)SD765G</a>
+                <a>(32)SD768G</a><a>(33)SD778G</a>
+                <a>(34)SD780G</a><a>(35)SD810</a>
+                <a>(36)SD820</a><a>(37)SD835</a>
+                <a>(38)SD845</a><a>(39)SD855</a>
+                <a>(40)SD855+</a><a>(41)SD860</a>
+                <a>(42)SD865</a><a>(43)SD865+</a>
+                <a>(44)SD870</a><a>(45)SD888</a>
+            </div>
+            <h4>MediaTek</h4>
+            <div class="tagcloud2">
+                <a>(81)MT6737</a><a>(82)MT6750</a>
+                <a>(83)P10</a><a>(84)P18</a>
+                <a>(85)P20</a><a>(86)A22</a>
+                <a>(87)P22</a><a>(88)P23</a>
+                <a>(89)G25</a><a>(90)P35</a>
+                <a>(91)G35</a><a>(92)P60</a>
+                <a>(93)P65</a><a>(94)P70</a>
+                <a>(95)G70</a><a>(96)G80</a>
+                <a>(97)G85</a><a>(98)P90</a>
+                <a>(99)P95</a><a>(100)G90</a>
+                <a>(101)G90T</a><a>(102)G95</a>
+                <a>(103)Dim.700</a><a>(104)Dim.720</a>
+                <a>(105)Dim.800U</a><a>(106)Dim.800</a>
+                <a>(107)Dim.820</a><a>(108)Dim.900</a>
+                <a>(109)Dim.1000C</a><a>(110)Dim.1000L</a>
+                <a>(111)Dim.1000</a><a>(112)Dim.1000+</a>
+                <a>(113)Dim.1100</a><a>(114)Dim.1200</a>
+            </div>
             <?php
             
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
@@ -1822,7 +1898,7 @@ function data_ref($key)
             <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
-                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Selfie Camera'){
+                if($html->find( 'table', $i )->find('th', 0)->plaintext == 'Selfie camera'){
                     $table_forcus_num = $i;
                 }
             }
@@ -2025,9 +2101,18 @@ function data_ref($key)
                         echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
-            }?>
+            }
+            data_viewer();
+            ?>
             <table class='data-table'>
-                <tr>
+            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
+            <input type='text' name='' value="<?php echo data_ref('');?>">
+                <tr>sp-spec-6	メモリ規格
+                sp-spec-7	メモリGB(この構成のものだけ)
+                sp-spec-8	ストレージ規格
+sp-spec-9	ストレージGB
+sp-spec-18	メモリ規格ver
+sp-spec-19	ストレージ規格ver
                     <th>重さ</th>
                     <td></td>
                 </tr>
@@ -2068,6 +2153,7 @@ function data_ref($key)
                     <td></td>
                 </tr>
             </table>
+            
             <?php
 
             for($i = 0 ; $i <= $table_num - 1 ; $i++){
