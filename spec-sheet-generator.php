@@ -2424,26 +2424,6 @@ function data_ref($key)
                     <th>素材</th>
                     <td></td>
                 </tr>
-                <tr>
-                    <th>SIM</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>防水防塵</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
-                </tr>
             </table>
             <?php
 
