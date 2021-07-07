@@ -2402,27 +2402,55 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>センサー類</th>
+                    <td>
+                        <?php
+                            $input_checks = explode(':',
+                            'sp-sensor-0,各センサー:
+                            sp-sensor-1,コンパス:
+                            sp-sensor-2,接近センサー:
+                            sp-sensor-3,加速度センサー:
+                            sp-sensor-4,ジャイロセンサー:
+                            sp-sensor-5,気圧センサー:
+                            sp-sensor-6,虹彩センサー:
+                            sp-sensor-7,sensor core:
+                            sp-sensor-8,サーモグラフィー:
+                            sp-sensor-9,IRセンサー');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>横</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>厚み</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>指紋センサー</th>
+                    <td>
+                        <?php
+                            $input_checks = explode(':',
+                            'sp-sensor-14,指紋センサー:
+                            sp-sensor-15,指紋センサー-背面:
+                            sp-sensor-16,指紋センサー-側面:
+                            sp-sensor-17,紋センサー-右側面:
+                            sp-sensor-18,指紋センサー-左側面:
+                            sp-sensor-19,指紋センサー-カメラユニットに付属:
+                            sp-sensor-20,指紋センサー-画面内:
+                            sp-sensor-21,紋センサー-光学式:
+                            sp-sensor-22,指紋センサー-超音波式:
+                            sp-sensor-23,指紋センサー-ToutchID');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
             </table>
             <?php
@@ -2493,13 +2521,10 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Type':
-                        //発表
                         echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Charging':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
@@ -2509,49 +2534,124 @@ function data_ref($key)
                 }
             }
             data_viewer();?>
-            <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
+            <table class='data-table'>            
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>バッテリー容量</th>
+                    <td><input type='text' name='sp-battery-0' value="<?php echo data_ref('sp-battery-0');?>"></td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>バッテリーについての補足情報</th>
+                    <td><input type='text' name='sp-battery-1' value="<?php echo data_ref('sp-battery-1');?>"></td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
+                    <th>バッテリー取り外し可能</th>
+                    <td>
+                    <input type="checkbox" name="sp-battery-9" value="Yes"<?php if(data_ref('sp-battery-9') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
-                    <td></td>
+                    <th>ワイヤレス規格</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-23" value="Yes"<?php if(data_ref('sp-battery-23') == 'Yes')echo ' checked';?>>Qi
+                        <input type="checkbox" name="sp-battery-24" value="Yes"<?php if(data_ref('sp-battery-24') == 'Yes')echo ' checked';?>>PMA
+                        <input type="checkbox" name="sp-battery-25" value="Yes"<?php if(data_ref('sp-battery-25') == 'Yes')echo ' checked';?>>A4WP
+                    </td>
                 </tr>
                 <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>ワイヤレス充電</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-5" value="Yes"<?php if(data_ref('sp-battery-5') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
-                    <td></td>
+                    <th>ワイヤレス充電速度</th>
+                    <td>
+                        <input type='text' name='sp-battery-6' value="<?php echo data_ref('sp-battery-6');?>">
+                    </td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
+                    <th>ワイヤレス逆充電
+                </th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-20" value="Yes"<?php if(data_ref('sp-battery-20') == 'Yes')echo ' checked';?>>
+                    </td>
                 </tr>
                 <tr>
-                    <th>防水防塵</th>
-                    <td></td>
+                    <th>ワイヤレス逆充電速度</th>
+                    <td>
+                        <input type='text' name='sp-battery-21' value="<?php echo data_ref('sp-battery-21');?>">
+                    </td>
                 </tr>
                 <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
+                    <th>充電に関する補足情報</th>
+                    <td>
+                        <input type='text' name='sp-battery-7' value="<?php echo data_ref('sp-battery-7');?>">
+                    </td>
                 </tr>
                 <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>充電に関する補足情報</th>
+                    <td>
+                        <input type='text' name='sp-battery-9' value="<?php echo data_ref('sp-battery-9');?>">
+                    </td>
                 </tr>
+                <tr>
+                    <th>最大充電速度w</th>
+                    <td>
+                        <input type='text' name='sp-battery-10' value="<?php echo data_ref('sp-battery-10');?>">
+                    </td>
+                </tr>
+                <tr>
+                    <th>USB Type-C</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-13" value="Yes"<?php if(data_ref('sp-battery-13') == 'Yes')echo ' checked';?>>
+                    </td>
+                </tr>
+                <tr>
+                    <th>USB Micro-b</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-14" value="Yes"<?php if(data_ref('sp-battery-14') == 'Yes')echo ' checked';?>>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ポート補足情報</th>
+                    <td>
+                        <input type='text' name='sp-battery-14' value="<?php echo data_ref('sp-battery-14');?>">
+                    </td>
+                </tr>
+                <tr>
+                    <th>リチウムイオン電池</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-17" value="Yes"<?php if(data_ref('sp-battery-17') == 'Yes')echo ' checked';?>>
+                    </td>
+                </tr>
+                <tr>
+                    <th>給電</th>
+                    <td>
+                        <input type='text' name='sp-battery-18' value="<?php echo data_ref('sp-battery-18');?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>充電規格</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-26" value="Yes"<?php if(data_ref('sp-battery-26') == 'Yes')echo ' checked';?>>Power Delivery 3.0
+                        <input type="checkbox" name="sp-battery-29" value="Yes"<?php if(data_ref('sp-battery-29') == 'Yes')echo ' checked';?>>QuickCharge 4+
+                        <input type="checkbox" name="sp-battery-30" value="Yes"<?php if(data_ref('sp-battery-30') == 'Yes')echo ' checked';?>>QuickCharge 4
+                        <input type="checkbox" name="sp-battery-31" value="Yes"<?php if(data_ref('sp-battery-31') == 'Yes')echo ' checked';?>>Quick Charge 3+
+                        <input type="checkbox" name="sp-battery-32" value="Yes"<?php if(data_ref('sp-battery-32') == 'Yes')echo ' checked';?>>Quick Charge 3
+                        <input type="checkbox" name="sp-battery-33" value="Yes"<?php if(data_ref('sp-battery-33') == 'Yes')echo ' checked';?>>Quick Charge 2+
+                        <input type="checkbox" name="sp-battery-34" value="Yes"<?php if(data_ref('sp-battery-34') == 'Yes')echo ' checked';?>>Quick Charge 2
+                        <input type="checkbox" name="sp-battery-36" value="Yes"<?php if(data_ref('sp-battery-36') == 'Yes')echo ' checked';?>>Pump Express+ 2.0
+                        <input type="checkbox" name="sp-battery-37" value="Yes"<?php if(data_ref('sp-battery-37') == 'Yes')echo ' checked';?>>PumpExpress 3.0
+                        <input type="checkbox" name="sp-battery-39" value="Yes"<?php if(data_ref('sp-battery-39') == 'Yes')echo ' checked';?>>VOOC Flash charge
+                        <input type="checkbox" name="sp-battery-40" value="Yes"<?php if(data_ref('sp-battery-40') == 'Yes')echo ' checked';?>>Dual-Engine Fast Charge
+                        <input type="checkbox" name="sp-battery-41" value="Yes"<?php if(data_ref('sp-battery-41') == 'Yes')echo ' checked';?>>Super VOOC Flash charge
+                        <input type="checkbox" name="sp-battery-42" value="Yes"<?php if(data_ref('sp-battery-42') == 'Yes')echo ' checked';?>>Dash charge
+                        <input type="checkbox" name="sp-battery-43" value="Yes"<?php if(data_ref('sp-battery-43') == 'Yes')echo ' checked';?>>SuperCharge
+                        <input type="checkbox" name="sp-battery-44" value="Yes"<?php if(data_ref('sp-battery-44') == 'Yes')echo ' checked';?>>mCharge
+                    </td>
+                </tr>
+
             </table>
             <?php
 
@@ -2637,6 +2737,14 @@ function data_ref($key)
                 }
             }
             data_viewer();?>
+            <div id="check">color</div>
+            <input type="color" id='inputForm' value="#e66465" onchange="inputCheck()">
+            <script>
+                function inputCheck() {
+                    var inputValue = document.getElementById( "inputForm" ).value;
+                    document.getElementById( "check" ).innerHTML =  inputValue;
+                }
+            </script>
             <table class='data-table'>
             <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
             <input type='text' name='' value="<?php echo data_ref('');?>">
