@@ -1845,43 +1845,31 @@ function data_ref($key)
             <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
             <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th>重さ</th>
+                    <th></th>
                     <td></td>
                 </tr>
                 <tr>
-                    <th>縦</th>
+                    <th></th>
                     <td></td>
                 </tr>
                 <tr>
-                    <th>横</th>
+                    <th></th>
                     <td></td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
+                    <th></th>
                     <td></td>
                 </tr>
                 <tr>
-                    <th>素材</th>
+                    <th></th>
                     <td></td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
+                    <th></th>
                     <td></td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>防水防塵</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
+                    <th></th>
                     <td></td>
                 </tr>
             </table>
@@ -2726,13 +2714,11 @@ function data_ref($key)
                         break;
 
                     case 'Price':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
@@ -2746,47 +2732,34 @@ function data_ref($key)
                 }
             </script>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>
+                        色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]
+                    </th>
+                    <td>
+                        <input type='text' name='sp-design-3' value="<?php echo data_ref('sp-design-3');?>">
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>モデル番号</th>
+                    <td>
+                        <input type='text' name='sp-launch-5' value="<?php echo data_ref('sp-launch-5');?>">
+                    </td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>厚み</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>素材</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>SIM</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>防水防塵</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>
+                        SAR
+                    </th>
+                    <td>
+                        SAR head<br>
+                        <input type='text' name='sp-extra-57' value="<?php echo data_ref('sp-extra-57');?>">
+                        SAR body<br>
+                        <input type='text' name='sp-extra-58' value="<?php echo data_ref('sp-extra-58');?>">
+                        SAR EU head<br>
+                        <input type='text' name='sp-extra-59' value="<?php echo data_ref('sp-extra-59');?>">
+                        SAR EU body<br>
+                        <input type='text' name='sp-extra-60' value="<?php echo data_ref('sp-extra-60');?>">
+                    </td>
                 </tr>
             </table>
             <?php
