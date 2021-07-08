@@ -30,6 +30,7 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
 ?>
 <?php //echo $html->find( 'table', 0 );?>
 <?php //echo $html->find( 'table', 0 )->find('th', 0);?>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <style>
 	/*ul tag belong spection data.*/
 	.spec-ul{list-style-type:none;margin:0;padding:0}
@@ -97,7 +98,13 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
         font-size: 13px;
     }
     input[type="text"],textarea{
+        /*width:100%;*/
+    }
+    input[size="full"],textarea{
         width:100%;
+    }
+    input[size="mini"],textarea{
+        width:3rem;
     }
     table tr:nth-child(odd){
 	    background: #eee;
@@ -114,8 +121,15 @@ $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
         margin:5px;
         border-radius:4px;
     }
-    
+    .hide{
+        display:none;
+    }
 </style>
+<script>
+    function opentd(target){
+        $(target).toggleClass('hide');
+    }
+</script>
 <?php /**//*
 $ot_t = 'sp-band-4g-1,sp-band-4g-2,sp-band-4g-3,sp-band-4g-4,sp-band-4g-5,sp-band-4g-6,sp-band-4g-7,sp-band-4g-8,sp-band-4g-10,sp-band-4g-11,sp-band-4g-12,sp-band-4g-13,sp-band-4g-14,sp-band-4g-17,sp-band-4g-18,sp-band-4g-19,sp-band-4g-20,sp-band-4g-21,sp-band-4g-22,sp-band-4g-23,sp-band-4g-24,sp-band-4g-25,sp-band-4g-26,sp-band-4g-27,sp-band-4g-28,sp-band-4g-29,sp-band-4g-30,sp-band-4g-31,sp-band-4g-32,sp-band-4g-33,sp-band-4g-34,sp-band-4g-35,sp-band-4g-36,sp-band-4g-37,sp-band-4g-38,sp-band-4g-39,sp-band-4g-40,sp-band-4g-41,sp-band-4g-42,sp-band-4g-43,sp-band-4g-44,sp-band-4g-45,sp-band-4g-46,sp-band-4g-47,sp-band-4g-48,sp-band-4g-49,sp-band-4g-50,sp-band-4g-51,sp-band-4g-52,sp-band-4g-65,sp-band-4g-66,sp-band-4g-67,sp-band-4g-68,sp-band-4g-69,sp-band-4g-70,sp-band-4g-71,sp-band-4g-72,sp-band-4g-73,sp-band-4g-74,sp-band-4g-75,sp-band-4g-76,sp-band-4g-85,sp-band-4g-252,sp-band-4g-255';
 $ot_t = explode(',',$ot_t);
@@ -662,17 +676,17 @@ function data_ref($key)
             <table class='data-table'>
                 <tr>
                     <th>技術</th>
-                    <td><input type='text' name='sp-band-8' value="<?php echo data_ref('sp-band-8');?>"></td>
+                    <td><input type='text' name='sp-band-8' value="<?php echo data_ref('sp-band-8');?>" size="full"></td>
                 </tr>
                 <tr>
                     <th>速度</th>
-                    <td><input type='text' name='sp-band-9' value="<?php echo data_ref('sp-band-9');?>"></td>
+                    <td><input type='text' name='sp-band-9' value="<?php echo data_ref('sp-band-9');?>" size="full"></td>
                 </tr>
                 <tr>
                     <th>バンド</th>
                     <td>
                         ・表示される5G<br><br>
-                        <input type='text' name='sp-band-7' value="<?php echo data_ref('sp-band-7');?>"><br><br>
+                        <input type='text' name='sp-band-7' value="<?php echo data_ref('sp-band-7');?>" size="full"><br><br>
 
                         ・5G各バンド<br><br>
                         <?php 
@@ -705,7 +719,7 @@ function data_ref($key)
                         echo '<br><br>'.$out_txt;
                         ?><br><br>
                         ・表示される4G<br><br>
-                        <input type='text' name='sp-band-6' value="<?php echo data_ref('sp-band-6');?>">
+                        <input type='text' name='sp-band-6' value="<?php echo data_ref('sp-band-6');?>" size="full">
                         ・4G各バンド<br><br>
                         <?php
                         $b4gs = [
@@ -744,7 +758,7 @@ function data_ref($key)
                         echo '<br><br>'.$out_txt;
                         ?><br><br>
                         ・表示される3G<br><br>
-                        <input type='text' name='sp-band-5' value="<?php echo data_ref('sp-band-5');?>">
+                        <input type='text' name='sp-band-5' value="<?php echo data_ref('sp-band-5');?>" size="full">
                         ・3G各バンド<br><br>
                         <?php
                         $b3gs = [
@@ -771,7 +785,7 @@ function data_ref($key)
                         echo '<br><br>'.$out_txt;
                         ?><br><br>
                         ・表示される2G<br><br>
-                        <input type='text' name='sp-band-4' value="<?php echo data_ref('sp-band-4');?>">
+                        <input type='text' name='sp-band-4' value="<?php echo data_ref('sp-band-4');?>" size="full">
                         ・2G各バンド<br><br>
                         <?php
                         $b2gs = [
@@ -1039,8 +1053,12 @@ function data_ref($key)
                     <td><input type='text' name='sp-launch-11' value=""></td>
                 </tr>
                 <tr>
+                    <th>同じスマホ別バージョン</th>
+                    <td><input type='text' name='sp-launch-16' value="" size="full"></td>
+                </tr>
+                <tr>
                     <th>関連スマホ</th>
-                    <td><input type='text' name='sp-launch-10' value=""></td>
+                    <td><input type='text' name='sp-launch-10' value="" size="full"></td>
                 </tr>
             </table>
             <?php
@@ -1183,36 +1201,47 @@ function data_ref($key)
             ?>
             <table class='data-table'>
                 <tr>
+                    <th>サイズ</th>
+                    <td>
+                        縦
+                        <input type='text' name='sp-design-0' value="<?php echo data_ref('sp-design-0');?>" size="mini">mm&nbsp;
+                        横
+                        <input type='text' name='sp-design-4' value="<?php echo data_ref('sp-design-4');?>" size="mini">mm&nbsp;
+                        厚み
+                        <input type='text' name='sp-design-5' value="<?php echo data_ref('sp-design-5');?>" size="mini">mm
+                    </td>
+                </tr>
+                <tr>
                     <th>重さ</th>
-                    <td><input type='text' name='sp-design-1' value="<?php echo data_ref('sp-design-1');?>"></td>
-                </tr>
-                <tr>
-                    <th>縦</th>
-                    <td><input type='text' name='sp-design-0' value="<?php echo data_ref('sp-design-0');?>"></td>
-                </tr>
-                <tr>
-                    <th>横</th>
-                    <td><input type='text' name='sp-design-4' value="<?php echo data_ref('sp-design-4');?>"></td>
-                </tr>
-                <tr>
-                    <th>厚み</th>
-                    <td><input type='text' name='sp-design-5' value="<?php echo data_ref('sp-design-5');?>"></td>
+                    <td>
+                        <input type='text' name='sp-design-1' value="<?php echo data_ref('sp-design-1');?>" size="mini">g
+                    </td>
                 </tr>
                 <tr>
                     <th>素材</th>
-                    <td><input type='text' name='sp-design-2' value="<?php echo data_ref('sp-design-2');?>"></td>
+                    <td>
+                        日本語訳(,区切りで入力)
+                        <input type='text' name='sp-design-2' value="<?php echo data_ref('sp-design-2');?>" size="full">
+                        英語版(,区切りで入力、スペース削除)
+                        <input type='text' name='sp-design-14' value="<?php echo data_ref('sp-design-14');?>" size="full">
+                    </td>
                 </tr>
                 <tr>
                     <th>SIM</th>
-                    <td><input type='text' name='sp-network-3' value="<?php echo data_ref('sp-network-3');?>"></td>
+                    <td><input type='text' name='sp-network-3' value="<?php echo data_ref('sp-network-3');?>" size="full"></td>
                 </tr>
                 <tr>
-                    <th>SIMカスタムtxt</th>
-                    <td><input type='text' name='sp-network-8' value="<?php echo data_ref('sp-network-8');?>"></td>
+                    <th>SIMスロット追加情報</th>
+                    <td>
+                        スロットに関する細かい情報やeSIMモデルがあるなど
+                        <input type='text' name='sp-network-8' value="<?php echo data_ref('sp-network-8');?>" size="full">
+                    </td>
                 </tr>
                 <tr>
                     <th>Dual stand by</th>
-                    <td><input type="checkbox" name="sp-network-7" value="Yes"<?php if(data_ref('sp-network-7') == 'Yes')echo ' checked';?>>対応</td>
+                    <td>
+                        <input type="checkbox" name="sp-network-7" value="Yes"<?php if(data_ref('sp-network-7') == 'Yes')echo ' checked';?>>Dual stand byに対応
+                    </td>
                 </tr>
                 <tr>
                     <th>防水防塵</th>
@@ -1237,16 +1266,14 @@ function data_ref($key)
                         <input type="checkbox" name="sp-extra-27" value="Yes"<?php if(data_ref('sp-extra-27') == 'Yes')echo ' checked';?>>MIL-STD-810G
                         <input type="checkbox" name="sp-extra-29" value="Yes"<?php if(data_ref('sp-extra-29') == 'Yes')echo ' checked';?>>MIL-STD-810F
                         <input type="checkbox" name="sp-extra-30" value="Yes"<?php if(data_ref('sp-extra-30') == 'Yes')echo ' checked';?>>MIL-STD-810D
-                        
+                        <input type="checkbox" name="sp-extra-10" value="Yes"<?php if(data_ref('sp-extra-10') == 'Yes')echo ' checked';?>>P2i撥水
                     </td>
                 </tr>
                 <tr>
                     <th>IPカスタムtxt</th>
-                    <td><input type='text' name='sp-extra-7' value="<?php echo data_ref('sp-extra-7');?>"></td>
-                </tr>
-                <tr>
-                    <th>P2i撥水</th>
-                    <td><input type="checkbox" name="sp-extra-10" value="Yes"<?php if(data_ref('sp-extra-10') == 'Yes')echo ' checked';?>></td>
+                    <td>
+                        <input type='text' name='sp-extra-7' value="<?php echo data_ref('sp-extra-7');?>">	IP68/IP65みたいな感じにかいてある場合
+                    </td>
                 </tr>
                 <tr>
                     <th>その他のやつ</th>
@@ -1347,71 +1374,97 @@ function data_ref($key)
             <table class='data-table'>
                 <tr>
                     <th>パネル種類（カスタムテキスト）</th>
-                    <td><input type='text' name='sp-screen-3' value="<?php echo data_ref('sp-screen-3');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-3' value="<?php echo data_ref('sp-screen-3');?>">Super AMOLEDや、Retina IPS、Dot Displayなど
+                    </td>
                 </tr>
                 <tr>
                     <th>画面補足情報（セカンドディスプレイなど）</th>
-                    <td><input type='text' name='sp-screen-13' value="<?php echo data_ref('sp-screen-13');?>"></td>
+                    <td>
+                        日本語
+                        <input type='text' name='sp-screen-13' value="<?php echo data_ref('sp-screen-13');?>" size='full'>
+                        補足情報-英語
+                        <input type='text' name='sp-screen-42' value="<?php echo data_ref('sp-screen-42');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
                     <th>画面保護</th>
-                    <td><input type='text' name='sp-screen-0' value="<?php echo data_ref('sp-screen-0');?>"></td>
+                    <td>
+                        日本語版(:区切りで入力)
+                        <input type='text' name='sp-screen-0' value="<?php echo data_ref('sp-screen-0');?>" size='full'>
+                        画面保護-英語(:区切りで入力)
+                        <input type='text' name='sp-screen-41' value="<?php echo data_ref('sp-screen-41');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
                     <th>インチ</th>
-                    <td><input type='text' name='sp-screen-1' value="<?php echo data_ref('sp-screen-1');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-1' value="<?php echo data_ref('sp-screen-1');?>" size='mini'>inch
+                    </td>
                 </tr>
                 <tr>
                     <th>リフレッシュレート</th>
-                    <td><input type='text' name='sp-screen-8' value="<?php echo data_ref('sp-screen-8');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-8' value="<?php echo data_ref('sp-screen-8');?>" size='mini'>Hz
+                    </td>
                 </tr>
                 <tr>
                     <th>タッチレート</th>
-                    <td><input type='text' name='sp-screen-9' value="<?php echo data_ref('sp-screen-9');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-9' value="<?php echo data_ref('sp-screen-9');?>" size='mini'>Hz
+                    </td>
                 </tr>
                 <tr>
-                    <th>輝度typ</th>
-                    <td><input type='text' name='sp-screen-15' value="<?php echo data_ref('sp-screen-15');?>"></td>
-                </tr>
-                <tr>
-                    <th>最大輝度peak</th>
-                    <td><input type='text' name='sp-screen-11' value="<?php echo data_ref('sp-screen-11');?>"></td>
+                    <th>輝度</th>
+                    <td>
+                        typ<input type='text' name='sp-screen-15' value="<?php echo data_ref('sp-screen-15');?>" size='mini'>nits&nbsp;
+                        HBM<input type='text' name='sp-screen-43' value="<?php echo data_ref('sp-screen-43');?>" size='mini'>nits&nbsp;
+                        peak<input type='text' name='sp-screen-11' value="<?php echo data_ref('sp-screen-11');?>" size='mini'>nits
+                    </td>
                 </tr>
                 <tr>
                     <th>画面占有率</th>
-                    <td><input type='text' name='sp-screen-14' value="<?php echo data_ref('sp-screen-14');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-14' value="<?php echo data_ref('sp-screen-14');?>" size='mini'>%
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦px</th>
-                    <td><input type='text' name='sp-screen-16' value="<?php echo data_ref('sp-screen-16');?>"></td>
+                    <th>pixel</th>
+                    <td>
+                        縦<input type='text' name='sp-screen-16' value="<?php echo data_ref('sp-screen-16');?>" size='mini'>px&nbsp;
+                        横<input type='text' name='sp-screen-4' value="<?php echo data_ref('sp-screen-4');?>" size='mini'>px
+                    </td>
                 </tr>
                 <tr>
-                    <th>横px</th>
-                    <td><input type='text' name='sp-screen-4' value="<?php echo data_ref('sp-screen-4');?>"></td>
-                </tr>
-                <tr>
-                    <th>アスペクト比縦</th>
-                    <td><input type='text' name='sp-screen-2' value="<?php echo data_ref('sp-screen-2');?>"></td>
-                </tr>
-                <tr>
-                    <th>アスペクト比横</th>
-                    <td><input type='text' name='sp-screen-17' value="<?php echo data_ref('sp-screen-17');?>"></td>
+                    <th>アスペクト比</th>
+                    <td>
+                        縦<input type='text' name='sp-screen-2' value="<?php echo data_ref('sp-screen-2');?>" size='mini'>x&nbsp;&nbsp;&nbsp;
+                        横<input type='text' name='sp-screen-17' value="<?php echo data_ref('sp-screen-17');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>DPI</th>
-                    <td><input type='text' name='sp-screen-6' value="<?php echo data_ref('sp-screen-6');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-6' value="<?php echo data_ref('sp-screen-6');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>表示色</th>
-                    <td><input type='text' name='sp-screen-21' value="<?php echo data_ref('sp-screen-21');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-21' value="<?php echo data_ref('sp-screen-21');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>コントラスト比</th>
-                    <td><input type='text' name='sp-screen-10' value="<?php echo data_ref('sp-screen-10');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-10' value="<?php echo data_ref('sp-screen-10');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>湾曲ディスプレイの場合の角度</th>
-                    <td><input type='text' name='sp-screen-40' value="<?php echo data_ref('sp-screen-40');?>"></td>
+                    <td>
+                        <input type='text' name='sp-screen-40' value="<?php echo data_ref('sp-screen-40');?>" size='mini'>°
+                    </td>
                 </tr>
                 <tr>
                     <th>インカメラタイプ</th>
@@ -1521,15 +1574,21 @@ function data_ref($key)
                 </tr>
                 <tr>
                     <th>OS ver</th>
-                    <td><input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-7');?>"></td>
+                    <td>
+                        <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-7');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
-                    <th>GMS</th>
-                    <td><input type="checkbox" name="sp-softwear-6" value="Yes"<?php if(data_ref('sp-softwear-6') == 'Yes')echo ' checked';?>>非対応</td>
+                    <th>GMS非対応</th>
+                    <td>
+                        <input type="checkbox" name="sp-softwear-6" value="Yes"<?php if(data_ref('sp-softwear-6') == 'Yes')echo ' checked';?>>非対応
+                    </td>
                 </tr>	
                 <tr>
                     <th>OS更新可能なバージョン</th>
-                    <td><input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-9');?>"></td>
+                    <td>
+                        <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-9');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>UI</th>
@@ -1557,31 +1616,47 @@ function data_ref($key)
                 </tr>
                 <tr>
                     <th>UI ver</th>
-                    <td><input type='text' name='sp-softwear-8' value="<?php echo data_ref('sp-softwear-8');?>"></td>
+                    <td>
+                        <input type='text' name='sp-softwear-8' value="<?php echo data_ref('sp-softwear-8');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>UI更新可能なバージョン</th>
-                    <td><input type='text' name='sp-softwear-10' value="<?php echo data_ref('sp-softwear-10');?>"></td>
+                    <td>
+                        <input type='text' name='sp-softwear-10' value="<?php echo data_ref('sp-softwear-10');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>OS追加説明</th>
-                    <td><input type='text' name='sp-softwear-11' value="<?php echo data_ref('sp-softwear-11');?>"></td>
+                    <td>
+                        <input type='text' name='sp-softwear-11' value="<?php echo data_ref('sp-softwear-11');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
                     <th>UI追加説明</th>
-                    <td><input type='text' name='sp-softwear-12' value="<?php echo data_ref('sp-softwear-12');?>"></td>
+                    <td>
+                        <input type='text' name='sp-softwear-12' value="<?php echo data_ref('sp-softwear-12');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
                     <th>SoC ID</th>
-                    <td><input type='text' name='sp-spec-11' value="<?php echo data_ref('sp-spec-11');?>"></td>
+                    <td>
+                        <input type='text' name='sp-spec-11' value="<?php echo data_ref('sp-spec-11');?>" size='mini'>
+                    </td>
                 </tr>
                 <tr>
                     <th>CPU構成(本来の構成と異なる場合)</th>
-                    <td><input type='text' name='sp-spec-2' value="<?php echo data_ref('sp-spec-2');?>"></td>
+                    <td>
+                        core名(GHz):数,core名(GHz):数,core名(GHz):数<br>
+                        ex.Kryo 485(2.84 GHz):1,Kryo 485(2.42 GHz):3,Kryo 485(1.78 GHz):4
+                        <input type='text' name='sp-spec-2' value="<?php echo data_ref('sp-spec-2');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
                     <th>GPU構成(本来の構成と異なる場合)</th>
-                    <td><input type='text' name='sp-spec-4' value="<?php echo data_ref('sp-spec-4');?>"></td>
+                    <td>
+                        <input type='text' name='sp-spec-4' value="<?php echo data_ref('sp-spec-4');?>" size='full'>
+                    </td>
                 </tr>
             </table>
             <h4>QualComm</h4>
@@ -1680,40 +1755,48 @@ function data_ref($key)
             data_viewer();?>
             <table class='data-table'>
                 <tr>
-                    <th>Micro SDカード対応</th>
-                    <td><input type="checkbox" name="sp-spec-12" value="Yes"<?php if(data_ref('sp-spec-12') == 'Yes')echo ' checked';?>></td>
+                    <th>Micro SDカード</th>
+                    <td>
+                        <input type="checkbox" name="sp-spec-12" value="Yes"<?php if(data_ref('sp-spec-12') == 'Yes')echo ' checked';?>>対応&nbsp;
+                        <input type='text' name='sp-spec-14' value="<?php echo data_ref('sp-spec-14');?>" size='mini'>GB Micro SD最大容量
+                    </td>
                 </tr>
                 <tr>
-                    <th>Micro SD最大容量</th>
-                    <td><input type='text' name='sp-spec-14' value="<?php echo data_ref('sp-spec-14');?>"></td>
-                </tr>
-                <tr>
-                    <th>NMカード対応</th>
-                    <td><input type="checkbox" name="sp-spec-20" value="Yes"<?php if(data_ref('sp-spec-20') == 'Yes')echo ' checked';?>></td>
-                </tr>
-                <tr>
-                    <th>NMカード最大容量</th>
-                    <td><input type='text' name='sp-spec-21' value="<?php echo data_ref('sp-spec-21');?>"></td>
+                    <th>NMカード</th>
+                    <td>
+                        <input type="checkbox" name="sp-spec-20" value="Yes"<?php if(data_ref('sp-spec-20') == 'Yes')echo ' checked';?>>対応&nbsp;
+                        <input type='text' name='sp-spec-21' value="<?php echo data_ref('sp-spec-21');?>" size='mini'>GB NMカード最大容量
+                    </td>
                 </tr>
                 <tr>
                     <th>メモリGB(この構成のものだけ)</th>
-                    <td><input type='text' name='sp-spec-7' value="<?php echo data_ref('sp-spec-7');?>"></td>
+                    <td>
+                        <input type='text' name='sp-spec-7' value="<?php echo data_ref('sp-spec-7');?>" size='mini'>GB
+                    </td>
                 </tr>
                 <tr>
                     <th>メモリ規格(この構成のものだけ)</th>
-                    <td><input type='text' name='sp-spec-6' value="<?php echo data_ref('sp-spec-6');?>"></td>
+                    <td>
+                        <input type='text' name='sp-spec-6' value="<?php echo data_ref('sp-spec-6');?>">
+                    </td>
                 </tr>
                 <tr>
                     <th>ストレージ規格(この構成のものだけ)</th>
-                    <td><input type='text' name='sp-spec-8' value="<?php echo data_ref('sp-spec-8');?>"></td>
+                    <td>
+                        <input type='text' name='sp-spec-8' value="<?php echo data_ref('sp-spec-8');?>">
+                    </td>
                 </tr>
                 <tr>
                     <th>ストレージGB(この構成のものだけ)</th>
-                    <td><input type='text' name='sp-spec-9' value="<?php echo data_ref('sp-spec-9');?>"></td>
+                    <td>
+                        <input type='text' name='sp-spec-9' value="<?php echo data_ref('sp-spec-9');?>" size='mini'>GB
+                    </td>
                 </tr>
                 <tr>
                     <th>他のバージョン</th>
-                    <td><input type='text' name='sp-spec-10' value="<?php echo data_ref('sp-spec-10');?>"></td>
+                    <td>
+                        <input type='text' name='sp-spec-10' value="<?php echo data_ref('sp-spec-10');?>" size='full'>
+                    </td>
                 </tr>
             </table>
             <?php
@@ -1833,35 +1916,208 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>カメラ数</th>
+                    <td>
+                        カメラ数<input type='text' name='sp-camera-4' value="<?php echo data_ref('sp-camera-4');?>" size='mini'><br>
+                        メインカメラとして表示するカメラ<input type='text' name='sp-camera-4' value="<?php echo data_ref('sp-camera-4');?>" size='mini'><br>
+                        カメラの補足説明
+                        <input type='text' name='sp-camera-14' value="<?php echo data_ref('sp-camera-14');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>カメラ1</th>
+                    <td>
+                        <div onclick='opentd("#camera1");'>表示非表示</div>
+                        <div id='camera1'>
+                            画素数<input type='text' name='sp-camera-19' value="<?php echo data_ref('sp-camera-19');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-20' value="<?php echo data_ref('sp-camera-20');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-21' value="<?php echo data_ref('sp-camera-21');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-22' value="<?php echo data_ref('sp-camera-22');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-23' value="<?php echo data_ref('sp-camera-23');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-24' value="<?php echo data_ref('sp-camera-24');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-25' value="<?php echo data_ref('sp-camera-25');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-26' value="<?php echo data_ref('sp-camera-26');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>カメラ2</th>
+                    <td>
+                        <div onclick='opentd("#camera2");'>表示非表示</div>
+                        <div id='camera2' class='hide'>
+                            画素数<input type='text' name='sp-camera-29' value="<?php echo data_ref('sp-camera-29');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-30' value="<?php echo data_ref('sp-camera-30');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-31' value="<?php echo data_ref('sp-camera-31');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-32' value="<?php echo data_ref('sp-camera-32');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-33' value="<?php echo data_ref('sp-camera-33');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-34' value="<?php echo data_ref('sp-camera-34');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-35' value="<?php echo data_ref('sp-camera-35');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-36' value="<?php echo data_ref('sp-camera-36');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>カメラ3</th>
+                    <td>
+                        <div onclick='opentd("#camera3");'>表示非表示</div>
+                        <div id='camera3' class='hide'>
+                            画素数<input type='text' name='sp-camera-39' value="<?php echo data_ref('sp-camera-39');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-40' value="<?php echo data_ref('sp-camera-40');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-41' value="<?php echo data_ref('sp-camera-41');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-42' value="<?php echo data_ref('sp-camera-42');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-43' value="<?php echo data_ref('sp-camera-43');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-44' value="<?php echo data_ref('sp-camera-44');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-45' value="<?php echo data_ref('sp-camera-45');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-46' value="<?php echo data_ref('sp-camera-46');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>カメラ4</th>
+                    <td>
+                        <div onclick='opentd("#camera4");'>表示非表示</div>
+                        <div id='camera4' class='hide'>
+                            画素数<input type='text' name='sp-camera-49' value="<?php echo data_ref('sp-camera-49');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-50' value="<?php echo data_ref('sp-camera-50');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-51' value="<?php echo data_ref('sp-camera-51');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-52' value="<?php echo data_ref('sp-camera-52');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-53' value="<?php echo data_ref('sp-camera-53');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-54' value="<?php echo data_ref('sp-camera-54');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-55' value="<?php echo data_ref('sp-camera-55');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-56' value="<?php echo data_ref('sp-camera-56');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>カメラ5</th>
+                    <td>
+                        <div onclick='opentd("#camera5");'>表示非表示</div>
+                        <div id='camera5' class='hide'>
+                            画素数<input type='text' name='sp-camera-59' value="<?php echo data_ref('sp-camera-59');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-60' value="<?php echo data_ref('sp-camera-60');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-61' value="<?php echo data_ref('sp-camera-61');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-62' value="<?php echo data_ref('sp-camera-62');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-63' value="<?php echo data_ref('sp-camera-63');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-64' value="<?php echo data_ref('sp-camera-64');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-65' value="<?php echo data_ref('sp-camera-65');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-66' value="<?php echo data_ref('sp-camera-66');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th></th>
-                    <td></td>
+                    <th>カメラ6</th>
+                    <td>
+                        <div onclick='opentd("#camera6");'>表示非表示</div>
+                        <div id='camera6' class='hide'>
+                            画素数<input type='text' name='sp-camera-69' value="<?php echo data_ref('sp-camera-69');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-70' value="<?php echo data_ref('sp-camera-70');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-71' value="<?php echo data_ref('sp-camera-71');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-72' value="<?php echo data_ref('sp-camera-72');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-73' value="<?php echo data_ref('sp-camera-73');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-74' value="<?php echo data_ref('sp-camera-74');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-75' value="<?php echo data_ref('sp-camera-75');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-76' value="<?php echo data_ref('sp-camera-76');?>" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ7</th>
+                    <td>
+                        <div onclick='opentd("#camera7");'>表示非表示</div>
+                        <div id='camera7' class='hide'>
+                            画素数<input type='text' name='sp-camera-79' value="<?php echo data_ref('sp-camera-79');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-80' value="<?php echo data_ref('sp-camera-80');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-81' value="<?php echo data_ref('sp-camera-81');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-82' value="<?php echo data_ref('sp-camera-82');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-83' value="<?php echo data_ref('sp-camera-83');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-84' value="<?php echo data_ref('sp-camera-84');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-85' value="<?php echo data_ref('sp-camera-85');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-86' value="<?php echo data_ref('sp-camera-86');?>" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ8</th>
+                    <td>
+                        <div onclick='opentd("#camera8");'>表示非表示</div>
+                        <div id='camera8' class='hide'>
+                            画素数<input type='text' name='sp-camera-89' value="<?php echo data_ref('sp-camera-89');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-90' value="<?php echo data_ref('sp-camera-90');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-91' value="<?php echo data_ref('sp-camera-91');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-92' value="<?php echo data_ref('sp-camera-92');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-93' value="<?php echo data_ref('sp-camera-93');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-94' value="<?php echo data_ref('sp-camera-94');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-95' value="<?php echo data_ref('sp-camera-95');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-96' value="<?php echo data_ref('sp-camera-96');?>" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>特徴(Features)</th>
+                    <td>
+                        <?php
+                            $input_checks = explode(':','sp-camera-100,LED flash(LEDフラッシュ):sp-camera-101,Dual LED flash(デュアルLEDフラッシュ):sp-camera-102,Triple-LED flash(トリプルLEDフラッシュ):sp-camera-103,triple-LED RGB flash(トリプルRGBLEDフラッシュ):sp-camera-104,Quad-LED flash(クアッドLEDフラッシュ):sp-camera-105,panorama(パノラマ):sp-camera-106,auto panorama (motorized rotation)(自動パノラマ撮影(電動回転)):sp-camera-107,HDR(HDR):sp-camera-108,auto-HDR(auto-HDR):sp-camera-109,Leica optics(Leicaカメラ):sp-camera-110,Zeiss optics(Zeissカメラ)');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>動画</th>
+                    <td>
+                        動画
+                        <input type='text' name='sp-camera-2' value="<?php echo data_ref('sp-camera-2');?>" size='full'>
+                        動画-日本語版
+                        <input type='text' name='sp-camera-5' value="<?php echo data_ref('sp-camera-5');?>" size='full'>
+                        <?php
+                            $input_checks = explode(':','sp-camera-113,HDR10+:sp-camera-114,OIS:sp-camera-115,gyro-EIS:sp-camera-116,stereo sound rec');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
             </table>
             <?php
@@ -1967,47 +2223,129 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>インカメラ数</th>
+                    <td>
+                        インカメラ数<input type='text' name='sp-camera-12' value="<?php echo data_ref('sp-camera-12');?>" size='mini'><br>
+                        メインカメラとして表示するインカメラ<input type='text' name='sp-camera-17' value="<?php echo data_ref('sp-camera-17');?>" size='mini'><br>
+                        インカメラの補足説明
+                        <input type='text' name='sp-camera-18' value="<?php echo data_ref('sp-camera-18');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>カメラ1</th>
+                    <td>
+                        <div onclick='opentd("#incamera1");'>表示非表示</div>
+                        <div id='incamera1'>
+                            画素数<input type='text' name='sp-camera-121' value="<?php echo data_ref('sp-camera-121');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-122' value="<?php echo data_ref('sp-camera-122');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-123' value="<?php echo data_ref('sp-camera-123');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-124' value="<?php echo data_ref('sp-camera-124');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-125' value="<?php echo data_ref('sp-camera-125');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-126' value="<?php echo data_ref('sp-camera-126');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-127' value="<?php echo data_ref('sp-camera-127');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-128' value="<?php echo data_ref('sp-camera-128');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
+                    <th>カメラ2</th>
+                    <td>
+                        <div onclick='opentd("#incamera2");'>表示非表示</div>
+                        <div id='incamera2' class='hide'>
+                            画素数<input type='text' name='sp-camera-131' value="<?php echo data_ref('sp-camera-131');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-132' value="<?php echo data_ref('sp-camera-132');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-133' value="<?php echo data_ref('sp-camera-133');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-134' value="<?php echo data_ref('sp-camera-134');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-135' value="<?php echo data_ref('sp-camera-135');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-136' value="<?php echo data_ref('sp-camera-136');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-137' value="<?php echo data_ref('sp-camera-137');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-138' value="<?php echo data_ref('sp-camera-138');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
-                    <td></td>
+                    <th>カメラ3</th>
+                    <td>
+                        <div onclick='opentd("#incamera3");'>表示非表示</div>
+                        <div id='incamera3' class='hide'>
+                            画素数<input type='text' name='sp-camera-141' value="<?php echo data_ref('sp-camera-141');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-142' value="<?php echo data_ref('sp-camera-142');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-143' value="<?php echo data_ref('sp-camera-143');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-144' value="<?php echo data_ref('sp-camera-144');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-145' value="<?php echo data_ref('sp-camera-145');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-146' value="<?php echo data_ref('sp-camera-146');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-147' value="<?php echo data_ref('sp-camera-147');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-148' value="<?php echo data_ref('sp-camera-148');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>カメラ4</th>
+                    <td>
+                        <div onclick='opentd("#incamera4");'>表示非表示</div>
+                        <div id='incamera4' class='hide'>
+                            画素数<input type='text' name='sp-camera-151' value="<?php echo data_ref('sp-camera-151');?>" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-152' value="<?php echo data_ref('sp-camera-152');?>" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-153' value="<?php echo data_ref('sp-camera-153');?>" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-154' value="<?php echo data_ref('sp-camera-154');?>" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-155' value="<?php echo data_ref('sp-camera-155');?>" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-156' value="<?php echo data_ref('sp-camera-156');?>" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-157' value="<?php echo data_ref('sp-camera-157');?>" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-158' value="<?php echo data_ref('sp-camera-158');?>" size='full'>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
-                    <td></td>
+                    <th>特徴(Features)</th>
+                    <td>
+
+                        <?php
+                            $input_checks = explode(':','sp-camera-204,デュアルビデオ通話(Dual video call):sp-camera-205,Auto-HDR(Auto-HDR):sp-camera-206,パノラマ(panorama):sp-camera-207,デュアルLEDフラッシュ(Dual-LED flash):sp-camera-208,HDR(HDR)');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>防水防塵</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>インカメラ動画</th>
+                    <td>
+                        インカメラ動画
+                        <input type='text' name='sp-camera-201' value="<?php echo data_ref('sp-camera-201');?>" size='full'>
+                        インカメラ動画-日本語版
+                        <input type='text' name='sp-camera-202' value="<?php echo data_ref('sp-camera-202');?>" size='full'>
+                        <?php
+                            $input_checks = explode(':','sp-camera-210,HDR10+:sp-camera-211,OIS:sp-camera-212,gyro-EIS:sp-camera-213,stereo sound rec');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
             </table>
             <?php
@@ -2274,8 +2612,6 @@ function data_ref($key)
             }
             data_viewer();?>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
                     <th>Wi-Fi</th>
                     <td>
