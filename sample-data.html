@@ -1,4 +1,7 @@
 
+<h1>スクレイピングの奴</h1>
+<form id='form1'>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <style>
 	/*ul tag belong spection data.*/
 	.spec-ul{list-style-type:none;margin:0;padding:0}
@@ -44,7 +47,7 @@
         width:330px;
     }
     body{
-        margin:0
+        margin:20px
     }
     .table-icons {
         margin-right: 10px;
@@ -65,14 +68,1152 @@
     .data-table td {
         font-size: 13px;
     }
+    input[type="text"],textarea{
+        /*width:100%;*/
+    }
+    input[size="full"],textarea{
+        width:100%;
+    }
+    input[size="mini"],textarea{
+        width:3rem;
+    }
+    table tr:nth-child(odd){
+	    background: #eee;
+    }
+    table[cellspacing="0"]{
+        border:2px gray solid;
+        border-radius:5px;
+    }
+    td span:nth-child(odd){
+        color:red;
+    }
+    td span{
+        border:1px gray solid;
+        margin:5px;
+        border-radius:4px;
+    }
+    .hide{
+        display:none;
+    }
 </style>
+<script>
+    function opentd(target){
+        $(target).toggleClass('hide');
+    }
+</script>
+<style>
+.tagcloud a {
+    font-size: 1rem !important;
+    line-height: 1em;
+    color: #5f6ab5;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 8px 8px;
+    border: 1px solid #5f6ab5;
+    margin: 3px 3px 0 0;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.tagcloud2 a {
+    font-size: .8rem !important;
+    line-height: .8em;
+    color: green;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 8px 8px;
+    border: 1px solid green;
+    margin: 3px 3px 0 0;
+    border-radius: 10px;
+    text-decoration: none;
+}
+</style>
+            <h2>ネットワーク</h2>            
+            <h3>元の表</h3>
+            <table cellspacing="0">  <tr class="tr-hover">  <th rowspan="15" scope="row">Network</th>  <td class="ttl"><a href="network-bands.php3">Technology</a></td>  <td class="nfo"><a href="#" class="link-network-detail collapse" data-spec="nettech">GSM / HSPA / LTE / 5G</a></td>  </tr>  <tr class="tr-toggle">  <td class="ttl"><a href="network-bands.php3">2G bands</a></td>  <td class="nfo" data-spec="net2g">GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2</td>  </tr><tr class="tr-toggle">  <td class="ttl"><a href="network-bands.php3">3G bands</a></td>  <td class="nfo" data-spec="net3g">HSDPA 800 / 850 / 900 / 1700(AWS) / 1900 / 2100 </td>  </tr>  <tr class="tr-toggle">  <td class="ttl"><a href="network-bands.php3">4G bands</a></td>  <td class="nfo" data-spec="net4g">1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International</td>  </tr>  <tr class="tr-toggle" data-spec-optional>  <td class="ttl">&nbsp;</td>  <td class="nfo">1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA</td>  </tr>  <tr class="tr-toggle">  <td class="ttl"><a href="network-bands.php3">5G bands</a></td>  <td class="nfo" data-spec="net5g">1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International</td>  </tr>  <tr class="tr-toggle" data-spec-optional>  <td class="ttl">&nbsp;</td>  <td class="nfo">1, 2, 3, 5, 7, 8, 12, 20, 25, 38, 40, 66, 71, 77, 78 SA/NSA - USA</td>  </tr>  <tr class="tr-toggle">  <td class="ttl"><a href="glossary.php3?term=3g">Speed</a></td>  <td class="nfo" data-spec="speed">HSPA 42.2/5.76 Mbps, LTE-A (5CA) Cat20 2000/150 Mbps, 5G</td>  </tr>  	    	      </table><div class='tagcloud'><a>sp-band-8:GSM / HSPA / LTE / 5G</a><a>sp-band-4:GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2</a><a>sp-band-0:Yes</a><a>sp-band-2g-gsm-850:Yes</a><a>sp-band-2g-gsm-900:Yes</a><a>sp-band-2g-gsm-1800:Yes</a><a>sp-band-2g-gsm-1900:Yes</a><a>sp-band-5:HSDPA 800 / 850 / 900 / 1700(AWS) / 1900 / 2100 </a><a>sp-band-1:Yes</a><a>sp-band-3g-hsdpa-800:Yes</a><a>sp-band-3g-hsdpa-850:Yes</a><a>sp-band-3g-hsdpa-900:Yes</a><a>sp-band-3g-hsdpa-1700:Yes</a><a>sp-band-3g-hsdpa-1700-aws:Yes</a><a>sp-band-3g-hsdpa-1900:Yes</a><a>sp-band-3g-hsdpa-2100:Yes</a><a>sp-band-6:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International</a><a>sp-band-6:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International</a><a>sp-band-4g-1:Yes</a><a>sp-band-4g-2:Yes</a><a>sp-band-4g-3:Yes</a><a>sp-band-4g-4:Yes</a><a>sp-band-4g-5:Yes</a><a>sp-band-4g-7:Yes</a><a>sp-band-4g-8:Yes</a><a>sp-band-4g-12:Yes</a><a>sp-band-4g-17:Yes</a><a>sp-band-4g-18:Yes</a><a>sp-band-4g-19:Yes</a><a>sp-band-4g-20:Yes</a><a>sp-band-4g-26:Yes</a><a>sp-band-4g-28:Yes</a><a>sp-band-4g-34:Yes</a><a>sp-band-4g-38:Yes</a><a>sp-band-4g-39:Yes</a><a>sp-band-4g-40:Yes</a><a>sp-band-4g-41:Yes</a><a>sp-band-4g-42:Yes</a><a>sp-band-6:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA</a><a>sp-band-6:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA</a><a>sp-band-7:1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International</a><a>sp-band-3:Yes</a><a>sp-band-5g-n1:Yes</a><a>sp-band-5g-n2:Yes</a><a>sp-band-5g-n3:Yes</a><a>sp-band-5g-n5:Yes</a><a>sp-band-5g-n7:Yes</a><a>sp-band-5g-n8:Yes</a><a>sp-band-5g-n12:Yes</a><a>sp-band-5g-n20:Yes</a><a>sp-band-5g-n28:Yes</a><a>sp-band-5g-n38:Yes</a><a>sp-band-5g-n77:Yes</a><a>sp-band-5g-n78:Yes</a><a>sp-band-7:1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International:1, 2, 3, 5, 7, 8, 12, 20, 25, 38, 40, 66, 71, 77, 78 SA/NSA - USA</a><a>sp-band-9:HSPA 42.2/5.76 Mbps, LTE-A (5CA) Cat20 2000/150 Mbps, 5G</a></div>            <h3>自動設定された表</h3>
+            <table class='data-table'>
+                <tr>
+                    <th>技術</th>
+                    <td><input type='text' name='sp-band-8' value="GSM / HSPA / LTE / 5G" size="full"></td>
+                </tr>
+                <tr>
+                    <th>速度</th>
+                    <td><input type='text' name='sp-band-9' value="HSPA 42.2/5.76 Mbps, LTE-A (5CA) Cat20 2000/150 Mbps, 5G" size="full"></td>
+                </tr>
+                <tr>
+                    <th>バンド</th>
+                    <td>
+                        ・表示される5G<br><br>
+                        <input type='text' name='sp-band-7' value="1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International:1, 2, 3, 5, 7, 8, 12, 20, 25, 38, 40, 66, 71, 77, 78 SA/NSA - USA" size="full"><br><br>
 
-<p>url:</p>
+                        ・5G各バンド<br><br>
+                        <input type="checkbox" name="sp-band-5g-n1" value="Yes" checked>1<input type="checkbox" name="sp-band-5g-n2" value="Yes" checked>2<input type="checkbox" name="sp-band-5g-n3" value="Yes" checked>3<input type="checkbox" name="sp-band-5g-n5" value="Yes" checked>5<input type="checkbox" name="sp-band-5g-n7" value="Yes" checked>7<input type="checkbox" name="sp-band-5g-n8" value="Yes" checked>8<input type="checkbox" name="sp-band-5g-n12" value="Yes" checked>12<input type="checkbox" name="sp-band-5g-n14" value="Yes">14<input type="checkbox" name="sp-band-5g-n18" value="Yes">18<input type="checkbox" name="sp-band-5g-n20" value="Yes" checked>20<input type="checkbox" name="sp-band-5g-n25" value="Yes">25<input type="checkbox" name="sp-band-5g-n28" value="Yes" checked>28<input type="checkbox" name="sp-band-5g-n29" value="Yes">29<input type="checkbox" name="sp-band-5g-n30" value="Yes">30<input type="checkbox" name="sp-band-5g-n34" value="Yes">34<input type="checkbox" name="sp-band-5g-n38" value="Yes" checked>38<input type="checkbox" name="sp-band-5g-n39" value="Yes">39<input type="checkbox" name="sp-band-5g-n40" value="Yes">40<input type="checkbox" name="sp-band-5g-n41" value="Yes">41<input type="checkbox" name="sp-band-5g-n48" value="Yes">48<input type="checkbox" name="sp-band-5g-n50" value="Yes">50<input type="checkbox" name="sp-band-5g-n51" value="Yes">51<input type="checkbox" name="sp-band-5g-n65" value="Yes">65<input type="checkbox" name="sp-band-5g-n66" value="Yes">66<input type="checkbox" name="sp-band-5g-n70" value="Yes">70<input type="checkbox" name="sp-band-5g-n71" value="Yes">71<input type="checkbox" name="sp-band-5g-n74" value="Yes">74<input type="checkbox" name="sp-band-5g-n75" value="Yes">75<input type="checkbox" name="sp-band-5g-n76" value="Yes">76<input type="checkbox" name="sp-band-5g-n77" value="Yes" checked>77<input type="checkbox" name="sp-band-5g-n78" value="Yes" checked>78<input type="checkbox" name="sp-band-5g-n79" value="Yes">79<input type="checkbox" name="sp-band-5g-n80" value="Yes">80<input type="checkbox" name="sp-band-5g-n81" value="Yes">81<input type="checkbox" name="sp-band-5g-n82" value="Yes">82<input type="checkbox" name="sp-band-5g-n83" value="Yes">83<input type="checkbox" name="sp-band-5g-n84" value="Yes">84<input type="checkbox" name="sp-band-5g-n86" value="Yes">86<input type="checkbox" name="sp-band-5g-n89" value="Yes">89<input type="checkbox" name="sp-band-5g-n90" value="Yes">90<input type="checkbox" name="sp-band-5g-n257" value="Yes">257<input type="checkbox" name="sp-band-5g-n258" value="Yes">258<input type="checkbox" name="sp-band-5g-n260" value="Yes">260<input type="checkbox" name="sp-band-5g-n261" value="Yes">261<br><br>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78, <br><br>
+                        ・表示される4G<br><br>
+                        <input type='text' name='sp-band-6' value="1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA" size="full">
+                        ・4G各バンド<br><br>
+                        <input type="checkbox" name="sp-band-4g-1" value="Yes" checked>1<input type="checkbox" name="sp-band-4g-2" value="Yes" checked>2<input type="checkbox" name="sp-band-4g-3" value="Yes" checked>3<input type="checkbox" name="sp-band-4g-4" value="Yes" checked>4<input type="checkbox" name="sp-band-4g-5" value="Yes" checked>5<input type="checkbox" name="sp-band-4g-6" value="Yes">6<input type="checkbox" name="sp-band-4g-7" value="Yes" checked>7<input type="checkbox" name="sp-band-4g-8" value="Yes" checked>8<input type="checkbox" name="sp-band-4g-10" value="Yes">10<input type="checkbox" name="sp-band-4g-11" value="Yes">11<input type="checkbox" name="sp-band-4g-12" value="Yes" checked>12<input type="checkbox" name="sp-band-4g-13" value="Yes">13<input type="checkbox" name="sp-band-4g-14" value="Yes">14<input type="checkbox" name="sp-band-4g-17" value="Yes" checked>17<input type="checkbox" name="sp-band-4g-18" value="Yes" checked>18<input type="checkbox" name="sp-band-4g-19" value="Yes" checked>19<input type="checkbox" name="sp-band-4g-20" value="Yes" checked>20<input type="checkbox" name="sp-band-4g-21" value="Yes">21<input type="checkbox" name="sp-band-4g-22" value="Yes">22<input type="checkbox" name="sp-band-4g-23" value="Yes">23<input type="checkbox" name="sp-band-4g-24" value="Yes">24<input type="checkbox" name="sp-band-4g-25" value="Yes">25<input type="checkbox" name="sp-band-4g-26" value="Yes" checked>26<input type="checkbox" name="sp-band-4g-27" value="Yes">27<input type="checkbox" name="sp-band-4g-28" value="Yes" checked>28<input type="checkbox" name="sp-band-4g-29" value="Yes">29<input type="checkbox" name="sp-band-4g-30" value="Yes">30<input type="checkbox" name="sp-band-4g-31" value="Yes">31<input type="checkbox" name="sp-band-4g-32" value="Yes">32<input type="checkbox" name="sp-band-4g-33" value="Yes">33<input type="checkbox" name="sp-band-4g-34" value="Yes" checked>34<input type="checkbox" name="sp-band-4g-35" value="Yes">35<input type="checkbox" name="sp-band-4g-36" value="Yes">36<input type="checkbox" name="sp-band-4g-37" value="Yes">37<input type="checkbox" name="sp-band-4g-38" value="Yes" checked>38<input type="checkbox" name="sp-band-4g-39" value="Yes" checked>39<input type="checkbox" name="sp-band-4g-40" value="Yes" checked>40<input type="checkbox" name="sp-band-4g-41" value="Yes" checked>41<input type="checkbox" name="sp-band-4g-42" value="Yes" checked>42<input type="checkbox" name="sp-band-4g-43" value="Yes">43<input type="checkbox" name="sp-band-4g-44" value="Yes">44<input type="checkbox" name="sp-band-4g-45" value="Yes">45<input type="checkbox" name="sp-band-4g-46" value="Yes">46<input type="checkbox" name="sp-band-4g-47" value="Yes">47<input type="checkbox" name="sp-band-4g-48" value="Yes">48<input type="checkbox" name="sp-band-4g-49" value="Yes">49<input type="checkbox" name="sp-band-4g-50" value="Yes">50<input type="checkbox" name="sp-band-4g-51" value="Yes">51<input type="checkbox" name="sp-band-4g-52" value="Yes">52<input type="checkbox" name="sp-band-4g-65" value="Yes">65<input type="checkbox" name="sp-band-4g-66" value="Yes">66<input type="checkbox" name="sp-band-4g-67" value="Yes">67<input type="checkbox" name="sp-band-4g-68" value="Yes">68<input type="checkbox" name="sp-band-4g-69" value="Yes">69<input type="checkbox" name="sp-band-4g-70" value="Yes">70<input type="checkbox" name="sp-band-4g-71" value="Yes">71<input type="checkbox" name="sp-band-4g-72" value="Yes">72<input type="checkbox" name="sp-band-4g-73" value="Yes">73<input type="checkbox" name="sp-band-4g-74" value="Yes">74<input type="checkbox" name="sp-band-4g-75" value="Yes">75<input type="checkbox" name="sp-band-4g-76" value="Yes">76<input type="checkbox" name="sp-band-4g-85" value="Yes">85<input type="checkbox" name="sp-band-4g-252" value="Yes">252<input type="checkbox" name="sp-band-4g-255" value="Yes">255<br><br>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42, <br><br>
+                        ・表示される3G<br><br>
+                        <input type='text' name='sp-band-5' value="HSDPA 800 / 850 / 900 / 1700(AWS) / 1900 / 2100 " size="full">
+                        ・3G各バンド<br><br>
+                        <input type="checkbox" name="sp-band-3g-hsdpa-800" value="Yes" checked>HSDPA:800<input type="checkbox" name="sp-band-3g-hsdpa-850" value="Yes" checked>HSDPA:850<input type="checkbox" name="sp-band-3g-hsdpa-900" value="Yes" checked>HSDPA:900<input type="checkbox" name="sp-band-3g-hsdpa-1000" value="Yes">HSDPA:1000<input type="checkbox" name="sp-band-3g-hsdpa-1700" value="Yes" checked>HSDPA:1700<input type="checkbox" name="sp-band-3g-hsdpa-1700-aws" value="Yes" checked>HSDPA:1700(AWS)<input type="checkbox" name="sp-band-3g-hsdpa-1500" value="Yes">HSDPA:1500<input type="checkbox" name="sp-band-3g-hsdpa-1900" value="Yes" checked>HSDPA:1900<input type="checkbox" name="sp-band-3g-hsdpa-2100" value="Yes" checked>HSDPA:2100<input type="checkbox" name="sp-band-3g-cdma2000-1xev-do" value="Yes">CDMA2000:1xEV-DO<br><br>HSDPA:800, HSDPA:850, HSDPA:900, HSDPA:1700, HSDPA:1700(AWS), HSDPA:1900, HSDPA:2100, <br><br>
+                        ・表示される2G<br><br>
+                        <input type='text' name='sp-band-4' value="GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2" size="full">
+                        ・2G各バンド<br><br>
+                        <input type="checkbox" name="sp-band-2g-gsm-400" value="Yes">GSM:400<input type="checkbox" name="sp-band-2g-gsm-700" value="Yes">GSM:700<input type="checkbox" name="sp-band-2g-gsm-800" value="Yes">GSM:800<input type="checkbox" name="sp-band-2g-gsm-850" value="Yes" checked>GSM:850<input type="checkbox" name="sp-band-2g-gsm-900" value="Yes" checked>GSM:900<input type="checkbox" name="sp-band-2g-gsm-1700" value="Yes">GSM:1700<input type="checkbox" name="sp-band-2g-gsm-1800" value="Yes" checked>GSM:1800<input type="checkbox" name="sp-band-2g-gsm-1900" value="Yes" checked>GSM:1900<input type="checkbox" name="sp-band-2g-gsm-2000" value="Yes">GSM:2000<input type="checkbox" name="sp-band-2g-cdma-800" value="Yes">CDMA:800<input type="checkbox" name="sp-band-2g-cdma-2000" value="Yes">CDMA:2000<input type="checkbox" name="sp-band-2g-TD-SCDMA" value="Yes">TD SCDMA:0<br><br>GSM:850, GSM:900, GSM:1800, GSM:1900, <br><br>
+                    </td>
+                </tr>
+            </table>    
+            
+<input type="submit" value="送信">
+<div id="output_message"></div>
+  <script language="javascript" type="text/javascript">
+    function func1() {
+      var formData = new FormData(document.forms.form1);
+      formData.append("key1", "value1");
+      for (item of formData) {
+        console.log(item);
+      }
+      return false;
+    }
+  </script>
+            <table cellspacing="0">  <tr>  <th rowspan="2" scope="row">Launch</th>  <td class="ttl"><a href="glossary.php3?term=phone-life-cycle">Announced</a></td>  <td class="nfo" data-spec="year">2021, May 12</td>  </tr>	  <tr>  <td class="ttl"><a href="glossary.php3?term=phone-life-cycle">Status</a></td>  <td class="nfo" data-spec="status">Available. Released 2021, May 13</td>  </tr>  </table><div class='tagcloud'><a>sp-launch-1:2021-5-12</a><a>sp-launch-2:2021-5-13</a></div>            
+            <table class='data-table'>
+                <tr>
+                    <th>発表日</th>
+                    <td><input type='text' name='sp-launch-1' value="2021-5-12"></td>
+                </tr>
+                <tr>
+                    <th>発売日</th>
+                    <td><input type='text' name='sp-launch-2' value="2021-5-13"></td>
+                </tr>
+                <tr>
+                    <th>未発表の場合の期待される発表日</th>
+                    <td><input type='text' name='sp-launch-13' value=""></td>
+                </tr>
+                <tr>
+                    <th>細かいやつら</th>
+                    <td>
+                        <input type="checkbox" name="sp-launch-15" value="Yes">これがメイン表示の場合
+                        <input type="checkbox" name="sp-launch-12" value="Yes">リーク
+                        <input type="checkbox" name="sp-launch-14" value="Yes" >日本で発売されたやつ
+                    </td>
+                </tr>
+                <tr>
+                    <th>端末id(一意のid)</th>
+                    <td><input type='text' name='sp-launch-9' value=""></td>
+                </tr>
+                <tr>
+                    <th>メインiD</th>
+                    <td><input type='text' name='sp-launch-11' value=""></td>
+                </tr>
+                <tr>
+                    <th>同じスマホ別バージョン</th>
+                    <td><input type='text' name='sp-launch-16' value="" size="full"></td>
+                </tr>
+                <tr>
+                    <th>関連スマホ</th>
+                    <td><input type='text' name='sp-launch-10' value="" size="full"></td>
+                </tr>
+            </table>
+            <p>out of index((IP68 dust/water resistant (up to 1.5m for 30 mins)</p><table cellspacing="0">  <tr>  <th rowspan="6" scope="row">Body</th>  <td class="ttl"><a href=# onclick="helpW('h_dimens.htm');">Dimensions</a></td>  <td class="nfo" data-spec="dimensions">148 x 68.5 x 8.9 mm (5.83 x 2.70 x 0.35 in)</td>  </tr><tr>  <td class="ttl"><a href=# onclick="helpW('h_weight.htm');">Weight</a></td>  <td class="nfo" data-spec="weight">169 g (5.96 oz)</td>  </tr>  <tr>  <td class="ttl"><a href="glossary.php3?term=build">Build</a></td>  <td class="nfo" data-spec="build">Glass front (Gorilla Glass Victus), glass back (Gorilla Glass 3), aluminum frame</td>  </tr>  <tr>  <td class="ttl"><a href="glossary.php3?term=sim">SIM</a></td>  <td class="nfo" data-spec="sim">Dual SIM (Nano-SIM, dual stand-by)</td>  </tr>  <tr><td class="ttl">&nbsp;</td><td class="nfo" data-spec="bodyother">IP68 dust/water resistant (up to 1.5m for 30 mins)</td></tr>  		  </table><div class='tagcloud'><a>sp-design-0:148</a><a>sp-design-4:68.5</a><a>sp-design-5:8.9 </a><a>sp-design-1:169</a><a>sp-design-2:Glass front (Gorilla Glass Victus), glass back (Gorilla Glass 3), aluminum frame</a><a>sp-network-3:Dual SIM (Nano-SIM, dual stand-by)</a><a>sp-network-7:Yes</a><a>sp-extra-6:Yes</a></div>            <table class='data-table'>
+                <tr>
+                    <th>サイズ</th>
+                    <td>
+                        縦
+                        <input type='text' name='sp-design-0' value="148" size="mini">mm&nbsp;
+                        横
+                        <input type='text' name='sp-design-4' value="68.5" size="mini">mm&nbsp;
+                        厚み
+                        <input type='text' name='sp-design-5' value="8.9 " size="mini">mm
+                    </td>
+                </tr>
+                <tr>
+                    <th>重さ</th>
+                    <td>
+                        <input type='text' name='sp-design-1' value="169" size="mini">g
+                    </td>
+                </tr>
+                <tr>
+                    <th>素材</th>
+                    <td>
+                        日本語訳(,区切りで入力)
+                        <input type='text' name='sp-design-2' value="Glass front (Gorilla Glass Victus), glass back (Gorilla Glass 3), aluminum frame" size="full">
+                        英語版(,区切りで入力、スペース削除)
+                        <input type='text' name='sp-design-14' value="" size="full">
+                    </td>
+                </tr>
+                <tr>
+                    <th>SIM</th>
+                    <td><input type='text' name='sp-network-3' value="Dual SIM (Nano-SIM, dual stand-by)" size="full"></td>
+                </tr>
+                <tr>
+                    <th>SIMスロット追加情報</th>
+                    <td>
+                        スロットに関する細かい情報やeSIMモデルがあるなど
+                        <input type='text' name='sp-network-8' value="" size="full">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Dual stand by</th>
+                    <td>
+                        <input type="checkbox" name="sp-network-7" value="Yes" checked>Dual stand byに対応
+                    </td>
+                </tr>
+                <tr>
+                    <th>防水防塵</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-6" value="Yes" checked>防水防塵対応
+                        <input type="checkbox" name="sp-extra-11" value="Yes">IP 6X
+                        <input type="checkbox" name="sp-extra-12" value="Yes">IP 5X
+                        <input type="checkbox" name="sp-extra-13" value="Yes">IP 4X
+                        <input type="checkbox" name="sp-extra-14" value="Yes">IP 3X
+                        <input type="checkbox" name="sp-extra-15" value="Yes">IP 2X
+                        <input type="checkbox" name="sp-extra-16" value="Yes">IP 1X
+                        <input type="checkbox" name="sp-extra-17" value="Yes">IP 0X
+                        <input type="checkbox" name="sp-extra-18" value="Yes">IP X0
+                        <input type="checkbox" name="sp-extra-19" value="Yes">IP X1
+                        <input type="checkbox" name="sp-extra-20" value="Yes">IP X2
+                        <input type="checkbox" name="sp-extra-21" value="Yes">IP X3
+                        <input type="checkbox" name="sp-extra-22" value="Yes">IP X4
+                        <input type="checkbox" name="sp-extra-23" value="Yes">IP X5
+                        <input type="checkbox" name="sp-extra-24" value="Yes">IP X6
+                        <input type="checkbox" name="sp-extra-25" value="Yes">IP X7
+                        <input type="checkbox" name="sp-extra-26" value="Yes">IP X8
+                        <input type="checkbox" name="sp-extra-27" value="Yes">MIL-STD-810G
+                        <input type="checkbox" name="sp-extra-29" value="Yes">MIL-STD-810F
+                        <input type="checkbox" name="sp-extra-30" value="Yes">MIL-STD-810D
+                        <input type="checkbox" name="sp-extra-10" value="Yes">P2i撥水
+                    </td>
+                </tr>
+                <tr>
+                    <th>IPカスタムtxt</th>
+                    <td>
+                        <input type='text' name='sp-extra-7' value="">	IP68/IP65みたいな感じにかいてある場合
+                    </td>
+                </tr>
+                <tr>
+                    <th>その他のやつ</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-28" value="Yes">Apple Pay
+                        <input type="checkbox" name="sp-extra-31" value="Yes">ポップアップゲーミングボタン
+                        <input type="checkbox" name="sp-extra-32" value="Yes">スタイラスペン対応
+                        <input type="checkbox" name="sp-extra-33" value="Yes">プロ・ショルダー・トリガー3.0(400Hz)
+                    </td>
+                </tr>
+            </table>
+            <p>out of index((Always-on display</p><table cellspacing="0">  <tr>  <th rowspan="5" scope="row">Display</th>  <td class="ttl"><a href="glossary.php3?term=display-type">Type</a></td>  <td class="nfo" data-spec="displaytype">Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)</td>  </tr>  <tr>  <td class="ttl"><a href=# onclick="helpW('h_dsize.htm');">Size</a></td>  <td class="nfo" data-spec="displaysize">5.9 inches, 84.0 cm<sup>2</sup> (~82.9% screen-to-body ratio)</td>  </tr>  <tr>  <td class="ttl"><a href="glossary.php3?term=resolution">Resolution</a></td>  <td class="nfo" data-spec="displayresolution">1080 x 2400 pixels, 20:9 ratio (~446 ppi density)</td>  </tr>  <tr>  <td class="ttl"><a href="glossary.php3?term=screen-protection">Protection</a></td>  <td class="nfo" data-spec="displayprotection">Corning Gorilla Glass Victus</td>  </tr>  <tr><td class="ttl">&nbsp;</td><td class="nfo" data-spec="displayother">Always-on display</td></tr>  		  </table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>パネル種類（カスタムテキスト）</th>
+                    <td>
+                        <input type='text' name='sp-screen-3' value="">Super AMOLEDや、Retina IPS、Dot Displayなど
+                    </td>
+                </tr>
+                <tr>
+                    <th>画面補足情報（セカンドディスプレイなど）</th>
+                    <td>
+                        日本語
+                        <input type='text' name='sp-screen-13' value="" size='full'>
+                        補足情報-英語
+                        <input type='text' name='sp-screen-42' value="" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>画面保護</th>
+                    <td>
+                        日本語版(:区切りで入力)
+                        <input type='text' name='sp-screen-0' value="" size='full'>
+                        画面保護-英語(:区切りで入力)
+                        <input type='text' name='sp-screen-41' value="" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>インチ</th>
+                    <td>
+                        <input type='text' name='sp-screen-1' value="" size='mini'>inch
+                    </td>
+                </tr>
+                <tr>
+                    <th>リフレッシュレート</th>
+                    <td>
+                        <input type='text' name='sp-screen-8' value="" size='mini'>Hz
+                    </td>
+                </tr>
+                <tr>
+                    <th>タッチレート</th>
+                    <td>
+                        <input type='text' name='sp-screen-9' value="" size='mini'>Hz
+                    </td>
+                </tr>
+                <tr>
+                    <th>輝度</th>
+                    <td>
+                        typ<input type='text' name='sp-screen-15' value="" size='mini'>nits&nbsp;
+                        HBM<input type='text' name='sp-screen-43' value="" size='mini'>nits&nbsp;
+                        peak<input type='text' name='sp-screen-11' value="" size='mini'>nits
+                    </td>
+                </tr>
+                <tr>
+                    <th>画面占有率</th>
+                    <td>
+                        <input type='text' name='sp-screen-14' value="" size='mini'>%
+                    </td>
+                </tr>
+                <tr>
+                    <th>pixel</th>
+                    <td>
+                        縦<input type='text' name='sp-screen-16' value="" size='mini'>px&nbsp;
+                        横<input type='text' name='sp-screen-4' value="" size='mini'>px
+                    </td>
+                </tr>
+                <tr>
+                    <th>アスペクト比</th>
+                    <td>
+                        縦<input type='text' name='sp-screen-2' value="" size='mini'>x&nbsp;&nbsp;&nbsp;
+                        横<input type='text' name='sp-screen-17' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>DPI</th>
+                    <td>
+                        <input type='text' name='sp-screen-6' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>表示色</th>
+                    <td>
+                        <input type='text' name='sp-screen-21' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>コントラスト比</th>
+                    <td>
+                        <input type='text' name='sp-screen-10' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>湾曲ディスプレイの場合の角度</th>
+                    <td>
+                        <input type='text' name='sp-screen-40' value="" size='mini'>°
+                    </td>
+                </tr>
+                <tr>
+                    <th>インカメラタイプ</th>
+                    <td>
+                        <input type="checkbox" name="sp-screen-29" value="Yes">ノッチ
+                        <input type="checkbox" name="sp-screen-30" value="Yes">スライドカメラ
+                        <input type="checkbox" name="sp-screen-31" value="Yes">フリップカメラ
+                        <input type="checkbox" name="sp-screen-32" value="Yes">中央パンチホール
+                        <input type="checkbox" name="sp-screen-33" value="Yes">左上パンチホール
+                        <input type="checkbox" name="sp-screen-34" value="Yes">右上パンチホール
+                        <input type="checkbox" name="sp-screen-35" value="Yes">ディスプレイ下
+                        <input type="checkbox" name="sp-screen-36" value="Yes">ベゼル内
+                        <input type="checkbox" name="sp-screen-37" value="Yes">カメラなし
+                        <input type="checkbox" name="sp-screen-38" value="Yes">ポップアップ
+                    </td>
+                </tr>
+                <tr>
+                    <th>画面タイプ</th>
+                    <td>
+                        <input type="checkbox" name="sp-screen-23" value="Yes">有機EL
+                        <input type="checkbox" name="sp-screen-24" value="Yes">IPS
+                        <input type="checkbox" name="sp-screen-25" value="Yes">TFT
+                        <input type="checkbox" name="sp-screen-26" value="Yes">TN
+                    </td>
+                </tr>
+                <tr>
+                    <th>細かいやつら</th>
+                    <td>
+                        <input type="checkbox" name="sp-screen-39" value="Yes">湾曲ディスプレイ    
+                        <input type="checkbox" name="sp-screen-27" value="Yes">HDR10+
+                        <input type="checkbox" name="sp-screen-28" value="Yes">HDR10
+                        <input type="checkbox" name="sp-screen-22" value="Yes">Dolby Vision
+                        <input type="checkbox" name="sp-screen-20" value="Yes">Always-on display    
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0">  <tr>  <th rowspan="4" scope="row">Platform</th>  <td class="ttl"><a href="glossary.php3?term=os">OS</a></td>  <td class="nfo" data-spec="os">Android 11, ZenUI 8</td>  </tr>  <tr><td class="ttl"><a href="glossary.php3?term=chipset">Chipset</a></td>  <td class="nfo" data-spec="chipset">Qualcomm SM8350 Snapdragon 888 5G (5 nm)</td>  </tr>  <tr><td class="ttl"><a href="glossary.php3?term=cpu">CPU</a></td>  <td class="nfo" data-spec="cpu">Octa-core (1x2.84 GHz Kryo 680 & 3x2.42 GHz Kryo 680 & 4x1.80 GHz Kryo 680)</td>  </tr>  <tr><td class="ttl"><a href="glossary.php3?term=gpu">GPU</a></td>  <td class="nfo" data-spec="gpu">Adreno 660</td>  </tr>  </table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>OS</th>
+                    <td>
+                        <input type="checkbox" name="sp-softwear-0" value="Yes">Android
+                        <input type="checkbox" name="sp-softwear-1" value="Yes">Harmony
+                        <input type="checkbox" name="sp-softwear-2" value="Yes">iOS
+                        <input type="checkbox" name="sp-softwear-3" value="Yes">Microsoft Windows 10
+                        <input type="checkbox" name="sp-softwear-4" value="Yes">Android Go
+                    </td>
+                </tr>
+                <tr>
+                    <th>OS ver</th>
+                    <td>
+                        <input type='text' name='sp-softwear-7' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>GMS非対応</th>
+                    <td>
+                        <input type="checkbox" name="sp-softwear-6" value="Yes">非対応
+                    </td>
+                </tr>	
+                <tr>
+                    <th>OS更新可能なバージョン</th>
+                    <td>
+                        <input type='text' name='sp-softwear-9' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>UI</th>
+                    <td>
+                        <input type="checkbox" name="sp-softwear-13" value="Yes">MIUI
+                        <input type="checkbox" name="sp-softwear-14" value="Yes">color OS
+                        <input type="checkbox" name="sp-softwear-15" value="Yes">Magic UI
+                        <input type="checkbox" name="sp-softwear-16" value="Yes">ZenUI
+                        <input type="checkbox" name="sp-softwear-17" value="Yes">One UI
+                        <input type="checkbox" name="sp-softwear-18" value="Yes">XOS
+                        <input type="checkbox" name="sp-softwear-19" value="Yes">Android One
+                        <input type="checkbox" name="sp-softwear-20" value="Yes">AOSP
+                        <input type="checkbox" name="sp-softwear-21" value="Yes">EMUI
+                        <input type="checkbox" name="sp-softwear-22" value="Yes">Redmagic
+                        <input type="checkbox" name="sp-softwear-23" value="Yes">Joy UI
+                        <input type="checkbox" name="sp-softwear-24" value="Yes">HIOS
+                        <input type="checkbox" name="sp-softwear-25" value="Yes">realme UI
+                        <input type="checkbox" name="sp-softwear-26" value="Yes">OxygenOS
+                        <input type="checkbox" name="sp-softwear-27" value="Yes">OriginOS
+                        <input type="checkbox" name="sp-softwear-28" value="Yes">Funtouch
+                        <input type="checkbox" name="sp-softwear-29" value="Yes">Flyme
+                        <input type="checkbox" name="sp-softwear-30" value="Yes">ZUI
+                        <input type="checkbox" name="sp-softwear-31" value="Yes">ROG UI
+                    </td>
+                </tr>
+                <tr>
+                    <th>UI ver</th>
+                    <td>
+                        <input type='text' name='sp-softwear-8' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>UI更新可能なバージョン</th>
+                    <td>
+                        <input type='text' name='sp-softwear-10' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>OS追加説明</th>
+                    <td>
+                        <input type='text' name='sp-softwear-11' value="" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>UI追加説明</th>
+                    <td>
+                        <input type='text' name='sp-softwear-12' value="" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>SoC ID</th>
+                    <td>
+                        <input type='text' name='sp-spec-11' value="" size='mini'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>CPU構成(本来の構成と異なる場合)</th>
+                    <td>
+                        core名(GHz):数,core名(GHz):数,core名(GHz):数<br>
+                        ex.Kryo 485(2.84 GHz):1,Kryo 485(2.42 GHz):3,Kryo 485(1.78 GHz):4
+                        <input type='text' name='sp-spec-2' value="" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>GPU構成(本来の構成と異なる場合)</th>
+                    <td>
+                        <input type='text' name='sp-spec-4' value="" size='full'>
+                    </td>
+                </tr>
+            </table>
+            <h4>QualComm</h4>
+            <div class="tagcloud2">
+                <a>(0)SD215</a><a>(1)SD425</a>
+                <a>(2)SD429</a><a>(3)SD430</a>
+                <a>(4)SD435</a><a>(5)SD439</a>
+                <a>(6)SD450</a><a>(7)SD460</a>
+                <a>(8)SD480</a><a>(9)SD617</a>
+                <a>(10)SD625</a><a>(11)SD626</a>
+                <a>(12)SD630</a><a>(13)SD632</a>
+                <a>(14)SD636</a><a>(15)SD650</a>
+                <a>(16)SD660</a><a>(17)SD662</a>
+                <a>(18)SD665</a><a>(19)SD670</a>
+                <a>(20)SD675</a><a>(21)SD678</a>
+                <a>(22)SD690</a><a>(23)SD710</a>
+                <a>(24)SD712</a><a>(25)SD720G</a>
+                <a>(26)SD730</a><a>(27)SD730G</a>
+                <a>(28)SD732G</a><a>(29)SD750G</a>
+                <a>(30)SD765</a><a>(31)SD765G</a>
+                <a>(32)SD768G</a><a>(33)SD778G</a>
+                <a>(34)SD780G</a><a>(35)SD810</a>
+                <a>(36)SD820</a><a>(37)SD835</a>
+                <a>(38)SD845</a><a>(39)SD855</a>
+                <a>(40)SD855+</a><a>(41)SD860</a>
+                <a>(42)SD865</a><a>(43)SD865+</a>
+                <a>(44)SD870</a><a>(45)SD888</a>
+            </div>
+            <h4>MediaTek</h4>
+            <div class="tagcloud2">
+                <a>(81)MT6737</a><a>(82)MT6750</a>
+                <a>(83)P10</a><a>(84)P18</a>
+                <a>(85)P20</a><a>(86)A22</a>
+                <a>(87)P22</a><a>(88)P23</a>
+                <a>(89)G25</a><a>(90)P35</a>
+                <a>(91)G35</a><a>(92)P60</a>
+                <a>(93)P65</a><a>(94)P70</a>
+                <a>(95)G70</a><a>(96)G80</a>
+                <a>(97)G85</a><a>(98)P90</a>
+                <a>(99)P95</a><a>(100)G90</a>
+                <a>(101)G90T</a><a>(102)G95</a>
+                <a>(103)Dim.700</a><a>(104)Dim.720</a>
+                <a>(105)Dim.800U</a><a>(106)Dim.800</a>
+                <a>(107)Dim.820</a><a>(108)Dim.900</a>
+                <a>(109)Dim.1000C</a><a>(110)Dim.1000L</a>
+                <a>(111)Dim.1000</a><a>(112)Dim.1000+</a>
+                <a>(113)Dim.1100</a><a>(114)Dim.1200</a>
+            </div>
+            <p>out of index((UFS 3.1</p><table cellspacing="0">  <tr>  <th rowspan="5" scope="row">Memory</th>  <td class="ttl"><a href="glossary.php3?term=memory-card-slot">Card slot</a></td>      <td class="nfo" data-spec="memoryslot">No</td></tr>    	    <tr>  <td class="ttl"><a href="glossary.php3?term=dynamic-memory">Internal</a></td>  <td class="nfo" data-spec="internalmemory">128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM, 256GB 12GB RAM, 256GB 16GB RAM</td>  </tr>  	    <tr><td class="ttl">&nbsp;</td><td class="nfo" data-spec="memoryother">UFS 3.1</td></tr>  			  </td>  </tr>  </table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>Micro SDカード</th>
+                    <td>
+                        <input type="checkbox" name="sp-spec-12" value="Yes">対応&nbsp;
+                        <input type='text' name='sp-spec-14' value="" size='mini'>GB Micro SD最大容量
+                    </td>
+                </tr>
+                <tr>
+                    <th>NMカード</th>
+                    <td>
+                        <input type="checkbox" name="sp-spec-20" value="Yes">対応&nbsp;
+                        <input type='text' name='sp-spec-21' value="" size='mini'>GB NMカード最大容量
+                    </td>
+                </tr>
+                <tr>
+                    <th>メモリGB(この構成のものだけ)</th>
+                    <td>
+                        <input type='text' name='sp-spec-7' value="" size='mini'>GB
+                    </td>
+                </tr>
+                <tr>
+                    <th>メモリ規格(この構成のものだけ)</th>
+                    <td>
+                        <input type='text' name='sp-spec-6' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>ストレージ規格(この構成のものだけ)</th>
+                    <td>
+                        <input type='text' name='sp-spec-8' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>ストレージGB(この構成のものだけ)</th>
+                    <td>
+                        <input type='text' name='sp-spec-9' value="" size='mini'>GB
+                    </td>
+                </tr>
+                <tr>
+                    <th>他のバージョン</th>
+                    <td>
+                        <input type='text' name='sp-spec-10' value="" size='full'>
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0">  	<tr>  	<th rowspan="4" scope="row" class="small-line-height">Main Camera</th>  		<td class="ttl"><a href="glossary.php3?term=camera">Dual</a></td>  	<td class="nfo" data-spec="cam1modules">64 MP, f/1.8, 26mm (wide), 1/1.73", 0.8µm, PDAF, OIS<br />  12 MP, f/2.2, 112˚, 14mm (ultrawide), 1/2.55", 1.4µm, dual pixel PDAF</td>  	</tr>  		<tr>  	<td class="ttl"><a href="glossary.php3?term=camera">Features</a></td>  	<td class="nfo" data-spec="cam1features">LED flash, HDR, panorama</td>  	</tr>  		<tr>  	<td class="ttl"><a href="glossary.php3?term=camera">Video</a></td>  	<td class="nfo" data-spec="cam1video">8K@24fps, 4K@30/60/120fps, 1080p@30/60/240fps, 720p@480fps; gyro-EIS, HDR</td>  	</tr>  		</table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>カメラ数</th>
+                    <td>
+                        カメラ数<input type='text' name='sp-camera-4' value="" size='mini'><br>
+                        メインカメラとして表示するカメラ<input type='text' name='sp-camera-4' value="" size='mini'><br>
+                        カメラの補足説明
+                        <input type='text' name='sp-camera-14' value="" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ1</th>
+                    <td>
+                        <div onclick='opentd("#camera1");'>表示非表示</div>
+                        <div id='camera1'>
+                            画素数<input type='text' name='sp-camera-19' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-20' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-21' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-22' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-23' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-24' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-25' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-26' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ2</th>
+                    <td>
+                        <div onclick='opentd("#camera2");'>表示非表示</div>
+                        <div id='camera2' class='hide'>
+                            画素数<input type='text' name='sp-camera-29' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-30' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-31' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-32' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-33' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-34' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-35' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-36' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ3</th>
+                    <td>
+                        <div onclick='opentd("#camera3");'>表示非表示</div>
+                        <div id='camera3' class='hide'>
+                            画素数<input type='text' name='sp-camera-39' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-40' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-41' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-42' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-43' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-44' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-45' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-46' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ4</th>
+                    <td>
+                        <div onclick='opentd("#camera4");'>表示非表示</div>
+                        <div id='camera4' class='hide'>
+                            画素数<input type='text' name='sp-camera-49' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-50' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-51' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-52' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-53' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-54' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-55' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-56' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ5</th>
+                    <td>
+                        <div onclick='opentd("#camera5");'>表示非表示</div>
+                        <div id='camera5' class='hide'>
+                            画素数<input type='text' name='sp-camera-59' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-60' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-61' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-62' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-63' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-64' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-65' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-66' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ6</th>
+                    <td>
+                        <div onclick='opentd("#camera6");'>表示非表示</div>
+                        <div id='camera6' class='hide'>
+                            画素数<input type='text' name='sp-camera-69' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-70' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-71' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-72' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-73' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-74' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-75' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-76' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ7</th>
+                    <td>
+                        <div onclick='opentd("#camera7");'>表示非表示</div>
+                        <div id='camera7' class='hide'>
+                            画素数<input type='text' name='sp-camera-79' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-80' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-81' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-82' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-83' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-84' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-85' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-86' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ8</th>
+                    <td>
+                        <div onclick='opentd("#camera8");'>表示非表示</div>
+                        <div id='camera8' class='hide'>
+                            画素数<input type='text' name='sp-camera-89' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-90' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-91' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-92' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-93' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-94' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-95' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-96' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>特徴(Features)</th>
+                    <td>
+                        <input type="checkbox" name="sp-camera-100" value="Yes">LED flash(LEDフラッシュ)<br><input type="checkbox" name="sp-camera-101" value="Yes">Dual LED flash(デュアルLEDフラッシュ)<br><input type="checkbox" name="sp-camera-102" value="Yes">Triple-LED flash(トリプルLEDフラッシュ)<br><input type="checkbox" name="sp-camera-103" value="Yes">triple-LED RGB flash(トリプルRGBLEDフラッシュ)<br><input type="checkbox" name="sp-camera-104" value="Yes">Quad-LED flash(クアッドLEDフラッシュ)<br><input type="checkbox" name="sp-camera-105" value="Yes">panorama(パノラマ)<br><input type="checkbox" name="sp-camera-106" value="Yes">auto panorama (motorized rotation)(自動パノラマ撮影(電動回転))<br><input type="checkbox" name="sp-camera-107" value="Yes">HDR(HDR)<br><input type="checkbox" name="sp-camera-108" value="Yes">auto-HDR(auto-HDR)<br><input type="checkbox" name="sp-camera-109" value="Yes">Leica optics(Leicaカメラ)<br><input type="checkbox" name="sp-camera-110" value="Yes">Zeiss optics(Zeissカメラ)<br>                    </td>
+                </tr>
+                <tr>
+                    <th>動画</th>
+                    <td>
+                        動画
+                        <input type='text' name='sp-camera-2' value="" size='full'>
+                        動画-日本語版
+                        <input type='text' name='sp-camera-5' value="" size='full'>
+                        <input type="checkbox" name="sp-camera-113" value="Yes">HDR10+<br><input type="checkbox" name="sp-camera-114" value="Yes">OIS<br><input type="checkbox" name="sp-camera-115" value="Yes">gyro-EIS<br><input type="checkbox" name="sp-camera-116" value="Yes">stereo sound rec<br>                    </td>
+                </tr>
+            </table>
+            <p>12 MP, f/2.5, 28mm (standard), 1/2.93", 1.22µm, dual pixel PDAF</p><p>4K@30fps, 1080p@30/60fps</p><table cellspacing="0">  	<tr>  	<th rowspan="4" scope="row" class="small-line-height">Selfie camera</th>  		<td class="ttl"><a href="glossary.php3?term=secondary-camera">Single</a></td>  	<td class="nfo" data-spec="cam2modules">12 MP, f/2.5, 28mm (standard), 1/2.93", 1.22µm, dual pixel PDAF</td>  	</tr>  		<tr>  	<td class="ttl"><a href="glossary.php3?term=secondary-camera">Video</a></td>  	<td class="nfo" data-spec="cam2video">4K@30fps, 1080p@30/60fps</td>  	</tr>  		</table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>インカメラ数</th>
+                    <td>
+                        インカメラ数<input type='text' name='sp-camera-12' value="" size='mini'><br>
+                        メインカメラとして表示するインカメラ<input type='text' name='sp-camera-17' value="" size='mini'><br>
+                        インカメラの補足説明
+                        <input type='text' name='sp-camera-18' value="" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ1</th>
+                    <td>
+                        <div onclick='opentd("#incamera1");'>表示非表示</div>
+                        <div id='incamera1'>
+                            画素数<input type='text' name='sp-camera-121' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-122' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-123' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-124' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-125' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-126' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-127' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-128' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ2</th>
+                    <td>
+                        <div onclick='opentd("#incamera2");'>表示非表示</div>
+                        <div id='incamera2' class='hide'>
+                            画素数<input type='text' name='sp-camera-131' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-132' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-133' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-134' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-135' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-136' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-137' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-138' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ3</th>
+                    <td>
+                        <div onclick='opentd("#incamera3");'>表示非表示</div>
+                        <div id='incamera3' class='hide'>
+                            画素数<input type='text' name='sp-camera-141' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-142' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-143' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-144' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-145' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-146' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-147' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-148' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>カメラ4</th>
+                    <td>
+                        <div onclick='opentd("#incamera4");'>表示非表示</div>
+                        <div id='incamera4' class='hide'>
+                            画素数<input type='text' name='sp-camera-151' value="" size='mini'>MP&nbsp;
+                            F値 f/<input type='text' name='sp-camera-152' value="" size='mini'>&nbsp;
+                            焦点距離<input type='text' name='sp-camera-153' value="" size='mini'>mm&nbsp;
+                            センサーサイズ<input type='text' name='sp-camera-154' value="" size='mini'>"&nbsp;
+                            ピクセルサイズ<input type='text' name='sp-camera-155' value="" size='mini'>µm&nbsp;
+                            カメラ<input type='text' name='sp-camera-156' value="" size='mini'><br>
+                            複数兼ねてる場合は,で入力<br>
+                            1(メインカメラ),2(望遠),3(ペリスコープ),5(ズーム),6(広角),7(超広角),8(ToF),9(赤外線),10(マクロ),11(モノクロ),12(ポートレート),13(深度)<br>
+                            機能(,区切りで定義)PDAF, OIS<br>
+                            <input type='text' name='sp-camera-157' value="" size='full'>
+                            機能-英語<br>
+                            <input type='text' name='sp-camera-158' value="" size='full'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>特徴(Features)</th>
+                    <td>
+
+                        <input type="checkbox" name="sp-camera-204" value="Yes">デュアルビデオ通話(Dual video call)<br><input type="checkbox" name="sp-camera-205" value="Yes">Auto-HDR(Auto-HDR)<br><input type="checkbox" name="sp-camera-206" value="Yes">パノラマ(panorama)<br><input type="checkbox" name="sp-camera-207" value="Yes">デュアルLEDフラッシュ(Dual-LED flash)<br><input type="checkbox" name="sp-camera-208" value="Yes">HDR(HDR)<br>                    </td>
+                </tr>
+                <tr>
+                    <th>インカメラ動画</th>
+                    <td>
+                        インカメラ動画
+                        <input type='text' name='sp-camera-201' value="" size='full'>
+                        インカメラ動画-日本語版
+                        <input type='text' name='sp-camera-202' value="" size='full'>
+                        <input type="checkbox" name="sp-camera-210" value="Yes">HDR10+<br><input type="checkbox" name="sp-camera-211" value="Yes">OIS<br><input type="checkbox" name="sp-camera-212" value="Yes">gyro-EIS<br><input type="checkbox" name="sp-camera-213" value="Yes">stereo sound rec<br>                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0">  <tr>  <th rowspan="3" scope="row">Sound</th>  <td class="ttl"><a href="glossary.php3?term=loudspeaker">Loudspeaker</a> </td>  <td class="nfo">Yes, with stereo speakers</td>  </tr>    	    <tr>  <td class="ttl"><a href="glossary.php3?term=audio-jack">3.5mm jack</a> </td>  <td class="nfo">Yes</td>  </tr>  	    <tr><td class="ttl">&nbsp;</td><td class="nfo" data-spec="optionalother">32-bit/384kHz audio</td></tr>  	  </table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>3.5mmイヤホンジャック</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-4" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>通話用スピーカー(Loudspeaker)</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-37" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>デュアルスピーカー</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-38" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>デュアルスピーカー（ステレオ）</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-39" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>トリプルスピーカー（ステレオ）</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-40" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>クアッドスピーカー(ステレオ)</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-41" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>24-bit/192kHz</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-44" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>32-bit/384kHz</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-45" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tuned by AKG</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-49" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tuned by JBL</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-48" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tuned by Harman Kardon</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-47" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>オーディオ追加説明</th>
+                    <td><input type='text' name='sp-extra-52' value=""></td>
+                </tr>
+            </table>
+            
+            <table cellspacing="0">  <tr>  <th rowspan="9" scope="row">Comms</th>  <td class="ttl"><a href="glossary.php3?term=wi-fi">WLAN</a></td>  <td class="nfo" data-spec="wlan">Wi-Fi 802.11 a/b/g/n/ac/6e, dual-band, Wi-Fi Direct, hotspot</td>  </tr>  <tr>  <td class="ttl"><a href="glossary.php3?term=bluetooth">Bluetooth</a></td>  <td class="nfo" data-spec="bluetooth">5.2, A2DP, LE, aptX HD, aptX Adaptive</td>  </tr>  <tr>  <td class="ttl"><a href="glossary.php3?term=gps">GPS</a></td>  <td class="nfo" data-spec="gps">Yes, with dual-band A-GPS, GLONASS, GALILEO, BDS, QZSS, NavIC</td>  </tr>    <tr>  <td class="ttl"><a href="glossary.php3?term=nfc">NFC</a></td>  <td class="nfo" data-spec="nfc">Yes</td>  </tr>  	  	  <tr>  <td class="ttl"><a href="glossary.php3?term=fm-radio">Radio</a></td>  <td class="nfo" data-spec="radio">FM radio (market/region dependent)</td>  </tr>       <tr>  <td class="ttl"><a href="glossary.php3?term=usb">USB</a></td>  <td class="nfo" data-spec="usb">USB Type-C 2.0, USB On-The-Go</td>  </tr>  </table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>Wi-Fi</th>
+                    <td>
+                        <input type="checkbox" name="sp-network-0" value="Yes">Wi-Fi対応<br>
+                        <input type="checkbox" name="sp-network-10" value="Yes">a<input type="checkbox" name="sp-network-11" value="Yes">b<input type="checkbox" name="sp-network-12" value="Yes">g<input type="checkbox" name="sp-network-13" value="Yes">n<input type="checkbox" name="sp-network-14" value="Yes">ac<input type="checkbox" name="sp-network-15" value="Yes">ax<input type="checkbox" name="sp-network-16" value="Yes">6e<br>
+                        <input type="checkbox" name="sp-network-38" value="Yes">Wi-Fi-dual-band<br><input type="checkbox" name="sp-network-39" value="Yes">Wi-Fi-Wi-Fi Direct<br><input type="checkbox" name="sp-network-40" value="Yes">Wi-Fi-hotspot<br><input type="checkbox" name="sp-network-41" value="Yes">Wi-Fi-DLNA<br>                    </td>
+                </tr>
+                <tr>
+                    <th>ポート情報</th>
+                    <td>
+                        ポート形状<br>
+                        <input type="checkbox" name="sp-extra-62" value="Yes">USB Type-C
+                        <input type="checkbox" name="sp-extra-63" value="Yes">USB Micro-b<br>
+                        ポート補足情報[mini hdmiがあるとかそういうやつ]
+                        <input type='text' name='' value=""><br>
+                        <input type="checkbox" name="sp-extra-66" value="Yes">USB Type-C 2.0<input type="checkbox" name="sp-extra-67" value="Yes">USB Type-C 2.1<input type="checkbox" name="sp-extra-68" value="Yes">USB Type-C 2.2<input type="checkbox" name="sp-extra-69" value="Yes">USB Type-C 3.0<input type="checkbox" name="sp-extra-70" value="Yes">USB Type-C 3.1<input type="checkbox" name="sp-extra-71" value="Yes">USB Type-C 3.2<input type="checkbox" name="sp-extra-72" value="Yes">USB Type-C 3.3                    </td>
+                </tr>
+                <tr>
+                    <th>USB On-The-Go</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-74" value="Yes">対応
+                    </td>
+                </tr>
+                <tr>
+                    <th>bluetooth</th>
+                    <td>
+                        <input type="checkbox" name="sp-network-1" value="Yes">bluetooth対応<br>
+                    	bluetooth ver<br>
+                        <input type='text' name='sp-network-2' value=""><br>
+                        <input type="checkbox" name="sp-network-19" value="Yes">bluetooth-A2DP<br><input type="checkbox" name="sp-network-20" value="Yes">bluetooth-LE<br><input type="checkbox" name="sp-network-21" value="Yes">bluetooth-aptX HD<br><input type="checkbox" name="sp-network-22" value="Yes">bluetooth-aptX Adaptive<br>                    </td>
+                </tr>
+                <tr>
+                    <th>NFC</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-0" value="Yes">対応
+                    </td>
+                </tr>
+                <tr>
+                    <th>ラジオ</th>
+                    <td>
+                        <input type="checkbox" name="sp-network-26" value="Yes">ラジオ対応
+                        <input type="checkbox" name="sp-network-27" value="Yes">FM radio対応<br>
+                        ラジオ説明<br>
+                        <input type='text' name='sp-network-28' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>GPS</th>
+                    <td>
+                    	<input type="checkbox" name="sp-network-29" value="Yes">GPS対応<br>
+                        GPS機能<br>
+                        <input type="checkbox" name="sp-network-30" value="Yes">GPS-A-GPS<br><input type="checkbox" name="sp-network-31" value="Yes">GPS-GLONASS<br><input type="checkbox" name="sp-network-32" value="Yes">GPS-BDS<br><input type="checkbox" name="sp-network-33" value="Yes">GPS-BDS (tri-band)<br><input type="checkbox" name="sp-network-34" value="Yes">GPS-GALILEO<br><input type="checkbox" name="sp-network-35" value="Yes">GPS-QZSS<br><input type="checkbox" name="sp-network-36" value="Yes">GPS-NavIC<br>                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0">  <tr>  <th rowspan="9" scope="row">Features</th>  <td class="ttl"><a href="glossary.php3?term=sensors">Sensors</a></td>  <td class="nfo" data-spec="sensors">Fingerprint (under display, optical), accelerometer, gyro, proximity, compass</td>  </tr>       	     	   	  	  </table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>センサー類</th>
+                    <td>
+                        <input type="checkbox" name="sp-sensor-1" value="Yes">コンパス<br><input type="checkbox" name="sp-sensor-2" value="Yes">接近センサー<br><input type="checkbox" name="sp-sensor-3" value="Yes">加速度センサー<br><input type="checkbox" name="sp-sensor-4" value="Yes">ジャイロセンサー<br><input type="checkbox" name="sp-sensor-5" value="Yes">気圧センサー<br><input type="checkbox" name="sp-sensor-6" value="Yes">虹彩センサー<br><input type="checkbox" name="sp-sensor-7" value="Yes">sensor core<br><input type="checkbox" name="sp-sensor-8" value="Yes">サーモグラフィー<br><input type="checkbox" name="sp-sensor-9" value="Yes">IRセンサー<br>                    </td>
+                </tr>
+                <tr>
+                    <th>指紋センサー</th>
+                    <td>
+                        <input type="checkbox" name="sp-sensor-14" value="Yes">指紋センサー<br><input type="checkbox" name="sp-sensor-15" value="Yes">指紋センサー-背面<br><input type="checkbox" name="sp-sensor-16" value="Yes">指紋センサー-側面<br><input type="checkbox" name="sp-sensor-17" value="Yes">指紋センサー-右側面<br><input type="checkbox" name="sp-sensor-18" value="Yes">指紋センサー-左側面<br><input type="checkbox" name="sp-sensor-19" value="Yes">指紋センサー-カメラユニットに付属<br><input type="checkbox" name="sp-sensor-20" value="Yes">指紋センサー-画面内<br><input type="checkbox" name="sp-sensor-21" value="Yes">紋センサー-画面内光学式<br><input type="checkbox" name="sp-sensor-22" value="Yes">指紋センサー-画面内超音波式<br><input type="checkbox" name="sp-sensor-23" value="Yes">指紋センサー-ToutchID<br>                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0">  <tr>  <th rowspan="7" scope="row">Battery</th>  <td class="ttl"><a href="glossary.php3?term=rechargeable-battery-types">Type</a></td>  <td class="nfo" data-spec="batdescription1">Li-Po 4000 mAh, non-removable</td>  </tr>  <tr>  <td class="ttl"><a href="glossary.php3?term=battery-charging">Charging</a></td>  <td class="nfo">Fast charging 30W, 60% in 25 min, 100% in 80 min (advertised)<br />  USB Power Delivery 3.0<br />  Reverse charging</td>  </tr>      </table><div class='tagcloud'></div>            <table class='data-table'>            
+                <tr>
+                    <th>バッテリー容量</th>
+                    <td><input type='text' name='sp-battery-0' value=""></td>
+                </tr>
+                <tr>
+                    <th>バッテリーについての補足情報</th>
+                    <td><input type='text' name='sp-battery-1' value=""></td>
+                </tr>
+                <tr>
+                    <th>バッテリー取り外し可能</th>
+                    <td>
+                    <input type="checkbox" name="sp-battery-9" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>ワイヤレス規格</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-23" value="Yes">Qi
+                        <input type="checkbox" name="sp-battery-24" value="Yes">PMA
+                        <input type="checkbox" name="sp-battery-25" value="Yes">A4WP
+                    </td>
+                </tr>
+                <tr>
+                    <th>ワイヤレス充電</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-5" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>ワイヤレス充電速度</th>
+                    <td>
+                        <input type='text' name='sp-battery-6' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>ワイヤレス逆充電
+                </th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-20" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>ワイヤレス逆充電速度</th>
+                    <td>
+                        <input type='text' name='sp-battery-21' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>充電に関する補足情報</th>
+                    <td>
+                        <input type='text' name='sp-battery-7' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>充電に関する補足情報</th>
+                    <td>
+                        <input type='text' name='sp-battery-9' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>最大充電速度w</th>
+                    <td>
+                        <input type='text' name='sp-battery-10' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>リチウムイオン電池</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-17" value="Yes">
+                    </td>
+                </tr>
+                <tr>
+                    <th>給電</th>
+                    <td>
+                        <input type='text' name='sp-battery-18' value="">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>充電規格</th>
+                    <td>
+                        <input type="checkbox" name="sp-battery-26" value="Yes">Power Delivery 3.0
+                        <input type="checkbox" name="sp-battery-29" value="Yes">QuickCharge 4+
+                        <input type="checkbox" name="sp-battery-30" value="Yes">QuickCharge 4
+                        <input type="checkbox" name="sp-battery-31" value="Yes">Quick Charge 3+
+                        <input type="checkbox" name="sp-battery-32" value="Yes">Quick Charge 3
+                        <input type="checkbox" name="sp-battery-33" value="Yes">Quick Charge 2+
+                        <input type="checkbox" name="sp-battery-34" value="Yes">Quick Charge 2
+                        <input type="checkbox" name="sp-battery-36" value="Yes">Pump Express+ 2.0
+                        <input type="checkbox" name="sp-battery-37" value="Yes">PumpExpress 3.0
+                        <input type="checkbox" name="sp-battery-39" value="Yes">VOOC Flash charge
+                        <input type="checkbox" name="sp-battery-40" value="Yes">Dual-Engine Fast Charge
+                        <input type="checkbox" name="sp-battery-41" value="Yes">Super VOOC Flash charge
+                        <input type="checkbox" name="sp-battery-42" value="Yes">Dash charge
+                        <input type="checkbox" name="sp-battery-43" value="Yes">SuperCharge
+                        <input type="checkbox" name="sp-battery-44" value="Yes">mCharge
+                    </td>
+                </tr>
+
+            </table>
+            <table cellspacing="0">  <tr>  <th rowspan="6" scope="row">Misc</th>  <td class="ttl"><a href="glossary.php3?term=build">Colors</a></td>  <td class="nfo" data-spec="colors">Obsidian Black, Horizon Silver</td>  </tr>    <tr>  <td class="ttl"><a href="glossary.php3?term=models">Models</a></td>  <td class="nfo" data-spec="models">ZS590KS, ZS590KS-2A007EU</td>  </tr>        <tr>  <td class="ttl"><a href="glossary.php3?term=price">Price</a></td>  <td class="nfo" data-spec="price"><a href="asus_zenfone_8-price-10893.php">&#36;&thinsp;679.99 / &#163;&thinsp;623.44</a></td>  </tr>  </table><div class='tagcloud'></div>            <div id="check">color</div>
+            <input type="color" id='inputForm' value="#e66465" onchange="inputCheck()">
+            <script>
+                function inputCheck() {
+                    var inputValue = document.getElementById( "inputForm" ).value;
+                    document.getElementById( "check" ).innerHTML =  inputValue;
+                }
+            </script>
+            <table class='data-table'>
+                <tr>
+                    <th>
+                        色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]
+                    </th>
+                    <td>
+                        <input type='text' name='sp-design-3' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>モデル番号</th>
+                    <td>
+                        <input type='text' name='sp-launch-5' value="">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        SAR
+                    </th>
+                    <td>
+                        SAR head<br>
+                        <input type='text' name='sp-extra-57' value="">
+                        SAR body<br>
+                        <input type='text' name='sp-extra-58' value="">
+                        SAR EU head<br>
+                        <input type='text' name='sp-extra-59' value="">
+                        SAR EU body<br>
+                        <input type='text' name='sp-extra-60' value="">
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0">  <tr>  <th rowspan="5" scope="row">Tests</th>  <td class="ttl"><a href="glossary.php3?term=benchmarking">Performance</a></td>  <td class="nfo" data-spec="tbench">  AnTuTu: 676001 (v8) | 799738 (v9)<br />  GeekBench: 3604 (v5.1)<br />  GFXBench: 61fps (ES 3.1 onscreen)</td>  </tr><tr>    <td class="ttl"><a href="gsmarena_lab_tests-review-751p2.php">Display</a></td>  <td class="nfo">  <a class="noUnd" href="asus_zenfone_8-review-2266p3.php#dt">Contrast ratio: Infinite (nominal)</a></td>  </tr><tr>    <td class="ttl"><a href="gsmarena_lab_tests-review-751p5.php">Camera</a></td>  <td class="nfo">  <a class="noUnd" href="piccmp.php3?idType=1&idPhone1=10893&nSuggest=1">Photo</a> / <a class="noUnd" href="vidcmp.php3?idType=3&idPhone1=10893&nSuggest=1">Video</a></td>  </tr><tr>    <td class="ttl"><a href="gsmarena_lab_tests-review-751p7.php">Loudspeaker</a></td>  <td class="nfo">  <a class="noUnd" href="asus_zenfone_8-review-2266p3.php#lt">-27.9 LUFS (Good)</a>    </td>  </tr><tr>        <td class="ttl"><a href="gsmarena_lab_tests-review-751p6.php">Battery life</a></td>  <td class="nfo" data-spec="batlife">  <div style="position:relative;">  <a href="#" onclick="showBatteryPopup(event, 10893); ">Endurance rating 88h</a><div class="popover top" id="battery-popover" style="display: none;"></div>  </div>  </td>  </tr><tr>    </tr></table><div class='tagcloud'></div>            <table class='data-table'>
+                <tr>
+                    <th>Antutu</th>
+                    <td>
+                        AnTuTu v6<br><input type='text' name='sp-test-0' value=''>AnTuTu v7<br><input type='text' name='sp-test-1' value=''>AnTuTu v8<br><input type='text' name='sp-test-2' value=''>AnTuTu v9<br><input type='text' name='sp-test-3' value=''>AnTuTu v10<br><input type='text' name='sp-test-4' value=''>AnTuTu v11<br><input type='text' name='sp-test-5' value=''>AnTuTu v12<br><input type='text' name='sp-test-6' value=''>                    </td>
+                </tr>
+                <tr>
+                    <th>その他のベンチマークスコア</th>
+                    <td>
+                        Endurance rating(h)<br><input type='text' name='sp-test-8' value=''>Loudspeaker ( LUFS)<br><input type='text' name='sp-test-9' value=''>Loudspeaker: Voice (dB)<br><input type='text' name='sp-test-10' value=''>Loudspeaker: Noise (dB)<br><input type='text' name='sp-test-11' value=''>Loudspeaker: Ring (dB)<br><input type='text' name='sp-test-12' value=''>GeekBench: (v4.4)<br><input type='text' name='sp-test-13' value=''>GeekBench: (v5.1)<br><input type='text' name='sp-test-14' value=''>GFXBench:ES 3.1 onscreen(fps)<br><input type='text' name='sp-test-16' value=''>Audio quality:Noise(dB)<br><input type='text' name='sp-test-18' value=''>Audio quality:Crosstalk(dB)<br><input type='text' name='sp-test-19' value=''>Basemark X<br><input type='text' name='sp-test-21' value=''>Basemark OS II 2.0<br><input type='text' name='sp-test-22' value=''>Display Contrast ratio<br><input type='text' name='sp-test-25' value=''>                    </td>
+                </tr>
+            </table>
+            
+</form>
+<p>url:https://www.gsmarena.com/asus_zenfone_8-10893.php</p>
 <div class="table-row">
     <div class="table-column" style="background:#bddeff;">
-        <div class='s-box'><h3>発売日とメーカー</h3><table class='data-table'><tr><th>メーカー</th><td>Xiaomi</td></tr><tr><th>発表日</th><td>2019-03-25</td></tr><tr><th>発売日</th><td>-</td></tr><tr><th>端末名</th><td>Xiaomi Mi 9</td></tr><tr><th>モデル番号</th><td>M1902F1G</td></tr><tr><th>地域</th><td>中国</td></tr><tr><th>追加説明</th><td>-</td></tr></table></div>        <div class='s-box'><h3>data</h3><table class='data-table'><tr><th>sp-launch-0</th><td>メーカー</td></tr><tr><th>sp-launch-1</th><td>発表日</td></tr><tr><th>sp-launch-2</th><td>発売日</td></tr><tr><th>sp-launch-3</th><td></td></tr><tr><th>sp-launch-4</th><td>端末名</td></tr><tr><th>sp-launch-5</th><td>モデル番号</td></tr><tr><th>sp-launch-6</th><td>地域</td></tr><tr><th>sp-launch-7</th><td>追加説明</td></tr><tr><th>sp-launch-8</th><td>端末id(一意のid)</td></tr><tr><th>sp-launch-9</th><td>関連スマホ</td></tr><tr><th>sp-launch-10</th><td>メイン</td></tr><tr><th>sp-launch-11</th><td>leak</td></tr></table></div>    </div>
+        <div class='s-box'><h3>発売日とメーカー</h3><table class='data-table'><tr><th>メーカー</th><td>Xiaomi</td></tr><tr><th>発表日</th><td>2019-03-25</td></tr><tr><th>発売日</th><td>-</td></tr><tr><th>端末名</th><td>Xiaomi Mi 9</td></tr><tr><th>モデル番号</th><td>M1902F1G</td></tr><tr><th>地域</th><td>中国</td></tr><tr><th>追加説明</th><td>-</td></tr></table></div>        <div class='s-box'><h3>発売日とメーカー</h3><table class='data-table'><tr><th>メーカー</th><td></td></tr><tr><th>発表日</th><td>Released 2021, May 13</td></tr><tr><th>発売日</th><td></td></tr><tr><th>端末名</th><td>Asus Zenfone 8</td></tr><tr><th>モデル番号</th><td>M1902F1G</td></tr><tr><th>地域</th><td>中国</td></tr><tr><th>追加説明</th><td>-</td></tr></table></div>        
+
+        <div class='s-box'><h3>data</h3><table class='data-table'><tr><th>sp-launch-0</th><td>メーカー</td></tr><tr><th>取得</th><td>手打ち</td></tr><tr><th>sp-launch-1</th><td>発表日</td></tr><tr><th>sp-launch-2</th><td>発売日</td></tr><tr><th>sp-launch-3</th><td></td></tr><tr><th>sp-launch-4</th><td>端末名</td></tr><tr><th>sp-launch-5</th><td>モデル番号</td></tr><tr><th>sp-launch-6</th><td>地域</td></tr><tr><th>sp-launch-7</th><td>追加説明</td></tr><tr><th>sp-launch-8</th><td>端末id(一意のid)</td></tr><tr><th>sp-launch-9</th><td>関連スマホ</td></tr><tr><th>sp-launch-10</th><td>メイン</td></tr><tr><th>sp-launch-11</th><td>leak</td></tr></table></div>    </div>
     <div class="table-column" style="background:#d4c7ff;">
-        <div class='s-box'><h3>デザイン</h3><table class='data-table'><tr><th><svg viewBox="0 0 512 512" class="sp-data"><path d="M276 192h152a20 20 0 0 0 20-20V52a20 20 0 0 0-20-20H276a20 20 0 0 0-20 20v120a20 20 0 0 0 20 20zm208 64H284a28 28 0 0 0-28 28v168a28 28 0 0 0 28 28h200a28 28 0 0 0 28-28V284a28 28 0 0 0-28-28zM107.31 36.69a16 16 0 0 0-22.62 0l-80 96C-5.35 142.74 1.77 160 16 160h48v304a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V160h48c14.21 0 21.38-17.24 11.31-27.31z"></path></svg>サイズ</th><td>157.5x74.7x7.6mm</td></tr><tr><th>重さ</th><td>173g</td></tr><tr><th>素材</th><td>全面ガラス:Gorilla Glass 6<br>背面ガラス:Gorilla Glass 5<br>フレーム:アルミニウム<br></td></tr><tr><th><svg viewBox="0 0 384 512" class="sp-data"><path d="M352 0H32C14.33 0 0 14.33 0 32v224h384V32c0-17.67-14.33-32-32-32zM0 320c0 35.35 28.66 64 64 64h64v64c0 35.35 28.66 64 64 64s64-28.65 64-64v-64h64c35.34 0 64-28.65 64-64v-32H0v32zm192 104c13.25 0 24 10.74 24 24 0 13.25-10.75 24-24 24s-24-10.75-24-24c0-13.26 10.75-24 24-24z"></path></svg>色</th><td><div style="line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#e180ff"></div>ラベンダーバイオレット<br><div style="line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#006ef5"></div>オーシャンブルー<br><div style="line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#454545"></div>ピアノブラック<br></td></tr></table></div>        <div class='s-box'><h3>data</h3><table class='data-table'><tr><th>sp-design-0</th><td>縦大きさ(mm)</td></tr><tr><th>sp-design-1</th><td>重さ(g)</td></tr><tr><th>sp-design-2</th><td>素材</td></tr><tr><th>sp-design-3</th><td>色</td></tr><tr><th>sp-design-4</th><td>横大きさ(mm)</td></tr><tr><th>sp-design-5</th><td>厚み(mm)</td></tr></table></div>    </div>
+        <div class='s-box'><h3>デザイン</h3><table class='data-table'><tr><th><svg viewBox="0 0 512 512" class="sp-data"><path d="M276 192h152a20 20 0 0 0 20-20V52a20 20 0 0 0-20-20H276a20 20 0 0 0-20 20v120a20 20 0 0 0 20 20zm208 64H284a28 28 0 0 0-28 28v168a28 28 0 0 0 28 28h200a28 28 0 0 0 28-28V284a28 28 0 0 0-28-28zM107.31 36.69a16 16 0 0 0-22.62 0l-80 96C-5.35 142.74 1.77 160 16 160h48v304a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V160h48c14.21 0 21.38-17.24 11.31-27.31z"></path></svg>サイズ</th><td>157.5x74.7x7.6mm</td></tr><tr><th>重さ</th><td>173g</td></tr><tr><th>素材</th><td>全面ガラス:Gorilla Glass 6<br>背面ガラス:Gorilla Glass 5<br>フレーム:アルミニウム<br></td></tr><tr><th><svg viewBox="0 0 384 512" class="sp-data"><path d="M352 0H32C14.33 0 0 14.33 0 32v224h384V32c0-17.67-14.33-32-32-32zM0 320c0 35.35 28.66 64 64 64h64v64c0 35.35 28.66 64 64 64s64-28.65 64-64v-64h64c35.34 0 64-28.65 64-64v-32H0v32zm192 104c13.25 0 24 10.74 24 24 0 13.25-10.75 24-24 24s-24-10.75-24-24c0-13.26 10.75-24 24-24z"></path></svg>色</th><td><div style="line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#e180ff"></div>ラベンダーバイオレット<br><div style="line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#006ef5"></div>オーシャンブルー<br><div style="line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px;background:#454545"></div>ピアノブラック<br></td></tr></table></div>        
+        <div class='s-box'><h3>data</h3><table class='data-table'><tr><th>sp-design-0</th><td>縦大きさ(mm)</td></tr><tr><th>sp-design-1</th><td>重さ(g)</td></tr><tr><th>sp-design-2</th><td>素材</td></tr><tr><th>sp-design-3</th><td>色</td></tr><tr><th>sp-design-4</th><td>横大きさ(mm)</td></tr><tr><th>sp-design-5</th><td>厚み(mm)</td></tr></table></div>    </div>
     <div class="table-column" style="background:#fcffc7">
         <div class='s-box'><h3>性能</h3><table class='data-table'><tr><th><svg class="sp-data" viewBox="0 0 512 512"><path d="M416 48v416c0 26.51-21.49 48-48 48H144c-26.51 0-48-21.49-48-48V48c0-26.51 21.49-48 48-48h224c26.51 0 48 21.49 48 48zm96 58v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42V88h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zM30 376h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6z"></path></svg>SoC</th><td>Qualcomm SM8150 Snapdragon 855 (7 nm)</td></tr><tr><th>CPU構成</th><td>オクタコア(8つのコア)<br><div style="color:#676767;font-size:11px;">Kryo 485(2.84 GHz) × 1<br>Kryo 485(2.42 GHz) × 3<br>Kryo 485(1.78 GHz) × 4<br></div></td></tr><tr><th>GPU</th><td>Adreno 640</td></tr><tr><th>詳細情報</th><td></td></tr><tr><th><svg viewBox="0 0 640 512" class="sp-data"><path d="M640 130.94V96c0-17.67-14.33-32-32-32H32C14.33 64 0 78.33 0 96v34.94c18.6 6.61 32 24.19 32 45.06s-13.4 38.45-32 45.06V320h640v-98.94c-18.6-6.61-32-24.19-32-45.06s13.4-38.45 32-45.06zM224 256h-64V128h64v128zm128 0h-64V128h64v128zm128 0h-64V128h64v128zM0 448h64v-26.67c0-8.84 7.16-16 16-16s16 7.16 16 16V448h128v-26.67c0-8.84 7.16-16 16-16s16 7.16 16 16V448h128v-26.67c0-8.84 7.16-16 16-16s16 7.16 16 16V448h128v-26.67c0-8.84 7.16-16 16-16s16 7.16 16 16V448h64v-96H0v96z"></path></svg>メモリ種類</th><td></td></tr><tr><th>メモリGB</th><td>6GB</td></tr><tr><th><svg viewBox="0 0 448 512" class="sp-data"><path d="M224 32c106 0 192 28.75 192 64v32c0 35.25-86 64-192 64S32 163.25 32 128V96c0-35.25 86-64 192-64m192 149.5V224c0 35.25-86 64-192 64S32 259.25 32 224v-42.5c41.25 29 116.75 42.5 192 42.5s150.749-13.5 192-42.5m0 96V320c0 35.25-86 64-192 64S32 355.25 32 320v-42.5c41.25 29 116.75 42.5 192 42.5s150.749-13.5 192-42.5m0 96V416c0 35.25-86 64-192 64S32 451.25 32 416v-42.5c41.25 29 116.75 42.5 192 42.5s150.749-13.5 192-42.5M224 0C145.858 0 0 18.801 0 96v320c0 77.338 146.096 96 224 96 78.142 0 224-18.801 224-96V96c0-77.338-146.096-96-224-96z"></path></svg>ストレージ種類</th><td>UFS 2.1</td></tr><tr><th>ストレージGB</th><td>64GB</td></tr><tr><th>全てのバージョン</th><td>64GB/6GB, 64GB/8GB, 128GB/6GB, 128GB/8GB, 256GB/8GB</td></tr><tr><th><svg viewBox="0 0 384 512" class="sp-data"><path d="M320 0H128L0 128v320c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zM160 160h-48V64h48v96zm80 0h-48V64h48v96zm80 0h-48V64h48v96z"></path></svg>SDカード</th><td>非対応</td></tr><tr><th><img src="https://sumahotektek.com/wp-content/uploads/2021/04/icon-2.jpg" alt="Antutuアイコン" class="table-icons">Antutu v7</th><td>372006</td></tr><tr><th><img src="https://sumahotektek.com/wp-content/uploads/2021/04/icon-2.jpg" alt="Antutuアイコン" class="table-icons">Antutu v8</th><td>453421</td></tr></table></div>        <div class='s-box'><h3>data</h3><table class='data-table'><tr><th>sp-spec-0</th><td></td></tr><tr><th>sp-spec-1</th><td>SoC名</td></tr><tr><th>sp-spec-2</th><td>CPU構成</td></tr><tr><th>sp-spec-3</th><td>GPU名</td></tr><tr><th>sp-spec-4</th><td>GPU構成</td></tr><tr><th>sp-spec-5</th><td>SoCについての詳細情報</td></tr><tr><th>sp-spec-6</th><td>メモリ規格</td></tr><tr><th>sp-spec-7</th><td>メモリGB(この構成のものだけ)</td></tr><tr><th>sp-spec-8</th><td>ストレージ規格</td></tr><tr><th>sp-spec-9</th><td>ストレージGB</td></tr><tr><th>sp-spec-10</th><td>他のバージョン</td></tr><tr><th>sp-spec-11</th><td>SoCのページのid</td></tr><tr><th>sp-spec-12</th><td>SD microsd</td></tr><tr><th>sp-spec-13</th><td>antutu v7</td></tr><tr><th>sp-spec-14</th><td>SD最大容量</td></tr><tr><th>sp-spec-15</th><td>CPUnum</td></tr><tr><th>sp-spec-16</th><td>antutu v8</td></tr><tr><th>sp-spec-17</th><td></td></tr><tr><th>sp-spec-18</th><td></td></tr><tr><th>sp-spec-19</th><td></td></tr><tr><th>sp-spec-20</th><td>NMカード</td></tr><tr><th>sp-spec-21</th><td>NMカード最大容量</td></tr></table></div>    </div>
     <div class="table-column" style="background:#ceffc7">
@@ -100,3 +1241,444 @@
         <div class='s-box'><h3>data</h3><table class='data-table'><tr><th>sp-extra-0</th><td>NFC</td></tr><tr><th>sp-extra-1</th><td>おサイフケータイ</td></tr><tr><th>sp-extra-2</th><td>防水防塵</td></tr><tr><th>sp-extra-3</th><td>付属品</td></tr><tr><th>sp-extra-4</th><td>イヤホンジャック</td></tr><tr><th>sp-extra-5</th><td>技適認証</td></tr><tr><th>sp-extra-6</th><td>IP-num</td></tr><tr><th>sp-extra-7</th><td>IP-txt</td></tr><tr><th>sp-extra-8</th><td>その他の防水防塵規格ー防滴など</td></tr></table></div>    
     </div>
 </div>
+<div style='background:#bddeff'>
+    <h2>ERRORS</h2>
+    <div class="s-box">
+        <table class='data-table'>
+            <tr><th>2G bands(6)</th><td>・2G band error-<br>・2G band errorSIM<br>・2G band error1<br>・2G band error&<br>・2G band errorSIM<br>・2G band error2<br></td></tr><tr><th>4G bands(3)</th><td>・4G band error-<br>・4G band errorInternational<br>・4G band error<br></td></tr><tr><th>5G bands(3)</th><td>・5G band error-<br>・5G band errorInternational<br>・5G band error<br></td></tr><tr><th>SIM(1)</th><td>・2nd and subsequent lines<br></td></tr>        </table>
+    </div>
+</div>
+<style>
+
+.tabs {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width:95%;
+    margin: 0 auto;
+}
+
+.tab_item {
+    width: calc(100%/13);
+    height: 50px;
+    border-bottom: 3px solid #5ab4bd;
+    background-color: #d9d9d9;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+.tab_item:hover {
+    opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+    display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+    display: none;
+    padding: 40px 40px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#launch:checked ~ #launch_content,
+#design:checked ~ #design_content, 
+#spec:checked ~ #spec_content,
+#screen:checked ~ #screen_content,
+#battery:checked ~ #battery_content,
+#camera:checked ~ #camera_content,
+#network:checked ~ #network_content,
+#band:checked ~ #band_content,
+#sensor:checked ~ #sensor_content,
+#security:checked ~ #security_content,
+#softwear:checked ~ #softwear_content,
+#extra:checked ~ #extra_content
+{
+    display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+    background-color: #5ab4bd;
+    color: #fff;
+}
+</style>
+<div class="tabs">
+    <input id="all" type="radio" name="tab_item" checked>
+    <label class="tab_item" for="all">概要</label>
+    <input id="launch" type="radio" name="tab_item">
+    <label class="tab_item" for="launch">発売日とメーカー</label>
+    <input id="design" type="radio" name="tab_item">
+    <label class="tab_item" for="design">デザイン</label>
+    <input id="spec" type="radio" name="tab_item">
+    <label class="tab_item" for="spec">性能</label>
+    <input id="screen" type="radio" name="tab_item">
+    <label class="tab_item" for="screen">スクリーン</label>
+    <input id="battery" type="radio" name="tab_item">
+    <label class="tab_item" for="battery">バッテリー</label>
+    <input id="camera" type="radio" name="tab_item">
+    <label class="tab_item" for="camera">カメラ</label>
+    <input id="network" type="radio" name="tab_item">
+    <label class="tab_item" for="network">ネットワーク</label>
+    <input id="band" type="radio" name="tab_item">
+    <label class="tab_item" for="band">バンド</label>
+    <input id="sensor" type="radio" name="tab_item">
+    <label class="tab_item" for="sensor">センサー</label>
+    <input id="security" type="radio" name="tab_item">
+    <label class="tab_item" for="security">セキュリティ</label>
+    <input id="softwear" type="radio" name="tab_item">
+    <label class="tab_item" for="softwear">ソフトウェア</label>
+    <input id="extra" type="radio" name="tab_item">
+    <label class="tab_item" for="extra">その他</label>
+        <div class="tab_content" id="all_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="design_content">
+        <div class="s-box">
+            <table class='data-table'>
+                <tr><th>sp-design-0</th><td>148</td></tr><tr><th>sp-design-4</th><td>68.5</td></tr><tr><th>sp-design-5</th><td>8.9 </td></tr><tr><th>sp-design-1</th><td>169</td></tr><tr><th>sp-design-2</th><td>Glass front (Gorilla Glass Victus), glass back (Gorilla Glass 3), aluminum frame</td></tr>            </table>
+        </div>
+    </div>    <div class="tab_content" id="launch_content">
+        <div class="s-box">
+            <table class='data-table'>
+                <tr><th>sp-launch-1</th><td>2021-5-12</td></tr><tr><th>sp-launch-2</th><td>2021-5-13</td></tr>            </table>
+        </div>
+    </div>    <div class="tab_content" id="spec_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="screen_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="battery_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="camera_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="network_content">
+        <div class="s-box">
+            <table class='data-table'>
+                <tr><th>sp-network-3</th><td>Dual SIM (Nano-SIM, dual stand-by)</td></tr><tr><th>sp-network-7</th><td>Yes</td></tr>            </table>
+        </div>
+    </div>    <div class="tab_content" id="band_content">
+        <div class="s-box">
+            <table class='data-table'>
+                <tr><th>sp-band-8</th><td>GSM / HSPA / LTE / 5G</td></tr><tr><th>sp-band-4</th><td>GSM 850 / 900 / 1800 / 1900 - SIM 1 & SIM 2</td></tr><tr><th>sp-band-0</th><td>Yes</td></tr><tr><th>sp-band-2g-gsm-850</th><td>Yes</td></tr><tr><th>sp-band-2g-gsm-900</th><td>Yes</td></tr><tr><th>sp-band-2g-gsm-1800</th><td>Yes</td></tr><tr><th>sp-band-2g-gsm-1900</th><td>Yes</td></tr><tr><th>sp-band-5</th><td>HSDPA 800 / 850 / 900 / 1700(AWS) / 1900 / 2100 </td></tr><tr><th>sp-band-1</th><td>Yes</td></tr><tr><th>sp-band-3g-hsdpa-800</th><td>Yes</td></tr><tr><th>sp-band-3g-hsdpa-850</th><td>Yes</td></tr><tr><th>sp-band-3g-hsdpa-900</th><td>Yes</td></tr><tr><th>sp-band-3g-hsdpa-1700</th><td>Yes</td></tr><tr><th>sp-band-3g-hsdpa-1700-aws</th><td>Yes</td></tr><tr><th>sp-band-3g-hsdpa-1900</th><td>Yes</td></tr><tr><th>sp-band-3g-hsdpa-2100</th><td>Yes</td></tr><tr><th>sp-band-6</th><td>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International:1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA</td></tr><tr><th>sp-band-6</th><td>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International</td></tr><tr><th>sp-band-4g-1</th><td>Yes</td></tr><tr><th>sp-band-4g-2</th><td>Yes</td></tr><tr><th>sp-band-4g-3</th><td>Yes</td></tr><tr><th>sp-band-4g-4</th><td>Yes</td></tr><tr><th>sp-band-4g-5</th><td>Yes</td></tr><tr><th>sp-band-4g-7</th><td>Yes</td></tr><tr><th>sp-band-4g-8</th><td>Yes</td></tr><tr><th>sp-band-4g-12</th><td>Yes</td></tr><tr><th>sp-band-4g-17</th><td>Yes</td></tr><tr><th>sp-band-4g-18</th><td>Yes</td></tr><tr><th>sp-band-4g-19</th><td>Yes</td></tr><tr><th>sp-band-4g-20</th><td>Yes</td></tr><tr><th>sp-band-4g-26</th><td>Yes</td></tr><tr><th>sp-band-4g-28</th><td>Yes</td></tr><tr><th>sp-band-4g-34</th><td>Yes</td></tr><tr><th>sp-band-4g-38</th><td>Yes</td></tr><tr><th>sp-band-4g-39</th><td>Yes</td></tr><tr><th>sp-band-4g-40</th><td>Yes</td></tr><tr><th>sp-band-4g-41</th><td>Yes</td></tr><tr><th>sp-band-4g-42</th><td>Yes</td></tr><tr><th>sp-band-7</th><td>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International:1, 2, 3, 5, 7, 8, 12, 20, 25, 38, 40, 66, 71, 77, 78 SA/NSA - USA</td></tr><tr><th>sp-band-3</th><td>Yes</td></tr><tr><th>sp-band-5g-n1</th><td>Yes</td></tr><tr><th>sp-band-5g-n2</th><td>Yes</td></tr><tr><th>sp-band-5g-n3</th><td>Yes</td></tr><tr><th>sp-band-5g-n5</th><td>Yes</td></tr><tr><th>sp-band-5g-n7</th><td>Yes</td></tr><tr><th>sp-band-5g-n8</th><td>Yes</td></tr><tr><th>sp-band-5g-n12</th><td>Yes</td></tr><tr><th>sp-band-5g-n20</th><td>Yes</td></tr><tr><th>sp-band-5g-n28</th><td>Yes</td></tr><tr><th>sp-band-5g-n38</th><td>Yes</td></tr><tr><th>sp-band-5g-n77</th><td>Yes</td></tr><tr><th>sp-band-5g-n78</th><td>Yes</td></tr><tr><th>sp-band-9</th><td>HSPA 42.2/5.76 Mbps, LTE-A (5CA) Cat20 2000/150 Mbps, 5G</td></tr>            </table>
+        </div>
+    </div>    <div class="tab_content" id="sensor_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="security_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="softwear_content">
+        <div class="s-box">
+            <table class='data-table'>
+                            </table>
+        </div>
+    </div>    <div class="tab_content" id="extra_content">
+        <div class="s-box">
+            <table class='data-table'>
+                <tr><th>sp-extra-6</th><td>Yes</td></tr>            </table>
+        </div>
+    </div></div>
+<p>デバッグエリア</p>
+<style>
+#specs-list th {
+    border-right: medium none;
+    font: 16px Google-Oswald,Arial;
+    text-transform: uppercase;
+    width: 86px;
+}
+#specs-list td.nfo a, #specs-list th {
+    color: #d50000;
+}
+</style>
+<div id="specs-list">
+<table cellspacing="0" style="max-height: 111px;">
+<tbody><tr class="tr-hover">
+<th rowspan="15" scope="row">Network</th>
+<td class="ttl"><a href="network-bands.php3">Technology</a></td>
+<td class="nfo"><a href="#" class="link-network-detail" data-spec="nettech">GSM / HSPA / LTE</a></td>
+</tr>
+<tr class="tr-toggle">
+<td class="ttl"><a href="network-bands.php3">2G bands</a></td>
+<td class="nfo" data-spec="net2g">GSM 850 / 900 / 1800 / 1900 - SIM 1 &amp; SIM 2</td>
+</tr><tr class="tr-toggle">
+<td class="ttl"><a href="network-bands.php3">3G bands</a></td>
+<td class="nfo" data-spec="net3g">HSDPA 850 / 900 / 2100 </td>
+</tr>
+<tr class="tr-toggle">
+<td class="ttl"><a href="network-bands.php3">4G bands</a></td>
+<td class="nfo" data-spec="net4g">1, 3, 5, 8, 20, 38, 40, 41</td>
+</tr>
+<tr class="tr-toggle">
+<td class="ttl"><a href="glossary.php3?term=3g">Speed</a></td>
+<td class="nfo" data-spec="speed">HSPA 42.2/5.76 Mbps, LTE-A</td>
+</tr>
+	
+
+	
+
+
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="2" scope="row">Launch</th>
+<td class="ttl"><a href="glossary.php3?term=phone-life-cycle">Announced</a></td>
+<td class="nfo" data-spec="year">2021, June 21</td>
+</tr>	
+<tr>
+<td class="ttl"><a href="glossary.php3?term=phone-life-cycle">Status</a></td>
+<td class="nfo" data-spec="status">Available. Released 2021, June 28</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="6" scope="row">Body</th>
+<td class="ttl"><a href="#" onclick="helpW('h_dimens.htm');">Dimensions</a></td>
+<td class="nfo" data-spec="dimensions">159.3 x 74 x 9.3 mm (6.27 x 2.91 x 0.37 in)</td>
+</tr><tr>
+<td class="ttl"><a href="#" onclick="helpW('h_weight.htm');">Weight</a></td>
+<td class="nfo" data-spec="weight">196 g (6.91 oz)</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=build">Build</a></td>
+<td class="nfo" data-spec="build">Glass front, plastic frame, plastic back</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=sim">SIM</a></td>
+<td class="nfo" data-spec="sim">Dual SIM (Nano-SIM, dual stand-by)</td>
+</tr>
+		
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="5" scope="row">Display</th>
+<td class="ttl"><a href="glossary.php3?term=display-type">Type</a></td>
+<td class="nfo" data-spec="displaytype">Super AMOLED, 90Hz, 800 nits (HBM)</td>
+</tr>
+<tr>
+<td class="ttl"><a href="#" onclick="helpW('h_dsize.htm');">Size</a></td>
+<td class="nfo" data-spec="displaysize">6.4 inches, 98.9 cm<sup>2</sup> (~83.9% screen-to-body ratio)</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=resolution">Resolution</a></td>
+<td class="nfo" data-spec="displayresolution">1080 x 2400 pixels, 20:9 ratio (~411 ppi density)</td>
+</tr>
+		
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="4" scope="row">Platform</th>
+<td class="ttl"><a href="glossary.php3?term=os">OS</a></td>
+<td class="nfo" data-spec="os">Android 11, One UI 3.1</td>
+</tr>
+<tr><td class="ttl"><a href="glossary.php3?term=chipset">Chipset</a></td>
+<td class="nfo" data-spec="chipset">Mediatek Helio G80 (12 nm)</td>
+</tr>
+<tr><td class="ttl"><a href="glossary.php3?term=cpu">CPU</a></td>
+<td class="nfo" data-spec="cpu">Octa-core (2x2.0 GHz Cortex-A75 &amp; 6x1.8 GHz Cortex-A55)</td>
+</tr>
+<tr><td class="ttl"><a href="glossary.php3?term=gpu">GPU</a></td>
+<td class="nfo" data-spec="gpu">Mali-G52 MC2</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="5" scope="row">Memory</th>
+<td class="ttl"><a href="glossary.php3?term=memory-card-slot">Card slot</a></td>
+
+
+<td class="nfo" data-spec="memoryslot">microSDXC (dedicated slot)</td></tr>
+
+	
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=dynamic-memory">Internal</a></td>
+<td class="nfo" data-spec="internalmemory">64GB 4GB RAM, 128GB 6GB RAM</td>
+</tr>
+	
+
+<tr><td class="ttl">&nbsp;</td><td class="nfo" data-spec="memoryother">eMMC 5.1</td></tr>
+			
+
+
+</tbody></table>
+
+
+	<table cellspacing="0">
+	<tbody><tr>
+	<th rowspan="4" scope="row" class="small-line-height">Main Camera</th>
+		<td class="ttl"><a href="glossary.php3?term=camera">Quad</a></td>
+	<td class="nfo" data-spec="cam1modules">64 MP, f/1.8, 26mm (wide), 1/1.97", 0.7µm, PDAF<br>
+8 MP, f/2.2, 123˚, (ultrawide), 1/4.0", 1.12µm<br>
+2 MP, f/2.4, (macro)<br>
+2 MP, f/2.4, (depth)</td>
+	</tr>
+		<tr>
+	<td class="ttl"><a href="glossary.php3?term=camera">Features</a></td>
+	<td class="nfo" data-spec="cam1features">LED flash, panorama, HDR</td>
+	</tr>
+		<tr>
+	<td class="ttl"><a href="glossary.php3?term=camera">Video</a></td>
+	<td class="nfo" data-spec="cam1video">1080p@30fps</td>
+	</tr>
+		</tbody></table>
+
+
+	<table cellspacing="0">
+	<tbody><tr>
+	<th rowspan="4" scope="row" class="small-line-height">Selfie camera</th>
+		<td class="ttl"><a href="glossary.php3?term=secondary-camera">Single</a></td>
+	<td class="nfo" data-spec="cam2modules">20 MP, f/2.2, (wide)</td>
+	</tr>
+		<tr>
+	<td class="ttl"><a href="glossary.php3?term=secondary-camera">Video</a></td>
+	<td class="nfo" data-spec="cam2video">1080p@30fps</td>
+	</tr>
+		</tbody></table>
+
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="3" scope="row">Sound</th>
+<td class="ttl"><a href="glossary.php3?term=loudspeaker">Loudspeaker</a> </td>
+<td class="nfo">Yes</td>
+</tr>
+
+	
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=audio-jack">3.5mm jack</a> </td>
+<td class="nfo">Yes</td>
+</tr>
+	
+
+	
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="9" scope="row">Comms</th>
+<td class="ttl"><a href="glossary.php3?term=wi-fi">WLAN</a></td>
+<td class="nfo" data-spec="wlan">Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct, hotspot</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=bluetooth">Bluetooth</a></td>
+<td class="nfo" data-spec="bluetooth">5.0, A2DP, LE</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=gps">GPS</a></td>
+<td class="nfo" data-spec="gps">Yes, with A-GPS, GLONASS, BDS, GALILEO</td>
+</tr>  
+<tr>
+<td class="ttl"><a href="glossary.php3?term=nfc">NFC</a></td>
+<td class="nfo" data-spec="nfc">No</td>
+</tr>
+	
+	
+<tr>
+<td class="ttl"><a href="glossary.php3?term=fm-radio">Radio</a></td>
+<td class="nfo" data-spec="radio">Unspecified</td>
+</tr>
+   
+<tr>
+<td class="ttl"><a href="glossary.php3?term=usb">USB</a></td>
+<td class="nfo" data-spec="usb">USB Type-C 2.0, USB On-The-Go</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="9" scope="row">Features</th>
+<td class="ttl"><a href="glossary.php3?term=sensors">Sensors</a></td>
+<td class="nfo" data-spec="sensors">Fingerprint (side-mounted), accelerometer, gyro, proximity, compass</td>
+</tr>
+ 	
+	
+</tbody></table>
+
+
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="7" scope="row">Battery</th>
+<td class="ttl"><a href="glossary.php3?term=rechargeable-battery-types">Type</a></td>
+<td class="nfo" data-spec="batdescription1">Li-Ion 6000 mAh, non-removable</td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=battery-charging">Charging</a></td>
+<td class="nfo">Fast charging 15W</td>
+</tr>
+
+
+</tbody></table>
+<table cellspacing="0">
+<tbody><tr>
+<th rowspan="6" scope="row">Misc</th>
+<td class="ttl"><a href="glossary.php3?term=build">Colors</a></td>
+<td class="nfo" data-spec="colors">Black, Light Blue</td>
+</tr>
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=models">Models</a></td>
+<td class="nfo" data-spec="models">SM-M325FV, SM-M325FV/DS, SM-M325F/DS, SM-M325F</td>
+</tr>
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=sar">SAR</a></td>
+<td class="nfo" data-spec="sar-us">0.64 W/kg (head) &nbsp; &nbsp; </td>
+</tr>
+<tr>
+<td class="ttl"><a href="glossary.php3?term=sar">SAR EU</a></td>
+<td class="nfo" data-spec="sar-eu">0.56 W/kg (head) &nbsp; &nbsp; 1.57 W/kg (body) &nbsp; &nbsp; </td>
+</tr>
+
+
+<tr>
+<td class="ttl"><a href="glossary.php3?term=price">Price</a></td>
+<td class="nfo" data-spec="price"><a href="samsung_galaxy_m32-price-10887.php">£&thinsp;269.00 / ₹&thinsp;14,999</a></td>
+</tr>
+</tbody></table>
+</div>
+</form>
