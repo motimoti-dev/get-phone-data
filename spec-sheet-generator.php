@@ -1795,48 +1795,39 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Single':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Dual':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Triple':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Quad':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Five':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Six':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Features':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Video':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
@@ -2067,18 +2058,15 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Loudspeaker':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case '3.5mm jack':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
@@ -2242,7 +2230,7 @@ function data_ref($key)
                         Radio	No
                         USB	USB Type-C 3.1
 
-                COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hotspot
+                COMMS	WLAN	Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, Wi-Fi Direct, hotspot 
                         Bluetooth	5.0, A2DP, LE, aptX
                         GPS	Yes, with A-GPS, GLONASS, BDS, GALILEO
                         NFC	Yes
@@ -2252,43 +2240,35 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'WLAN':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Bluetooth':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     case 'Bluetooth':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     case 'NFC':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Infrared port':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     case 'Radio':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'USB':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
@@ -2297,44 +2277,106 @@ function data_ref($key)
             <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
             <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>Wi-Fi</th>
+                    <td>
+                        <input type="checkbox" name="sp-network-0" value="Yes"<?php if(data_ref('sp-network-0') == 'Yes')echo ' checked';?>>Wi-Fi対応<br>
+                        <?php
+                            $input_checks = explode(':','sp-network-10,a:sp-network-11,b:sp-network-12,g:sp-network-13,n:sp-network-14,ac:sp-network-15,ax:sp-network-16,6e');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1];
+                            }
+                        ?><br>
+                        <?php
+                            $input_checks = explode(':','sp-network-38,Wi-Fi-dual-band:sp-network-39,Wi-Fi-Wi-Fi Direct:sp-network-40,Wi-Fi-hotspot:sp-network-41,Wi-Fi-DLNA');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
+                    <th>ポート情報</th>
+                    <td>
+                        ポート形状<br>
+                        <input type="checkbox" name="sp-extra-62" value="Yes"<?php if(data_ref('sp-extra-62') == 'Yes')echo ' checked';?>>USB Type-C
+                        <input type="checkbox" name="sp-extra-63" value="Yes"<?php if(data_ref('sp-extra-63') == 'Yes')echo ' checked';?>>USB Micro-b<br>
+                        ポート補足情報[mini hdmiがあるとかそういうやつ]
+                        <input type='text' name='' value="<?php echo data_ref('');?>"><br>
+                        <?php
+                            $input_checks = explode(':','sp-extra-66,USB Type-C 2.0:sp-extra-67,USB Type-C 2.1:sp-extra-68,USB Type-C 2.2:sp-extra-69,USB Type-C 3.0:sp-extra-70,USB Type-C 3.1:sp-extra-71,USB Type-C 3.2:sp-extra-72,USB Type-C 3.3');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1];
+                            }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th>横</th>
-                    <td></td>
+                    <th>USB On-The-Go</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-74" value="Yes"<?php if(data_ref('sp-extra-74') == 'Yes')echo ' checked';?>>対応
+                    </td>
                 </tr>
                 <tr>
-                    <th>厚み</th>
-                    <td></td>
+                    <th>bluetooth</th>
+                    <td>
+                        <input type="checkbox" name="sp-network-1" value="Yes"<?php if(data_ref('sp-network-1') == 'Yes')echo ' checked';?>>bluetooth対応<br>
+                    	bluetooth ver<br>
+                        <input type='text' name='sp-network-2' value="<?php echo data_ref('sp-network-2');?>"><br>
+                        <?php
+                            $input_checks = explode(':','sp-network-19,bluetooth-A2DP:sp-network-20,bluetooth-LE:sp-network-21,bluetooth-aptX HD:sp-network-22,bluetooth-aptX Adaptive');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th>素材</th>
-                    <td></td>
+                    <th>NFC</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-0" value="Yes"<?php if(data_ref('sp-extra-0') == 'Yes')echo ' checked';?>>対応
+                    </td>
                 </tr>
                 <tr>
-                    <th>SIM</th>
-                    <td></td>
+                    <th>ラジオ</th>
+                    <td>
+                        <input type="checkbox" name="sp-network-26" value="Yes"<?php if(data_ref('sp-network-26') == 'Yes')echo ' checked';?>>ラジオ対応
+                        <input type="checkbox" name="sp-network-27" value="Yes"<?php if(data_ref('sp-network-27') == 'Yes')echo ' checked';?>>FM radio対応<br>
+                        ラジオ説明<br>
+                        <input type='text' name='sp-network-28' value="<?php echo data_ref('sp-network-28');?>">
+                    </td>
                 </tr>
                 <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>防水防塵</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>GPS</th>
+                    <td>
+                    	<input type="checkbox" name="sp-network-29" value="Yes"<?php if(data_ref('sp-network-29') == 'Yes')echo ' checked';?>>GPS対応<br>
+                        GPS機能<br>
+                        <?php
+                            $input_checks = explode(':','sp-network-30,GPS-A-GPS:sp-network-31,GPS-GLONASS:sp-network-32,GPS-BDS:sp-network-33,GPS-BDS (tri-band):sp-network-34,GPS-GALILEO:sp-network-35,GPS-QZSS:sp-network-36,GPS-NavIC');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1].'<br>';
+                            }
+                        ?>
+                    </td>
                 </tr>
             </table>
             <?php
@@ -2378,13 +2420,11 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Sensors':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
@@ -2394,17 +2434,7 @@ function data_ref($key)
                     <th>センサー類</th>
                     <td>
                         <?php
-                            $input_checks = explode(':',
-                            'sp-sensor-0,各センサー:
-                            sp-sensor-1,コンパス:
-                            sp-sensor-2,接近センサー:
-                            sp-sensor-3,加速度センサー:
-                            sp-sensor-4,ジャイロセンサー:
-                            sp-sensor-5,気圧センサー:
-                            sp-sensor-6,虹彩センサー:
-                            sp-sensor-7,sensor core:
-                            sp-sensor-8,サーモグラフィー:
-                            sp-sensor-9,IRセンサー');
+                            $input_checks = explode(':','sp-sensor-1,コンパス:sp-sensor-2,接近センサー:sp-sensor-3,加速度センサー:sp-sensor-4,ジャイロセンサー:sp-sensor-5,気圧センサー:sp-sensor-6,虹彩センサー:sp-sensor-7,sensor core:sp-sensor-8,サーモグラフィー:sp-sensor-9,IRセンサー');
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
@@ -2419,17 +2449,7 @@ function data_ref($key)
                     <th>指紋センサー</th>
                     <td>
                         <?php
-                            $input_checks = explode(':',
-                            'sp-sensor-14,指紋センサー:
-                            sp-sensor-15,指紋センサー-背面:
-                            sp-sensor-16,指紋センサー-側面:
-                            sp-sensor-17,紋センサー-右側面:
-                            sp-sensor-18,指紋センサー-左側面:
-                            sp-sensor-19,指紋センサー-カメラユニットに付属:
-                            sp-sensor-20,指紋センサー-画面内:
-                            sp-sensor-21,紋センサー-光学式:
-                            sp-sensor-22,指紋センサー-超音波式:
-                            sp-sensor-23,指紋センサー-ToutchID');
+                            $input_checks = explode(':','sp-sensor-14,指紋センサー:sp-sensor-15,指紋センサー-背面:sp-sensor-16,指紋センサー-側面:sp-sensor-17,指紋センサー-右側面:sp-sensor-18,指紋センサー-左側面:sp-sensor-19,指紋センサー-カメラユニットに付属:sp-sensor-20,指紋センサー-画面内:sp-sensor-21,紋センサー-画面内光学式:sp-sensor-22,指紋センサー-画面内超音波式:sp-sensor-23,指紋センサー-ToutchID');
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
@@ -2509,15 +2529,14 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Type':
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Charging':
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
@@ -2586,24 +2605,6 @@ function data_ref($key)
                     <th>最大充電速度w</th>
                     <td>
                         <input type='text' name='sp-battery-10' value="<?php echo data_ref('sp-battery-10');?>">
-                    </td>
-                </tr>
-                <tr>
-                    <th>USB Type-C</th>
-                    <td>
-                        <input type="checkbox" name="sp-battery-13" value="Yes"<?php if(data_ref('sp-battery-13') == 'Yes')echo ' checked';?>>
-                    </td>
-                </tr>
-                <tr>
-                    <th>USB Micro-b</th>
-                    <td>
-                        <input type="checkbox" name="sp-battery-14" value="Yes"<?php if(data_ref('sp-battery-14') == 'Yes')echo ' checked';?>>
-                    </td>
-                </tr>
-                <tr>
-                    <th>ポート補足情報</th>
-                    <td>
-                        <input type='text' name='sp-battery-14' value="<?php echo data_ref('sp-battery-14');?>">
                     </td>
                 </tr>
                 <tr>
@@ -2694,23 +2695,19 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Colors':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Models':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     case 'SAR':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     case 'SAR EU':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Price':
@@ -2842,79 +2839,57 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Performance':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Display':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     case 'Camera':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     case 'Loudspeaker':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
 
                     case 'Battery life':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                         break;
                 }
             }
             data_viewer();?>
             <table class='data-table'>
-            <input type="checkbox" name="" value="Yes"<?php if(data_ref('') == 'Yes')echo ' checked';?>>
-            <input type='text' name='' value="<?php echo data_ref('');?>">
                 <tr>
-                    <th>重さ</th>
-                    <td></td>
+                    <th>Antutu</th>
+                    <td>
+                        <?php
+                            $input_checks = explode(':','sp-test-0,AnTuTu v6:sp-test-1,AnTuTu v7:sp-test-2,AnTuTu v8:sp-test-3,AnTuTu v9:sp-test-4,AnTuTu v10:sp-test-5,AnTuTu v11:sp-test-6,AnTuTu v12');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo $input_check[1].'<br>'."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>";
+                            }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th>縦</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>横</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>厚み</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>素材</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>SIM</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Dual stand by</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>防水防塵</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Apple Pay</th>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th>Samsung Aay</th>
-                    <td></td>
+                    <th>その他のベンチマークスコア</th>
+                    <td>
+                        <?php
+                            $input_checks = explode(';','sp-test-8,Endurance rating(h);sp-test-9,Loudspeaker ( LUFS);sp-test-10,Loudspeaker: Voice (dB);sp-test-11,Loudspeaker: Noise (dB);sp-test-12,Loudspeaker: Ring (dB);sp-test-13,GeekBench: (v4.4);sp-test-14,GeekBench: (v5.1);sp-test-16,GFXBench:ES 3.1 onscreen(fps);sp-test-18,Audio quality:Noise(dB);sp-test-19,Audio quality:Crosstalk(dB);sp-test-21,Basemark X;sp-test-22,Basemark OS II 2.0;sp-test-25,Display Contrast ratio');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo $input_check[1].'<br>'."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>";
+                            }
+                        ?>
+                    </td>
                 </tr>
             </table>
             
