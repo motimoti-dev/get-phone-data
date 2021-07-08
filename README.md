@@ -15,7 +15,7 @@ GSMarenaからスクレイピングでデータを抽出、sumahotektek.com用�
 
 この画面でデータ出力したHTMLでは、ある程度のデータがあらかじめ自動で入力されたスペック表が出てきます。
 
-<img src='images/sample-1'>
+<img src='https://motimoti-dev.github.io/get-phone-data/images/sample-1.png'>
 
 このスクレイピングでは完全にすべてのデータを捌き切れるわけでもないので、それぞれ間違っている点を修正してください。
 IDはsumahotektekのドキュメントにしたがって常に一意のIDを入力してください。
