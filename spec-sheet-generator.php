@@ -1,4 +1,8 @@
 <h1>スクレイピングの奴</h1>
+<form method="post">
+使用するURL<input type='text' name='scurl' size='full' value=''>
+</form>
+数字は全部,ナシで入力
 <form id='form1'>
 <?php 
 
@@ -16,8 +20,15 @@ error_reporting(0);
 //$url = 'https://www.gsmarena.com/huawei_p30_lite-9545.php';
 //$url = 'https://www.gsmarena.com/samsung_galaxy_s21_ultra_5g-10596.php';
 $url = 'https://www.gsmarena.com/asus_zenfone_8-10893.php';
+if(array_key_exists('scurl',$_POST)){
+    if($_POST['scurl'] != ''){
+        $url = $_POST['scurl'];
+    }
+}
 
 $html = file_get_html($url);
+
+echo '<a href="'.$url.'" >'.$html->find( '.specs-phone-name-title', 0 )->plaintext.'</a>';
 ?>
 <?php //echo substr_count($html,'table');?>
 <?php
@@ -28,6 +39,9 @@ $data_view = [];
 
 $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
 ?>
+<h1 class="specs-phone-name-title" data-spec="modelname"><?php echo $html->find( '.specs-phone-name-title', 0 )->plaintext;?></h1>
+<img src="<?php echo $html->find( '.specs-photo-main a img ', 0 )->src;?>">
+
 <?php //echo $html->find( 'table', 0 );?>
 <?php //echo $html->find( 'table', 0 )->find('th', 0);?>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -1020,6 +1034,7 @@ function data_ref($key)
                         break;
                 }
             }
+            add_data(["sp-launch-4",$html->find( '.specs-phone-name-title', 0 )->plaintext]);
             data_viewer();
             ?>
             
@@ -1034,31 +1049,36 @@ function data_ref($key)
                 </tr>
                 <tr>
                     <th>未発表の場合の期待される発表日</th>
-                    <td><input type='text' name='sp-launch-13' value=""></td>
+                    <td><input type='text' name='sp-launch-13' value="<?php echo data_ref('sp-launch-13');?>"></td>
                 </tr>
                 <tr>
                     <th>細かいやつら</th>
                     <td>
-                        <input type="checkbox" name="sp-launch-15" value="Yes">これがメイン表示の場合
-                        <input type="checkbox" name="sp-launch-12" value="Yes">リーク
-                        <input type="checkbox" name="sp-launch-14" value="Yes" <?php if(data_ref('sp-launch-2') == 'Yes')echo 'checked';?>>日本で発売されたやつ
+                        <input type="checkbox" name="sp-launch-15" value="Yes"<?php if(data_ref('sp-launch-15') == 'Yes')echo ' checked';?>>これがメイン表示の場合
+                        <input type="checkbox" name="sp-launch-12" value="Yes"<?php if(data_ref('sp-launch-12') == 'Yes')echo ' checked';?>>リーク
+                        <input type="checkbox" name="sp-launch-14" value="Yes"<?php if(data_ref('sp-launch-14') == 'Yes')echo ' checked';?>>日本で発売されたやつ
+                        <input type="checkbox" name="sp-extra-5" value="Yes"<?php if(data_ref('sp-extra-5') == 'Yes')echo ' checked';?>>技適認証	
                     </td>
                 </tr>
                 <tr>
+                    <th>端末名</th>
+                    <td><input type='text' name='sp-launch-4' value="<?php echo data_ref('sp-launch-4');?>"></td>
+                </tr>
+                <tr>
                     <th>端末id(一意のid)</th>
-                    <td><input type='text' name='sp-launch-9' value=""></td>
+                    <td><input type='text' name='sp-launch-9' value="<?php echo data_ref('sp-launch-9');?>"></td>
                 </tr>
                 <tr>
                     <th>メインiD</th>
-                    <td><input type='text' name='sp-launch-11' value=""></td>
+                    <td><input type='text' name='sp-launch-11' value="<?php echo data_ref('sp-launch-11');?>"></td>
                 </tr>
                 <tr>
-                    <th>同じスマホ別バージョン</th>
-                    <td><input type='text' name='sp-launch-16' value="" size="full"></td>
+                    <th>同じスマホ別バージョン(,区切りでid)</th>
+                    <td><input type='text' name='sp-launch-16' value="<?php echo data_ref('sp-launch-16');?>" size="full"></td>
                 </tr>
                 <tr>
                     <th>関連スマホ</th>
-                    <td><input type='text' name='sp-launch-10' value="" size="full"></td>
+                    <td><input type='text' name='sp-launch-10' value="<?php echo data_ref('sp-launch-10');?>" size="full"></td>
                 </tr>
             </table>
             <?php
@@ -2479,7 +2499,7 @@ function data_ref($key)
                 </tr>
                 <tr>
                     <th>オーディオ追加説明</th>
-                    <td><input type='text' name='sp-extra-52' value="<?php echo data_ref('sp-extra-52');?>"></td>
+                    <td><input type='text' name='sp-extra-52' value="<?php echo data_ref('sp-extra-52');?>" size='full'></td>
                 </tr>
             </table>
             
@@ -2701,7 +2721,7 @@ function data_ref($key)
                     <th>GPS</th>
                     <td>
                     	<input type="checkbox" name="sp-network-29" value="Yes"<?php if(data_ref('sp-network-29') == 'Yes')echo ' checked';?>>GPS対応<br>
-                        GPS機能<br>
+                        ・GPS機能<br>
                         <?php
                             $input_checks = explode(':','sp-network-30,GPS-A-GPS:sp-network-31,GPS-GLONASS:sp-network-32,GPS-BDS:sp-network-33,GPS-BDS (tri-band):sp-network-34,GPS-GALILEO:sp-network-35,GPS-QZSS:sp-network-36,GPS-NavIC');
 
@@ -2880,16 +2900,20 @@ function data_ref($key)
             <table class='data-table'>            
                 <tr>
                     <th>バッテリー容量</th>
-                    <td><input type='text' name='sp-battery-0' value="<?php echo data_ref('sp-battery-0');?>"></td>
+                    <td>
+                        <input type='text' name='sp-battery-0' value="<?php echo data_ref('sp-battery-0');?>" size='mini'>mAh
+                    </td>
                 </tr>
                 <tr>
                     <th>バッテリーについての補足情報</th>
-                    <td><input type='text' name='sp-battery-1' value="<?php echo data_ref('sp-battery-1');?>"></td>
+                    <td>
+                        <input type='text' name='sp-battery-1' value="<?php echo data_ref('sp-battery-1');?>" size='full'>
+                    </td>
                 </tr>
                 <tr>
                     <th>バッテリー取り外し可能</th>
                     <td>
-                    <input type="checkbox" name="sp-battery-9" value="Yes"<?php if(data_ref('sp-battery-9') == 'Yes')echo ' checked';?>>
+                        <input type="checkbox" name="sp-battery-9" value="Yes"<?php if(data_ref('sp-battery-9') == 'Yes')echo ' checked';?>>可能
                     </td>
                 </tr>
                 <tr>
@@ -2903,26 +2927,26 @@ function data_ref($key)
                 <tr>
                     <th>ワイヤレス充電</th>
                     <td>
-                        <input type="checkbox" name="sp-battery-5" value="Yes"<?php if(data_ref('sp-battery-5') == 'Yes')echo ' checked';?>>
+                        <input type="checkbox" name="sp-battery-5" value="Yes"<?php if(data_ref('sp-battery-5') == 'Yes')echo ' checked';?>>対応
                     </td>
                 </tr>
                 <tr>
                     <th>ワイヤレス充電速度</th>
                     <td>
-                        <input type='text' name='sp-battery-6' value="<?php echo data_ref('sp-battery-6');?>">
+                        <input type='text' name='sp-battery-6' value="<?php echo data_ref('sp-battery-6');?>" size='mini'>w
                     </td>
                 </tr>
                 <tr>
                     <th>ワイヤレス逆充電
                 </th>
                     <td>
-                        <input type="checkbox" name="sp-battery-20" value="Yes"<?php if(data_ref('sp-battery-20') == 'Yes')echo ' checked';?>>
+                        <input type="checkbox" name="sp-battery-20" value="Yes"<?php if(data_ref('sp-battery-20') == 'Yes')echo ' checked';?>>対応
                     </td>
                 </tr>
                 <tr>
                     <th>ワイヤレス逆充電速度</th>
                     <td>
-                        <input type='text' name='sp-battery-21' value="<?php echo data_ref('sp-battery-21');?>">
+                        <input type='text' name='sp-battery-21' value="<?php echo data_ref('sp-battery-21');?>" size='mini'>w
                     </td>
                 </tr>
                 <tr>
@@ -2940,22 +2964,21 @@ function data_ref($key)
                 <tr>
                     <th>最大充電速度w</th>
                     <td>
-                        <input type='text' name='sp-battery-10' value="<?php echo data_ref('sp-battery-10');?>">
+                        <input type='text' name='sp-battery-10' value="<?php echo data_ref('sp-battery-10');?>" size='mini'>w
                     </td>
                 </tr>
                 <tr>
                     <th>リチウムイオン電池</th>
                     <td>
-                        <input type="checkbox" name="sp-battery-17" value="Yes"<?php if(data_ref('sp-battery-17') == 'Yes')echo ' checked';?>>
+                        <input type="checkbox" name="sp-battery-17" value="Yes"<?php if(data_ref('sp-battery-17') == 'Yes')echo ' checked';?>>バッテリーがリチウムイオン電池の場合チェック
                     </td>
                 </tr>
                 <tr>
                     <th>給電</th>
                     <td>
-                        <input type='text' name='sp-battery-18' value="<?php echo data_ref('sp-battery-18');?>">
+                        <input type='text' name='sp-battery-18' value="<?php echo data_ref('sp-battery-18');?>">5V/4Aなど 
                     </td>
                 </tr>
-
                 <tr>
                     <th>充電規格</th>
                     <td>
@@ -3070,13 +3093,14 @@ function data_ref($key)
                         色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]
                     </th>
                     <td>
-                        <input type='text' name='sp-design-3' value="<?php echo data_ref('sp-design-3');?>">
+                        <input type='text' name='sp-design-3' value="<?php echo data_ref('sp-design-3');?>" size='full'>
                     </td>
                 </tr>
                 <tr>
                     <th>モデル番号</th>
                     <td>
-                        <input type='text' name='sp-launch-5' value="<?php echo data_ref('sp-launch-5');?>">
+                        複数ある場合は,で区切る
+                        <input type='text' name='sp-launch-5' value="<?php echo data_ref('sp-launch-5');?>" size='full'>
                     </td>
                 </tr>
                 <tr>
@@ -3084,14 +3108,10 @@ function data_ref($key)
                         SAR
                     </th>
                     <td>
-                        SAR head<br>
-                        <input type='text' name='sp-extra-57' value="<?php echo data_ref('sp-extra-57');?>">
-                        SAR body<br>
-                        <input type='text' name='sp-extra-58' value="<?php echo data_ref('sp-extra-58');?>">
-                        SAR EU head<br>
-                        <input type='text' name='sp-extra-59' value="<?php echo data_ref('sp-extra-59');?>">
-                        SAR EU body<br>
-                        <input type='text' name='sp-extra-60' value="<?php echo data_ref('sp-extra-60');?>">
+                        SAR head<input type='text' name='sp-extra-57' value="<?php echo data_ref('sp-extra-57');?>"><br>
+                        SAR body<input type='text' name='sp-extra-58' value="<?php echo data_ref('sp-extra-58');?>"><br>
+                        SAR EU head<input type='text' name='sp-extra-59' value="<?php echo data_ref('sp-extra-59');?>"><br>
+                        SAR EU body<input type='text' name='sp-extra-60' value="<?php echo data_ref('sp-extra-60');?>">
                     </td>
                 </tr>
             </table>
@@ -3209,7 +3229,7 @@ function data_ref($key)
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
-                                echo $input_check[1].'<br>'."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>";
+                                echo $input_check[1]."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>".'<br>';
                             }
                         ?>
                     </td>
@@ -3222,7 +3242,7 @@ function data_ref($key)
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
-                                echo $input_check[1].'<br>'."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>";
+                                echo $input_check[1]."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>".'<br>';
                             }
                         ?>
                     </td>
