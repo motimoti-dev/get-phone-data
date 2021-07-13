@@ -3574,7 +3574,8 @@ function data_ref($key)
             
 </form>
 <p>url:<?php echo $url;?></p>
-<div class="table-row">
+<div onclick="opentd('#table-row');">表示非表示</div>
+<div class="table-row hide" id='table-row'>
     <div class="table-column" style="background:#bddeff;">
         <?php
             $data_table_title = "発売日とメーカー";
