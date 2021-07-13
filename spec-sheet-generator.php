@@ -1449,7 +1449,7 @@ function data_ref($key)
                         add_data(["sp-screen-0",$plaintext]);
                         add_data(["sp-screen-41",$plaintext]);
                         break;
-                        
+
                     default:
                         $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                         if(strpos($plaintext,'Always-on display') !== false){//default
@@ -1827,17 +1827,21 @@ function data_ref($key)
                 Internal	128GB 6GB RAM, 128GB 8GB RAM, 256GB 8GB RAM, 512GB 8GB RAM
                 &nbsp; 	UFS 2.1
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Card slot':
+                        if(strpos($plaintext,'Unspecified') !== false){
+                            add_data(["sp-spec-10",'Unknown']);
+                        }
                         break;
 
                     case 'Internal':
+                        add_data(["sp-spec-10",$plaintext]);
                         break;
                     
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-spec-8",$plaintext]);
                         break;
                 }
             }
@@ -1846,6 +1850,7 @@ function data_ref($key)
                 <tr>
                     <th>Micro SDカード</th>
                     <td>
+                        <input type="checkbox" name="sp-spec-12" value="Unknown"<?php if(data_ref('sp-spec-12') == 'Unknown')echo ' checked';?>>詳細不明な場合
                         <input type="checkbox" name="sp-spec-12" value="Yes"<?php if(data_ref('sp-spec-12') == 'Yes')echo ' checked';?>>対応&nbsp;
                         <input type='text' name='sp-spec-14' value="<?php echo data_ref('sp-spec-14');?>" size='mini'>GB Micro SD最大容量
                     </td>
@@ -1884,6 +1889,7 @@ function data_ref($key)
                 <tr>
                     <th>他のバージョン</th>
                     <td>
+                        使用しない項目(入力はしてください。)
                         <input type='text' name='sp-spec-10' value="<?php echo data_ref('sp-spec-10');?>" size='full'>
                     </td>
                 </tr>
@@ -1964,38 +1970,60 @@ function data_ref($key)
                 Features	LED flash, auto-HDR, panorama
                 Video	8K@24fps, 4K@30/60fps, 1080p@30/60/240fps, 720p@960fps, HDR10+, stereo sound rec., gyro-EIS & OIS
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Single':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-4",1]);
                         break;
 
                     case 'Dual':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-4",2]);
                         break;
 
                     case 'Triple':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-4",3]);
                         break;
 
                     case 'Quad':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-4",4]);
                         break;
 
                     case 'Five':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-4",5]);
                         break;
 
                     case 'Six':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-4",6]);
                         break;
 
-                    case 'Features':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                    case 'Features'://	LED flash, HDR, panorama
+                        $Features = [
+                            ['sp-camera-100','LED flash'],
+                            ['sp-camera-101','Dual LED flash'],
+                            ['sp-camera-102','Triple-LED flash'],
+                            ['sp-camera-103','triple-LED RGB flash'],
+                            ['sp-camera-104','Quad-LED flash'],
+                            ['sp-camera-105','panorama'],
+                            ['sp-camera-106','auto panorama (motorized rotation)'],
+                            ['sp-camera-107','HDR'],
+                            ['sp-camera-108','auto-HDR'],
+                            ['sp-camera-109','Leica optics'],
+                            ['sp-camera-110','Zeiss optics']
+                        ];
+                        foreach(explode(', ',$plaintext) as $feature){
+                            foreach($Features as $Feature_array){
+                                if($feature == $Feature_array[1]){
+                                    add_data([$Feature_array[0],'Yes']);
+                                }
+                            }
+                        }
+                        
                         break;
 
                     case 'Video':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(['sp-camera-2',$plaintext]);
+                        add_data(['sp-camera-5',$plaintext]);
                         break;
                     
                     default:
@@ -2009,7 +2037,7 @@ function data_ref($key)
                     <th>カメラ数</th>
                     <td>
                         カメラ数<input type='text' name='sp-camera-4' value="<?php echo data_ref('sp-camera-4');?>" size='mini'><br>
-                        メインカメラとして表示するカメラ<input type='text' name='sp-camera-4' value="<?php echo data_ref('sp-camera-4');?>" size='mini'><br>
+                        メインカメラとして表示するカメラ<input type='text' name='sp-camera-16' value="<?php echo data_ref('sp-camera-16');?>" size='mini'><br>
                         カメラの補足説明
                         <input type='text' name='sp-camera-14' value="<?php echo data_ref('sp-camera-14');?>" size='full'>
                     </td>
@@ -2197,7 +2225,7 @@ function data_ref($key)
                         動画-日本語版
                         <input type='text' name='sp-camera-5' value="<?php echo data_ref('sp-camera-5');?>" size='full'>
                         <?php
-                            $input_checks = explode(':','sp-camera-113,HDR10+:sp-camera-114,OIS:sp-camera-115,gyro-EIS:sp-camera-116,stereo sound rec');
+                            $input_checks = explode(':','sp-camera-113,HDR10+:sp-camera-114,OIS:sp-camera-115,gyro-EIS:sp-camera-116,stereo sound rec:sp-camera-117,HDR');
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
@@ -2262,46 +2290,53 @@ function data_ref($key)
                 Features	Dual video call, Auto-HDR
                 Video	4K@30/60fps, 1080p@30fps
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Single':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-12",1]);
                         break;
 
                     case 'Dual':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-12",2]);
                         break;
 
                     case 'Triple':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-12",3]);
                         break;
 
                     case 'Quad':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-12",4]);
                         break;
 
                     case 'Five':
-                        //発表
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-12",5]);
                         break;
 
                     case 'Six':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-camera-12",6]);
                         break;
 
                     case 'Features':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $Features = [
+                            ['sp-camera-113','HDR10+'],
+                            ['sp-camera-114','OIS'],
+                            ['sp-camera-115','gyro-EIS'],
+                            ['sp-camera-116','stereo sound rec'],
+                            ['sp-camera-117','HDR']
+                        ];
+                        foreach(explode(', ',$plaintext) as $feature){
+                            foreach($Features as $Feature_array){
+                                if($feature == $Feature_array[1]){
+                                    add_data([$Feature_array[0],'Yes']);
+                                }
+                            }
+                        }
                         break;
 
                     case 'Video':
-                        //状態
-                        echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(['sp-camera-201',$plaintext]);
+                        add_data(['sp-camera-202',$plaintext]);
                         break;
                     
                     default:
@@ -2482,18 +2517,43 @@ function data_ref($key)
 
                                         
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
-                    case 'Loudspeaker':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                    case 'Loudspeaker ':
+                        if(strpos($plaintext,'Yes') !== false){
+                            add_data(["sp-extra-37",'Yes']);
+                        }
+                        if(strpos($plaintext,'Unspecified') !== false){
+                            add_data(["sp-extra-37",'Unknwon']);
+                        }
                         break;
 
-                    case '3.5mm jack':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                    case '3.5mm jack ':
+                        if(strpos($plaintext,'Yes') !== false){
+                            add_data(["sp-extra-4",'Yes']);
+                        }
+                        if(strpos($plaintext,'Unspecified') !== false){
+                            add_data(["sp-extra-4",'Unknwon']);
+                        }
                         break;
                     
                     default:
-                        //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        if(strpos($plaintext,'24-bit/192kHz') !== false){
+                            add_data(["sp-extra-44",'Yes']);
+                        }
+                        if(strpos($plaintext,'32-bit/384kHz') !== false){
+                            add_data(["sp-extra-45",'Yes']);
+                        }
+                        if(strpos($plaintext,'Tuned by Harman Kardon') !== false){
+                            add_data(["sp-extra-47",'Yes']);
+                        }
+                        if(strpos($plaintext,'Tuned by JBL') !== false){
+                            add_data(["sp-extra-48",'Yes']);
+                        }
+                        if(strpos($plaintext,'Tuned by AKG') !== false){
+                            add_data(["sp-extra-49",'Yes']);
+                        }
                         break;
                 }
             }
@@ -2503,19 +2563,27 @@ function data_ref($key)
                 <tr>
                     <th>3.5mmイヤホンジャック</th>
                     <td>
-                        <input type="checkbox" name="sp-extra-4" value="Yes"<?php if(data_ref('sp-extra-4') == 'Yes')echo ' checked';?>>
+                        <input type="checkbox" name="sp-extra-4" value="Yes"<?php if(data_ref('sp-extra-4') == 'Yes')echo ' checked';?>>対応
+                        <input type="checkbox" name="sp-extra-4" value="Unknown"<?php if(data_ref('sp-extra-37') == 'Unknown')echo ' checked';?>>不明
                     </td>
                 </tr>
                 <tr>
                     <th>通話用スピーカー(Loudspeaker)</th>
                     <td>
-                        <input type="checkbox" name="sp-extra-37" value="Yes"<?php if(data_ref('sp-extra-37') == 'Yes')echo ' checked';?>>
+                        <input type="checkbox" name="sp-extra-37" value="Yes"<?php if(data_ref('sp-extra-37') == 'Yes')echo ' checked';?>>対応
+                        <input type="checkbox" name="sp-extra-37" value="Unknown"<?php if(data_ref('sp-extra-37') == 'Unknown')echo ' checked';?>>不明
                     </td>
                 </tr>
                 <tr>
                     <th>デュアルスピーカー</th>
                     <td>
                         <input type="checkbox" name="sp-extra-38" value="Yes"<?php if(data_ref('sp-extra-38') == 'Yes')echo ' checked';?>>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ステレオスピーカー</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-42" value="Yes"<?php if(data_ref('sp-extra-42') == 'Yes')echo ' checked';?>>
                     </td>
                 </tr>
                 <tr>
@@ -2664,26 +2732,198 @@ function data_ref($key)
                         Radio	FM radio (Snapdragon model only; market/operator dependent)
                         USB	USB Type-C 3.2, USB On-The-Go
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'WLAN':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //Unspecified
+                        if(str_replace(" ","",$plaintext) == 'Unspecified'){
+                            add_data(["sp-network-0",'Unknown']);
+                            break;
+                        }
+                        
+                        //yes
+                        if(str_replace(" ","",$plaintext) == 'Yes'){
+                            add_data(["sp-network-0",'Yes']);
+                            break;
+                        }
+                        
+                        foreach(explode(', ',$plaintext) as $wlan){
+                            switch($wlan){
+                                case 'dual-band':
+                                    add_data(["sp-network-38",'Yes']);
+                                    break;
+
+                                case 'Wi-Fi Direct':
+                                    add_data(["sp-network-39",'Yes']);
+                                    break;
+
+                                case 'hotspot':
+                                    add_data(["sp-network-40",'Yes']);
+                                    break;
+
+                                case 'DLNA':
+                                    add_data(["sp-network-41",'Yes']);
+                                    break;
+
+                                default:
+                                    if(strpos($wlan,'Wi-Fi 802.11 ') !== false){
+                                        add_data(["sp-network-0",'Yes']);
+                                        foreach(explode('/',str_replace("Wi-Fi 802.11 ","",$wlan)) as $ieee){
+                                            switch($ieee){
+                                                case 'a':
+                                                    add_data(["sp-network-10",'Yes']);
+                                                    break;
+                                                
+                                                case 'b':
+                                                    add_data(["sp-network-11",'Yes']);
+                                                    break;
+
+                                                case 'g':
+                                                    add_data(["sp-network-12",'Yes']);
+                                                    break;
+
+                                                case 'n':
+                                                    add_data(["sp-network-13",'Yes']);
+                                                    break;
+
+                                                case 'ac':
+                                                    add_data(["sp-network-14",'Yes']);
+                                                    break;
+
+                                                case 'ax':
+                                                    add_data(["sp-network-15",'Yes']);
+                                                    break;
+
+                                                case '6e':
+                                                    add_data(["sp-network-16",'Yes']);
+                                                    break;
+
+                                                default:
+                                                    error_repo('WLAN',$ieee);
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    break;
+                            }
+                        }
                         break;
 
                     case 'Bluetooth':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        if(str_replace(" ","",$plaintext) == 'Unspecified'){
+                            add_data(["sp-network-1",'Unknown']);
+                        }elseif(str_replace(" ","",$plaintext) == 'Yes'){
+                            add_data(["sp-network-1",'Yes']);
+                        }else{//5.2, A2DP, LE, aptX HD, aptX Adaptive
+                            add_data(["sp-network-1",'Yes']);
+                            if(is_numeric(explode(', ',$plaintext)[0])){
+                                add_data(["sp-network-2",explode(', ',$plaintext)[0]]);
+                            }
+                            
+                            foreach(explode(', ',$plaintext) as $bt){
+                                switch($bt){
+                                    case 'A2DP':
+                                        add_data(["sp-network-19",'Yes']);
+                                        break;
+
+                                    case 'aptX HD':
+                                        add_data(["sp-network-21",'Yes']);
+                                        break;
+
+                                    case 'LE':
+                                        add_data(["sp-network-20",'Yes']);
+                                        break;
+
+                                    case 'aptX Adaptive':
+                                        add_data(["sp-network-22",'Yes']);
+                                        break;
+
+                                    default:
+                                        if(is_numeric($bt)){
+                                            //array 0
+                                        }else{
+                                            error_repo('Bluetooth',$bt);
+                                        }
+                                        break;
+                                }
+                            }
+                        }
                         break;
                     
-                    case 'Bluetooth':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                    case 'GPS':
+                        if(str_replace(" ","",$plaintext) == 'Unspecified'){
+                            add_data(["sp-network-29",'Unknown']);
+                        }elseif(str_replace(" ","",$plaintext) == 'Yes'){
+                            add_data(["sp-network-29",'Yes']);
+                        }else{// with dual-band A-GPS, GLONASS, GALILEO, BDS, QZSS, NavIC
+                            add_data(["sp-network-29",'Yes']);
+                            
+                            foreach(explode(', ',str_replace("Yes, with ","",$plaintext)) as $gps){
+                                switch($gps){
+
+                                    case 'dual-band A-GPS':
+                                        add_data(["sp-network-37",'Yes']);
+                                        break;
+
+                                    case 'A-GPS':
+                                        add_data(["sp-network-30",'Yes']);
+                                        break;
+                                        
+                                    case 'GLONASS':
+                                        add_data(["sp-network-31",'Yes']);
+                                        break;
+
+                                    case 'BDS':
+                                        add_data(["sp-network-32",'Yes']);
+                                        break;
+
+                                    case '':
+                                        add_data(["sp-network-",'Yes']);
+                                        break;
+
+                                    case 'BDS (tri-band)':
+                                        add_data(["sp-network-33",'Yes']);
+                                        break;
+
+                                    case 'GALILEO':
+                                        add_data(["sp-network-34",'Yes']);
+                                        break;
+
+                                    case 'QZSS':
+                                        add_data(["sp-network-35",'Yes']);
+                                        break;
+
+                                    case 'NavIC':
+                                        add_data(["sp-network-36",'Yes']);
+                                        break;
+
+                                    default:
+                                        error_repo('GPS',$gps);
+                                        break;
+                                }
+                            }
+                        }
                         break;
                     
                     case 'NFC':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        if(str_replace(" ","",$plaintext) == 'Unspecified'){
+                            add_data(["sp-extra-0",'Unknown']);
+                            break;
+                        }elseif(str_replace(" ","",$plaintext) == 'Yes'){
+                            add_data(["sp-extra-0",'Yes']);
+                            break;
+                        }else{
+                            error_repo('NFC',$ieee);
+                        }
                         break;
 
                     case 'Infrared port':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        //yes
+                        if(str_replace(" ","",$plaintext) == 'Yes'){
+                            add_data(["sp-extra-9",'Yes']);
+                            break;
+                        }
                         break;
                     
                     case 'Radio':
@@ -2704,7 +2944,9 @@ function data_ref($key)
                 <tr>
                     <th>Wi-Fi</th>
                     <td>
-                        <input type="checkbox" name="sp-network-0" value="Yes"<?php if(data_ref('sp-network-0') == 'Yes')echo ' checked';?>>Wi-Fi対応<br>
+                        <input type="checkbox" name="sp-network-0" value="Yes"<?php if(data_ref('sp-network-0') == 'Yes')echo ' checked';?>>Wi-Fi対応
+                        <input type="checkbox" name="sp-network-0" value="Unknown"<?php if(data_ref('sp-network-0') == 'Unknown')echo ' checked';?>>Wi-Fi不明
+                        <br>
                         <?php
                             $input_checks = explode(':','sp-network-10,a:sp-network-11,b:sp-network-12,g:sp-network-13,n:sp-network-14,ac:sp-network-15,ax:sp-network-16,6e');
 
@@ -2756,7 +2998,9 @@ function data_ref($key)
                 <tr>
                     <th>bluetooth</th>
                     <td>
-                        <input type="checkbox" name="sp-network-1" value="Yes"<?php if(data_ref('sp-network-1') == 'Yes')echo ' checked';?>>bluetooth対応<br>
+                        <input type="checkbox" name="sp-network-1" value="Yes"<?php if(data_ref('sp-network-1') == 'Yes')echo ' checked';?>>bluetooth対応
+                        <input type="checkbox" name="sp-network-1" value="Unknown"<?php if(data_ref('sp-network-1') == 'Unknown')echo ' checked';?>>bluetooth不明
+                        <br>
                     	bluetooth ver<br>
                         <input type='text' name='sp-network-2' value="<?php echo data_ref('sp-network-2');?>"><br>
                         <?php
@@ -2775,12 +3019,20 @@ function data_ref($key)
                     <th>NFC</th>
                     <td>
                         <input type="checkbox" name="sp-extra-0" value="Yes"<?php if(data_ref('sp-extra-0') == 'Yes')echo ' checked';?>>対応
+                        <input type="checkbox" name="sp-extra-0" value="Unknown"<?php if(data_ref('sp-extra-0') == 'Unknown')echo ' checked';?>>不明
+                    </td>
+                </tr>
+                <tr>
+                    <th>赤外線ポート[Infrared port]</th>
+                    <td>
+                        <input type="checkbox" name="sp-extra-9" value="Yes"<?php if(data_ref('sp-extra-9') == 'Yes')echo ' checked';?>>対応
                     </td>
                 </tr>
                 <tr>
                     <th>ラジオ</th>
                     <td>
                         <input type="checkbox" name="sp-network-26" value="Yes"<?php if(data_ref('sp-network-26') == 'Yes')echo ' checked';?>>ラジオ対応
+                        <input type="checkbox" name="sp-network-26" value="Unknown"<?php if(data_ref('sp-network-26') == 'Unknown')echo ' checked';?>>ラジオ不明
                         <input type="checkbox" name="sp-network-27" value="Yes"<?php if(data_ref('sp-network-27') == 'Yes')echo ' checked';?>>FM radio対応<br>
                         ラジオ説明<br>
                         <input type='text' name='sp-network-28' value="<?php echo data_ref('sp-network-28');?>">
@@ -2789,10 +3041,12 @@ function data_ref($key)
                 <tr>
                     <th>GPS</th>
                     <td>
-                    	<input type="checkbox" name="sp-network-29" value="Yes"<?php if(data_ref('sp-network-29') == 'Yes')echo ' checked';?>>GPS対応<br>
+                    	<input type="checkbox" name="sp-network-29" value="Yes"<?php if(data_ref('sp-network-29') == 'Yes')echo ' checked';?>>GPS対応
+                        <input type="checkbox" name="sp-network-29" value="Unknown"<?php if(data_ref('sp-network-29') == 'Unknown')echo ' checked';?>>GPS不明
+                        <br>
                         ・GPS機能<br>
                         <?php
-                            $input_checks = explode(':','sp-network-30,GPS-A-GPS:sp-network-31,GPS-GLONASS:sp-network-32,GPS-BDS:sp-network-33,GPS-BDS (tri-band):sp-network-34,GPS-GALILEO:sp-network-35,GPS-QZSS:sp-network-36,GPS-NavIC');
+                            $input_checks = explode(':','sp-network-37,dual-band A-GPS:sp-network-30,GPS-A-GPS:sp-network-31,GPS-GLONASS:sp-network-32,GPS-BDS:sp-network-33,GPS-BDS (tri-band):sp-network-34,GPS-GALILEO:sp-network-35,GPS-QZSS:sp-network-36,GPS-NavIC');
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
