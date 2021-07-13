@@ -1363,29 +1363,98 @@ function data_ref($key)
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Type':
-                        //
                         $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
-                        $plaintexts = explode(', ',$plaintext);
+                        if(strpos($plaintext,', ') !== false){//Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)
+                            if(explode(', ',$plaintext)[0] != '-'){//
+                                add_data(["sp-screen-3",explode(', ',$plaintext)[0]]);
+                            }
+                        }
+                        if(strpos($plaintext,'HBM') !== false){//Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)
+                            //echo end(explode(", ",explode(' nits (HBM)',$plaintext)[0]));
+                            if(is_numeric(end(explode(", ",explode(' nits (HBM)',$plaintext)[0])))){//
+                                add_data(["sp-screen-43",end(explode(", ",explode(' nits (HBM)',$plaintext)[0]))]);
+                            }
+                        }
+                        if(strpos($plaintext,'peak') !== false){//Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)
+                            //echo end(explode(", ",explode(' nits (peak)',$plaintext)[0]));
+                            if(is_numeric(end(explode(", ",explode(' nits (peak)',$plaintext)[0])))){//
+                                add_data(["sp-screen-11",end(explode(", ",explode(' nits (peak)',$plaintext)[0]))]);
+                            }
+                        }
+                        if(strpos($plaintext,'typ') !== false){//Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)
+                            //echo end(explode(", ",explode(' nits (typ)',$plaintext)[0]));
+                            if(is_numeric(end(explode(", ",explode(' nits (typ)',$plaintext)[0])))){//
+                                add_data(["sp-screen-15",end(explode(", ",explode(' nits (typ)',$plaintext)[0]))]);
+                            }
+                        }
+                        if(strpos($plaintext,'Hz') !== false){//Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)
+                            if(is_numeric(end(explode(", ",explode('Hz',$plaintext)[0])))){//
+                                add_data(["sp-screen-8",end(explode(", ",explode('Hz',$plaintext)[0]))]);
+                            }
+                        }
+                        if(strpos($plaintext,'HDR10') !== false){//Super AMOLED, 120Hz, HDR10+, 700 nits (HBM), 1100 nits (peak)
+                            if(strpos($plaintext,'HDR10+') !== false){
+                                add_data(["sp-screen-27",'Yes']);
+                            }else{
+                                add_data(["sp-screen-28",'Yes']);
+                            }
+                        }
                         break;
 
                     case 'Size':
-                        //
-                        
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
+
+                        //inches
+                        if(strpos($plaintext,'inches') !== false){//	5.9 inches, 84.0 cm2 (~82.9% screen-to-body ratio)
+                            if(is_numeric(explode(' inches, ',$plaintext)[0])){//
+                                add_data(["sp-screen-1",explode(' inches, ',$plaintext)[0]]);
+                            }
+                        }
+
+                        //ratio
+                        if(strpos($plaintext,'screen-to-body ratio') !== false){//	5.9 inches, 84.0 cm2 (~82.9% screen-to-body ratio)
+                            if(is_numeric(explode('~',explode('% screen-to-body ratio)',$plaintext)[0])[1])){//
+                                add_data(["sp-screen-14",explode('~',explode('% screen-to-body ratio)',$plaintext)[0])[1]]);
+                            }
+                        }
+
                         break;
 
                     case 'Resolution':
-                        //
-                        
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
+                        if(strpos($plaintext,'pixels') !== false){//	5.9 inches, 84.0 cm2 (~82.9% screen-to-body ratio)
+                            if(is_numeric(explode(' x ',explode(' pixels',$plaintext)[0])[0]) && is_numeric(explode(' x ',explode(' pixels',$plaintext)[0])[1])){//
+                                add_data(["sp-screen-16",explode(' x ',explode(' pixels',$plaintext)[0])[1]]);
+                                add_data(["sp-screen-4",explode(' x ',explode(' pixels',$plaintext)[0])[0]]);
+                            }
+                        }
+                        if(strpos($plaintext,'ratio') !== false){//	5.9 inches, 84.0 cm2 (~82.9% screen-to-body ratio)
+                            echo "aaa".end(explode(', ',explode(' ratio',$plaintext)[0]));
+                            if(is_numeric( explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[0] ) && is_numeric(explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[1])){//1080 x 2400 pixels, 20:9
+                                add_data(["sp-screen-2",explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[0]]);
+                                add_data(["sp-screen-17",explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[1]]);//pixelと縦横反転
+                            }
+                        }
+
+                        //ppi
+                        if(strpos($plaintext,'ppi density') !== false){//	5.9 inches, 84.0 cm2 (~82.9% screen-to-body ratio)
+                            if(is_numeric(explode('~',explode(' ppi density',$plaintext)[0])[1])){//
+                                add_data(["sp-screen-6",explode('~',explode(' ppi density',$plaintext)[0])[1]]);
+                            }
+                        }
                         break;
 
                     case 'Protection':
-                        //
-                        
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
+                        add_data(["sp-screen-0",$plaintext]);
+                        add_data(["sp-screen-41",$plaintext]);
                         break;
-                    
+                        
                     default:
-                        //echo 'Speed';
-                        echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
+                        if(strpos($plaintext,'Always-on display') !== false){//default
+                            add_data(["sp-screen-20",'Yes']);
+                        }
                         break;
                 }
             }
@@ -1458,7 +1527,7 @@ function data_ref($key)
                 <tr>
                     <th>アスペクト比</th>
                     <td>
-                        縦<input type='text' name='sp-screen-2' value="<?php echo data_ref('sp-screen-2');?>" size='mini'>x&nbsp;&nbsp;&nbsp;
+                        縦<input type='text' name='sp-screen-2' value="<?php echo data_ref('sp-screen-2');?>" size='mini'>:&nbsp;&nbsp;&nbsp;
                         横<input type='text' name='sp-screen-17' value="<?php echo data_ref('sp-screen-17');?>" size='mini'>
                     </td>
                 </tr>
