@@ -3096,10 +3096,48 @@ function data_ref($key)
                             Samsung Pay (Visa, MasterCard certified)
                             Ultra Wideband (UWB) support
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Sensors':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        if(strpos($plaintext,'Fingerprint') !== false){
+                            add_data(["sp-sensor-14",'Yes']);
+                        }
+                        foreach(explode(', ',$plaintext) as $Sensor){
+                            switch($Sensor){
+                                case 'compass':
+                                    add_data(["sp-sensor-1",'Yes']);
+                                    break;
+
+                                case 'proximity':
+                                    add_data(["sp-sensor-2",'Yes']);
+                                    break;
+
+                                case 'accelerometer':
+                                    add_data(["sp-sensor-3",'Yes']);
+                                    break;
+
+                                case 'gyro':
+                                    add_data(["sp-sensor-4",'Yes']);
+                                    break;
+
+                                case 'barometer':
+                                    add_data(["sp-sensor-5",'Yes']);
+                                    break;
+
+                                case 'Iris scanner':
+                                    add_data(["sp-sensor-6",'Yes']);
+                                    break;
+
+                                case 'color spectrum':
+                                    add_data(["sp-sensor-10",'Yes']);
+                                    break;
+
+                                default:
+                                    error_repo('Sensors',$Sensor);
+                                    break;
+                            }
+                        }
                         break;
 
                     default:
@@ -3152,10 +3190,10 @@ function data_ref($key)
             for($i = 0 ; $i <= $ot_td_num - 1 ; $i++){
                 //echo $ot_html01->find('.ttl', 0);
                 /*
-                BATTERY	Type	Li-Po 4000 mAh, non-removable
-                Charging	Fast charging 30W, 60% in 25 min, 100% in 80 min (advertised)
-                USB Power Delivery 3.0
-                Reverse charging
+                BATTERY	    Type	    WLi-Po 4000 mAh, non-removable
+                            Charging	Fast charging 30W, 60% in 25 min, 100% in 80 min (advertised)
+                            USB Power   Delivery 3.0
+                            Reverse     charging
 
                 BATTERY	Type	Li-Po 4000 mAh, non-removable
                 Charging	Fast charging
@@ -3205,13 +3243,31 @@ function data_ref($key)
                 Fast Qi/PMA wireless charging 15W
                 Reverse wireless charging 4.5W
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Type':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        if(strpos($plaintext,'Li-Po') !== false){
+                            add_data(["sp-battery-17",'Yes']);
+                        }
+                        if(strpos($plaintext,'non-removable') !== false){
+                            add_data(["sp-battery-9",'No']);
+                        }elseif(strpos($plaintext,'removable') !== false){
+                            add_data(["sp-battery-9",'Yes']);
+                        }
+                        if(strpos($plaintext,'mAh') !== false){
+                            if(is_numeric(end(explode(' ',explode(' mAh',$plaintext)[0])))){
+                                add_data(["sp-battery-0",end(explode(' ',explode(' mAh',$plaintext)[0]))]);
+                            }
+                        }
                         break;
 
                     case 'Charging':
+                        if(strpos($plaintext,'W') !== false){
+                            if(is_numeric(end(explode(' ',explode('W',$plaintext)[0])))){
+                                add_data(["sp-battery-10",end(explode(' ',explode('W',$plaintext)[0]))]);
+                            }
+                        }
                         break;
                     
                     default:
@@ -3237,6 +3293,7 @@ function data_ref($key)
                     <th>バッテリー取り外し可能</th>
                     <td>
                         <input type="checkbox" name="sp-battery-9" value="Yes"<?php if(data_ref('sp-battery-9') == 'Yes')echo ' checked';?>>可能
+                        <input type="checkbox" name="sp-battery-9" value="No"<?php if(data_ref('sp-battery-9') == 'No')echo ' checked';?>>不可能
                     </td>
                 </tr>
                 <tr>
@@ -3276,12 +3333,6 @@ function data_ref($key)
                     <th>充電に関する補足情報</th>
                     <td>
                         <input type='text' name='sp-battery-7' value="<?php echo data_ref('sp-battery-7');?>">
-                    </td>
-                </tr>
-                <tr>
-                    <th>充電に関する補足情報</th>
-                    <td>
-                        <input type='text' name='sp-battery-9' value="<?php echo data_ref('sp-battery-9');?>">
                     </td>
                 </tr>
                 <tr>
@@ -3374,6 +3425,7 @@ function data_ref($key)
                         SAR EU	0.34 W/kg (head)     1.47 W/kg (body)    
                         Price	$ 980.99 / € 889.00 / £ 724.99
                 */
+                $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                 switch($ot_html01->find('.ttl', $i)->plaintext){
                     
                     case 'Colors':
@@ -3381,7 +3433,7 @@ function data_ref($key)
                         break;
 
                     case 'Models':
-                        //echo "<p>".$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                        add_data(["sp-launch-5",$plaintext]);
                         break;
                     
                     case 'SAR':
@@ -3424,6 +3476,24 @@ function data_ref($key)
                     <td>
                         複数ある場合は,で区切る
                         <input type='text' name='sp-launch-5' value="<?php echo data_ref('sp-launch-5');?>" size='full'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>価格</th>
+                    <td>
+                        価格(このモデルのみ)
+                        <input type='text' name='sp-launch-17' value="<?php echo data_ref('sp-launch-17');?>" size='full'>
+                        現地価格 このモデルの価格、単位ナシ
+                        <input type='text' name='sp-launch-20' value="<?php echo data_ref('sp-launch-20');?>" size='full'>
+                        単位
+                        <input type="checkbox" name="sp-launch-21" value="Yes"<?php if(data_ref('sp-launch-21') == 'Yes')echo ' checked';?>>USD$
+                        <input type="checkbox" name="sp-launch-22" value="Yes"<?php if(data_ref('sp-launch-22') == 'Yes')echo ' checked';?>>ユーロ€
+                        <input type="checkbox" name="sp-launch-23" value="Yes"<?php if(data_ref('sp-launch-23') == 'Yes')echo ' checked';?>>ポンド£
+                        <input type="checkbox" name="sp-launch-24" value="Yes"<?php if(data_ref('sp-launch-24') == 'Yes')echo ' checked';?>>円¥
+                        <input type="checkbox" name="sp-launch-25" value="Yes"<?php if(data_ref('sp-launch-25') == 'Yes')echo ' checked';?>>香港ドル
+                        <input type="checkbox" name="sp-launch-26" value="Yes"<?php if(data_ref('sp-launch-26') == 'Yes')echo ' checked';?>>中国元<br>
+                        価格テキスト[$ 719.99 / £ 623.44みたいな感じに]
+                        <input type='text' name='sp-launch-19' value="<?php echo data_ref('sp-launch-19');?>" size='full'>
                     </td>
                 </tr>
                 <tr>
@@ -3543,6 +3613,7 @@ function data_ref($key)
                 }
             }
             data_viewer();?>
+            <p><b>MISCが表示されている場合はこの項目はスルーしても大丈夫です！</b></p>
             <table class='data-table'>
                 <tr>
                     <th>Antutu</th>
