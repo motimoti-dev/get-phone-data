@@ -1,15 +1,27 @@
 <h1>スクレイピングの奴</h1>
 <form method="post">
 使用するURL<input type='text' name='scurl' size='full' value=''>
+<textarea name='json'></textarea>
 </form>
 数字は全部,ナシで入力
 <form id='form1'>
-<?php 
+<?php
 
 //繰り返したぐ生成するやつ　https://paiza.io/projects/iBS4BIH4fcK8_lyw0xAqjg?language=php
+$arr = [];
 foreach ( $_GET as $key => $value ) {
-    echo $key. "：".$value."<br>";
+    if($value != ''){
+        echo $key. "：".$value."<br>";
+        $arr[] =  [$key,$value];
+    }
 }
+//echo json_encode($arr);
+foreach ( json_decode(json_encode($arr)) as $value ) {
+    if($value[1] != ''){
+        echo $value[0]. "：".$value[1]."<br>";
+    }
+}
+
 //spec-sheetのジェネレーター、スクレイピングしたデータを出力
 require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
 error_reporting(E_ALL & ~E_NOTICE);
@@ -40,6 +52,26 @@ $data_view = [];
 $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
 ?>
 <h1 class="specs-phone-name-title" data-spec="modelname"><?php echo $html->find( '.specs-phone-name-title', 0 )->plaintext;?></h1>
+<textarea id="copyTarget" readonly>
+<?php echo json_encode($arr);?>
+</textarea>
+<div onclick="copyToClipboard()">Copy text</div>
+<script>
+ function copyToClipboard() {
+            // コピー対象をJavaScript上で変数として定義する
+            var copyTarget = document.getElementById("copyTarget");
+
+            // コピー対象のテキストを選択する
+            copyTarget.select();
+
+            // 選択しているテキストをクリップボードにコピーする
+            document.execCommand("Copy");
+
+            // コピーをお知らせする
+            //alert("コピーできました！ : " + copyTarget.value);
+        }
+</script>
+
 <img src="<?php echo $html->find( '.specs-photo-main a img ', 0 )->src;?>">
 
 <?php //echo $html->find( 'table', 0 );?>
