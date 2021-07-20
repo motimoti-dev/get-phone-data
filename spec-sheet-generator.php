@@ -1,26 +1,38 @@
 <h1>スクレイピングの奴</h1>
 <form method="post">
 使用するURL<input type='text' name='scurl' size='full' value=''>
-<textarea name='json'></textarea>
+途中から入力する場合(json)<textarea name='json' style='width:100%;'></textarea>
 </form>
 数字は全部,ナシで入力
 <form id='form1'>
 <?php
 
 //繰り返したぐ生成するやつ　https://paiza.io/projects/iBS4BIH4fcK8_lyw0xAqjg?language=php
-$arr = [];
-foreach ( $_GET as $key => $value ) {
-    if($value != ''){
-        echo $key. "：".$value."<br>";
-        $arr[] =  [$key,$value];
+?>
+<div onclick='opentd("#get-data");' style='background:#c8fdff;'>URLパラメータを表示、非表示</div>
+<div id='get-data' class='hide'>
+    <?php
+    $arr = [];
+    foreach ( $_GET as $key => $value ) {
+        if($value != ''){
+            echo $key. "：".$value."<br>";
+            $arr[] =  [$key,$value];
+        }
     }
-}
-//echo json_encode($arr);
-foreach ( json_decode(json_encode($arr)) as $value ) {
-    if($value[1] != ''){
-        echo $value[0]. "：".$value[1]."<br>";
+    ?>
+</div>
+<div onclick='opentd("#get-data2");' style='background:#ffdced;'>GETをJOSNに変換して、またデコードした奴</div>
+<div id='get-data2' class='hide'>
+    <?php
+    //echo json_encode($arr);
+    foreach ( json_decode(json_encode($arr)) as $value ) {
+        if($value[1] != ''){
+            echo $value[0]. "：".$value[1]."<br>";
+        }
     }
-}
+    ?>
+</div>
+<?php
 
 //spec-sheetのジェネレーター、スクレイピングしたデータを出力
 require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
@@ -37,6 +49,24 @@ if(array_key_exists('scurl',$_POST)){
         $url = $_POST['scurl'];
     }
 }
+global $def_json;
+$def_json = false;
+if(array_key_exists('json',$_POST)){
+    if($_POST['json'] != ''){
+        $def_json = json_decode($_POST['json']);
+    }
+}
+if($def_json != false){?>
+    <div onclick='opentd("#post-json-data");' style='background:#e1ffc8;'>初期JOSNの設定</div>
+    <div id='post-json-data' class='hide'>
+        <?php print_r($def_json);?>
+    </div>
+<?php }else{?>
+    <div onclick='opentd("#post-json-data");' style='background:#e1ffc8;'>初期JOSNの設定</div>
+    <div id='post-json-data' class='hide'>
+        <p>jsonは設定されていません</p>
+    </div>
+<?php }
 
 $html = file_get_html($url);
 
@@ -52,24 +82,22 @@ $data_view = [];
 $table_num = substr_count($html->find( '#specs-list', 0 ),'table')/2;
 ?>
 <h1 class="specs-phone-name-title" data-spec="modelname"><?php echo $html->find( '.specs-phone-name-title', 0 )->plaintext;?></h1>
-<textarea id="copyTarget" readonly>
+<p>送信されたデータをjsonに変換したテキスト</p>
+<textarea id="copyTarget" style='width:100%;' readonly>
 <?php echo json_encode($arr);?>
 </textarea>
-<div onclick="copyToClipboard()">Copy text</div>
+<div onclick="copyToClipboard()" style='background: #c8fdff;'>Copy text</div>
 <script>
  function copyToClipboard() {
-            // コピー対象をJavaScript上で変数として定義する
-            var copyTarget = document.getElementById("copyTarget");
+    // コピー対象をJavaScript上で変数として定義する
+    var copyTarget = document.getElementById("copyTarget");
 
-            // コピー対象のテキストを選択する
-            copyTarget.select();
+    // コピー対象のテキストを選択する
+    copyTarget.select();
 
-            // 選択しているテキストをクリップボードにコピーする
-            document.execCommand("Copy");
-
-            // コピーをお知らせする
-            //alert("コピーできました！ : " + copyTarget.value);
-        }
+    // 選択しているテキストをクリップボードにコピーする
+    document.execCommand("Copy");
+}
 </script>
 
 <img src="<?php echo $html->find( '.specs-photo-main a img ', 0 )->src;?>">
@@ -343,7 +371,10 @@ function add_data($add_data_1){
 }
 function data_ref($key)
 {
-    global $data;
+    global $data,$def_json;
+    if($def_json != false){
+
+    }
     foreach($data as $data_key){
         if($data_key[0] == $key){
             return $data_key[1];
