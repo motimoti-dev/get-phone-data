@@ -12,12 +12,18 @@
 <div onclick='opentd("#get-data");' style='background:#c8fdff;'>URLパラメータを表示、非表示</div>
 <div id='get-data' class='hide'>
     <?php
-    $arr = [];
-    foreach ( $_GET as $key => $value ) {
-        if($value != ''){
-            echo $key. "：".$value."<br>";
-            $arr[] =  [$key,$value];
+    global $arr;
+    $arr = false;
+    if(count($_GET) != 0){
+        $arr = [];
+        foreach ( $_GET as $key => $value ) {
+            if($value != ''){
+                echo $key. "：".$value."<br>";
+                $arr[] =  [$key,$value];
+            }
         }
+    }else{
+        echo '<p>Getパラメータがありません</p>';
     }
     ?>
 </div>
@@ -25,10 +31,14 @@
 <div id='get-data2' class='hide'>
     <?php
     //echo json_encode($arr);
-    foreach ( json_decode(json_encode($arr)) as $value ) {
-        if($value[1] != ''){
-            echo $value[0]. "：".$value[1]."<br>";
+    if($arr != false){
+        foreach ( json_decode(json_encode($arr)) as $value ) {
+            if($value[1] != ''){
+                echo $value[0]. "：".$value[1]."<br>";
+            }
         }
+    }else{
+        echo '<p>Getパラメータがありません</p>';
     }
     ?>
 </div>
@@ -47,6 +57,11 @@ $url = 'https://www.gsmarena.com/asus_zenfone_8-10893.php';
 if(array_key_exists('scurl',$_POST)){
     if($_POST['scurl'] != ''){
         $url = $_POST['scurl'];
+    }
+}
+if(array_key_exists('sp-memo-1',$_GET)){
+    if($_GET['sp-memo-1'] != ''){
+        $url = $_GET['sp-memo-1'];
     }
 }
 global $def_json;
@@ -371,9 +386,22 @@ function add_data($add_data_1){
 }
 function data_ref($key)
 {
-    global $data,$def_json;
+    global $data,$def_json,$arr;
     if($def_json != false){
-
+        foreach($def_json as $data_key){
+            if($data_key[0] == $key){
+                return $data_key[1];
+            }
+        }
+        return ''; 
+    }
+    if($arr != false){
+        foreach($arr as $data_key){
+            if($data_key[0] == $key){
+                return $data_key[1];
+            }
+        }
+        return ''; 
     }
     foreach($data as $data_key){
         if($data_key[0] == $key){
@@ -383,6 +411,11 @@ function data_ref($key)
     return "";
 }
 ?>
+<br>
+メモ用
+<input type='text' name='sp-memo-0' value="<?php echo data_ref('sp-memo-0');?>" size="full">
+URL
+<input type='text' name='sp-memo-1' value="<?php echo data_ref('sp-memo-1');?>" size="full">
 <?php
             //発売日とメーカーのデータ
             //$data[] = ["sp-launch-0",''];
@@ -1100,7 +1133,7 @@ function data_ref($key)
             add_data(["sp-launch-4",$html->find( '.specs-phone-name-title', 0 )->plaintext]);
             data_viewer();
             ?>
-            
+            <p>IDは後から一斉に設定できるのでここで入力しなくても大丈夫です。</p>
             <table class='data-table'>
                 <tr>
                     <th>発表日</th>
@@ -1121,6 +1154,21 @@ function data_ref($key)
                         <input type="checkbox" name="sp-launch-12" value="Yes"<?php if(data_ref('sp-launch-12') == 'Yes')echo ' checked';?>>リーク
                         <input type="checkbox" name="sp-launch-14" value="Yes"<?php if(data_ref('sp-launch-14') == 'Yes')echo ' checked';?>>日本で発売されたやつ
                         <input type="checkbox" name="sp-extra-5" value="Yes"<?php if(data_ref('sp-extra-5') == 'Yes')echo ' checked';?>>技適認証	
+                    </td>
+                </tr>
+                <tr>
+                    <th>地域</th>
+                    <td>
+                        <?php
+                            $input_checks = explode(':','sp-launch-29,日本:sp-launch-30,中国:sp-launch-31,インド:sp-launch-32,韓国:sp-launch-33,アメリカ:sp-launch-34,EU:sp-launch-35,グローバル');
+
+                            foreach($input_checks as $input_check ){
+                                $input_check = explode(',',$input_check);
+                                echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
+                                if(data_ref($input_check[0]) == 'Yes')echo ' checked';
+                                echo '>'.$input_check[1];
+                            }
+                        ?>
                     </td>
                 </tr>
                 <tr>
@@ -1216,6 +1264,7 @@ function data_ref($key)
                         //素材とか
                         $before_ttl = 'Build';
                         add_data(['sp-design-2',$ot_html01->find('.nfo', $i)->plaintext]);
+                        add_data(['sp-design-14',$ot_html01->find('.nfo', $i)->plaintext]);
                         //手動で変更が必要
                         break;
 
@@ -1225,6 +1274,7 @@ function data_ref($key)
                         $before_ttl = 'SIM';
                         $plaintext = $ot_html01->find('.nfo', $i)->plaintext;
                         add_data(["sp-network-3",$plaintext]);
+                        add_data(["sp-network-9",$plaintext]);
                         if(strpos($plaintext,'dual stand-by') !== false){
                             add_data(["sp-network-7",'Yes']);
                         }
@@ -1311,7 +1361,12 @@ function data_ref($key)
                 </tr>
                 <tr>
                     <th>SIM</th>
-                    <td><input type='text' name='sp-network-3' value="<?php echo data_ref('sp-network-3');?>" size="full"></td>
+                    <td>
+                        日本語版
+                        <input type='text' name='sp-network-3' value="<?php echo data_ref('sp-network-3');?>" size="full">
+                        英語版
+                        <input type='text' name='sp-network-9' value="<?php echo data_ref('sp-network-9');?>" size="full">
+                    </td>
                 </tr>
                 <tr>
                     <th>SIMスロット追加情報</th>
@@ -2064,6 +2119,7 @@ function data_ref($key)
                         $Features = [
                             ['sp-camera-100','LED flash'],
                             ['sp-camera-101','Dual LED flash'],
+                            ['sp-camera-111','Dual-LED dual-tone flash'],
                             ['sp-camera-102','Triple-LED flash'],
                             ['sp-camera-103','triple-LED RGB flash'],
                             ['sp-camera-104','Quad-LED flash'],
@@ -2269,7 +2325,7 @@ function data_ref($key)
                     <th>特徴(Features)</th>
                     <td>
                         <?php
-                            $input_checks = explode(':','sp-camera-100,LED flash(LEDフラッシュ):sp-camera-101,Dual LED flash(デュアルLEDフラッシュ):sp-camera-102,Triple-LED flash(トリプルLEDフラッシュ):sp-camera-103,triple-LED RGB flash(トリプルRGBLEDフラッシュ):sp-camera-104,Quad-LED flash(クアッドLEDフラッシュ):sp-camera-105,panorama(パノラマ):sp-camera-106,auto panorama (motorized rotation)(自動パノラマ撮影(電動回転)):sp-camera-107,HDR(HDR):sp-camera-108,auto-HDR(auto-HDR):sp-camera-109,Leica optics(Leicaカメラ):sp-camera-110,Zeiss optics(Zeissカメラ)');
+                            $input_checks = explode(':','sp-camera-100,LED flash(LEDフラッシュ):sp-camera-111,dual-tone flash(デュアルトーンLEDフラッシュ):sp-camera-101,Dual LED flash(デュアルLEDフラッシュ):sp-camera-102,Triple-LED flash(トリプルLEDフラッシュ):sp-camera-103,triple-LED RGB flash(トリプルRGBLEDフラッシュ):sp-camera-104,Quad-LED flash(クアッドLEDフラッシュ):sp-camera-105,panorama(パノラマ):sp-camera-106,auto panorama (motorized rotation)(自動パノラマ撮影(電動回転)):sp-camera-107,HDR(HDR):sp-camera-108,auto-HDR(auto-HDR):sp-camera-109,Leica optics(Leicaカメラ):sp-camera-110,Zeiss optics(Zeissカメラ)');
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
@@ -2854,7 +2910,7 @@ function data_ref($key)
                                                     add_data(["sp-network-14",'Yes']);
                                                     break;
 
-                                                case 'ax':
+                                                case '6':
                                                     add_data(["sp-network-15",'Yes']);
                                                     break;
 
@@ -3214,7 +3270,7 @@ function data_ref($key)
                     <th>センサー類</th>
                     <td>
                         <?php
-                            $input_checks = explode(':','sp-sensor-1,コンパス:sp-sensor-2,接近センサー:sp-sensor-3,加速度センサー:sp-sensor-4,ジャイロセンサー:sp-sensor-5,気圧センサー:sp-sensor-6,虹彩センサー:sp-sensor-7,sensor core:sp-sensor-8,サーモグラフィー:sp-sensor-9,IRセンサー');
+                            $input_checks = explode(':','sp-sensor-11,仮想接近センサー(Virtual proximity sensing):sp-sensor-1,コンパス(compass):sp-sensor-2,接近センサー(proximity):sp-sensor-3,加速度センサー(accelerometer):sp-sensor-4,ジャイロセンサー(gyro):sp-sensor-5,気圧センサー(barometer):sp-sensor-6,虹彩センサー(Iris scanner):sp-sensor-7,sensor core:sp-sensor-8,サーモグラフィー:sp-sensor-9,IRセンサー:sp-sensor-10,カラースペクトル(color spectrum)');
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
@@ -3686,7 +3742,7 @@ function data_ref($key)
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
-                                echo $input_check[1]."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>".'<br>';
+                                echo $input_check[1]."<input type='text' name='".$input_check[0]."' value='".data_ref($input_check[0])."'>".'<br>';
                             }
                         ?>
                     </td>
@@ -3699,7 +3755,7 @@ function data_ref($key)
 
                             foreach($input_checks as $input_check ){
                                 $input_check = explode(',',$input_check);
-                                echo $input_check[1]."<input type='text' name='".$input_check[0]."' value='".data_ref('')."'>".'<br>';
+                                echo $input_check[1]."<input type='text' name='".$input_check[0]."' value='".data_ref($input_check[0])."'>".'<br>';
                             }
                         ?>
                     </td>
