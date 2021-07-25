@@ -1191,6 +1191,28 @@ URL
                     <th>関連スマホ</th>
                     <td><input type='text' name='sp-launch-10' value="<?php echo data_ref('sp-launch-10');?>" size="full"></td>
                 </tr>
+                <tr>
+                    <th>
+                        メーカー
+                    
+                    </th>
+                    <td>
+                        <?php 
+                        $makers = explode(',','1[Apple],2[google],3[xiaomi],4[poco],5[blackshark],6[redmi],7[vivo],8[huawei],9[honor],10[oppo],11[oneplus],12[raalme],13[umidigi],14[ouktel],15[sony],16[samsung],17[sharp],18[leica],19[ASUS],20[motolora],21[lenovo],22[meizu],23[tcl],24[zte],25[rakuten]');
+                        foreach($makers as $maker){
+
+                            echo '<input type="checkbox" name="sp-extra-11" value="'.explode('[',$maker)[0].'"';
+                            if(data_ref('sp-extra-11') == explode('[',$maker)[0]){
+                                ' checked';
+                            }
+                            echo '>'.str_replace(']','',explode('[',$maker)[1]);
+                        }
+                        
+                        ?>
+                        <input type="checkbox" name="sp-extra-11" value="Yes"<?php if(data_ref('sp-extra-11') == 'Yes')echo ' checked';?>>
+                    sp-launch-40
+                    </td>
+                </tr>
             </table>
             <?php
 
