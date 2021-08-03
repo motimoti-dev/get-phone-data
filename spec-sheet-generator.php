@@ -2131,7 +2131,30 @@
                     <tr>
                         <th>メモリGB(この構成のものだけ)</th>
                         <td>
-                            <input type='text' name='sp-spec-7' value="<?php echo data_ref('sp-spec-7');?>" size='mini'>GB
+                            <input type='text' id="storage0" name='sp-spec-7' value="<?php echo data_ref('sp-spec-7');?>" size='mini'>GB<br>
+                            <div class="tagcloud2">
+                                <a onclick="ckinput('storage0',1)">1GB</a>
+                                <a onclick="ckinput('storage0',2)">2GB</a>
+                                <a onclick="ckinput('storage0',3)">3GB</a>
+                                <a onclick="ckinput('storage0',4)">4GB</a>
+                                <a onclick="ckinput('storage0',5)">5GB</a>
+                                <a onclick="ckinput('storage0',6)">6GB</a>
+                                <a onclick="ckinput('storage0',7)">7GB</a>
+                                <a onclick="ckinput('storage0',8)">8GB</a>
+                                <a onclick="ckinput('storage0',9)">9GB</a>
+                                <a onclick="ckinput('storage0',10)">10GB</a>
+                                <a onclick="ckinput('storage0',11)">11GB</a>
+                                <a onclick="ckinput('storage0',12)">12GB</a>
+                                <a onclick="ckinput('storage0',13)">13GB</a>
+                                <a onclick="ckinput('storage0',14)">14GB</a>
+                                <a onclick="ckinput('storage0',15)">15GB</a>
+                                <a onclick="ckinput('storage0',16)">16GB</a>
+                                <a onclick="ckinput('storage0',17)">17GB</a>
+                                <a onclick="ckinput('storage0',18)">18GB</a>
+                                <a onclick="ckinput('storage0',19)">19GB</a>
+                                <a onclick="ckinput('storage0',20)">20GB</a>
+                                <a onclick="ckinput('storage0',21)">21GB</a>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -2149,7 +2172,21 @@
                     <tr>
                         <th>ストレージGB(この構成のものだけ)</th>
                         <td>
-                            <input type='text' name='sp-spec-9' value="<?php echo data_ref('sp-spec-9');?>" size='mini'>GB
+                            <input id="storage1" type='text' name='sp-spec-9' value="<?php echo data_ref('sp-spec-9');?>" size='mini'>GB<br>
+                            <div class="tagcloud2">
+                                <a onclick="ckinput('storage1',1)">1GB</a>
+                                <a onclick="ckinput('storage1',2)">2GB</a>
+                                <a onclick="ckinput('storage1',3)">3GB</a>
+                                <a onclick="ckinput('storage1',4)">4GB</a>
+                                <a onclick="ckinput('storage1',8)">8GB</a>
+                                <a onclick="ckinput('storage1',16)">16GB</a>
+                                <a onclick="ckinput('storage1',32)">32GB</a>
+                                <a onclick="ckinput('storage1',64)">64GB</a>
+                                <a onclick="ckinput('storage1',128)">128GB</a>
+                                <a onclick="ckinput('storage1',256)">256GB</a>
+                                <a onclick="ckinput('storage1',512)">512GB</a>
+                                <a onclick="ckinput('storage1',1024)">1024GB</a>
+                            </div>    
                         </td>
                     </tr>
                     <tr>
