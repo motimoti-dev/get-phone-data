@@ -2357,6 +2357,7 @@
                                 焦点距離<input type='text' name='sp-camera-21' value="<?php echo data_ref('sp-camera-21');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-22' value="<?php echo data_ref('sp-camera-22');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-23' value="<?php echo data_ref('sp-camera-23');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-27' value="<?php echo data_ref('sp-camera-27');?>" size='mini'>°&nbsp;
                                 カメラ<input id='maincamera1' type='text' name='sp-camera-24' value="<?php echo data_ref('sp-camera-24');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2391,6 +2392,7 @@
                                 焦点距離<input type='text' name='sp-camera-31' value="<?php echo data_ref('sp-camera-31');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-32' value="<?php echo data_ref('sp-camera-32');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-33' value="<?php echo data_ref('sp-camera-33');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-37' value="<?php echo data_ref('sp-camera-37');?>" size='mini'>°&nbsp;
                                 カメラ<input  id='maincamera2' type='text' name='sp-camera-34' value="<?php echo data_ref('sp-camera-34');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2423,6 +2425,7 @@
                                 焦点距離<input type='text' name='sp-camera-41' value="<?php echo data_ref('sp-camera-41');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-42' value="<?php echo data_ref('sp-camera-42');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-43' value="<?php echo data_ref('sp-camera-43');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-47' value="<?php echo data_ref('sp-camera-47');?>" size='mini'>°&nbsp;
                                 カメラ<input id='maincamera3' type='text' name='sp-camera-44' value="<?php echo data_ref('sp-camera-44');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2456,6 +2459,7 @@
                                 焦点距離<input type='text' name='sp-camera-51' value="<?php echo data_ref('sp-camera-51');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-52' value="<?php echo data_ref('sp-camera-52');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-53' value="<?php echo data_ref('sp-camera-53');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-57' value="<?php echo data_ref('sp-camera-57');?>" size='mini'>°&nbsp;
                                 カメラ<input id='maincamera4' type='text' name='sp-camera-54' value="<?php echo data_ref('sp-camera-54');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2489,6 +2493,7 @@
                                 焦点距離<input type='text' name='sp-camera-61' value="<?php echo data_ref('sp-camera-61');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-62' value="<?php echo data_ref('sp-camera-62');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-63' value="<?php echo data_ref('sp-camera-63');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-67' value="<?php echo data_ref('sp-camera-67');?>" size='mini'>°&nbsp;
                                 カメラ<input id='maincamera5' type='text' name='sp-camera-64' value="<?php echo data_ref('sp-camera-64');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2522,6 +2527,7 @@
                                 焦点距離<input type='text' name='sp-camera-71' value="<?php echo data_ref('sp-camera-71');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-72' value="<?php echo data_ref('sp-camera-72');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-73' value="<?php echo data_ref('sp-camera-73');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-77' value="<?php echo data_ref('sp-camera-77');?>" size='mini'>°&nbsp;
                                 カメラ<input id='maincamera6'type='text' name='sp-camera-74' value="<?php echo data_ref('sp-camera-74');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2555,6 +2561,7 @@
                                 焦点距離<input type='text' name='sp-camera-81' value="<?php echo data_ref('sp-camera-81');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-82' value="<?php echo data_ref('sp-camera-82');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-83' value="<?php echo data_ref('sp-camera-83');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-87' value="<?php echo data_ref('sp-camera-87');?>" size='mini'>°&nbsp;
                                 カメラ<input id='maincamera7' type='text' name='sp-camera-84' value="<?php echo data_ref('sp-camera-84');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2588,6 +2595,7 @@
                                 焦点距離<input type='text' name='sp-camera-91' value="<?php echo data_ref('sp-camera-91');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-92' value="<?php echo data_ref('sp-camera-92');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-93' value="<?php echo data_ref('sp-camera-93');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-97' value="<?php echo data_ref('sp-camera-97');?>" size='mini'>°&nbsp;
                                 カメラ<input id='maincamera8' type='text' name='sp-camera-94' value="<?php echo data_ref('sp-camera-94');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2776,6 +2784,7 @@
                                 焦点距離<input type='text' name='sp-camera-123' value="<?php echo data_ref('sp-camera-123');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-124' value="<?php echo data_ref('sp-camera-124');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-125' value="<?php echo data_ref('sp-camera-125');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-129' value="<?php echo data_ref('sp-camera-129');?>" size='mini'>°&nbsp;
                                 カメラ<input id='in1' type='text' name='sp-camera-126' value="<?php echo data_ref('sp-camera-126');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2809,6 +2818,7 @@
                                 焦点距離<input type='text' name='sp-camera-133' value="<?php echo data_ref('sp-camera-133');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-134' value="<?php echo data_ref('sp-camera-134');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-135' value="<?php echo data_ref('sp-camera-135');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-139' value="<?php echo data_ref('sp-camera-139');?>" size='mini'>°&nbsp;
                                 カメラ<input id='in2' type='text' name='sp-camera-136' value="<?php echo data_ref('sp-camera-136');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2841,6 +2851,7 @@
                                 焦点距離<input type='text' name='sp-camera-143' value="<?php echo data_ref('sp-camera-143');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-144' value="<?php echo data_ref('sp-camera-144');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-145' value="<?php echo data_ref('sp-camera-145');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-149' value="<?php echo data_ref('sp-camera-149');?>" size='mini'>°&nbsp;
                                 カメラ<input id='in3' type='text' name='sp-camera-146' value="<?php echo data_ref('sp-camera-146');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
@@ -2874,6 +2885,7 @@
                                 焦点距離<input type='text' name='sp-camera-153' value="<?php echo data_ref('sp-camera-153');?>" size='mini'>mm&nbsp;
                                 センサーサイズ<input type='text' name='sp-camera-154' value="<?php echo data_ref('sp-camera-154');?>" size='mini'>"&nbsp;
                                 ピクセルサイズ<input type='text' name='sp-camera-155' value="<?php echo data_ref('sp-camera-155');?>" size='mini'>µm&nbsp;
+                                水平視野角<input type='text' name='sp-camera-159' value="<?php echo data_ref('sp-camera-159');?>" size='mini'>°&nbsp;
                                 カメラ<input id='in4' type='text' name='sp-camera-156' value="<?php echo data_ref('sp-camera-156');?>" size='mini'><br>
                                 複数兼ねてる場合は,で入力<br>
                                 <div class="tagcloud2">
