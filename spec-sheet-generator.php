@@ -4,7 +4,6 @@
         $info0 = '<svg viewBox="0 0 512 512" style="width:32px;height:32px;position:relative;top:6px;" onclick="openinfo([\'';
         $info1 = '<svg viewBox="0 0 512 512" style="width:17px;height:17px;position:relative;top:3px;" onclick="openinfo([\'';
         $info2 = '\'])"><path fill="gray" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>    </svg>';
-        
         ?>
         <h1><?php echo $info0.".info0".$info2;?>スクレイピングの奴</h1>
         <form method="post">
@@ -141,6 +140,20 @@
                 padding-left: 1rem;
                 border-left: solid 3px orange;
             }
+            .sc2 h1{
+                border-bottom:2px solid blue;
+                /*margin-top:0;*/
+            }
+            .sc2 h2{
+                padding-left: 1rem;
+                border-left: solid 3px blue;
+            }
+            pre{
+                background: #f2f5ff;
+                border-radius: 4px;
+                border: blue 1px solid;
+                padding-left: 10px;
+            }
             .spec-ul{list-style-type:none;margin:0;padding:0}
             .spec-color{line-height:20px;vertical-align:top;margin-right:10px;display:inline-block;height:13px;width:20px;border:1px solid gray;border-radius:8px}
             .s-box {
@@ -218,7 +231,7 @@
                 background: #eee;
             }
             table[cellspacing="0"]{
-                border:2px gray solid;
+                border:2px #6195ff solid;
                 border-radius:5px;
             }
             td span:nth-child(odd){
@@ -1018,7 +1031,7 @@
                         <tr>
                             <th><?php echo $info1.".info10".$info2;?>バンド</th>
                             <td>
-                                <?php echo $info1.".info10".$info2;?>・表示される5G<br><br>
+                                <?php echo $info1.".info10a".$info2;?>・表示される5G<br><br>
                                 <input type='text' name='sp-band-7' value="<?php echo data_ref('sp-band-7');?>" size="full"><br><br>
 
                                 <?php echo $info1.".info11".$info2;?>・5G各バンド<br><br>
@@ -3557,7 +3570,7 @@
                     <?php data_viewer();?>
                     <table class='data-table'>
                         <tr>
-                            <th>Wi-Fi</th>
+                            <th><?php echo $info1.".info104".$info2;?>Wi-Fi</th>
                             <td>
                                 <input type="checkbox" name="sp-network-0" value="Yes"<?php if(data_ref('sp-network-0') == 'Yes')echo ' checked';?>>Wi-Fi対応
                                 <input type="checkbox" name="sp-network-0" value="Unknown"<?php if(data_ref('sp-network-0') == 'Unknown')echo ' checked';?>>Wi-Fi不明
@@ -3585,7 +3598,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>ポート情報</th>
+                            <th><?php echo $info1.".info105".$info2;?>ポート情報</th>
                             <td>
                                 ポート形状<br>
                                 <input type="checkbox" name="sp-extra-62" value="Yes"<?php if(data_ref('sp-extra-62') == 'Yes')echo ' checked';?>>USB Type-C
@@ -3605,13 +3618,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>USB On-The-Go</th>
+                            <th><?php echo $info1.".info106".$info2;?>USB On-The-Go</th>
                             <td>
                                 <input type="checkbox" name="sp-extra-74" value="Yes"<?php if(data_ref('sp-extra-74') == 'Yes')echo ' checked';?>>対応
                             </td>
                         </tr>
                         <tr>
-                            <th>bluetooth</th>
+                            <th><?php echo $info1.".info107".$info2;?>bluetooth</th>
                             <td>
                                 <input type="checkbox" name="sp-network-1" value="Yes"<?php if(data_ref('sp-network-1') == 'Yes')echo ' checked';?>>bluetooth対応
                                 <input type="checkbox" name="sp-network-1" value="Unknown"<?php if(data_ref('sp-network-1') == 'Unknown')echo ' checked';?>>bluetooth不明
@@ -3631,20 +3644,20 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>NFC</th>
+                            <th><?php echo $info1.".info108".$info2;?>NFC</th>
                             <td>
                                 <input type="checkbox" name="sp-extra-0" value="Yes"<?php if(data_ref('sp-extra-0') == 'Yes')echo ' checked';?>>対応
                                 <input type="checkbox" name="sp-extra-0" value="Unknown"<?php if(data_ref('sp-extra-0') == 'Unknown')echo ' checked';?>>不明
                             </td>
                         </tr>
                         <tr>
-                            <th>赤外線ポート[Infrared port]</th>
+                            <th><?php echo $info1.".info109".$info2;?>赤外線ポート[Infrared port]</th>
                             <td>
                                 <input type="checkbox" name="sp-extra-9" value="Yes"<?php if(data_ref('sp-extra-9') == 'Yes')echo ' checked';?>>対応
                             </td>
                         </tr>
                         <tr>
-                            <th>ラジオ</th>
+                            <th><?php echo $info1.".info110".$info2;?>ラジオ</th>
                             <td>
                                 <input type="checkbox" name="sp-network-26" value="Yes"<?php if(data_ref('sp-network-26') == 'Yes')echo ' checked';?>>ラジオ対応
                                 <input type="checkbox" name="sp-network-26" value="Unknown"<?php if(data_ref('sp-network-26') == 'Unknown')echo ' checked';?>>ラジオ不明
@@ -3654,7 +3667,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>GPS</th>
+                            <th><?php echo $info1.".info111".$info2;?>GPS</th>
                             <td>
                                 <input type="checkbox" name="sp-network-29" value="Yes"<?php if(data_ref('sp-network-29') == 'Yes')echo ' checked';?>>GPS対応
                                 <input type="checkbox" name="sp-network-29" value="Unknown"<?php if(data_ref('sp-network-29') == 'Unknown')echo ' checked';?>>GPS不明
@@ -3760,11 +3773,11 @@
                                 break;
                         }
                     }?>
-                    <h2>センサー</h2>
+                    <h2><?php echo $info0.".info112".$info2;?>センサー</h2>
                     <?php data_viewer();?>
                     <table class='data-table'>
                         <tr>
-                            <th>センサー類</th>
+                            <th><?php echo $info1.".info113".$info2;?>センサー類</th>
                             <td>
                                 <?php
                                     $input_checks = explode(':','sp-sensor-11,仮想接近センサー(Virtual proximity sensing):sp-sensor-1,コンパス(compass):sp-sensor-2,接近センサー(proximity):sp-sensor-3,加速度センサー(accelerometer):sp-sensor-4,ジャイロセンサー(gyro):sp-sensor-5,気圧センサー(barometer):sp-sensor-6,虹彩センサー(Iris scanner):sp-sensor-7,sensor core:sp-sensor-8,サーモグラフィー:sp-sensor-9,IRセンサー:sp-sensor-10,カラースペクトル(color spectrum)');
@@ -3779,7 +3792,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>指紋センサー</th>
+                            <th><?php echo $info1.".info113a".$info2;?>指紋センサー</th>
                             <td>
                                 <?php
                                     $input_checks = explode(':','sp-sensor-14,指紋センサー:sp-sensor-15,指紋センサー-背面:sp-sensor-16,指紋センサー-側面:sp-sensor-17,指紋センサー-右側面:sp-sensor-18,指紋センサー-左側面:sp-sensor-19,指紋センサー-カメラユニットに付属:sp-sensor-20,指紋センサー-画面内:sp-sensor-21,紋センサー-画面内光学式:sp-sensor-22,指紋センサー-画面内超音波式:sp-sensor-23,指紋センサー-ToutchID');
@@ -3891,17 +3904,17 @@
                                 break;
                         }
                     }?>
-                    <h2>バッテリー</h2>
+                    <h2><?php echo $info0.".info114".$info2;?>バッテリー</h2>
                     <?php data_viewer();?>
                     <table class='data-table'>            
                         <tr>
-                            <th>バッテリー容量</th>
+                            <th><?php echo $info1.".info115".$info2;?>バッテリー容量</th>
                             <td>
                                 <input type='text' name='sp-battery-0' value="<?php echo data_ref('sp-battery-0');?>" size='mini'>mAh
                             </td>
                         </tr>
                         <tr>
-                            <th>バッテリーについての補足情報</th>
+                            <th><?php echo $info1.".info116".$info2;?>バッテリーについての補足情報</th>
                             <td>
                                 日本語
                                 <input type='text' name='sp-battery-1' value="<?php echo data_ref('sp-battery-1');?>" size='full'>
@@ -3910,14 +3923,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>バッテリー取り外し可能</th>
+                            <th><?php echo $info1.".info117".$info2;?>バッテリー取り外し可能</th>
                             <td>
                                 <input type="checkbox" name="sp-battery-9" value="Yes"<?php if(data_ref('sp-battery-9') == 'Yes')echo ' checked';?>>可能
                                 <input type="checkbox" name="sp-battery-9" value="No"<?php if(data_ref('sp-battery-9') == 'No')echo ' checked';?>>不可能
                             </td>
                         </tr>
                         <tr>
-                            <th>ワイヤレス規格</th>
+                            <th><?php echo $info1.".info118".$info2;?>ワイヤレス規格</th>
                             <td>
                                 <input type="checkbox" name="sp-battery-23" value="Yes"<?php if(data_ref('sp-battery-23') == 'Yes')echo ' checked';?>>Qi
                                 <input type="checkbox" name="sp-battery-24" value="Yes"<?php if(data_ref('sp-battery-24') == 'Yes')echo ' checked';?>>PMA
@@ -3925,56 +3938,55 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>ワイヤレス充電</th>
+                            <th><?php echo $info1.".info119".$info2;?>ワイヤレス充電</th>
                             <td>
                                 <input type="checkbox" name="sp-battery-5" value="Yes"<?php if(data_ref('sp-battery-5') == 'Yes')echo ' checked';?>>対応
                             </td>
                         </tr>
                         <tr>
-                            <th>ワイヤレス充電速度</th>
+                            <th><?php echo $info1.".info120".$info2;?>ワイヤレス充電速度</th>
                             <td>
                                 <input type='text' name='sp-battery-6' value="<?php echo data_ref('sp-battery-6');?>" size='mini'>w
                             </td>
                         </tr>
                         <tr>
-                            <th>ワイヤレス逆充電
-                        </th>
+                            <th><?php echo $info1.".info121".$info2;?>ワイヤレス逆充電</th>
                             <td>
                                 <input type="checkbox" name="sp-battery-20" value="Yes"<?php if(data_ref('sp-battery-20') == 'Yes')echo ' checked';?>>対応
                             </td>
                         </tr>
                         <tr>
-                            <th>ワイヤレス逆充電速度</th>
+                            <th><?php echo $info1.".info122".$info2;?>ワイヤレス逆充電速度</th>
                             <td>
                                 <input type='text' name='sp-battery-21' value="<?php echo data_ref('sp-battery-21');?>" size='mini'>w
                             </td>
                         </tr>
                         <tr>
-                            <th>充電に関する補足情報</th>
+                            <th><?php echo $info1.".info123".$info2;?>充電に関する補足情報</th>
                             <td>
                                 <input type='text' name='sp-battery-7' value="<?php echo data_ref('sp-battery-7');?>">
                             </td>
                         </tr>
                         <tr>
-                            <th>最大充電速度w</th>
+                            <th><?php echo $info1.".info124".$info2;?>最大充電速度w</th>
                             <td>
                                 <input type='text' name='sp-battery-10' value="<?php echo data_ref('sp-battery-10');?>" size='mini'>w
                             </td>
                         </tr>
                         <tr>
-                            <th>リチウムイオン電池</th>
+                            <th><?php echo $info1.".info125".$info2;?>リチウムイオン電池</th>
                             <td>
                                 <input type="checkbox" name="sp-battery-17" value="Yes"<?php if(data_ref('sp-battery-17') == 'Yes')echo ' checked';?>>バッテリーがリチウムイオン電池の場合チェック
                             </td>
                         </tr>
                         <tr>
-                            <th>給電</th>
+                            <th><?php echo $info1.".info126".$info2;?>給電</th>
                             <td>
                                 <input type='text' name='sp-battery-18' value="<?php echo data_ref('sp-battery-18');?>">5V/4Aなど 
                             </td>
                         </tr>
                         <tr>
-                            <th>充電規格</th>
+                            <th><?php echo $info1.".info127".$info2;?>充電規格</th>
                             <td>
                                 <input type="checkbox" name="sp-battery-26" value="Yes"<?php if(data_ref('sp-battery-26') == 'Yes')echo ' checked';?>>Power Delivery 3.0
                                 <input type="checkbox" name="sp-battery-29" value="Yes"<?php if(data_ref('sp-battery-29') == 'Yes')echo ' checked';?>>QuickCharge 4+
@@ -4073,7 +4085,7 @@
                                 break;
                         }
                     }?>
-                    <h2>カラー/金額</h2>
+                    <h2><?php echo $info0.".info128".$info2;?>カラー/金額</h2>
                     <?php data_viewer();?>
                     <div id="check">color</div>
                     <input type="color" id='inputForm' value="#e66465" onchange="inputCheck()">
@@ -4086,21 +4098,21 @@
                     <table class='data-table'>
                         <tr>
                             <th>
-                                色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]
+                                <?php echo $info1.".info129".$info2;?>色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]
                             </th>
                             <td>
                                 <input type='text' name='sp-design-3' value="<?php echo data_ref('sp-design-3');?>" size='full'>
                             </td>
                         </tr>
                         <tr>
-                            <th>モデル番号</th>
+                            <th><?php echo $info1.".info130".$info2;?>モデル番号</th>
                             <td>
                                 複数ある場合は,で区切る
                                 <input type='text' name='sp-launch-5' value="<?php echo data_ref('sp-launch-5');?>" size='full'>
                             </td>
                         </tr>
                         <tr>
-                            <th>価格</th>
+                            <th><?php echo $info1.".info131".$info2;?>価格</th>
                             <td>
                                 価格(このモデルのみ)
                                 <input type='text' name='sp-launch-17' value="<?php echo data_ref('sp-launch-17');?>" size='full'>
@@ -4118,9 +4130,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>
-                                SAR
-                            </th>
+                            <th><?php echo $info1.".info132".$info2;?>SAR</th>
                             <td>
                                 SAR head<input type='text' name='sp-extra-57' value="<?php echo data_ref('sp-extra-57');?>"><br>
                                 SAR body<input type='text' name='sp-extra-58' value="<?php echo data_ref('sp-extra-58');?>"><br>
@@ -4233,12 +4243,12 @@
                                 break;
                         }
                     }?>
-                    <h2>テスト</h2>
+                    <h2><?php echo $info0.".info133".$info2;?>テスト</h2>
                     <?php data_viewer();?>
                     <p><b>MISCが表示されている場合はこの項目はスルーしても大丈夫です！</b></p>
                     <table class='data-table'>
                         <tr>
-                            <th>Antutu</th>
+                            <th><?php echo $info1.".info134".$info2;?>Antutu</th>
                             <td>
                                 <?php
                                     $input_checks = explode(':','sp-test-0,AnTuTu v6:sp-test-1,AnTuTu v7:sp-test-2,AnTuTu v8:sp-test-3,AnTuTu v9:sp-test-4,AnTuTu v10:sp-test-5,AnTuTu v11:sp-test-6,AnTuTu v12');
@@ -4251,7 +4261,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>その他のベンチマークスコア</th>
+                            <th><?php echo $info1.".info135".$info2;?>その他のベンチマークスコア</th>
                             <td>
                                 <?php
                                     $input_checks = explode(';','sp-test-8,Endurance rating(h);sp-test-9,Loudspeaker ( LUFS);sp-test-10,Loudspeaker: Voice (dB);sp-test-11,Loudspeaker: Noise (dB);sp-test-12,Loudspeaker: Ring (dB);sp-test-13,GeekBench: (v4.4);sp-test-14,GeekBench: (v5.1);sp-test-16,GFXBench:ES 3.1 onscreen(fps);sp-test-18,Audio quality:Noise(dB);sp-test-19,Audio quality:Crosstalk(dB);sp-test-21,Basemark X;sp-test-22,Basemark OS II 2.0;sp-test-25,Display Contrast ratio');
@@ -4763,370 +4773,765 @@
         #specs-list td.nfo a, #specs-list th {
             color: #d50000;
         }
+        .sc2 img{
+            width:100%;
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 22%);
+            border-radius:14px;
+            margin-bottom:20px;
+        }
         </style>
         </form>
     </div>
-    <div class="sc2">
+    <div class="sc2" style='overflow-y:scroll;'>
         <div class="info0 hide">
-            info 0
+            <h1>スクレイピングの奴について</h1>
+            <p>スクレイピング用のフォームです。</p>
+            <p><?php echo $info1.$info2;?>を押すと入力のヘルプが出てきます、それぞれの項目一度は目を通して間違えないように入力お願いします。</p>
+            <p>ここでの、<b>スクレイピング</b>とはデータを収集した上で利用しやすく加工することです。</p>
+            <p>このフォーム(スクリプト)では、GSMarenaのページから、json形式に変換します。</p>
+            <p style='color:red;'>スマホでも入力できますが、PCの方が明らかに入力しやすいので非推奨です。</p>
+            <h2>入力ルール</h2>
+            <p>入力にはいくつかルールがあるので説明していきます。</p>
+            <p>下の画像のような青枠で囲われている表はスクレイピング前の表を切り抜いて再現したものです。</p>
+            <small>元の表</small>
+            <img src='images/3.png'>
+            <small>再現</small>
+            <img src='images/2.png'>
+            <p>この再現の表をもとに下の表に入力していきます。</p>
+            <p>左に入力する項目が書いてありますので、右に入力してください。</p>
+            <img src='images/1.png'>
+            <p>
+                ・入力するものがない時は空白のままで大丈夫です、「-」などを入力するとエラーになります。<br>
+                ・数字、アルファベット、スペースは半角で入力してください。<br>
+                ・明らかに入力する項目が足りない場合やイレギュラーがあった場合はもちに連絡ください。<br>
+                ・同じ端末でもRAM、ストレージのGB、グローバル版、EU版ごとにそれぞれ入力します。
+            </p>
         </div>
         <div class="info1 hide">
-            info 1
+            <h1>使用するURL</h1>
+            <p>スクレイピングに使用するGSMarenaのURLを貼り付ける工程です。<br>一番初めに行ってください。</p>
+            <p>途中から入力する場合はこの部分は空白で下の途中から入力する場合(json)にjsonをテキストで入力してください！</p>
+            <h2>URLを取得する</h2>
+            <p>URLがあらかじめわかっていない場合はGSMarenaから取得してください、下の画像がスペックページの階層です。<br>このページのURLをコピーして下さい。</p>
+            <img src='images/4.png'>
+            <p>スプレッドシートをあらかじめ渡されている場合は該当するURLをコピーしてください。</p>
+            <img src='images/5.png'>
+            <h2>URLを入力する</h2>
+            入力欄に先程コピーしたURLを貼り付けてください、下の入力欄は例です。
+            入力したらエンターを押して送信してください。
+            <?php echo $info1.$info2;?>使用するURL
+            <input type="text" size="full" value="https://www.gsmarena.com/google_pixel_4a_5g-10385.php" disabled="disabled">
+            <p>エンターを押すとリロードされるので、入力したリンクの端末と同じ端末画像が表示されているか確認してください。<br>今回は例としてGoogle Pixel 4a 5Gを入力しているのでGoogle Pixel 4a 5Gが表示されています。</p>
+            <img src='images/6.png'>
         </div>
         <div class="info2 hide">
-            info 2
+            <h1>途中から入力する場合(json)</h1>
+            <p style='color:red;'>この項目は途中から入力する場合に使用します、最初から入力する場合はここは空白で大丈夫です。</p>
+            <p>途中から入力する場合はここにJsonを入力します、下のフォームは例です。</p>
+            <p></p>
+            <?php echo $info1.$info2;?>途中から入力する場合(json)
+            <input type="text" size="full" value='[["sp-memo-0","International(\u30b0\u30ed\u30fc\u30d0\u30eb\u7248)\t8GB\t128GB"],["sp-memo-1","https:\/\/www.gsmarena.com\/xiaomi_poco_x3_gt-10949.php"],["sp-band-8","GSM \/ HSPA \/ LTE \/ 5G"],["sp-band-9","HSPA 42.2\/5.76 Mbps, LTE-A (CA), 5G"],["sp-band-7","1, 3, 28, 41, 77, 78 SA\/NSA"],["sp-band-5g-n1","Yes"],["sp-band-5g-n3","Yes"],["sp-band-5g-n28","Yes"],["sp-band-5g-n41","Yes"],["sp-band-5g-n77","Yes"],["sp-band-5g-n78","Yes"],["sp-band-6","1, 2, 3, 4, 5, 7, 8, 18, 19, 26, 28, 38, 40, 41, 42"],["sp-band-4g-1","Yes"],["sp-band-4g-2","Yes"],["sp-band-4g-3","Yes"],["sp-band-4g-4","Yes"],["sp-band-4g-5","Yes"],["sp-band-4g-7","Yes"],["sp-band-4g-8","Yes"],["sp-band-4g-18","Yes"],["sp-band-4g-19","Yes"],["sp-band-4g-26","Yes"],["sp-band-4g-28","Yes"],["sp-band-4g-38","Yes"],["sp-band-4g-40","Yes"],["sp-band-4g-41","Yes"],["sp-band-4g-42","Yes"],["sp-band-5","HSDPA 850 \/ 900 \/ 1700(AWS) \/ 1900 \/ 2100 "],["sp-band-3g-hsdpa-850","Yes"],["sp-band-3g-hsdpa-900","Yes"],["sp-band-3g-hsdpa-1700-aws","Yes"],["sp-band-3g-hsdpa-1900","Yes"],["sp-band-3g-hsdpa-2100","Yes"],["sp-band-4","GSM 850 \/ 900 \/ 1800 \/ 1900 - SIM 1 & SIM 2"],["sp-band-2g-gsm-850","Yes"],["sp-band-2g-gsm-900","Yes"],["sp-band-2g-gsm-1800","Yes"],["sp-band-2g-gsm-1900","Yes"],["sp-launch-1","2021-7-28"],["sp-launch-35","Yes"],["sp-launch-4","Xiaomi Poco X3 GT"],["sp-design-0","163.3"],["sp-design-4","75.9"],["sp-design-5","8.9 "],["sp-design-1","193"],["sp-network-3","\u30c7\u30e5\u30a2\u30ebSIM (Nano-SIM, dual stand-by)"],["sp-network-9","Dual SIM (Nano-SIM, dual stand-by)"],["sp-network-7","Yes"],["sp-extra-6","Yes"],["sp-extra-7"," IP68\/IP65"],["sp-screen-3","IPS LCD"],["sp-screen-0","Gorilla Glass Victus\u3067\u4fdd\u8b77"],["sp-screen-41","Corning Gorilla Glass Victus"],["sp-screen-1","6.6"],["sp-screen-8","120"],["sp-screen-15","450"],["sp-screen-14","84.9"],["sp-screen-16","2400"],["sp-screen-4","1080"],["sp-screen-2","20"],["sp-screen-17","9"],["sp-screen-6","399"],["sp-screen-32","Yes"],["sp-screen-24","Yes"],["sp-screen-28","Yes"],["sp-softwear-0","Yes"],["sp-softwear-7","11"],["sp-softwear-13","Yes"],["sp-softwear-8","12.5"],["sp-softwear-12","MIUI for POCO"],["sp-spec-11","113"],["sp-spec-7","8"],["sp-spec-8","UFS 3.1"],["sp-spec-9","128"],["sp-spec-10","128GB 8GB RAM, 256GB 8GB RAM"],["sp-camera-4","3"],["sp-camera-16","1"],["sp-camera-19","64"],["sp-camera-20","1.8"],["sp-camera-21","26"],["sp-camera-22","1\/1.97"],["sp-camera-23","0.7"],["sp-camera-24","6"],["sp-camera-25","PDAF"],["sp-camera-26","PDAF"],["sp-camera-29","8"],["sp-camera-30","2.2"],["sp-camera-32","1\/4.0"],["sp-camera-33","1.12"],["sp-camera-34","7"],["sp-camera-35","120\u02da"],["sp-camera-36","120\u02da"],["sp-camera-39","2"],["sp-camera-40","2.4"],["sp-camera-44","10"],["sp-camera-100","Yes"],["sp-camera-105","Yes"],["sp-camera-107","Yes"],["sp-camera-2","4K@30fps, 1080p@30\/60\/120fps"],["sp-camera-5","4K@30fps, 1080p@30\/60\/120fps"],["sp-camera-12","1"],["sp-camera-17","1"],["sp-camera-121","16"],["sp-camera-122","2,5"],["sp-camera-124","1\/3.06"],["sp-camera-125","1.0"],["sp-camera-126","6"],["sp-camera-201","1080p@30fps, 720p@120fps, 960fps"],["sp-camera-202","1080p@30fps, 720p@120fps, 960fps"],["sp-extra-37","Yes"],["sp-extra-44","Yes"],["sp-extra-48","Yes"],["sp-network-0","Yes"],["sp-network-10","Yes"],["sp-network-11","Yes"],["sp-network-12","Yes"],["sp-network-13","Yes"],["sp-network-14","Yes"],["sp-network-15","Yes"],["sp-network-38","Yes"],["sp-network-39","Yes"],["sp-network-40","Yes"],["sp-extra-62","Yes"],["sp-extra-66","Yes"],["sp-network-1","Yes"],["sp-network-2","5.2"],["sp-network-19","Yes"],["sp-network-20","Yes"],["sp-extra-0","Yes"],["sp-extra-9","Yes"],["sp-network-29","Yes"],["sp-network-30","Yes"],["sp-network-31","Yes"],["sp-network-32","Yes"],["sp-network-34","Yes"],["sp-network-35","Yes"],["sp-sensor-11","Yes"],["sp-sensor-1","Yes"],["sp-sensor-3","Yes"],["sp-sensor-4","Yes"],["sp-sensor-10","Yes"],["sp-sensor-14","Yes"],["sp-sensor-17","Yes"],["sp-battery-0","5000"],["sp-battery-9","No"],["sp-battery-7","100% in 42 min (advertised)"],["sp-battery-10","67"],["sp-battery-17","Yes"],["sp-battery-26","Yes"],["sp-design-3","Stargaze Black:#2e2f39, Wave Blue:#48bbd0, Cloud White:#e3f0f8"],["sp-launch-17","About 260 EUR"],["sp-launch-20","260"],["sp-launch-22","Yes"],["sp-launch-19","About 260 EUR"]]' disabled="disabled">
+            <h2>入力を中断する方法</h2>
+            <p>途中まで入力して一度終了したい場合は、入力したところまででエンターを押して下さい。</p>
+            <p>エンターを押すとその時点までのJsonを生成できます、端末名の下に</p>
+            <p><?php echo $info1.$info2;?>送信されたデータをjsonに変換したテキスト</p>
+            <p>という項目があります、その下のCopy textを押すとjsonがコピーされます。</p>
+            <p>下の画像のようにエンターを押す前の状態だとfalseとなっています、もし最初から入力されている場合はURLをリセットしてください。</p>
+            <p>入力を初めから行う場合は<br>http://localhost/sc3/spec-sheet-generator.php<br>のように初期状態のURLになっている状態から始めてください。</p>
+            <img src='images/7.png'>
+            <p>正しく送信がされている場合はURLの後に?sp-memo-0=とかなり長い文字列が続き、下の画像のようにJsonが入力された状態になります。</p>
+            <img src='images/8.png'>
+            <h3>URLの初期化</h3>
+            <p>初めから入力する場合はURLをリセットする必要があります。<br>途中からの入力ではない場合画像の?を含めはてな以降のもじを消してからエンターを押して始めてください。</p>
+            <img src='images/9.png'>
+            <p>jsonの例です。</p>
+            <p style='color:red;'>[["sp-memo-0","International(\u30b0\u30ed\u30fc\u30d0\u30eb\u7248)\t8GB\t128GB"],["sp-memo-1","https:\/\/www.gsmarena.com\/xiaomi_poco_x3_gt-10949.php"],["sp-band-8","GSM \/ HSPA \/ LTE \/ 5G"],["sp-band-9","HSPA 42.2\/5.76 Mbps, LTE-A (CA), 5G"],["sp-band-7","1, 3, 28, 41, 77, 78 SA\/NSA"],["sp-band-5g-n1","Yes"],["sp-band-5g-n3","Yes"],["sp-band-5g-n28","Yes"],["sp-band-5g-n41","Yes"],["sp-band-5g-n77","Yes"],["sp-band-5g-n78","Yes"],["sp-band-6","1, 2, 3, 4, 5, 7, 8, 18, 19, 26, 28, 38, 40, 41, 42"],["sp-band-4g-1","Yes"],["sp-band-4g-2","Yes"],["sp-band-4g-3","Yes"],["sp-band-4g-4","Yes"],["sp-band-4g-5","Yes"],["sp-band-4g-7","Yes"],["sp-band-4g-8","Yes"],["sp-band-4g-18","Yes"],["sp-band-4g-19","Yes"],["sp-band-4g-26","Yes"],["sp-band-4g-28","Yes"],["sp-band-4g-38","Yes"],["sp-band-4g-40","Yes"],["sp-band-4g-41","Yes"],["sp-band-4g-42","Yes"],["sp-band-5","HSDPA 850 \/ 900 \/ 1700(AWS) \/ 1900 \/ 2100 "],["sp-band-3g-hsdpa-850","Yes"],["sp-band-3g-hsdpa-900","Yes"],["sp-band-3g-hsdpa-1700-aws","Yes"],["sp-band-3g-hsdpa-1900","Yes"],["sp-band-3g-hsdpa-2100","Yes"],["sp-band-4","GSM 850 \/ 900 \/ 1800 \/ 1900 - SIM 1 & SIM 2"],["sp-band-2g-gsm-850","Yes"],["sp-band-2g-gsm-900","Yes"],["sp-band-2g-gsm-1800","Yes"],["sp-band-2g-gsm-1900","Yes"],["sp-launch-1","2021-7-28"],["sp-launch-35","Yes"],["sp-launch-4","Xiaomi Poco X3 GT"],["sp-design-0","163.3"],["sp-design-4","75.9"],["sp-design-5","8.9 "],["sp-design-1","193"],["sp-network-3","\u30c7\u30e5\u30a2\u30ebSIM (Nano-SIM, dual stand-by)"],["sp-network-9","Dual SIM (Nano-SIM, dual stand-by)"],["sp-network-7","Yes"],["sp-extra-6","Yes"],["sp-extra-7"," IP68\/IP65"],["sp-screen-3","IPS LCD"],["sp-screen-0","Gorilla Glass Victus\u3067\u4fdd\u8b77"],["sp-screen-41","Corning Gorilla Glass Victus"],["sp-screen-1","6.6"],["sp-screen-8","120"],["sp-screen-15","450"],["sp-screen-14","84.9"],["sp-screen-16","2400"],["sp-screen-4","1080"],["sp-screen-2","20"],["sp-screen-17","9"],["sp-screen-6","399"],["sp-screen-32","Yes"],["sp-screen-24","Yes"],["sp-screen-28","Yes"],["sp-softwear-0","Yes"],["sp-softwear-7","11"],["sp-softwear-13","Yes"],["sp-softwear-8","12.5"],["sp-softwear-12","MIUI for POCO"],["sp-spec-11","113"],["sp-spec-7","8"],["sp-spec-8","UFS 3.1"],["sp-spec-9","128"],["sp-spec-10","128GB 8GB RAM, 256GB 8GB RAM"],["sp-camera-4","3"],["sp-camera-16","1"],["sp-camera-19","64"],["sp-camera-20","1.8"],["sp-camera-21","26"],["sp-camera-22","1\/1.97"],["sp-camera-23","0.7"],["sp-camera-24","6"],["sp-camera-25","PDAF"],["sp-camera-26","PDAF"],["sp-camera-29","8"],["sp-camera-30","2.2"],["sp-camera-32","1\/4.0"],["sp-camera-33","1.12"],["sp-camera-34","7"],["sp-camera-35","120\u02da"],["sp-camera-36","120\u02da"],["sp-camera-39","2"],["sp-camera-40","2.4"],["sp-camera-44","10"],["sp-camera-100","Yes"],["sp-camera-105","Yes"],["sp-camera-107","Yes"],["sp-camera-2","4K@30fps, 1080p@30\/60\/120fps"],["sp-camera-5","4K@30fps, 1080p@30\/60\/120fps"],["sp-camera-12","1"],["sp-camera-17","1"],["sp-camera-121","16"],["sp-camera-122","2,5"],["sp-camera-124","1\/3.06"],["sp-camera-125","1.0"],["sp-camera-126","6"],["sp-camera-201","1080p@30fps, 720p@120fps, 960fps"],["sp-camera-202","1080p@30fps, 720p@120fps, 960fps"],["sp-extra-37","Yes"],["sp-extra-44","Yes"],["sp-extra-48","Yes"],["sp-network-0","Yes"],["sp-network-10","Yes"],["sp-network-11","Yes"],["sp-network-12","Yes"],["sp-network-13","Yes"],["sp-network-14","Yes"],["sp-network-15","Yes"],["sp-network-38","Yes"],["sp-network-39","Yes"],["sp-network-40","Yes"],["sp-extra-62","Yes"],["sp-extra-66","Yes"],["sp-network-1","Yes"],["sp-network-2","5.2"],["sp-network-19","Yes"],["sp-network-20","Yes"],["sp-extra-0","Yes"],["sp-extra-9","Yes"],["sp-network-29","Yes"],["sp-network-30","Yes"],["sp-network-31","Yes"],["sp-network-32","Yes"],["sp-network-34","Yes"],["sp-network-35","Yes"],["sp-sensor-11","Yes"],["sp-sensor-1","Yes"],["sp-sensor-3","Yes"],["sp-sensor-4","Yes"],["sp-sensor-10","Yes"],["sp-sensor-14","Yes"],["sp-sensor-17","Yes"],["sp-battery-0","5000"],["sp-battery-9","No"],["sp-battery-7","100% in 42 min (advertised)"],["sp-battery-10","67"],["sp-battery-17","Yes"],["sp-battery-26","Yes"],["sp-design-3","Stargaze Black:#2e2f39, Wave Blue:#48bbd0, Cloud White:#e3f0f8"],["sp-launch-17","About 260 EUR"],["sp-launch-20","260"],["sp-launch-22","Yes"],["sp-launch-19","About 260 EUR"]]</p>
         </div>
         <div class="info3 hide">
-
+            <h1>端末名・メモ・URL</h1>
+            <p>URL・メモを入力するセクションです、完成したJsonをコピーすることもできます。<br>途中まで入力して中断する場合もここのJsonをコピーしてください。</p>
+            <h2>端末名</h2>
+            <p>URLに合わせて端末名と画像が自動で表示されています、入力する端末と異なる画像と端末名が表示されている場合は入力したURLが間違っている場合がありますので再確認してください。</p>
+            <img src='images/10.png'>
+            <h2>メモ用</h2>
+            <p>下のフォームは例です、このメモにはこれから入力する端末のバージョンを入力してください。</p>
+            <p>日本版 Docomo版 4GB 64GB</p>
+            <p>中国版 6GB 64GB</p>
+            <p>不明版 6GB 128GB</p>
+            <p>入力は上の三つのように○○版　□GB △GB、下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>メモ用
+            <input type="text" size="full" value="グローバル版　6GB 128GB" disabled="disabled">
+            <img src='images/11.png'>
+            <h2>URL</h2>
+            <p>最初に入力したURLをここに入力してください。</p>
+            <?php echo $info1.$info2;?>URL
+            <input type="text" size="full" value="https://www.gsmarena.com/google_pixel_4a_5g-10385.php" disabled="disabled">
+            <img src='images/12.png'>
         </div>
         <div class="info4 hide">
-
+            <h1>送信されたデータをjsonに変換したテキスト</h1>
+            <p>初期状態ではここの項目はfalseになっています、エンターを押して送信するとjsonが埋め込まれます、中断する場合や入力が終わりJsonをコピーするのに使用します。</p>
         </div>
         <div class="info5 hide">
-
+            <h1>メモ用</h1>
+            <p>下のフォームは例です、このメモにはこれから入力する端末のバージョンを入力してください。</p>
+            <p>日本版 Docomo版 4GB 64GB</p>
+            <p>中国版 6GB 64GB</p>
+            <p>不明版 6GB 128GB</p>
+            <p>入力は上の三つのように○○版　□GB △GB、下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>メモ用
+            <input type="text" size="full" value="グローバル版　6GB 128GB" disabled="disabled">
+            <img src='images/11.png'>
         </div>
         <div class="info6 hide">
-
+            <h1>URL</h1>
+            <p>最初に入力したURLをここに入力してください。</p>
+            <?php echo $info1.$info2;?>URL
+            <input type="text" size="full" value="https://www.gsmarena.com/google_pixel_4a_5g-10385.php" disabled="disabled">
+            <img src='images/12.png'>
         </div>
         <div class="info7 hide">
+            <h1>ネットワーク</h1>
+            <p>ネットワークのセクションです、ここではバンド情報や通信速度等を入力します。</p>
+            <h2>技術</h2>
+            <p>元の表のTechnology部分を技術に入力します、それぞれ利用可能な通信技術を「 / 」区切りで入力してあります。</p>
+            <img src='images/13.png'>
+            <img src='images/14.png'>
+            <p>基本的に自動入力されていて書き換える必要はありませんが、たまにイレギュラーがある場合がありますのでその場合は修正してください。</p>
+            <p>具体的にはtechnology部分が</p>
+            <pre>GSM / HSPA / LTE / 5G - global
+GSM / HSPA / LTE - china</pre>   
+            <p>のように複数行あり、複数バージョン存在する場合です。<br>入力欄は</p>
+            <pre>GSM / HSPA / LTE / 5G - global GSM / HSPA / LTE - china</pre>
+            <p>のように改行がなくなって入力されていたり、</p>
+            <pre>GSM / HSPA / LTE / 5G - global</pre>
+            <p>のように片方だけ入力される場合があります。<br>これをもし入力している端末がグローバル版であれば「 - global」を取り除き</p>
+            <pre>GSM / HSPA / LTE / 5G</pre>
+            <p>と入力し、中国版であれば</p>
+            <pre>GSM / HSPA / LTE</pre>
+            <p>と入力してください。</p>
+            <p>また、以下のような不明な場合やハイフンが入力されている場合は空白にしてください。</p>
+            <pre>Unspecified</pre>
+            <pre>Rumored</pre>
+            <pre>-</pre>
 
+            <h2>速度</h2>
+            <p>速度は元の表のSPEEDの部分に該当します、以下の三つの場合は空白で、それ以外の場合はSPEEDと同じ物を入力してください。</p>
+            <pre>Unspecified</pre>
+            <pre>Rumored</pre>
+            <pre>-</pre>
+            <img src='images/15.png'>
+            <img src='images/16.png'>
+            <h2>バンド</h2>
+            <p>各バンド情報を入力します、非対応のものがある場合は空白の状態にしてください、チェックボタンもすべて外してください。</p>
+            <p>複数バージョンある場合があります、例として入力しているバージョンが中国の場合、中国以外の項目は消去してください。</p>
+            <img src='images/17.png'>
+            <img src='images/18.png'>
+            <h3>表示される5G</h3>
+            <p>ここでは5Gのバンドを入力します、もし元の表に5Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
+            <p>画像では5G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
+            <img src='images/19.png'>
+            <img src='images/20.png'>
+            <img src='images/21.png'>
+            <p>例として、International版(グローバル版)を入力しているときに下のように表の文字が表示されていたら</p>
+<pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International
+1, 2, 3, 5, 7, 8, 12, 20, 25, 38, 40, 66, 71, 77, 78 SA/NSA - USA</pre>
+            <p>まず、USAの項目がいらないので</p>
+            <pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International</pre>
+            <p>このようにUSAの行を消し、 - Internationalのような何版かを説明したテキストは省いてください</p>
+            <pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA</pre>
+            <p>最終的にはこのようになりましたのでこの文字列を入力します。<br>入力しているバージョンに合わせてこの作業を行ってください。<br>下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>・表示される5G
+            <input type="text" size="full" value="1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA" disabled="disabled">
+            <h3>5G各バンド</h3>
+            <p>表示される5Gに入力したバンドをチェックします。5Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/22.png'>
+            <h3>表示される4G</h3>
+            <p>ここでは4Gのバンドを入力します、もし元の表に4Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
+            <p>画像では4G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
+            <img src='images/23.png'>
+            <img src='images/24.png'>
+            <img src='images/25.png'>
+            <p>例として、International版(グローバル版)を入力しているときに下のように表の文字が表示されていたら</p>
+<pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International
+1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA</pre>
+            <p>まず、USAの項目がいらないので</p>
+            <pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International</pre>
+            <p>このようにUSAの行を消し、 - Internationalのような何版かを説明したテキストは省いてください</p>
+            <pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42</pre>
+            <p>最終的にはこのようになりましたのでこの文字列を入力します。<br>入力しているバージョンに合わせてこの作業を行ってください。<br>下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>・表示される4G
+            <input type="text" size="full" value="1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42" disabled="disabled">
+            <h3>4G各バンド</h3>
+            <p>表示される4Gに入力したバンドをチェックします。4Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/26.png'>
+            <h3>表示される3G</h3>
+            <p>ここでは3Gのバンドを入力します、もし元の表に3Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>画像では3G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
+            <img src='images/27.png'>
+            <img src='images/28.png'>
+            <h3>3G各バンド</h3>
+            <p>表示される3Gに入力したバンドをチェックします。3Gに対応していない場合はすべてチェックを外してください。</p>
+            <p>HSDPA 1700とHSDPA 1700(aws)は別物ですので区別して入力してください。</p>
+            <p>HSDPA 1700(aws)に対応している場合HSDPA 1700にもチェックが付いてしまう場合がありますが、これは間違いです。<br>HSDPA 1700(aws)だけにチェックをつけてください。</p>
+            <img src='images/29.png'>
+            <h3>表示される2G</h3>
+            <p>ここでは2Gのバンドを入力します、もし元の表に2Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>画像では2G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
+            <img src='images/30.png'>
+            <img src='images/31.png'>
+            <h3>2G各バンド</h3>
+            <p>表示される2Gに入力したバンドをチェックします。<br>2Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/32.png'>
         </div>
         <div class="info8 hide">
-
+            <h1>技術</h1>
+            <p>元の表のTechnology部分を技術に入力します、それぞれ利用可能な通信技術を「 / 」区切りで入力してあります。</p>
+            <img src='images/13.png'>
+            <img src='images/14.png'>
+            <p>基本的に自動入力されていて書き換える必要はありませんが、たまにイレギュラーがある場合がありますのでその場合は修正してください。</p>
+            <p>具体的にはtechnology部分が</p>
+            <pre>GSM / HSPA / LTE / 5G - global
+GSM / HSPA / LTE - china</pre>   
+            <p>のように複数行あり、複数バージョン存在する場合です。<br>入力欄は</p>
+            <pre>GSM / HSPA / LTE / 5G - global GSM / HSPA / LTE - china</pre>
+            <p>のように改行がなくなって入力されていたり、</p>
+            <pre>GSM / HSPA / LTE / 5G - global</pre>
+            <p>のように片方だけ入力される場合があります。<br>これをもし入力している端末がグローバル版であれば「 - global」を取り除き</p>
+            <pre>GSM / HSPA / LTE / 5G</pre>
+            <p>と入力し、中国版であれば</p>
+            <pre>GSM / HSPA / LTE</pre>
+            <p>と入力してください。</p>
+            <p>また、以下のような不明な場合やハイフンが入力されている場合は空白にしてください。</p>
+            <pre>Unspecified</pre>
+            <pre>Rumored</pre>
+            <pre>-</pre>
         </div>
         <div class="info9 hide">
-
+            <h1>速度</h1>
+            <p>速度は元の表のSPEEDの部分に該当します、以下の三つの場合は空白で、それ以外の場合はSPEEDと同じ物を入力してください。</p>
+            <pre>Unspecified</pre>
+            <pre>Rumored</pre>
+            <pre>-</pre>
+            <img src='images/15.png'>
+            <img src='images/16.png'>
         </div>
         <div class="info10 hide">
-
+            <h1>バンド</h1>
+            <p>各バンド情報を入力します、非対応のものがある場合は空白の状態にしてください、チェックボタンもすべて外してください。</p>
+            <p>複数バージョンある場合があります、例として入力しているバージョンが中国の場合、中国以外の項目は消去してください。</p>
+            <img src='images/17.png'>
+            <img src='images/18.png'>
+            <h2>表示される5G</h2>
+            <p>ここでは5Gのバンドを入力します、もし元の表に5Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
+            <p>画像では5G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
+            <img src='images/19.png'>
+            <img src='images/20.png'>
+            <img src='images/21.png'>
+            <p>例として、International版(グローバル版)を入力しているときに下のように表の文字が表示されていたら</p>
+<pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International
+1, 2, 3, 5, 7, 8, 12, 20, 25, 38, 40, 66, 71, 77, 78 SA/NSA - USA</pre>
+            <p>まず、USAの項目がいらないので</p>
+            <pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International</pre>
+            <p>このようにUSAの行を消し、 - Internationalのような何版かを説明したテキストは省いてください</p>
+            <pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA</pre>
+            <p>最終的にはこのようになりましたのでこの文字列を入力します。<br>入力しているバージョンに合わせてこの作業を行ってください。<br>下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>・表示される5G
+            <input type="text" size="full" value="1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA" disabled="disabled">
+            <h2>5G各バンド</h2>
+            <p>表示される5Gに入力したバンドをチェックします。5Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/22.png'>
+            <h2>表示される4G</h2>
+            <p>ここでは4Gのバンドを入力します、もし元の表に4Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
+            <p>画像では4G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
+            <img src='images/23.png'>
+            <img src='images/24.png'>
+            <img src='images/25.png'>
+            <p>例として、International版(グローバル版)を入力しているときに下のように表の文字が表示されていたら</p>
+<pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International
+1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA</pre>
+            <p>まず、USAの項目がいらないので</p>
+            <pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International</pre>
+            <p>このようにUSAの行を消し、 - Internationalのような何版かを説明したテキストは省いてください</p>
+            <pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42</pre>
+            <p>最終的にはこのようになりましたのでこの文字列を入力します。<br>入力しているバージョンに合わせてこの作業を行ってください。<br>下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>・表示される4G
+            <input type="text" size="full" value="1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42" disabled="disabled">
+            <h2>4G各バンド</h2>
+            <p>表示される4Gに入力したバンドをチェックします。4Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/26.png'>
+            <h2>表示される3G</h2>
+            <p>ここでは3Gのバンドを入力します、もし元の表に3Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>画像では3G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
+            <img src='images/27.png'>
+            <img src='images/28.png'>
+            <h2>3G各バンド</h2>
+            <p>表示される3Gに入力したバンドをチェックします。3Gに対応していない場合はすべてチェックを外してください。</p>
+            <p>HSDPA 1700とHSDPA 1700(aws)は別物ですので区別して入力してください。</p>
+            <p>HSDPA 1700(aws)に対応している場合HSDPA 1700にもチェックが付いてしまう場合がありますが、これは間違いです。<br>HSDPA 1700(aws)だけにチェックをつけてください。</p>
+            <img src='images/29.png'>
+            <h2>表示される2G</h2>
+            <p>ここでは2Gのバンドを入力します、もし元の表に2Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>画像では2G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
+            <img src='images/30.png'>
+            <img src='images/31.png'>
+            <h2>2G各バンド</h2>
+            <p>表示される2Gに入力したバンドをチェックします。<br>2Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/32.png'>
+        </div>
+        <div class="info10a hide">
+        　  <h1>表示される5G</h1>
+            <p>ここでは5Gのバンドを入力します、もし元の表に5Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
+            <p>画像では5G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
+            <img src='images/19.png'>
+            <img src='images/20.png'>
+            <img src='images/21.png'>
+            <p>例として、International版(グローバル版)を入力しているときに下のように表の文字が表示されていたら</p>
+<pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International
+1, 2, 3, 5, 7, 8, 12, 20, 25, 38, 40, 66, 71, 77, 78 SA/NSA - USA</pre>
+            <p>まず、USAの項目がいらないので</p>
+            <pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA - International</pre>
+            <p>このようにUSAの行を消し、 - Internationalのような何版かを説明したテキストは省いてください</p>
+            <pre>1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA</pre>
+            <p>最終的にはこのようになりましたのでこの文字列を入力します。<br>入力しているバージョンに合わせてこの作業を行ってください。<br>下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>・表示される5G
+            <input type="text" size="full" value="1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA" disabled="disabled">
+        </div>
+        <div class="info11 hide">
+            <h1>5G各バンド</h1>
+            <p>表示される5Gに入力したバンドをチェックします。5Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/22.png'>
         </div>
         <div class="info12 hide">
-
+        　  <h1>表示される4G</h1>
+            <p>ここでは4Gのバンドを入力します、もし元の表に4Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
+            <p>画像では4G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
+            <img src='images/23.png'>
+            <img src='images/24.png'>
+            <img src='images/25.png'>
+            <p>例として、International版(グローバル版)を入力しているときに下のように表の文字が表示されていたら</p>
+<pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International
+1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 25, 26, 30, 34, 38, 39, 40, 41, 42, 66, 71 - USA</pre>
+            <p>まず、USAの項目がいらないので</p>
+            <pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42 - International</pre>
+            <p>このようにUSAの行を消し、 - Internationalのような何版かを説明したテキストは省いてください</p>
+            <pre>1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42</pre>
+            <p>最終的にはこのようになりましたのでこの文字列を入力します。<br>入力しているバージョンに合わせてこの作業を行ってください。<br>下のフォームは例です。</p>
+            <?php echo $info1.$info2;?>・表示される4G
+            <input type="text" size="full" value="1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42" disabled="disabled">
         </div>
         <div class="info13 hide">
-
+            <h1>4G各バンド</h1>
+            <p>表示される4Gに入力したバンドをチェックします。4Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/26.png'>
         </div>
         <div class="info14 hide">
-
+            <h1>表示される3G</h1>
+            <p>ここでは3Gのバンドを入力します、もし元の表に3Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>画像では3G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
+            <img src='images/27.png'>
+            <img src='images/28.png'>
         </div>
         <div class="info15 hide">
-
+            <h1>3G各バンド</h1>
+            <p>表示される3Gに入力したバンドをチェックします。3Gに対応していない場合はすべてチェックを外してください。</p>
+            <p>HSDPA 1700とHSDPA 1700(aws)は別物ですので区別して入力してください。</p>
+            <p>HSDPA 1700(aws)に対応している場合HSDPA 1700にもチェックが付いてしまう場合がありますが、これは間違いです。<br>HSDPA 1700(aws)だけにチェックをつけてください。</p>
+            <img src='images/29.png'>
         </div>
         <div class="info16 hide">
-
+            <h1>表示される2G</h1>
+            <p>ここでは2Gのバンドを入力します、もし元の表に2Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
+            <p>画像では2G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
+            <img src='images/30.png'>
+            <img src='images/31.png'>
         </div>
         <div class="info17 hide">
-
+            <h1>2G各バンド</h1>
+            <p>表示される2Gに入力したバンドをチェックします。<br>2Gに対応していない場合はすべてチェックを外してください。</p>
+            <img src='images/32.png'>
         </div>
         <div class="info18 hide">
-
+            概要
+            <h1></h1>
+            <p></p>
+            <h2></h2>
+            <img src='images/2.png'>
         </div>
         <div class="info19 hide">
-
+            発表日
         </div>
         <div class="info20 hide">
-
+            発売日
         </div>
         <div class="info21 hide">
-
+            未発表の場合の期待される発表日
         </div>
         <div class="info22 hide">
-
+            細かいやつら
         </div>
         <div class="info23 hide">
-
+            地域
         </div>
         <div class="info24 hide">
-
+            端末名
         </div>
         <div class="info25 hide">
-
+            端末id(一意のid)
         </div>
         <div class="info26 hide">
-
+            メインiD
         </div>
         <div class="info27 hide">
-
+            同じスマホ別バージョン(,区切りでid)
         </div>
         <div class="info28 hide">
-
+            関連スマホ
         </div>
         <div class="info29 hide">
-
+            メーカー
         </div>
         <div class="info30 hide">
-
+            サイズ
         </div>
         <div class="info31 hide">
-
+            サイズ
         </div>
         <div class="info32 hide">
-
+            重さ
         </div>
         <div class="info33 hide">
-
+            素材
         </div>
         <div class="info34 hide">
-
+            SIM
         </div>
         <div class="info35 hide">
-
+            SIMスロット追加情報
         </div>
         <div class="info36 hide">
-
+            Dual stand by
         </div>
         <div class="info37 hide">
-
+            防水防塵
         </div>
         <div class="info38 hide">
-
+            IPカスタムtxt
         </div>
         <div class="info39 hide">
-
+            その他のやつ
         </div>
         <div class="info40 hide">
-
+        スクリーン
         </div>
         <div class="info41 hide">
-
+        パネル種類（カスタムテキスト）
         </div>
         <div class="info42 hide">
-
+        画面補足情報（セカンドディスプレイなど）
         </div>
         <div class="info43 hide">
-
+        画面保護
         </div>
         <div class="info44 hide">
-
+        インチ
         </div>
         <div class="info45 hide">
-
+        リフレッシュレート
         </div>
         <div class="info46 hide">
-
+        タッチレート
         </div>
         <div class="info47 hide">
-
+        輝度
         </div>
         <div class="info48 hide">
-
+        画面占有率
         </div>
         <div class="info49 hide">
-
+        pixel
         </div>
         <div class="info50 hide">
-
+        アスペクト比
         </div>
         <div class="info51 hide">
-
+        DPI
         </div>
         <div class="info52 hide">
-
+        表示色
         </div>
         <div class="info53 hide">
-
+        コントラスト比
         </div>
         <div class="info54 hide">
-
+        湾曲ディスプレイの場合の角度
         </div>
         <div class="info55 hide">
-
+        インカメラタイプ
         </div>
         <div class="info56 hide">
-
+        画面タイプ
         </div>
         <div class="info57 hide">
-
+        細かいやつら
         </div>
         <div class="info58 hide">
-
+        ソフトウェア
         </div>
         <div class="info59 hide">
-
+        OS
         </div>
         <div class="info60 hide">
-
+        OS ver
         </div>
         <div class="info61 hide">
-
+        GMS非対応
         </div>
         <div class="info62 hide">
-
+        OS更新可能なバージョン
         </div>
         <div class="info63 hide">
-
+        UI
         </div>
         <div class="info64 hide">
-
+        UI ver
         </div>
         <div class="info65 hide">
-
+        UI更新可能なバージョン
         </div>
         <div class="info66 hide">
-
+        OS追加説明
         </div>
         <div class="info67 hide">
-
+        UI追加説明
         </div>
         <div class="info68 hide">
-
+        SoC ID
         </div>
         <div class="info69 hide">
-
+        CPU構成(本来の構成と異なる場合)
         </div>
         <div class="info70 hide">
-
+        GPU構成(本来の構成と異なる場合)
         </div>
         <div class="info71 hide">
-
+        RAM/ストレージ
         </div>
         <div class="info72 hide">
-
+        Micro SDカード
         </div>
         <div class="info73 hide">
-
+        NMカード
         </div>
         <div class="info74 hide">
-
+        メモリGB(この構成のものだけ)
         </div>
         <div class="info75 hide">
-
+        メモリ規格(この構成のものだけ)
         </div>
         <div class="info76 hide">
-
+        ストレージ規格(この構成のものだけ)
         </div>
         <div class="info77 hide">
-
+        ストレージGB(この構成のものだけ)
         </div>
         <div class="info78 hide">
-
+        他のバージョン
         </div>
         <div class="info79 hide">
-
+        アウトカメラ
         </div>
         <div class="info80 hide">
-
+        カメラ数
         </div>
         <div class="info81 hide">
-
+        カメラ
         </div>
         <div class="info82 hide">
-
+        特徴(Features)
         </div>
         <div class="info83 hide">
-
+        動画
         </div>
         <div class="info84 hide">
-
+        インカメラ
         </div>
         <div class="info85 hide">
-
+        インカメラ数
         </div>
         <div class="info86 hide">
-
+        カメラ
         </div>
         <div class="info87 hide">
-
+        特徴(Features)
         </div>
         <div class="info88 hide">
-
+        インカメラ動画
         </div>
         <div class="info89 hide">
-
+        オーディオ
         </div>
         <div class="info90 hide">
-
+        3.5mmイヤホンジャック
         </div>
         <div class="info91 hide">
-
+        通話用スピーカー(Loudspeaker)	対応 不明
         </div>
         <div class="info92 hide">
-
+        デュアルスピーカー	
         </div>
         <div class="info93 hide">
-
+        ステレオスピーカー	
         </div>
         <div class="info94 hide">
-
+        デュアルスピーカー（ステレオ）	
         </div>
         <div class="info95 hide">
-
+        トリプルスピーカー（ステレオ）	
         </div>
         <div class="info96 hide">
-
+        クアッドスピーカー(ステレオ)	
         </div>
         <div class="info97 hide">
-
+        24-bit/192kHz	
         </div>
         <div class="info98 hide">
-
+        32-bit/384kHz	
         </div>
         <div class="info99 hide">
-
+        Tuned by AKG	
         </div>
         <div class="info100 hide">
-
+        Tuned by JBL	
         </div>
         <div class="info101 hide">
-
+        Tuned by Harman Kardon	
         </div>
         <div class="info102 hide">
-
+        オーディオ追加説明
         </div>
         <div class="info103 hide">
-
+        ネットワーク
         </div>
         <div class="info104 hide">
-
+        Wi-Fi
         </div>
         <div class="info105 hide">
-
+        ポート情報
         </div>
         <div class="info106 hide">
-
+        USB On-The-Go
         </div>
         <div class="info107 hide">
-
+        bluetooth
         </div>
         <div class="info108 hide">
-
+        NFC
         </div>
         <div class="info109 hide">
-
+        赤外線ポート[Infrared port]
         </div>
         <div class="info110 hide">
-
+        ラジオ
         </div>
         <div class="info111 hide">
-
+        GPS
         </div>
         <div class="info112 hide">
-
+        センサー
         </div>
         <div class="info113 hide">
-
+        センサー類
+        </div>
+        <div class="info113a hide">
+        指紋センサー
         </div>
         <div class="info114 hide">
-
+        バッテリー
         </div>
         <div class="info115 hide">
-
+        バッテリー容量
         </div>
         <div class="info116 hide">
-
+        バッテリーについての補足情報	
         </div>
         <div class="info117 hide">
-
+        バッテリー取り外し可能
         </div>
         <div class="info118 hide">
-
+        ワイヤレス規格
         </div>
         <div class="info119 hide">
-
+        ワイヤレス充電
         </div>
         <div class="info120 hide">
+        ワイヤレス充電速度	
+        </div>
+        <div class="info121 hide">
+        ワイヤレス逆充電
+        </div>
+        <div class="info122 hide">
+        ワイヤレス逆充電速度
+        </div>
+        <div class="info123 hide">
+        充電に関する補足情報	
+        </div>
+        <div class="info124 hide">
+        最大充電速度
+        </div>
+        <div class="info125 hide">
+        リチウムイオン電池
+        </div>
+        <div class="info126 hide">
+        給電	
+        </div>
+        <div class="info127 hide">
+        充電規格
+        </div>
+        <div class="info128 hide">
+        カラー/金額
+        </div>
+        <div class="info129 hide">
+        色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]
+        </div>
+        <div class="info130 hide">
+        モデル番号
+        </div>
+        <div class="info131 hide">
+        価格
+        </div>
+        <div class="info132 hide">
+        SAR
+        </div>
+        <div class="info133 hide">
+        テスト
+        </div>
+        <div class="info134 hide">
+        Antutu
+        </div>
+        <div class="info135 hide">
+        その他のベンチマークスコア
+        </div>
+        <div class="info136 hide">
 
         </div>
-      
+        <div class="info137 hide">
+
+        </div>
+        <div class="info138 hide">
+
+        </div>
+        <div class="info139 hide">
+
+        </div>
+        <div class="info130 hide">
+
+        </div>
     </div>
 </div>
