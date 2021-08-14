@@ -5397,24 +5397,105 @@ Discontinuedは製造中止
         </div>
         <div class="info33 hide">
             <h1>素材</h1>
+            <p>元の表のbuildの部分を入力します、日本語版と英語版両方とも「,」区切りでそれぞれ入力してください。</p>
+            <p>元の表が英語なので、英語版は基本的にbuildのままで大丈夫ですが、日本語版の部分は英語を日本語に変換してください。</p>
+            <p>下にある程度参考の英単語と日本語訳を用意しておきます。正式名称が英語のものは翻訳しなくて大丈夫です(例:Gorilla Glass 5など)</p>
+            <p>二行ある場合に自動で英語版が補完されていない場合がありますので注意してください。</p>
+            <p>glass back (Gorilla Glass 5) or ceramic backのようにorなどを含む場合orは「または」と変換して下さい</p>
+            <img src='images/53.png'>
+            <img src='images/54.png'>
+            <table>
+                <tr>
+                    <th>Aluminum frame</th>
+                    <td>アルミニウムフレーム</td>
+                </tr>
+                <tr>
+                    <th>Glass front</th>
+                    <td>フロントガラス</td>
+                </tr>
+                <tr>
+                    <th>ceramic back</th>
+                    <td>ブラックセラミック</td>
+                </tr>
+                <tr>
+                    <th>Glass front (Gorilla Glass Victus)</th>
+                    <td>フロントガラス(Gorilla Glass Victus)</td>
+                </tr>
+                <tr>
+                    <th>plastic back</th>
+                    <td>背面プラスチック</td>
+                </tr>
+                <tr>
+                    <th>plastic frame</th>
+                    <td>プラスチックフレーム</td>
+                </tr>
+                <tr>
+                    <th>Glass front (Gorilla Glass 5)</th>
+                    <td>フロントガラス(Gorilla Glass 5)</td>
+                </tr>
+                <tr>
+                    <th>glass back (Gorilla Glass 5)</th>
+                    <td>背面ガラス(Gorilla Glass 5)</td>
+                </tr>
+                <tr>
+                    <th>glass back (Gorilla Glass 5) or ceramic back</th>
+                    <td>フロントガラス(Gorilla Glass 5)またはブラックセラミック</td>
+                </tr>
+                <tr>
+                    <th>plastic front (unfolded)</th>
+                    <td>フロントプラスチック (展開時)</td>
+                </tr>
+                <tr>
+                    <th>Glass front (Asahi Dragontrail)</th>
+                    <td>フロントガラス(Asahi Dragontrail)</td>
+                </tr>
+                <tr>
+                    <th>stainless steel frame</th>
+                    <td>スチール ステンレスフレーム</td>
+                </tr>
+            </table>
         </div>
         <div class="info34 hide">
             <h1>SIM</h1>
+            Single SIM (Nano-SIM and/or eSIM) or Dual SIM (Nano-SIM and/or eSIM, dual stand-by)
+            <img src='images/55.png'>
+            <img src='images/56.png'>
         </div>
         <div class="info35 hide">
             <h1>SIMスロット追加情報</h1>
+            <p>この項目は基本入力しなくて大丈夫です、SIMの項目にSIMスロット以外の説明があったときだけ入力して下さい。</p>
+            <p>日本語、英語版があります、元の文を英語部分に翻訳したものを日本語部分に入力してください。<br>できるだけ違和感のない日本語にしてください。</p>
         </div>
         <div class="info36 hide">
             <h1>Dual stand by</h1>
+            <p>デュアルスタンバイに対応している場合チェックしてください。</p>
+            <p>SIMの項目にDual stand byが含まれている場合は対応しています。</p>
+            <img src='images/57.png'>
+            <img src='images/58.png'>
         </div>
         <div class="info37 hide">
             <h1>防水防塵</h1>
+            <p>元の表のSIMの項目の2行目以降に防水防塵に関する表記がある場合は入力してください。<br>稀に他の部分に書いてある場合がありますがどうしていいかわからない場合はもちまで連絡をください。</p>
+            <p>防水防塵に対応している場合は防水防塵対応にチェックを入れ対応している等級にチェックを入れます。<br>仮にIP68に対応している場合は、防水防塵対応、IP X6、IP X8にチェックを入れることになります。 <br>MIL規格に対応している場合にも防水防塵対応にチェックを入れてください。<br>P2iのみに対応している場合はP2i撥水のみにチェックをつけて防水防塵対応にはチェックを付けないでください。</p>
+            <p>IP68/IP65のように表示されている場合は、防水防塵対応、IP X6、IP X8、IP X5のようにチェックを入れてください。</p>
+            <img src='images/59.png'>
+            <img src='images/60.png'>
         </div>
         <div class="info38 hide">
             <h1>IPカスタムtxt</h1>
+            <p>防水防塵に関する等級がIP68/IP65のように複数ある場合にそれぞれを/区切りで入力してください</p>
+            <img src='images/61.png'>
+            <img src='images/62.png'>
         </div>
         <div class="info39 hide">
             <h1>その他のやつ</h1>
+            <p>SIMの項目の2行目以降にある項目と対応しています、この部分にstyle supportと書いてあった場合はスタイラスペン対応、、Physical pop-up gaming triggersと書いてある場合はポップアップゲーミングボタン、Apple Pay (Visa, MasterCard, AMEX certified)と書いてあればApple Payのようにチェックをつけてください。</p>
+            <table>
+            Pressure sensitive zones (400Hz touch-sensing)
+Built-in cooling fan
+    </table>
+            <img src='images/63.png'>
+            <img src='images/64.png'>
         </div>
         <div class="info40 hide">
             <h1>スクリーン</h1>
