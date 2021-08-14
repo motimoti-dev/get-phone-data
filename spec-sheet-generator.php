@@ -1691,6 +1691,7 @@
                                 <input type="checkbox" name="sp-extra-31" value="Yes"<?php if(data_ref('sp-extra-31') == 'Yes')echo ' checked';?>>ポップアップゲーミングボタン
                                 <input type="checkbox" name="sp-extra-32" value="Yes"<?php if(data_ref('sp-extra-32') == 'Yes')echo ' checked';?>>スタイラスペン対応
                                 <input type="checkbox" name="sp-extra-33" value="Yes"<?php if(data_ref('sp-extra-33') == 'Yes')echo ' checked';?>>プロ・ショルダー・トリガー3.0(400Hz)
+                                <input type="checkbox" name="sp-extra-33" value="Yes"<?php if(data_ref('sp-extra-34') == 'Yes')echo ' checked';?>>内蔵冷却ファン
                             </td>
                         </tr>
                     </table>
@@ -1818,7 +1819,7 @@
                                     }
                                 }
                                 if(strpos($plaintext,'ratio') !== false){//	5.9 inches, 84.0 cm2 (~82.9% screen-to-body ratio)
-                                    echo "aaa".end(explode(', ',explode(' ratio',$plaintext)[0]));
+                                    //echo "aaa".end(explode(', ',explode(' ratio',$plaintext)[0]));
                                     if(is_numeric( explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[0] ) && is_numeric(explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[1])){//1080 x 2400 pixels, 20:9
                                         add_data(["sp-screen-2",explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[0]]);
                                         add_data(["sp-screen-17",explode(':',end(explode(', ',explode(' ratio',$plaintext)[0])))[1]]);//pixelと縦横反転
@@ -5489,11 +5490,34 @@ Discontinuedは製造中止
         </div>
         <div class="info39 hide">
             <h1>その他のやつ</h1>
-            <p>SIMの項目の2行目以降にある項目と対応しています、この部分にstyle supportと書いてあった場合はスタイラスペン対応、、Physical pop-up gaming triggersと書いてある場合はポップアップゲーミングボタン、Apple Pay (Visa, MasterCard, AMEX certified)と書いてあればApple Payのようにチェックをつけてください。</p>
+            <p>SIMの項目の2行目以降にある項目と対応しています、この部分にstyle supportと書いてあった場合はスタイラスペン対応のようにチェックをつけてください。</p>
+            <p>それぞれの英語と日本語訳を以下に置いておきます。</p>
             <table>
-            Pressure sensitive zones (400Hz touch-sensing)
-Built-in cooling fan
-    </table>
+                <tr>
+                    <th>Apple Pay (Visa, MasterCard, AMEX certified)</th>
+                    <td>Apple Pay</td>
+                </tr>
+                <tr>
+                    <th>Physical pop-up gaming triggers</th>
+                    <td>ポップアップゲーミングボタン</td>
+                </tr>
+                <tr>
+                    <th>style support</th>
+                    <td>スタイラスペン対応</td>
+                </tr>
+                <tr>
+                    <th>Pressure sensitive zones (400Hz touch-sensing)</th>
+                    <td>プロ・ショルダー・トリガー3.0(400Hz)</td>
+                </tr>
+                <tr>
+                    <th>stainless steel frame</th>
+                    <td>スチール ステンレスフレーム</td>
+                </tr>
+                <tr>
+                    <th>Built-in cooling fan</th>
+                    <td>内蔵冷却ファン</td>
+                </tr>
+            </table>
             <img src='images/63.png'>
             <img src='images/64.png'>
         </div>
