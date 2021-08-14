@@ -4,6 +4,7 @@
         $info0 = '<svg viewBox="0 0 512 512" style="width:32px;height:32px;position:relative;top:6px;" onclick="openinfo([\'';
         $info1 = '<svg viewBox="0 0 512 512" style="width:17px;height:17px;position:relative;top:3px;" onclick="openinfo([\'';
         $info2 = '\'])"><path fill="gray" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>    </svg>';
+        $close2 = '\'])"><path fill="gray" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z" class=""></path></svg>';
         ?>
         <h1><?php echo $info0.".info0".$info2;?>スクレイピングの奴</h1>
         <form method="post">
@@ -147,6 +148,16 @@
             .sc2 h2{
                 padding-left: 1rem;
                 border-left: solid 3px blue;
+            }
+            rules{
+                display: block;
+                font-family: monospace;
+                white-space: pre;
+                margin: 1em 0px;
+                background: #ff9d9dba;
+                border-radius: 4px;
+                border: red 1px solid;
+                padding-left: 10px;
             }
             pre{
                 background: #f2f5ff;
@@ -4784,7 +4795,7 @@
     </div>
     <div class="sc2" style='overflow-y:scroll;'>
         <div class="info0 hide">
-            <h1>スクレイピングの奴について</h1>
+            <h1>スクレイピングの奴について<?php echo $info0.".info0".$close2;?></h1>
             <p>スクレイピング用のフォームです。</p>
             <p><?php echo $info1.$info2;?>を押すと入力のヘルプが出てきます、それぞれの項目一度は目を通して間違えないように入力お願いします。</p>
             <p>ここでの、<b>スクレイピング</b>とはデータを収集した上で利用しやすく加工することです。</p>
@@ -4808,7 +4819,7 @@
             </p>
         </div>
         <div class="info1 hide">
-            <h1>使用するURL</h1>
+            <h1>使用するURL<?php echo $info0.".info1".$close2;?></h1>
             <p>スクレイピングに使用するGSMarenaのURLを貼り付ける工程です。<br>一番初めに行ってください。</p>
             <p>途中から入力する場合はこの部分は空白で下の途中から入力する場合(json)にjsonをテキストで入力してください！</p>
             <h2>URLを取得する</h2>
@@ -4825,7 +4836,7 @@
             <img src='images/6.png'>
         </div>
         <div class="info2 hide">
-            <h1>途中から入力する場合(json)</h1>
+            <h1>途中から入力する場合(json)<?php echo $info0.".info2".$close2;?></h1>
             <p style='color:red;'>この項目は途中から入力する場合に使用します、最初から入力する場合はここは空白で大丈夫です。</p>
             <p>途中から入力する場合はここにJsonを入力します、下のフォームは例です。</p>
             <p></p>
@@ -4848,7 +4859,7 @@
             <p style='color:red;'>[["sp-memo-0","International(\u30b0\u30ed\u30fc\u30d0\u30eb\u7248)\t8GB\t128GB"],["sp-memo-1","https:\/\/www.gsmarena.com\/xiaomi_poco_x3_gt-10949.php"],["sp-band-8","GSM \/ HSPA \/ LTE \/ 5G"],["sp-band-9","HSPA 42.2\/5.76 Mbps, LTE-A (CA), 5G"],["sp-band-7","1, 3, 28, 41, 77, 78 SA\/NSA"],["sp-band-5g-n1","Yes"],["sp-band-5g-n3","Yes"],["sp-band-5g-n28","Yes"],["sp-band-5g-n41","Yes"],["sp-band-5g-n77","Yes"],["sp-band-5g-n78","Yes"],["sp-band-6","1, 2, 3, 4, 5, 7, 8, 18, 19, 26, 28, 38, 40, 41, 42"],["sp-band-4g-1","Yes"],["sp-band-4g-2","Yes"],["sp-band-4g-3","Yes"],["sp-band-4g-4","Yes"],["sp-band-4g-5","Yes"],["sp-band-4g-7","Yes"],["sp-band-4g-8","Yes"],["sp-band-4g-18","Yes"],["sp-band-4g-19","Yes"],["sp-band-4g-26","Yes"],["sp-band-4g-28","Yes"],["sp-band-4g-38","Yes"],["sp-band-4g-40","Yes"],["sp-band-4g-41","Yes"],["sp-band-4g-42","Yes"],["sp-band-5","HSDPA 850 \/ 900 \/ 1700(AWS) \/ 1900 \/ 2100 "],["sp-band-3g-hsdpa-850","Yes"],["sp-band-3g-hsdpa-900","Yes"],["sp-band-3g-hsdpa-1700-aws","Yes"],["sp-band-3g-hsdpa-1900","Yes"],["sp-band-3g-hsdpa-2100","Yes"],["sp-band-4","GSM 850 \/ 900 \/ 1800 \/ 1900 - SIM 1 & SIM 2"],["sp-band-2g-gsm-850","Yes"],["sp-band-2g-gsm-900","Yes"],["sp-band-2g-gsm-1800","Yes"],["sp-band-2g-gsm-1900","Yes"],["sp-launch-1","2021-7-28"],["sp-launch-35","Yes"],["sp-launch-4","Xiaomi Poco X3 GT"],["sp-design-0","163.3"],["sp-design-4","75.9"],["sp-design-5","8.9 "],["sp-design-1","193"],["sp-network-3","\u30c7\u30e5\u30a2\u30ebSIM (Nano-SIM, dual stand-by)"],["sp-network-9","Dual SIM (Nano-SIM, dual stand-by)"],["sp-network-7","Yes"],["sp-extra-6","Yes"],["sp-extra-7"," IP68\/IP65"],["sp-screen-3","IPS LCD"],["sp-screen-0","Gorilla Glass Victus\u3067\u4fdd\u8b77"],["sp-screen-41","Corning Gorilla Glass Victus"],["sp-screen-1","6.6"],["sp-screen-8","120"],["sp-screen-15","450"],["sp-screen-14","84.9"],["sp-screen-16","2400"],["sp-screen-4","1080"],["sp-screen-2","20"],["sp-screen-17","9"],["sp-screen-6","399"],["sp-screen-32","Yes"],["sp-screen-24","Yes"],["sp-screen-28","Yes"],["sp-softwear-0","Yes"],["sp-softwear-7","11"],["sp-softwear-13","Yes"],["sp-softwear-8","12.5"],["sp-softwear-12","MIUI for POCO"],["sp-spec-11","113"],["sp-spec-7","8"],["sp-spec-8","UFS 3.1"],["sp-spec-9","128"],["sp-spec-10","128GB 8GB RAM, 256GB 8GB RAM"],["sp-camera-4","3"],["sp-camera-16","1"],["sp-camera-19","64"],["sp-camera-20","1.8"],["sp-camera-21","26"],["sp-camera-22","1\/1.97"],["sp-camera-23","0.7"],["sp-camera-24","6"],["sp-camera-25","PDAF"],["sp-camera-26","PDAF"],["sp-camera-29","8"],["sp-camera-30","2.2"],["sp-camera-32","1\/4.0"],["sp-camera-33","1.12"],["sp-camera-34","7"],["sp-camera-35","120\u02da"],["sp-camera-36","120\u02da"],["sp-camera-39","2"],["sp-camera-40","2.4"],["sp-camera-44","10"],["sp-camera-100","Yes"],["sp-camera-105","Yes"],["sp-camera-107","Yes"],["sp-camera-2","4K@30fps, 1080p@30\/60\/120fps"],["sp-camera-5","4K@30fps, 1080p@30\/60\/120fps"],["sp-camera-12","1"],["sp-camera-17","1"],["sp-camera-121","16"],["sp-camera-122","2,5"],["sp-camera-124","1\/3.06"],["sp-camera-125","1.0"],["sp-camera-126","6"],["sp-camera-201","1080p@30fps, 720p@120fps, 960fps"],["sp-camera-202","1080p@30fps, 720p@120fps, 960fps"],["sp-extra-37","Yes"],["sp-extra-44","Yes"],["sp-extra-48","Yes"],["sp-network-0","Yes"],["sp-network-10","Yes"],["sp-network-11","Yes"],["sp-network-12","Yes"],["sp-network-13","Yes"],["sp-network-14","Yes"],["sp-network-15","Yes"],["sp-network-38","Yes"],["sp-network-39","Yes"],["sp-network-40","Yes"],["sp-extra-62","Yes"],["sp-extra-66","Yes"],["sp-network-1","Yes"],["sp-network-2","5.2"],["sp-network-19","Yes"],["sp-network-20","Yes"],["sp-extra-0","Yes"],["sp-extra-9","Yes"],["sp-network-29","Yes"],["sp-network-30","Yes"],["sp-network-31","Yes"],["sp-network-32","Yes"],["sp-network-34","Yes"],["sp-network-35","Yes"],["sp-sensor-11","Yes"],["sp-sensor-1","Yes"],["sp-sensor-3","Yes"],["sp-sensor-4","Yes"],["sp-sensor-10","Yes"],["sp-sensor-14","Yes"],["sp-sensor-17","Yes"],["sp-battery-0","5000"],["sp-battery-9","No"],["sp-battery-7","100% in 42 min (advertised)"],["sp-battery-10","67"],["sp-battery-17","Yes"],["sp-battery-26","Yes"],["sp-design-3","Stargaze Black:#2e2f39, Wave Blue:#48bbd0, Cloud White:#e3f0f8"],["sp-launch-17","About 260 EUR"],["sp-launch-20","260"],["sp-launch-22","Yes"],["sp-launch-19","About 260 EUR"]]</p>
         </div>
         <div class="info3 hide">
-            <h1>端末名・メモ・URL</h1>
+            <h1>端末名・メモ・URL<?php echo $info0.".info3".$close2;?></h1>
             <p>URL・メモを入力するセクションです、完成したJsonをコピーすることもできます。<br>途中まで入力して中断する場合もここのJsonをコピーしてください。</p>
             <h2>端末名</h2>
             <p>URLに合わせて端末名と画像が自動で表示されています、入力する端末と異なる画像と端末名が表示されている場合は入力したURLが間違っている場合がありますので再確認してください。</p>
@@ -4869,11 +4880,11 @@
             <img src='images/12.png'>
         </div>
         <div class="info4 hide">
-            <h1>送信されたデータをjsonに変換したテキスト</h1>
+            <h1>送信されたデータをjsonに変換したテキスト<?php echo $info0.".info4".$close2;?></h1>
             <p>初期状態ではここの項目はfalseになっています、エンターを押して送信するとjsonが埋め込まれます、中断する場合や入力が終わりJsonをコピーするのに使用します。</p>
         </div>
         <div class="info5 hide">
-            <h1>メモ用</h1>
+            <h1>メモ用<?php echo $info0.".info5".$close2;?></h1>
             <p>下のフォームは例です、このメモにはこれから入力する端末のバージョンを入力してください。</p>
             <p>日本版 Docomo版 4GB 64GB</p>
             <p>中国版 6GB 64GB</p>
@@ -4884,14 +4895,14 @@
             <img src='images/11.png'>
         </div>
         <div class="info6 hide">
-            <h1>URL</h1>
+            <h1>URL<?php echo $info0.".info6".$close2;?></h1>
             <p>最初に入力したURLをここに入力してください。</p>
             <?php echo $info1.$info2;?>URL
             <input type="text" size="full" value="https://www.gsmarena.com/google_pixel_4a_5g-10385.php" disabled="disabled">
             <img src='images/12.png'>
         </div>
         <div class="info7 hide">
-            <h1>ネットワーク</h1>
+            <h1>ネットワーク<?php echo $info0.".info7".$close2;?></h1>
             <p>ネットワークのセクションです、ここではバンド情報や通信速度等を入力します。</p>
             <h2>技術</h2>
             <p>元の表のTechnology部分を技術に入力します、それぞれ利用可能な通信技術を「 / 」区切りで入力してあります。</p>
@@ -4987,7 +4998,7 @@ GSM / HSPA / LTE - china</pre>
             <img src='images/32.png'>
         </div>
         <div class="info8 hide">
-            <h1>技術</h1>
+            <h1>技術<?php echo $info0.".info8".$close2;?></h1>
             <p>元の表のTechnology部分を技術に入力します、それぞれ利用可能な通信技術を「 / 」区切りで入力してあります。</p>
             <img src='images/13.png'>
             <img src='images/14.png'>
@@ -5010,7 +5021,7 @@ GSM / HSPA / LTE - china</pre>
             <pre>-</pre>
         </div>
         <div class="info9 hide">
-            <h1>速度</h1>
+            <h1>速度<?php echo $info0.".info9".$close2;?></h1>
             <p>速度は元の表のSPEEDの部分に該当します、以下の三つの場合は空白で、それ以外の場合はSPEEDと同じ物を入力してください。</p>
             <pre>Unspecified</pre>
             <pre>Rumored</pre>
@@ -5019,7 +5030,7 @@ GSM / HSPA / LTE - china</pre>
             <img src='images/16.png'>
         </div>
         <div class="info10 hide">
-            <h1>バンド</h1>
+            <h1>バンド<?php echo $info0.".info10".$close2;?></h1>
             <p>各バンド情報を入力します、非対応のものがある場合は空白の状態にしてください、チェックボタンもすべて外してください。</p>
             <p>複数バージョンある場合があります、例として入力しているバージョンが中国の場合、中国以外の項目は消去してください。</p>
             <img src='images/17.png'>
@@ -5084,7 +5095,7 @@ GSM / HSPA / LTE - china</pre>
             <img src='images/32.png'>
         </div>
         <div class="info10a hide">
-        　  <h1>表示される5G</h1>
+        　  <h1>表示される5G<?php echo $info0.".info10a".$close2;?></h1>
             <p>ここでは5Gのバンドを入力します、もし元の表に5Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
             <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
             <p>画像では5G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
@@ -5103,12 +5114,12 @@ GSM / HSPA / LTE - china</pre>
             <input type="text" size="full" value="1, 2, 3, 5, 7, 8, 12, 20, 28, 38, 77, 78 SA/NSA" disabled="disabled">
         </div>
         <div class="info11 hide">
-            <h1>5G各バンド</h1>
+            <h1>5G各バンド<?php echo $info0.".info11".$close2;?></h1>
             <p>表示される5Gに入力したバンドをチェックします。5Gに対応していない場合はすべてチェックを外してください。</p>
             <img src='images/22.png'>
         </div>
         <div class="info12 hide">
-        　  <h1>表示される4G</h1>
+        　  <h1>表示される4G<?php echo $info0.".info12".$close2;?></h1>
             <p>ここでは4Gのバンドを入力します、もし元の表に4Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
             <p>最後に書いてある「 - International」や、「- USA」は消して入力してください。</p>
             <p>画像では4G bandsの欄が2行ありますが、USA版を入力している場合はInternational版(グローバル版)は関係ないので消してください。</p>
@@ -5127,396 +5138,574 @@ GSM / HSPA / LTE - china</pre>
             <input type="text" size="full" value="1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 20, 26, 28, 34, 38, 39, 40, 41, 42" disabled="disabled">
         </div>
         <div class="info13 hide">
-            <h1>4G各バンド</h1>
+            <h1>4G各バンド<?php echo $info0.".info13".$close2;?></h1>
             <p>表示される4Gに入力したバンドをチェックします。4Gに対応していない場合はすべてチェックを外してください。</p>
             <img src='images/26.png'>
         </div>
         <div class="info14 hide">
-            <h1>表示される3G</h1>
+            <h1>表示される3G<?php echo $info0.".info14".$close2;?></h1>
             <p>ここでは3Gのバンドを入力します、もし元の表に3Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
             <p>画像では3G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
             <img src='images/27.png'>
             <img src='images/28.png'>
         </div>
         <div class="info15 hide">
-            <h1>3G各バンド</h1>
+            <h1>3G各バンド<?php echo $info0.".info15".$close2;?></h1>
             <p>表示される3Gに入力したバンドをチェックします。3Gに対応していない場合はすべてチェックを外してください。</p>
             <p>HSDPA 1700とHSDPA 1700(aws)は別物ですので区別して入力してください。</p>
             <p>HSDPA 1700(aws)に対応している場合HSDPA 1700にもチェックが付いてしまう場合がありますが、これは間違いです。<br>HSDPA 1700(aws)だけにチェックをつけてください。</p>
             <img src='images/29.png'>
         </div>
         <div class="info16 hide">
-            <h1>表示される2G</h1>
+            <h1>表示される2G<?php echo $info0.".info16".$close2;?></h1>
             <p>ここでは2Gのバンドを入力します、もし元の表に2Gの項目がなかったりUnspecified、-だった場合は空白にしてください。</p>
             <p>画像では2G bandsの欄が1行ですが、4Gや5Gの解説のように複数行ある場合は該当する物だけ入力してください。</p>
             <img src='images/30.png'>
             <img src='images/31.png'>
         </div>
         <div class="info17 hide">
-            <h1>2G各バンド</h1>
+            <h1>2G各バンド<?php echo $info0.".info17".$close2;?></h1>
             <p>表示される2Gに入力したバンドをチェックします。<br>2Gに対応していない場合はすべてチェックを外してください。</p>
             <img src='images/32.png'>
         </div>
         <div class="info18 hide">
-            概要
-            <h1></h1>
-            <p></p>
-            <h2></h2>
-            <img src='images/2.png'>
+            <h1>概要<?php echo $info0.".info18".$close2;?></h1>
+            <p>ここでは</p>
+            <p>・発売日<br>・発表日<br>・未発表の場合の期待される発表日<br>・細かいやつら<br>・地域<br>・端末名<br>・メーカー</p>
+            <p>を入力します、そして</p>
+            <p>・端末id(一意のid)<br>・メインiD	<br>・同じスマホ別バージョン(,区切りでid)<br>・関連スマホ</p>
+            <p>は入力しなくて大丈夫です。</p>
+            <p>もとの表は複数パターンあります、	英単語が分からないと少し厳しいかもしれないので簡易訳を置いておきます。</p>
+<pre>
+Rumoredはリーク情報
+Exp. releasは期待される発売日
+Releasedは発売済み
+Announcedは発表済み
+Discontinuedは製造中止
+</pre>
+            <img src='images/33.png'>
+            <img src='images/34.png'>
+            <img src='images/35.png'>
+            <img src='images/36.png'>
+            <img src='images/37.png'>
+            <img src='images/38.png'>
+            <h2>発表日</h2>
+            <p>発売日が不明な場合は、この項目は空白にして下さい。</p>
+            <p>日にちを入力しますが、ルールがあります。</p>
+            <rules>
+・不明な場合は空白
+・yyyy-mm-ddの形式で入力
+・もし月までしかわかっていない場合は2021-01のように日にちは省略可
+・月も分からない場合は2021のように数字だけ入力
+・アルファベットや数字などはNG
+
+</rules>
+            <p>このように自動入力されている場合がありますが、間違いです。</p>
+            <img src='images/39.png'>
+            <p>このように-区切りで-と数字のみが入力されている状態が正しいです。</p>
+            <img src='images/40.png'>
+            <h2>発売日</h2>
+            <p>発売日が不明な場合は、この項目は空白にして下さい。</p>
+            <p>日にちを入力しますが、ルールがあります。</p>
+            <rules>
+・不明な場合は空白
+・yyyy-mm-ddの形式で入力
+・もし月までしかわかっていない場合は2021-01のように日にちは省略可
+・月も分からない場合は2021のように数字だけ入力
+・アルファベットや数字などはNG
+
+</rules>
+            <img src='images/41.png'>
+            <h2>未発表の場合の期待される発表日</h2>
+            <p>未発表の場合に期待される発表日があれば入力してください。<br>不明な場合や既に発表してる場合は、この項目は空白にして下さい。</p>
+            <pre>Exp. announcement 2021-8-11</pre>
+            <p>のように発表日が補完されている場合はその日にちを入力してください。Expは期待されるという意味です。</p>
+            <p>日にちを入力しますが、ルールがあります。</p>
+            <rules>
+・不明な場合は空白
+・yyyy-mm-ddの形式で入力
+・もし月までしかわかっていない場合は2021-01のように日にちは省略可
+・月も分からない場合は2021のように数字だけ入力
+・アルファベットや数字などはNG
+
+</rules>    
+            <img src='images/42.png'>
+            <h2>細かいやつら</h2>
+            <p>ここでは</p>
+            <p>・これがメイン表示の場合<br>・リーク<br>・日本で発売されたやつ<br>・技適認証</p>
+            <p>を入力します選択します。</p>
+            <h2>これがメイン表示の場合</h2>
+            <p>スプレッドシートで入力している場合、スプレッドシートのメインにチェックが付いている場合はチェックをつけてください。</p>
+            <img src='images/43.png'>
+            <h2>リーク</h2>
+            <p>元の表にRumoredがある場合はリーク情報をまとめたスペックです、この項目にチェックをつけてください。</p>
+            <h2>日本で発売されたやつ</h2>
+            <p>日本でも売られている端末の場合はチェックをつけてください、ただしこの項目は日本版に限ります。同じ端末でも韓国版やグローバル版では技適がなかったり日本では発売していない場合があるので注意してください。</p>
+            <h2>技適認証</h2>
+            <p>技適認証がある場合はチェックして下さい。</p>
+            <h2>地域</h2>
+            <p>入力している端末が何版なのかを選択します。<br>不明な場合はチェックをしなくて大丈夫です。<br>必ずチェックは一つまでにしてください。</p>
+            <p>・日本<br>・中国<br>・インド<br>・韓国<br>・アメリカ<br>・EU<br>・グローバル</p>
+            <p>不明以外の場合で該当するものがない場合はもちに連絡をください。</p>
+            <h2>端末名</h2>
+            <p>端末名を入力してください。<br>この項目は基本的にほぼ正確に自動で入力されています。</p>
+            <h2>端末id(一意のid)</h2>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
+            <h2>メインiD</h2>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
+            <h2>同じスマホ別バージョン(,区切りでid)</h2>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
+            <h2>関連スマホ</h2>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
+            <h2>メーカー</h2>
+            <p>メーターを選択してください、この項目で選択するメーカーは一つまでです。</p>
+            <p>メーカーのサブブランドのスマートフォンだった場合はredmiやhonorなどサブブランドを選択してください。</p>
+            <p>たとえばXiaomi POCO F1だった場合はXiaomiではなくPOCOにチェックをつけてください。</p>
         </div>
         <div class="info19 hide">
-            発表日
+            <h1>発表日</h1>
+            <p>発売日が不明な場合は、この項目は空白にして下さい。</p>
+            <p>日にちを入力しますが、ルールがあります。</p>
+            <rules>
+・不明な場合は空白
+・yyyy-mm-ddの形式で入力
+・もし月までしかわかっていない場合は2021-01のように日にちは省略可
+・月も分からない場合は2021のように数字だけ入力
+・アルファベットや数字などはNG
+
+</rules>
+            <p>このように自動入力されている場合がありますが、間違いです。</p>
+            <img src='images/39.png'>
+            <p>このように-区切りで-と数字のみが入力されている状態が正しいです。</p>
+            <img src='images/40.png'>
         </div>
         <div class="info20 hide">
-            発売日
+            <h1>発売日</h1>
+            <p>発売日が不明な場合は、この項目は空白にして下さい。</p>
+            <p>日にちを入力しますが、ルールがあります。</p>
+            <rules>
+・不明な場合は空白
+・yyyy-mm-ddの形式で入力
+・もし月までしかわかっていない場合は2021-01のように日にちは省略可
+・月も分からない場合は2021のように数字だけ入力
+・アルファベットや数字などはNG
+
+</rules>
+            <img src='images/41.png'>
         </div>
         <div class="info21 hide">
-            未発表の場合の期待される発表日
+            <h1>未発表の場合の期待される発表日</h1>
+            <p>未発表の場合に期待される発表日があれば入力してください。<br>不明な場合や既に発表してる場合は、この項目は空白にして下さい。</p>
+            <pre>Exp. announcement 2021-8-11</pre>
+            <p>のように発表日が補完されている場合はその日にちを入力してください。Expは期待されるという意味です。</p>
+            <p>日にちを入力しますが、ルールがあります。</p>
+            <rules>
+・不明な場合は空白
+・yyyy-mm-ddの形式で入力
+・もし月までしかわかっていない場合は2021-01のように日にちは省略可
+・月も分からない場合は2021のように数字だけ入力
+・アルファベットや数字などはNG
+
+</rules>    
+            <img src='images/42.png'>
         </div>
         <div class="info22 hide">
-            細かいやつら
+            <h1>細かいやつら</h1>
+            <p>ここでは</p>
+            <p>・これがメイン表示の場合<br>・リーク<br>・日本で発売されたやつ<br>・技適認証</p>
+            <p>を入力します選択します。</p>
+            <h2>これがメイン表示の場合</h2>
+            <p>スプレッドシートで入力している場合、スプレッドシートのメインにチェックが付いている場合はチェックをつけてください。</p>
+            <img src='images/43.png'>
+            <h2>リーク</h2>
+            <p>元の表にRumoredがある場合はリーク情報をまとめたスペックです、この項目にチェックをつけてください。</p>
+            <h2>日本で発売されたやつ</h2>
+            <p>日本でも売られている端末の場合はチェックをつけてください、ただしこの項目は日本版に限ります。同じ端末でも韓国版やグローバル版では技適がなかったり日本では発売していない場合があるので注意してください。</p>
+            <h2>技適認証</h2>
+            <p>技適認証がある場合はチェックして下さい。</p>
         </div>
         <div class="info23 hide">
-            地域
+            <h1>地域</h1>
+            <p>入力している端末が何版なのかを選択します。<br>不明な場合はチェックをしなくて大丈夫です。<br>必ずチェックは一つまでにしてください。</p>
+            <p>・日本<br>・中国<br>・インド<br>・韓国<br>・アメリカ<br>・EU<br>・グローバル</p>
+            <p>不明以外の場合で該当するものがない場合はもちに連絡をください。</p>
         </div>
         <div class="info24 hide">
-            端末名
+            <h1>端末名</h1>
+            <p>端末名を入力してください。<br>この項目は基本的にほぼ正確に自動で入力されています。</p>
         </div>
         <div class="info25 hide">
-            端末id(一意のid)
+            <h1>端末id(一意のid)</h1>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info26 hide">
-            メインiD
+            <h1>メインiD</h1>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info27 hide">
-            同じスマホ別バージョン(,区切りでid)
+            <h1>同じスマホ別バージョン(,区切りでid)</h1>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info28 hide">
-            関連スマホ
+            <h1>関連スマホ</h1>
+            <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info29 hide">
-            メーカー
+            <h1>メーカー</h1>
+            <p>メーターを選択してください、この項目で選択するメーカーは一つまでです。</p>
+            <p>メーカーのサブブランドのスマートフォンだった場合はredmiやhonorなどサブブランドを選択してください。</p>
+            <p>たとえばXiaomi POCO F1だった場合はXiaomiではなくPOCOにチェックをつけてください。</p>
         </div>
         <div class="info30 hide">
-            サイズ
+            <h1>サイズ</h1>
+            <p>ここでは</p>
+            <p>・サイズ<br>・重さ<br>・素材<br>・SIM<br>・SIMスロット追加情報<br>・Dual stand by<br>・防水防塵<br>・IPカスタムtxt<br>・その他のやつ</p>
+            <p>を入力します</p>
+            <img src='images/50.png'>
+            <img src='images/51.png'>
+            <img src='images/52.png'>
         </div>
         <div class="info31 hide">
-            サイズ
+            <h1>サイズ</h1>
+            <p>元の表のDimensionsの部分です、基本的に自動で入力されます</p>
+            <rules>
+・数字のみで入力してください。
+・アルファベットは入力しないでください。
+・-は入力しないでください
+・分からない場合は空のままにしてください
+・小数点以下4桁より下のデータは省略して大丈夫です。
+・単位はmmです、元の表にあるinはインチですので無視してください
+            </rules>
+            <img src='images/44.png'>
+            <img src='images/45.png'>
+            <img src='images/46.png'>
+            <img src='images/47.png'>
         </div>
         <div class="info32 hide">
-            重さ
+            <h1>重さ</h1>
+            <p>元の表のWeightの部分です、基本的に自動で入力されます</p>
+            <rules>
+・数字のみで入力してください。
+・アルファベットは入力しないでください。
+・-は入力しないでください
+・分からない場合は空のままにしてください
+・小数点以下4桁より下のデータは省略して大丈夫です。
+・単位はmmです、元の表にあるozはオンスですので無視してください
+            </rules>
+            <img src='images/48.png'>
+            <img src='images/49.png'>
         </div>
         <div class="info33 hide">
-            素材
+            <h1>素材</h1>
         </div>
         <div class="info34 hide">
-            SIM
+            <h1>SIM</h1>
         </div>
         <div class="info35 hide">
-            SIMスロット追加情報
+            <h1>SIMスロット追加情報</h1>
         </div>
         <div class="info36 hide">
-            Dual stand by
+            <h1>Dual stand by</h1>
         </div>
         <div class="info37 hide">
-            防水防塵
+            <h1>防水防塵</h1>
         </div>
         <div class="info38 hide">
-            IPカスタムtxt
+            <h1>IPカスタムtxt</h1>
         </div>
         <div class="info39 hide">
-            その他のやつ
+            <h1>その他のやつ</h1>
         </div>
         <div class="info40 hide">
-        スクリーン
+            <h1>スクリーン</h1>
         </div>
         <div class="info41 hide">
-        パネル種類（カスタムテキスト）
+            <h1>パネル種類（カスタムテキスト）</h1>
         </div>
         <div class="info42 hide">
-        画面補足情報（セカンドディスプレイなど）
+            <h1>画面補足情報（セカンドディスプレイなど）</h1>
         </div>
         <div class="info43 hide">
-        画面保護
+            <h1>画面保護</h1>
         </div>
         <div class="info44 hide">
-        インチ
+            <h1>インチ</h1>
         </div>
         <div class="info45 hide">
-        リフレッシュレート
+            <h1>リフレッシュレート</h1>
         </div>
         <div class="info46 hide">
-        タッチレート
+            <h1>タッチレート</h1>
         </div>
         <div class="info47 hide">
-        輝度
+            <h1>輝度</h1>
         </div>
         <div class="info48 hide">
-        画面占有率
+            <h1>画面占有率</h1>
         </div>
         <div class="info49 hide">
-        pixel
+            <h1>pixel</h1>
         </div>
         <div class="info50 hide">
-        アスペクト比
+            <h1>アスペクト比</h1>
         </div>
         <div class="info51 hide">
-        DPI
+            <h1>DPI</h1>
         </div>
         <div class="info52 hide">
-        表示色
+            <h1>表示色</h1>
         </div>
         <div class="info53 hide">
-        コントラスト比
+            <h1>コントラスト比</h1>
         </div>
         <div class="info54 hide">
-        湾曲ディスプレイの場合の角度
+            <h1>湾曲ディスプレイの場合の角度</h1>
         </div>
         <div class="info55 hide">
-        インカメラタイプ
+            <h1>インカメラタイプ</h1>
         </div>
         <div class="info56 hide">
-        画面タイプ
+            <h1>画面タイプ</h1>
         </div>
         <div class="info57 hide">
-        細かいやつら
+            <h1>細かいやつら</h1>
         </div>
         <div class="info58 hide">
-        ソフトウェア
+            <h1>ソフトウェア</h1>
         </div>
         <div class="info59 hide">
-        OS
+            <h1>OS</h1>
         </div>
         <div class="info60 hide">
-        OS ver
+            <h1>OS ver</h1>
         </div>
         <div class="info61 hide">
-        GMS非対応
+            <h1>GMS非対応</h1>
         </div>
         <div class="info62 hide">
-        OS更新可能なバージョン
+            <h1>OS更新可能なバージョン</h1>
         </div>
         <div class="info63 hide">
-        UI
+            <h1>UI</h1>
         </div>
         <div class="info64 hide">
-        UI ver
+            <h1>UI ver</h1>
         </div>
         <div class="info65 hide">
-        UI更新可能なバージョン
+            <h1>UI更新可能なバージョン</h1>
         </div>
         <div class="info66 hide">
-        OS追加説明
+            <h1>OS追加説明</h1>
         </div>
         <div class="info67 hide">
-        UI追加説明
+            <h1>UI追加説明</h1>
         </div>
         <div class="info68 hide">
-        SoC ID
+            <h1>SoC ID</h1>
         </div>
         <div class="info69 hide">
-        CPU構成(本来の構成と異なる場合)
+            <h1>CPU構成(本来の構成と異なる場合)</h1>
         </div>
         <div class="info70 hide">
-        GPU構成(本来の構成と異なる場合)
+            <h1>GPU構成(本来の構成と異なる場合)</h1>
         </div>
         <div class="info71 hide">
-        RAM/ストレージ
+            <h1>RAM/ストレージ</h1>
         </div>
         <div class="info72 hide">
-        Micro SDカード
+            <h1>Micro SDカード</h1>
         </div>
         <div class="info73 hide">
-        NMカード
+            <h1>NMカード</h1>
         </div>
         <div class="info74 hide">
-        メモリGB(この構成のものだけ)
+            <h1>メモリGB(この構成のものだけ)</h1>
         </div>
         <div class="info75 hide">
-        メモリ規格(この構成のものだけ)
+            <h1>メモリ規格(この構成のものだけ)</h1>
         </div>
         <div class="info76 hide">
-        ストレージ規格(この構成のものだけ)
+            <h1>ストレージ規格(この構成のものだけ)</h1>
         </div>
         <div class="info77 hide">
-        ストレージGB(この構成のものだけ)
+            <h1>ストレージGB(この構成のものだけ)</h1>
         </div>
         <div class="info78 hide">
-        他のバージョン
+            <h1>他のバージョン</h1>
         </div>
         <div class="info79 hide">
-        アウトカメラ
+            <h1>アウトカメラ</h1>
         </div>
         <div class="info80 hide">
-        カメラ数
+            <h1>カメラ数</h1>
         </div>
         <div class="info81 hide">
-        カメラ
+            <h1>カメラ</h1>
         </div>
         <div class="info82 hide">
-        特徴(Features)
+            <h1>特徴(Features)</h1>
         </div>
         <div class="info83 hide">
-        動画
+            <h1>動画</h1>
         </div>
         <div class="info84 hide">
-        インカメラ
+            <h1>インカメラ</h1>
         </div>
         <div class="info85 hide">
-        インカメラ数
+            <h1>インカメラ数</h1>
         </div>
         <div class="info86 hide">
-        カメラ
+            <h1>カメラ</h1>
         </div>
         <div class="info87 hide">
-        特徴(Features)
+            <h1>特徴(Features)</h1>
         </div>
         <div class="info88 hide">
-        インカメラ動画
+            <h1>インカメラ動画</h1>
         </div>
         <div class="info89 hide">
-        オーディオ
+            <h1>オーディオ</h1>
         </div>
         <div class="info90 hide">
-        3.5mmイヤホンジャック
+            <h1>3.5mmイヤホンジャック</h1>
         </div>
         <div class="info91 hide">
-        通話用スピーカー(Loudspeaker)	対応 不明
+            <h1>通話用スピーカー(Loudspeaker)</h1>
         </div>
         <div class="info92 hide">
-        デュアルスピーカー	
+            <h1>デュアルスピーカー</h1>
         </div>
         <div class="info93 hide">
-        ステレオスピーカー	
+            <h1>ステレオスピーカー</h1>
         </div>
         <div class="info94 hide">
-        デュアルスピーカー（ステレオ）	
+            <h1>デュアルスピーカー（ステレオ）</h1>
         </div>
         <div class="info95 hide">
-        トリプルスピーカー（ステレオ）	
+            <h1>トリプルスピーカー（ステレオ）</h1>
         </div>
         <div class="info96 hide">
-        クアッドスピーカー(ステレオ)	
+            <h1>クアッドスピーカー(ステレオ)</h1>
         </div>
         <div class="info97 hide">
-        24-bit/192kHz	
+            <h1>24-bit/192kHz</h1>
         </div>
         <div class="info98 hide">
-        32-bit/384kHz	
+            <h1>32-bit/384kHz</h1>
         </div>
         <div class="info99 hide">
-        Tuned by AKG	
+            <h1>Tuned by AKG</h1>
         </div>
         <div class="info100 hide">
-        Tuned by JBL	
+            <h1>Tuned by JBL</h1>	
         </div>
         <div class="info101 hide">
-        Tuned by Harman Kardon	
+            <h1>Tuned by Harman Kardon</h1>	
         </div>
         <div class="info102 hide">
-        オーディオ追加説明
+            <h1>オーディオ追加説明</h1>
         </div>
         <div class="info103 hide">
-        ネットワーク
+            <h1>ネットワーク</h1>
         </div>
         <div class="info104 hide">
-        Wi-Fi
+            <h1>Wi-Fi</h1>
         </div>
         <div class="info105 hide">
-        ポート情報
+            <h1>ポート情報</h1>
         </div>
         <div class="info106 hide">
-        USB On-The-Go
+            <h1>USB On-The-Go</h1>
         </div>
         <div class="info107 hide">
-        bluetooth
+            <h1>bluetooth</h1>
         </div>
         <div class="info108 hide">
-        NFC
+            <h1>NFC</h1>
         </div>
         <div class="info109 hide">
-        赤外線ポート[Infrared port]
+            <h1>赤外線ポート[Infrared port]</h1>
         </div>
         <div class="info110 hide">
-        ラジオ
+            <h1>ラジオ</h1>
         </div>
         <div class="info111 hide">
-        GPS
+            <h1>GPS</h1>
         </div>
         <div class="info112 hide">
-        センサー
+            <h1>センサー</h1>
         </div>
         <div class="info113 hide">
-        センサー類
+            <h1>センサー類</h1>
         </div>
         <div class="info113a hide">
-        指紋センサー
+            <h1>指紋センサー</h1>
         </div>
         <div class="info114 hide">
-        バッテリー
+            <h1>バッテリー</h1>
         </div>
         <div class="info115 hide">
-        バッテリー容量
+            <h1>バッテリー容量</h1>
         </div>
         <div class="info116 hide">
-        バッテリーについての補足情報	
+            <h1>バッテリーについての補足情報</h1>	
         </div>
         <div class="info117 hide">
-        バッテリー取り外し可能
+            <h1>バッテリー取り外し可能</h1>
         </div>
         <div class="info118 hide">
-        ワイヤレス規格
+            <h1>ワイヤレス規格</h1>
         </div>
         <div class="info119 hide">
-        ワイヤレス充電
+            <h1>ワイヤレス充電</h1>
         </div>
         <div class="info120 hide">
-        ワイヤレス充電速度	
+            <h1>ワイヤレス充電速度</h1>
         </div>
         <div class="info121 hide">
-        ワイヤレス逆充電
+            <h1>ワイヤレス逆充電</h1>
         </div>
         <div class="info122 hide">
-        ワイヤレス逆充電速度
+            <h1>ワイヤレス逆充電速度</h1>
         </div>
         <div class="info123 hide">
-        充電に関する補足情報	
+            <h1>充電に関する補足情報</h1>
         </div>
         <div class="info124 hide">
-        最大充電速度
+            <h1>最大充電速度</h1>
         </div>
         <div class="info125 hide">
-        リチウムイオン電池
+            <h1>リチウムイオン電池</h1>
         </div>
         <div class="info126 hide">
-        給電	
+            <h1>給電</h1>
         </div>
         <div class="info127 hide">
-        充電規格
+            <h1>充電規格</h1>
         </div>
         <div class="info128 hide">
-        カラー/金額
+            <h1>カラー/金額</h1>
         </div>
         <div class="info129 hide">
-        色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]
+            <h1>色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]</h1>
         </div>
         <div class="info130 hide">
-        モデル番号
+            <h1>モデル番号</h1>
         </div>
         <div class="info131 hide">
-        価格
+            <h1>価格</h1>
         </div>
         <div class="info132 hide">
-        SAR
+            <h1>SAR</h1>
         </div>
         <div class="info133 hide">
-        テスト
+            <h1>テスト</h1>
         </div>
         <div class="info134 hide">
-        Antutu
+            <h1>Antutu</h1>
         </div>
         <div class="info135 hide">
-        その他のベンチマークスコア
+            <h1>その他のベンチマークスコア</h1>
         </div>
         <div class="info136 hide">
 
