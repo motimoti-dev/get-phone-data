@@ -1603,14 +1603,26 @@
                     <?php data_viewer();?>
                     <table class='data-table'>
                         <tr>
-                            <th><?php echo $info1.".info31".$info2;?>サイズ</th>
+                            <th><?php echo $info1.".info31".$info2;?>サイズ(フォルダブルスマホの場合は展開時)</th>
                             <td>
                                 縦
                                 <input type='text' name='sp-design-0' value="<?php echo data_ref('sp-design-0');?>" size="mini">mm&nbsp;
                                 横
                                 <input type='text' name='sp-design-4' value="<?php echo data_ref('sp-design-4');?>" size="mini">mm&nbsp;
                                 厚み
-                                <input type='text' name='sp-design-5' value="<?php echo data_ref('sp-design-5');?>" size="mini">mm
+                                <input type='text' name='sp-design-5' value="<?php echo data_ref('sp-design-5');?>" size="mini">mm<br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><?php echo $info1.".info31a".$info2;?>折りたたみ時のサイズ(フォルダブルスマホの場合)</th>
+                            <td>
+                                <input type="checkbox" name="sp-design-6" value="Yes"<?php if(data_ref('sp-design-6') == 'Yes')echo ' checked';?>>折り畳みができる場合<br>
+                                縦
+                                <input type='text' name='sp-design-7' value="<?php echo data_ref('sp-design-7');?>" size="mini">mm&nbsp;
+                                横
+                                <input type='text' name='sp-design-8' value="<?php echo data_ref('sp-design-8');?>" size="mini">mm&nbsp;
+                                厚み
+                                <input type='text' name='sp-design-9' value="<?php echo data_ref('sp-design-9');?>" size="mini">mm<br>
                             </td>
                         </tr>
                         <tr>
@@ -1619,6 +1631,12 @@
                                 <input type='text' name='sp-design-1' value="<?php echo data_ref('sp-design-1');?>" size="mini">g
                             </td>
                         </tr>
+                        <tr>
+                            <th><?php echo $info1.".info32a".$info2;?>重さカスタムテキスト</th>
+                            <td>
+                                <input type='text' name='sp-design-15' value="<?php echo data_ref('sp-design-15');?>" size="full">
+                            </td>
+                        </tr> 
                         <tr>
                             <th><?php echo $info1.".info33".$info2;?>素材</th>
                             <td>
@@ -1978,6 +1996,45 @@
                                 <input type="checkbox" name="sp-screen-28" value="Yes"<?php if(data_ref('sp-screen-28') == 'Yes')echo ' checked';?>>HDR10
                                 <input type="checkbox" name="sp-screen-22" value="Yes"<?php if(data_ref('sp-screen-22') == 'Yes')echo ' checked';?>>Dolby Vision
                                 <input type="checkbox" name="sp-screen-20" value="Yes"<?php if(data_ref('sp-screen-20') == 'Yes')echo ' checked';?>>Always-on display    
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><?php echo $info1.".info57a".$info2;?>第二ディスプレイ</th>
+                            <td>
+                                二枚目のディスプレイがある場合　<a onclick="opentd('#display2');">この文字をクリック</a>
+                                <div id="display2" class='hide'>
+                                    ディスプレイの名前 例:サブディスプレイ、カバーディスプレイ、
+                                    <input type='text' name='sp-screen-46' value="<?php echo data_ref('sp-screen-46');?>" size='full'>
+sp-screen-47 インチ
+sp-screen-54 リフレッシュレート
+sp-screen-55 タッチレート
+
+sp-screen-65 最低輝度　sp-screen-61 輝度typ　sp-screen-79　輝度HBM　sp-screen-57 最大輝度
+sp-screen-60 画面占有率
+
+sp-screen-62 解像度縦px　sp-screen-50 解像度横px
+
+sp-screen-48 アスペクト比縦　sp-screen-63 アスペクト比横
+
+sp-screen-52 DPI
+sp-screen-67 表示色
+sp-screen-56 コントラスト比
+sp-screen-76 湾曲角度
+
+sp-screen-49 パネル種類
+sp-screen-51 解像度
+
+sp-screen-59 補足情報
+sp-screen-78 補足情報-英語
+
+sp-screen-80 画面保護
+sp-screen-77 画面保護-英語
+sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-screen-71 TFT　sp-screen-72 TN
+
+細かいやつら　sp-screen-73 HDR10+　sp-screen-74 HDR10　sp-screen-75 湾曲ディスプレイ　sp-screen-68 Dolby Vision　sp-screen-66 Always-on display
+
+
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -5264,7 +5321,7 @@ Discontinuedは製造中止
             <p>たとえばXiaomi POCO F1だった場合はXiaomiではなくPOCOにチェックをつけてください。</p>
         </div>
         <div class="info19 hide">
-            <h1>発表日</h1>
+            <h1>発表日<?php echo $info0.".info19".$close2;?></h1>
             <p>発売日が不明な場合は、この項目は空白にして下さい。</p>
             <p>日にちを入力しますが、ルールがあります。</p>
             <rules>
@@ -5281,7 +5338,7 @@ Discontinuedは製造中止
             <img src='images/40.png'>
         </div>
         <div class="info20 hide">
-            <h1>発売日</h1>
+            <h1>発売日<?php echo $info0.".info20".$close2;?></h1>
             <p>発売日が不明な場合は、この項目は空白にして下さい。</p>
             <p>日にちを入力しますが、ルールがあります。</p>
             <rules>
@@ -5295,7 +5352,7 @@ Discontinuedは製造中止
             <img src='images/41.png'>
         </div>
         <div class="info21 hide">
-            <h1>未発表の場合の期待される発表日</h1>
+            <h1>未発表の場合の期待される発表日<?php echo $info0.".info21".$close2;?></h1>
             <p>未発表の場合に期待される発表日があれば入力してください。<br>不明な場合や既に発表してる場合は、この項目は空白にして下さい。</p>
             <pre>Exp. announcement 2021-8-11</pre>
             <p>のように発表日が補完されている場合はその日にちを入力してください。Expは期待されるという意味です。</p>
@@ -5311,7 +5368,7 @@ Discontinuedは製造中止
             <img src='images/42.png'>
         </div>
         <div class="info22 hide">
-            <h1>細かいやつら</h1>
+            <h1>細かいやつら<?php echo $info0.".info22".$close2;?></h1>
             <p>ここでは</p>
             <p>・これがメイン表示の場合<br>・リーク<br>・日本で発売されたやつ<br>・技適認証</p>
             <p>を入力します選択します。</p>
@@ -5326,33 +5383,33 @@ Discontinuedは製造中止
             <p>技適認証がある場合はチェックして下さい。</p>
         </div>
         <div class="info23 hide">
-            <h1>地域</h1>
+            <h1>地域<?php echo $info0.".info23".$close2;?></h1>
             <p>入力している端末が何版なのかを選択します。<br>不明な場合はチェックをしなくて大丈夫です。<br>必ずチェックは一つまでにしてください。</p>
             <p>・日本<br>・中国<br>・インド<br>・韓国<br>・アメリカ<br>・EU<br>・グローバル</p>
             <p>不明以外の場合で該当するものがない場合はもちに連絡をください。</p>
         </div>
         <div class="info24 hide">
-            <h1>端末名</h1>
+            <h1>端末名<?php echo $info0.".info24".$close2;?></h1>
             <p>端末名を入力してください。<br>この項目は基本的にほぼ正確に自動で入力されています。</p>
         </div>
         <div class="info25 hide">
-            <h1>端末id(一意のid)</h1>
+            <h1>端末id(一意のid)<?php echo $info0.".info25".$close2;?></h1>
             <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info26 hide">
-            <h1>メインiD</h1>
+            <h1>メインiD<?php echo $info0.".info26".$close2;?></h1>
             <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info27 hide">
-            <h1>同じスマホ別バージョン(,区切りでid)</h1>
+            <h1>同じスマホ別バージョン(,区切りでid)<?php echo $info0.".info27".$close2;?></h1>
             <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info28 hide">
-            <h1>関連スマホ</h1>
+            <h1>関連スマホ<?php echo $info0.".info28".$close2;?></h1>
             <p style='color:red;'>この項目は管理者用の項目です。<br>入力しなくて大丈夫です</p>
         </div>
         <div class="info29 hide">
-            <h1>メーカー</h1>
+            <h1>メーカー<?php echo $info0.".info29".$close2;?></h1>
             <p>メーターを選択してください、この項目で選択するメーカーは一つまでです。</p>
             <p>メーカーのサブブランドのスマートフォンだった場合はredmiやhonorなどサブブランドを選択してください。</p>
             <p>たとえばXiaomi POCO F1だった場合はXiaomiではなくPOCOにチェックをつけてください。</p>
@@ -5367,7 +5424,7 @@ Discontinuedは製造中止
             <img src='images/52.png'>
         </div>
         <div class="info31 hide">
-            <h1>サイズ</h1>
+            <h1>サイズ<?php echo $info0.".info31".$close2;?></h1>
             <p>元の表のDimensionsの部分です、基本的に自動で入力されます</p>
             <rules>
 ・数字のみで入力してください。
@@ -5382,8 +5439,22 @@ Discontinuedは製造中止
             <img src='images/46.png'>
             <img src='images/47.png'>
         </div>
+        <div class="info31a hide">
+            <h1>折りたたみ時<?php echo $info0.".info31a".$close2;?></h1>
+            <p>フォルダブルスマホの場合のみ入力をしてください、チェックしてからの入力になります。</p>
+            <p>	Unfoldedは展開時、Foldedは折りたたみ時のサイズです。</p>
+            <rules>
+・数字のみで入力してください。
+・アルファベットは入力しないでください。
+・-は入力しないでください
+・分からない場合は空のままにしてください
+・小数点以下4桁より下のデータは省略して大丈夫です。
+・単位はmmです、元の表にあるinはインチですので無視してください
+            </rules>
+            <img src='images/69.png'>
+        </div>
         <div class="info32 hide">
-            <h1>重さ</h1>
+            <h1>重さ<?php echo $info0.".info33".$close2;?></h1>
             <p>元の表のWeightの部分です、基本的に自動で入力されます</p>
             <rules>
 ・数字のみで入力してください。
@@ -5396,8 +5467,19 @@ Discontinuedは製造中止
             <img src='images/48.png'>
             <img src='images/49.png'>
         </div>
+        <div class="info32a hide">
+            <h1>重さ<?php echo $info0.".info33".$close2;?></h1>
+            <p>元の表のweightが複数ある場合はこの項目に入力してください</p>
+            <p>入力はg:内容1,g:内容2,g:内容3...の形式でしてください。</p>
+            <pre>317 g (Glass)
+332 g (Ceramic)</pre>
+            <p>だった場合は</p>
+            <pre>317:Glass,332:Ceramic</pre>
+            <p>のようになります。</p>
+            <img src='images/70.png'>
+        </div>
         <div class="info33 hide">
-            <h1>素材</h1>
+            <h1>素材<?php echo $info0.".info33".$close2;?></h1>
             <p>元の表のbuildの部分を入力します、日本語版と英語版両方とも「,」区切りでそれぞれ入力してください。</p>
             <p>元の表が英語なので、英語版は基本的にbuildのままで大丈夫ですが、日本語版の部分は英語を日本語に変換してください。</p>
             <p>下にある程度参考の英単語と日本語訳を用意しておきます。正式名称が英語のものは翻訳しなくて大丈夫です(例:Gorilla Glass 5など)</p>
@@ -5457,25 +5539,25 @@ Discontinuedは製造中止
             </table>
         </div>
         <div class="info34 hide">
-            <h1>SIM</h1>
+            <h1>SIM<?php echo $info0.".info34".$close2;?></h1>
             Single SIM (Nano-SIM and/or eSIM) or Dual SIM (Nano-SIM and/or eSIM, dual stand-by)
             <img src='images/55.png'>
             <img src='images/56.png'>
         </div>
         <div class="info35 hide">
-            <h1>SIMスロット追加情報</h1>
+            <h1>SIMスロット追加情報<?php echo $info0.".info35".$close2;?></h1>
             <p>この項目は基本入力しなくて大丈夫です、SIMの項目にSIMスロット以外の説明があったときだけ入力して下さい。</p>
             <p>日本語、英語版があります、元の文を英語部分に翻訳したものを日本語部分に入力してください。<br>できるだけ違和感のない日本語にしてください。</p>
         </div>
         <div class="info36 hide">
-            <h1>Dual stand by</h1>
+            <h1>Dual stand by<?php echo $info0.".info37".$close2;?></h1>
             <p>デュアルスタンバイに対応している場合チェックしてください。</p>
             <p>SIMの項目にDual stand byが含まれている場合は対応しています。</p>
             <img src='images/57.png'>
             <img src='images/58.png'>
         </div>
         <div class="info37 hide">
-            <h1>防水防塵</h1>
+            <h1>防水防塵<?php echo $info0.".info37".$close2;?></h1>
             <p>元の表のSIMの項目の2行目以降に防水防塵に関する表記がある場合は入力してください。<br>稀に他の部分に書いてある場合がありますがどうしていいかわからない場合はもちまで連絡をください。</p>
             <p>防水防塵に対応している場合は防水防塵対応にチェックを入れ対応している等級にチェックを入れます。<br>仮にIP68に対応している場合は、防水防塵対応、IP X6、IP X8にチェックを入れることになります。 <br>MIL規格に対応している場合にも防水防塵対応にチェックを入れてください。<br>P2iのみに対応している場合はP2i撥水のみにチェックをつけて防水防塵対応にはチェックを付けないでください。</p>
             <p>IP68/IP65のように表示されている場合は、防水防塵対応、IP X6、IP X8、IP X5のようにチェックを入れてください。</p>
@@ -5483,13 +5565,13 @@ Discontinuedは製造中止
             <img src='images/60.png'>
         </div>
         <div class="info38 hide">
-            <h1>IPカスタムtxt</h1>
+            <h1>IPカスタムtxt<?php echo $info0.".info38".$close2;?></h1>
             <p>防水防塵に関する等級がIP68/IP65のように複数ある場合にそれぞれを/区切りで入力してください</p>
             <img src='images/61.png'>
             <img src='images/62.png'>
         </div>
         <div class="info39 hide">
-            <h1>その他のやつ</h1>
+            <h1>その他のやつ<?php echo $info0.".info39".$close2;?></h1>
             <p>SIMの項目の2行目以降にある項目と対応しています、この部分にstyle supportと書いてあった場合はスタイラスペン対応のようにチェックをつけてください。</p>
             <p>それぞれの英語と日本語訳を以下に置いておきます。</p>
             <table>
@@ -5522,295 +5604,303 @@ Discontinuedは製造中止
             <img src='images/64.png'>
         </div>
         <div class="info40 hide">
-            <h1>スクリーン</h1>
+            <h1>スクリーン<?php echo $info0.".info40".$close2;?></h1>
         </div>
         <div class="info41 hide">
-            <h1>パネル種類（カスタムテキスト）</h1>
+            <h1>パネル種類（カスタムテキスト）<?php echo $info0.".info41".$close2;?></h1>
+            <p>この項目は基本自動で補完されます、ディスプレイの種類を入力してください、Super AMOLEDや、Retina IPS、Dot Displayなどです。</p>
+            <p>ディスプレイが分からない場合は入力しないでください。</p>
+            <p>ディスプレイじゃない文字が補完される場合がありますが、間違いです、入力をしなおしてください。</p>
+            <img src='images/65.png'>
+            <img src='images/66.png'>
         </div>
         <div class="info42 hide">
-            <h1>画面補足情報（セカンドディスプレイなど）</h1>
+            <h1>画面補足情報（セカンドディスプレイなど）<?php echo $info0.".info42".$close2;?></h1>
         </div>
         <div class="info43 hide">
-            <h1>画面保護</h1>
+            <h1>画面保護<?php echo $info0.".info43".$close2;?></h1>
         </div>
         <div class="info44 hide">
-            <h1>インチ</h1>
+            <h1>インチ<?php echo $info0.".info44".$close2;?></h1>
         </div>
         <div class="info45 hide">
-            <h1>リフレッシュレート</h1>
+            <h1>リフレッシュレート<?php echo $info0.".info45".$close2;?></h1>
         </div>
         <div class="info46 hide">
-            <h1>タッチレート</h1>
+            <h1>タッチレート<?php echo $info0.".info46".$close2;?></h1>
         </div>
         <div class="info47 hide">
-            <h1>輝度</h1>
+            <h1>輝度<?php echo $info0.".info47".$close2;?></h1>
         </div>
         <div class="info48 hide">
-            <h1>画面占有率</h1>
+            <h1>画面占有率<?php echo $info0.".info48".$close2;?></h1>
         </div>
         <div class="info49 hide">
-            <h1>pixel</h1>
+            <h1>pixel<?php echo $info0.".info49".$close2;?></h1>
         </div>
         <div class="info50 hide">
-            <h1>アスペクト比</h1>
+            <h1>アスペクト比<?php echo $info0.".info50".$close2;?></h1>
+            <p>500:1のようにコントラストが分かっている場合入力してください、必ず白:黒のようになるよう入力してください。</p>
+            <img src='images/67.png'>
+            <img src='images/68.png'>
         </div>
         <div class="info51 hide">
-            <h1>DPI</h1>
+            <h1>DPI<?php echo $info0.".info51".$close2;?></h1>
         </div>
         <div class="info52 hide">
-            <h1>表示色</h1>
+            <h1>表示色<?php echo $info0.".info52".$close2;?></h1>
         </div>
         <div class="info53 hide">
-            <h1>コントラスト比</h1>
+            <h1>コントラスト比<?php echo $info0.".info53".$close2;?></h1>
         </div>
         <div class="info54 hide">
-            <h1>湾曲ディスプレイの場合の角度</h1>
+            <h1>湾曲ディスプレイの場合の角度<?php echo $info0.".info54".$close2;?></h1>
         </div>
         <div class="info55 hide">
-            <h1>インカメラタイプ</h1>
+            <h1>インカメラタイプ<?php echo $info0.".info55".$close2;?></h1>
         </div>
         <div class="info56 hide">
-            <h1>画面タイプ</h1>
+            <h1>画面タイプ<?php echo $info0.".info56".$close2;?></h1>
         </div>
         <div class="info57 hide">
-            <h1>細かいやつら</h1>
+            <h1>細かいやつら<?php echo $info0.".info57".$close2;?></h1>
         </div>
         <div class="info58 hide">
-            <h1>ソフトウェア</h1>
+            <h1>ソフトウェア<?php echo $info0.".info58".$close2;?></h1>
         </div>
         <div class="info59 hide">
-            <h1>OS</h1>
+            <h1>OS<?php echo $info0.".info59".$close2;?></h1>
         </div>
         <div class="info60 hide">
-            <h1>OS ver</h1>
+            <h1>OS ver<?php echo $info0.".info60".$close2;?></h1>
         </div>
         <div class="info61 hide">
-            <h1>GMS非対応</h1>
+            <h1>GMS非対応<?php echo $info0.".info61".$close2;?></h1>
         </div>
         <div class="info62 hide">
-            <h1>OS更新可能なバージョン</h1>
+            <h1>OS更新可能なバージョン<?php echo $info0.".info62".$close2;?></h1>
         </div>
         <div class="info63 hide">
-            <h1>UI</h1>
+            <h1>UI<?php echo $info0.".info63".$close2;?></h1>
         </div>
         <div class="info64 hide">
-            <h1>UI ver</h1>
+            <h1>UI ver<?php echo $info0.".info64".$close2;?></h1>
         </div>
         <div class="info65 hide">
-            <h1>UI更新可能なバージョン</h1>
+            <h1>UI更新可能なバージョン<?php echo $info0.".info65".$close2;?></h1>
         </div>
         <div class="info66 hide">
-            <h1>OS追加説明</h1>
+            <h1>OS追加説明<?php echo $info0.".info66".$close2;?></h1>
         </div>
         <div class="info67 hide">
-            <h1>UI追加説明</h1>
+            <h1>UI追加説明<?php echo $info0.".info67".$close2;?></h1>
         </div>
         <div class="info68 hide">
-            <h1>SoC ID</h1>
+            <h1>SoC ID<?php echo $info0.".info68".$close2;?></h1>
         </div>
         <div class="info69 hide">
-            <h1>CPU構成(本来の構成と異なる場合)</h1>
+            <h1>CPU構成(本来の構成と異なる場合)<?php echo $info0.".info69".$close2;?></h1>
         </div>
         <div class="info70 hide">
-            <h1>GPU構成(本来の構成と異なる場合)</h1>
+            <h1>GPU構成(本来の構成と異なる場合)<?php echo $info0.".info70".$close2;?></h1>
         </div>
         <div class="info71 hide">
-            <h1>RAM/ストレージ</h1>
+            <h1>RAM/ストレージ<?php echo $info0.".info71".$close2;?></h1>
         </div>
         <div class="info72 hide">
-            <h1>Micro SDカード</h1>
+            <h1>Micro SDカード<?php echo $info0.".info72".$close2;?></h1>
         </div>
         <div class="info73 hide">
-            <h1>NMカード</h1>
+            <h1>NMカード<?php echo $info0.".info73".$close2;?></h1>
         </div>
         <div class="info74 hide">
-            <h1>メモリGB(この構成のものだけ)</h1>
+            <h1>メモリGB(この構成のものだけ)<?php echo $info0.".info74".$close2;?></h1>
         </div>
         <div class="info75 hide">
-            <h1>メモリ規格(この構成のものだけ)</h1>
+            <h1>メモリ規格(この構成のものだけ)<?php echo $info0.".info75".$close2;?></h1>
         </div>
         <div class="info76 hide">
-            <h1>ストレージ規格(この構成のものだけ)</h1>
+            <h1>ストレージ規格(この構成のものだけ)<?php echo $info0.".info76".$close2;?></h1>
         </div>
         <div class="info77 hide">
-            <h1>ストレージGB(この構成のものだけ)</h1>
+            <h1>ストレージGB(この構成のものだけ)<?php echo $info0.".info77".$close2;?></h1>
         </div>
         <div class="info78 hide">
-            <h1>他のバージョン</h1>
+            <h1>他のバージョン<?php echo $info0.".info78".$close2;?></h1>
         </div>
         <div class="info79 hide">
-            <h1>アウトカメラ</h1>
+            <h1>アウトカメラ<?php echo $info0.".info79".$close2;?></h1>
         </div>
         <div class="info80 hide">
-            <h1>カメラ数</h1>
+            <h1>カメラ数<?php echo $info0.".info80".$close2;?></h1>
         </div>
         <div class="info81 hide">
-            <h1>カメラ</h1>
+            <h1>カメラ<?php echo $info0.".info81".$close2;?></h1>
         </div>
         <div class="info82 hide">
-            <h1>特徴(Features)</h1>
+            <h1>特徴(Features)<?php echo $info0.".info82".$close2;?></h1>
         </div>
         <div class="info83 hide">
-            <h1>動画</h1>
+            <h1>動画<?php echo $info0.".info83".$close2;?></h1>
         </div>
         <div class="info84 hide">
-            <h1>インカメラ</h1>
+            <h1>インカメラ<?php echo $info0.".info84".$close2;?></h1>
         </div>
         <div class="info85 hide">
-            <h1>インカメラ数</h1>
+            <h1>インカメラ数<?php echo $info0.".info85".$close2;?></h1>
         </div>
         <div class="info86 hide">
-            <h1>カメラ</h1>
+            <h1>カメラ<?php echo $info0.".info86".$close2;?></h1>
         </div>
         <div class="info87 hide">
-            <h1>特徴(Features)</h1>
+            <h1>特徴(Features)<?php echo $info0.".info87".$close2;?></h1>
         </div>
         <div class="info88 hide">
-            <h1>インカメラ動画</h1>
+            <h1>インカメラ動画<?php echo $info0.".info88".$close2;?></h1>
         </div>
         <div class="info89 hide">
-            <h1>オーディオ</h1>
+            <h1>オーディオ<?php echo $info0.".info89".$close2;?></h1>
         </div>
         <div class="info90 hide">
-            <h1>3.5mmイヤホンジャック</h1>
+            <h1>3.5mmイヤホンジャック<?php echo $info0.".info90".$close2;?></h1>
         </div>
         <div class="info91 hide">
-            <h1>通話用スピーカー(Loudspeaker)</h1>
+            <h1>通話用スピーカー(Loudspeaker)<?php echo $info0.".info91".$close2;?></h1>
         </div>
         <div class="info92 hide">
-            <h1>デュアルスピーカー</h1>
+            <h1>デュアルスピーカー<?php echo $info0.".info92".$close2;?></h1>
         </div>
         <div class="info93 hide">
-            <h1>ステレオスピーカー</h1>
+            <h1>ステレオスピーカー<?php echo $info0.".info93".$close2;?></h1>
         </div>
         <div class="info94 hide">
-            <h1>デュアルスピーカー（ステレオ）</h1>
+            <h1>デュアルスピーカー（ステレオ）<?php echo $info0.".info94".$close2;?></h1>
         </div>
         <div class="info95 hide">
-            <h1>トリプルスピーカー（ステレオ）</h1>
+            <h1>トリプルスピーカー（ステレオ）<?php echo $info0.".info95".$close2;?></h1>
         </div>
         <div class="info96 hide">
-            <h1>クアッドスピーカー(ステレオ)</h1>
+            <h1>クアッドスピーカー(ステレオ)<?php echo $info0.".info96".$close2;?></h1>
         </div>
         <div class="info97 hide">
-            <h1>24-bit/192kHz</h1>
+            <h1>24-bit/192kHz<?php echo $info0.".info97".$close2;?></h1>
         </div>
         <div class="info98 hide">
-            <h1>32-bit/384kHz</h1>
+            <h1>32-bit/384kHz<?php echo $info0.".info98".$close2;?></h1>
         </div>
         <div class="info99 hide">
-            <h1>Tuned by AKG</h1>
+            <h1>Tuned by AKG<?php echo $info0.".info99".$close2;?></h1>
         </div>
         <div class="info100 hide">
-            <h1>Tuned by JBL</h1>	
+            <h1>Tuned by JBL<?php echo $info0.".info100".$close2;?></h1>	
         </div>
         <div class="info101 hide">
-            <h1>Tuned by Harman Kardon</h1>	
+            <h1>Tuned by Harman Kardon<?php echo $info0.".info101".$close2;?></h1>	
         </div>
         <div class="info102 hide">
-            <h1>オーディオ追加説明</h1>
+            <h1>オーディオ追加説明<?php echo $info0.".info102".$close2;?></h1>
         </div>
         <div class="info103 hide">
-            <h1>ネットワーク</h1>
+            <h1>ネットワーク<?php echo $info0.".info103".$close2;?></h1>
         </div>
         <div class="info104 hide">
-            <h1>Wi-Fi</h1>
+            <h1>Wi-Fi<?php echo $info0.".info104".$close2;?></h1>
         </div>
         <div class="info105 hide">
-            <h1>ポート情報</h1>
+            <h1>ポート情報<?php echo $info0.".info105".$close2;?></h1>
         </div>
         <div class="info106 hide">
-            <h1>USB On-The-Go</h1>
+            <h1>USB On-The-Go<?php echo $info0.".info106".$close2;?></h1>
         </div>
         <div class="info107 hide">
-            <h1>bluetooth</h1>
+            <h1>bluetooth<?php echo $info0.".info107".$close2;?></h1>
         </div>
         <div class="info108 hide">
-            <h1>NFC</h1>
+            <h1>NFC<?php echo $info0.".info108".$close2;?></h1>
         </div>
         <div class="info109 hide">
-            <h1>赤外線ポート[Infrared port]</h1>
+            <h1>赤外線ポート[Infrared port]<?php echo $info0.".info109".$close2;?></h1>
         </div>
         <div class="info110 hide">
-            <h1>ラジオ</h1>
+            <h1>ラジオ<?php echo $info0.".info110".$close2;?></h1>
         </div>
         <div class="info111 hide">
-            <h1>GPS</h1>
+            <h1>GPS<?php echo $info0.".info111".$close2;?></h1>
         </div>
         <div class="info112 hide">
-            <h1>センサー</h1>
+            <h1>センサー<?php echo $info0.".info112".$close2;?></h1>
         </div>
         <div class="info113 hide">
-            <h1>センサー類</h1>
+            <h1>センサー類<?php echo $info0.".info113".$close2;?></h1>
         </div>
         <div class="info113a hide">
-            <h1>指紋センサー</h1>
+            <h1>指紋センサー<?php echo $info0.".info113a".$close2;?></h1>
         </div>
         <div class="info114 hide">
-            <h1>バッテリー</h1>
+            <h1>バッテリー<?php echo $info0.".info114".$close2;?></h1>
         </div>
         <div class="info115 hide">
-            <h1>バッテリー容量</h1>
+            <h1>バッテリー容量<?php echo $info0.".info115".$close2;?></h1>
         </div>
         <div class="info116 hide">
-            <h1>バッテリーについての補足情報</h1>	
+            <h1>バッテリーについての補足情報<?php echo $info0.".info116".$close2;?></h1>	
         </div>
         <div class="info117 hide">
-            <h1>バッテリー取り外し可能</h1>
+            <h1>バッテリー取り外し可能<?php echo $info0.".info117".$close2;?></h1>
         </div>
         <div class="info118 hide">
-            <h1>ワイヤレス規格</h1>
+            <h1>ワイヤレス規格<?php echo $info0.".info118".$close2;?></h1>
         </div>
         <div class="info119 hide">
-            <h1>ワイヤレス充電</h1>
+            <h1>ワイヤレス充電<?php echo $info0.".info119".$close2;?></h1>
         </div>
         <div class="info120 hide">
-            <h1>ワイヤレス充電速度</h1>
+            <h1>ワイヤレス充電速度<?php echo $info0.".info120".$close2;?></h1>
         </div>
         <div class="info121 hide">
-            <h1>ワイヤレス逆充電</h1>
+            <h1>ワイヤレス逆充電<?php echo $info0.".info121".$close2;?></h1>
         </div>
         <div class="info122 hide">
-            <h1>ワイヤレス逆充電速度</h1>
+            <h1>ワイヤレス逆充電速度<?php echo $info0.".info122".$close2;?></h1>
         </div>
         <div class="info123 hide">
-            <h1>充電に関する補足情報</h1>
+            <h1>充電に関する補足情報<?php echo $info0.".info123".$close2;?></h1>
         </div>
         <div class="info124 hide">
-            <h1>最大充電速度</h1>
+            <h1>最大充電速度<?php echo $info0.".info124".$close2;?></h1>
         </div>
         <div class="info125 hide">
-            <h1>リチウムイオン電池</h1>
+            <h1>リチウムイオン電池<?php echo $info0.".info125".$close2;?></h1>
         </div>
         <div class="info126 hide">
-            <h1>給電</h1>
+            <h1>給電<?php echo $info0.".info126".$close2;?></h1>
         </div>
         <div class="info127 hide">
-            <h1>充電規格</h1>
+            <h1>充電規格<?php echo $info0.".info127".$close2;?></h1>
         </div>
         <div class="info128 hide">
-            <h1>カラー/金額</h1>
+            <h1>カラー/金額<?php echo $info0.".info128".$close2;?></h1>
         </div>
         <div class="info129 hide">
-            <h1>色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]</h1>
+            <h1>色[カラー名:カラーコード,カラー名:カラーコード,のように入力するわからない場合は-]<?php echo $info0.".info129".$close2;?></h1>
         </div>
         <div class="info130 hide">
-            <h1>モデル番号</h1>
+            <h1>モデル番号<?php echo $info0.".info130".$close2;?></h1>
         </div>
         <div class="info131 hide">
-            <h1>価格</h1>
+            <h1>価格<?php echo $info0.".info131".$close2;?></h1>
         </div>
         <div class="info132 hide">
-            <h1>SAR</h1>
+            <h1>SAR<?php echo $info0.".info132".$close2;?></h1>
         </div>
         <div class="info133 hide">
-            <h1>テスト</h1>
+            <h1>テスト<?php echo $info0.".info133".$close2;?></h1>
         </div>
         <div class="info134 hide">
-            <h1>Antutu</h1>
+            <h1>Antutu<?php echo $info0.".info134".$close2;?></h1>
         </div>
         <div class="info135 hide">
-            <h1>その他のベンチマークスコア</h1>
+            <h1>その他のベンチマークスコア<?php echo $info0.".info135".$close2;?></h1>
         </div>
         <div class="info136 hide">
 
