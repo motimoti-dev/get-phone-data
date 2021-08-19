@@ -5667,21 +5667,28 @@ Discontinuedは製造中止
         </div>
         <div class="info58 hide">
             <h1>ソフトウェア<?php echo $info0.".info58".$close2;?></h1>
+
         </div>
         <div class="info59 hide">
             <h1>OS<?php echo $info0.".info59".$close2;?></h1>
+            <p>該当するOSをクリックして入力してください、基本的にこの項目は自動補完されませんのでご注意ください。</p>
         </div>
         <div class="info60 hide">
             <h1>OS ver<?php echo $info0.".info60".$close2;?></h1>
+            <p>OSのバージョンを数字で入力してください、バージョン識別番号が数字以外の形式である場合はもちまで連絡をください。</p>
+            <p>仮にOSがAndroid　8.1 Oreoだった場合は8.1の数字部分を入力してください<br>Oreoの部分は必要ないので入力しないでください。</p>
         </div>
         <div class="info61 hide">
             <h1>GMS非対応<?php echo $info0.".info61".$close2;?></h1>
+            <p>一部中国モデルや、HMS搭載モデルにはGMSを搭載していない場合があります、搭載していないモデルのみチェックをつけてください</p>
         </div>
         <div class="info62 hide">
             <h1>OS更新可能なバージョン<?php echo $info0.".info62".$close2;?></h1>
+            <p>available upgrade to Android 10 MIUI 11のように元の表に更新可能なバージョンが明記されている場合は更新可能なバージョンを入力してください。<br>OS verと同じく数字のみです、System UI のバージョンについても書かれている場合がありますが、こちらはこの項目ではなくUI更新可能verで入力してください。<br>この例の場合だと10になります。</p>
         </div>
         <div class="info63 hide">
             <h1>UI<?php echo $info0.".info63".$close2;?></h1>
+            <p>system uiが元の表に明記されている場合、そのUI名を入力してください。<br>MIUI For POCOやMIUI、Origin OSとFuntouchOSは別物ですので気を付けて入力して下さい。</p>
         </div>
         <div class="info64 hide">
             <h1>UI ver<?php echo $info0.".info64".$close2;?></h1>
@@ -5697,6 +5704,7 @@ Discontinuedは製造中止
         </div>
         <div class="info68 hide">
             <h1>SoC ID<?php echo $info0.".info68".$close2;?></h1>
+            <p>下にあるSoCの短縮名と番号が書かれたsocidボタンがあるので、該当するSoCをクリックしてください。<br>クリックすると自動で入力されます、もしsocidボタンに該当するSoCがない場合はもちまで連絡をください。</p>
         </div>
         <div class="info69 hide">
             <h1>CPU構成(本来の構成と異なる場合)<?php echo $info0.".info69".$close2;?></h1>
