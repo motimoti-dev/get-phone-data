@@ -1445,18 +1445,32 @@
                                 メーカー
                             </th>
                             <td>
-                                <?php 
-                                $makers = explode(',','1[Apple],2[google],3[xiaomi],4[poco],5[blackshark],6[redmi],7[vivo],8[huawei],9[honor],10[oppo],11[oneplus],12[raalme],13[umidigi],14[ouktel],15[sony],16[samsung],17[sharp],18[leica],19[ASUS],20[motolora],21[lenovo],22[meizu],23[tcl],24[zte],25[rakuten]');
-                                foreach($makers as $maker){
-
-                                    echo '<input type="checkbox" name="sp-launch-40" value="'.explode('[',$maker)[0].'"';
-                                    if(data_ref('sp-launch-40') == explode('[',$maker)[0]){
-                                        ' checked';
-                                    }
-                                    echo '>'.str_replace(']','',explode('[',$maker)[1]);
-                                }
+                                <input type="checkbox" name="sp-launch-40-1" value="Yes"<?php if(data_ref('sp-launch-40-1') == 'Yes')echo ' checked';?>>Apple
+                                <input type="checkbox" name="sp-launch-40-2" value="Yes"<?php if(data_ref('sp-launch-40-2') == 'Yes')echo ' checked';?>>google
+                                <input type="checkbox" name="sp-launch-40-3" value="Yes"<?php if(data_ref('sp-launch-40-3') == 'Yes')echo ' checked';?>>xiaomi
+                                <input type="checkbox" name="sp-launch-40-4" value="Yes"<?php if(data_ref('sp-launch-40-4') == 'Yes')echo ' checked';?>>poco
+                                <input type="checkbox" name="sp-launch-40-5" value="Yes"<?php if(data_ref('sp-launch-40-5') == 'Yes')echo ' checked';?>>blackshark
+                                <input type="checkbox" name="sp-launch-40-6" value="Yes"<?php if(data_ref('sp-launch-40-6') == 'Yes')echo ' checked';?>>redmi
+                                <input type="checkbox" name="sp-launch-40-7" value="Yes"<?php if(data_ref('sp-launch-40-7') == 'Yes')echo ' checked';?>>vivo
+                                <input type="checkbox" name="sp-launch-40-8" value="Yes"<?php if(data_ref('sp-launch-40-8') == 'Yes')echo ' checked';?>>huawei
+                                <input type="checkbox" name="sp-launch-40-9" value="Yes"<?php if(data_ref('sp-launch-40-9') == 'Yes')echo ' checked';?>>honor
+                                <input type="checkbox" name="sp-launch-40-10" value="Yes"<?php if(data_ref('sp-launch-40-10') == 'Yes')echo ' checked';?>>oppo
+                                <input type="checkbox" name="sp-launch-40-11" value="Yes"<?php if(data_ref('sp-launch-40-11') == 'Yes')echo ' checked';?>>oneplus
+                                <input type="checkbox" name="sp-launch-40-12" value="Yes"<?php if(data_ref('sp-launch-40-12') == 'Yes')echo ' checked';?>>raalme
+                                <input type="checkbox" name="sp-launch-40-13" value="Yes"<?php if(data_ref('sp-launch-40-13') == 'Yes')echo ' checked';?>>umidigi
+                                <input type="checkbox" name="sp-launch-40-14" value="Yes"<?php if(data_ref('sp-launch-40-14') == 'Yes')echo ' checked';?>>ouktel
+                                <input type="checkbox" name="sp-launch-40-15" value="Yes"<?php if(data_ref('sp-launch-40-15') == 'Yes')echo ' checked';?>>sony
+                                <input type="checkbox" name="sp-launch-40-16" value="Yes"<?php if(data_ref('sp-launch-40-16') == 'Yes')echo ' checked';?>>samsung
+                                <input type="checkbox" name="sp-launch-40-17" value="Yes"<?php if(data_ref('sp-launch-40-17') == 'Yes')echo ' checked';?>>sharp
+                                <input type="checkbox" name="sp-launch-40-18" value="Yes"<?php if(data_ref('sp-launch-40-18') == 'Yes')echo ' checked';?>>leica
+                                <input type="checkbox" name="sp-launch-40-19" value="Yes"<?php if(data_ref('sp-launch-40-19') == 'Yes')echo ' checked';?>>ASUS
+                                <input type="checkbox" name="sp-launch-40-20" value="Yes"<?php if(data_ref('sp-launch-40-20') == 'Yes')echo ' checked';?>>motolora
+                                <input type="checkbox" name="sp-launch-40-21" value="Yes"<?php if(data_ref('sp-launch-40-21') == 'Yes')echo ' checked';?>>lenovo
+                                <input type="checkbox" name="sp-launch-40-22" value="Yes"<?php if(data_ref('sp-launch-40-22') == 'Yes')echo ' checked';?>>meizu
+                                <input type="checkbox" name="sp-launch-40-23" value="Yes"<?php if(data_ref('sp-launch-40-23') == 'Yes')echo ' checked';?>>tcl
+                                <input type="checkbox" name="sp-launch-40-24" value="Yes"<?php if(data_ref('sp-launch-40-24') == 'Yes')echo ' checked';?>>zte
+                                <input type="checkbox" name="sp-launch-40-25" value="Yes"<?php if(data_ref('sp-launch-40-25') == 'Yes')echo ' checked';?>>rakuten
                                 
-                                ?>
                             </td>
                         </tr>
                     </table>
@@ -5541,6 +5555,7 @@ Discontinuedは製造中止
         <div class="info34 hide">
             <h1>SIM<?php echo $info0.".info34".$close2;?></h1>
             Single SIM (Nano-SIM and/or eSIM) or Dual SIM (Nano-SIM and/or eSIM, dual stand-by)
+            //TODO
             <img src='images/55.png'>
             <img src='images/56.png'>
         </div>
@@ -5605,6 +5620,7 @@ Discontinuedは製造中止
         </div>
         <div class="info40 hide">
             <h1>スクリーン<?php echo $info0.".info40".$close2;?></h1>
+            <p>画面に関する情報の入力についてです。</p>
         </div>
         <div class="info41 hide">
             <h1>パネル種類（カスタムテキスト）<?php echo $info0.".info41".$close2;?></h1>
