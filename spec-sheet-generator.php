@@ -5622,30 +5622,92 @@ Discontinuedは製造中止
         </div>
         <div class="info43 hide">
             <h1>画面保護<?php echo $info0.".info43".$close2;?></h1>
+            <p>元の表のProtection部分です、日本語版と英語版両方とも「,」区切りでそれぞれ入力してください。</p>
+            <p>元の表が英語なので、英語版は基本的にProtectionのままで大丈夫ですが、日本語版の部分は英語を日本語に変換してください。</p>
+            <p>下にある程度参考の英単語と日本語訳を用意しておきます。正式名称が英語のものは翻訳しなくて大丈夫です(例:Gorilla Glass 5など)</p>
+            <p>二行ある場合に自動で英語版が補完されていない場合がありますので注意してください。</p>
+            <p>glass back (Gorilla Glass 5) or ceramic backのようにorなどを含む場合orは「または」と変換して下さい</p>
+            <table>
+                <tr>
+                    <th>Aluminum frame</th>
+                    <td>アルミニウムフレーム</td>
+                </tr>
+                <tr>
+                    <th>Glass front</th>
+                    <td>フロントガラス</td>
+                </tr>
+                <tr>
+                    <th>ceramic back</th>
+                    <td>ブラックセラミック</td>
+                </tr>
+                <tr>
+                    <th>Glass front (Gorilla Glass Victus)</th>
+                    <td>フロントガラス(Gorilla Glass Victus)</td>
+                </tr>
+                <tr>
+                    <th>plastic back</th>
+                    <td>背面プラスチック</td>
+                </tr>
+                <tr>
+                    <th>plastic frame</th>
+                    <td>プラスチックフレーム</td>
+                </tr>
+                <tr>
+                    <th>Glass front (Gorilla Glass 5)</th>
+                    <td>フロントガラス(Gorilla Glass 5)</td>
+                </tr>
+                <tr>
+                    <th>glass back (Gorilla Glass 5)</th>
+                    <td>背面ガラス(Gorilla Glass 5)</td>
+                </tr>
+                <tr>
+                    <th>glass back (Gorilla Glass 5) or ceramic back</th>
+                    <td>フロントガラス(Gorilla Glass 5)またはブラックセラミック</td>
+                </tr>
+                <tr>
+                    <th>plastic front (unfolded)</th>
+                    <td>フロントプラスチック (展開時)</td>
+                </tr>
+                <tr>
+                    <th>Glass front (Asahi Dragontrail)</th>
+                    <td>フロントガラス(Asahi Dragontrail)</td>
+                </tr>
+                <tr>
+                    <th>stainless steel frame</th>
+                    <td>スチール ステンレスフレーム</td>
+                </tr>
+            </table>
         </div>
         <div class="info44 hide">
             <h1>インチ<?php echo $info0.".info44".$close2;?></h1>
+            <p>元の表のSizeのinhesの部分です、半角数字で入力してください。</p>
         </div>
         <div class="info45 hide">
             <h1>リフレッシュレート<?php echo $info0.".info45".$close2;?></h1>
+            <p>元の表のTypeのHzが単位になっている部分です、半角数字で入力してください。</p>
+            <p>同じようにタッチレートもHzで表示されている場合があります。<br>基本的には小さい方がリフレッシュレートです。</p>
+            <p>書いていない場合はおそらく60Hzですが、記載されてない情報は入力しないでください。</p>
         </div>
         <div class="info46 hide">
             <h1>タッチレート<?php echo $info0.".info46".$close2;?></h1>
+            <p>元の表のTypeのHzが単位になっている部分です、半角数字で入力してください。</p>
+            <p>同じようにタッチレートもHzで表示されている場合があります。</p>
         </div>
         <div class="info47 hide">
             <h1>輝度<?php echo $info0.".info47".$close2;?></h1>
+            <p>元の表のTypeのnitsが単位になっている部分です、半角数字で入力してください。</p>
+            <p>typ、HBM、peakの3つがありそれぞれ同じ輝度ですが別の値が設定されています、一部ない場合もありますが書いてあるものだけ入力をしてください。</p>
         </div>
         <div class="info48 hide">
             <h1>画面占有率<?php echo $info0.".info48".$close2;?></h1>
+            <p>Sizeの (~数字% screen-to-body ratio)部分です。数字の部分を半角数字で入力してください。</p>
         </div>
         <div class="info49 hide">
             <h1>pixel<?php echo $info0.".info49".$close2;?></h1>
         </div>
         <div class="info50 hide">
             <h1>アスペクト比<?php echo $info0.".info50".$close2;?></h1>
-            <p>500:1のようにコントラストが分かっている場合入力してください、必ず白:黒のようになるよう入力してください。</p>
-            <img src='images/67.png'>
-            <img src='images/68.png'>
+            
         </div>
         <div class="info51 hide">
             <h1>DPI<?php echo $info0.".info51".$close2;?></h1>
@@ -5655,6 +5717,9 @@ Discontinuedは製造中止
         </div>
         <div class="info53 hide">
             <h1>コントラスト比<?php echo $info0.".info53".$close2;?></h1>
+            <p>500:1のようにコントラストが分かっている場合入力してください、必ず白:黒のようになるよう入力してください。</p>
+            <img src='images/67.png'>
+            <img src='images/68.png'>
         </div>
         <div class="info54 hide">
             <h1>湾曲ディスプレイの場合の角度<?php echo $info0.".info54".$close2;?></h1>
