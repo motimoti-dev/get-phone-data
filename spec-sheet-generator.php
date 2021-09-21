@@ -5616,6 +5616,9 @@ Discontinuedは製造中止
         </div>
         <div class="info42 hide">
             <h1>画面補足情報（セカンドディスプレイなど）<?php echo $info0.".info42".$close2;?></h1>
+            <p>この項目は基本入力しません、Z Filpのように複数画面がある場合はその画面の情報を入力してください。
+                <br>例は後述します。
+            </p>
         </div>
         <div class="info43 hide">
             <h1>画面保護<?php echo $info0.".info43".$close2;?></h1>
@@ -5906,9 +5909,11 @@ Discontinuedは製造中止
         </div>
         <div class="info134 hide">
             <h1>Antutu<?php echo $info0.".info134".$close2;?></h1>
+            <p>Antutuのスコアが分かる場合は入力して下さい。「,」は入れずに数字のみで入力してください。</p>
         </div>
         <div class="info135 hide">
             <h1>その他のベンチマークスコア<?php echo $info0.".info135".$close2;?></h1>
+            <p>ベンチマークスコアを入力してください、半角英数字のみで入力してください、不明な部分は空白にしてください。<br>入力欄のないベンチマークに対応していた場合もちまで連絡をください</p>
         </div>
         <div class="info136 hide">
 
@@ -5927,3 +5932,8 @@ Discontinuedは製造中止
         </div>
     </div>
 </div>
+
+
+スクリーン
+USB On-The-Go
+リチウムポリマー
