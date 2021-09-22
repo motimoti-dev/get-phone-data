@@ -3166,7 +3166,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 インカメラ動画
                                 <input type='text' name='sp-camera-201' value="<?php echo data_ref('sp-camera-201');?>" size='full'>
                                 <?php
-                                    $input_checks = explode(':','sp-camera-210,HDR10+:sp-camera-211,OIS:sp-camera-212,gyro-EIS:sp-camera-213,stereo sound rec');
+                                    $input_checks = explode(':','sp-camera-210,HDR10+:sp-camera-211,OIS:sp-camera-212,gyro-EIS:sp-camera-213,stereo sound rec:sp-camera-214,HDR');
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
