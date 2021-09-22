@@ -2146,6 +2146,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             <th><?php echo $info1.".info63".$info2;?>UI</th>
                             <td>
                                 <input type="checkbox" name="sp-softwear-13" value="Yes"<?php if(data_ref('sp-softwear-13') == 'Yes')echo ' checked';?>>MIUI
+                                <input type="checkbox" name="sp-softwear-32" value="Yes"<?php if(data_ref('sp-softwear-32') == 'Yes')echo ' checked';?>>MIUI For POCO
                                 <input type="checkbox" name="sp-softwear-14" value="Yes"<?php if(data_ref('sp-softwear-14') == 'Yes')echo ' checked';?>>color OS
                                 <input type="checkbox" name="sp-softwear-15" value="Yes"<?php if(data_ref('sp-softwear-15') == 'Yes')echo ' checked';?>>Magic UI
                                 <input type="checkbox" name="sp-softwear-16" value="Yes"<?php if(data_ref('sp-softwear-16') == 'Yes')echo ' checked';?>>ZenUI
