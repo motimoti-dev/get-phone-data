@@ -92,11 +92,12 @@
                     <p>jsonは設定されていません</p>
                 </div>
             <?php }?>
+            <?php 
+                $html = file_get_html($url);
+                echo '<a style=\'color:red;\' class="gsm-link" href="'.$url.'" >元のリンク'.$html->find( '.specs-phone-name-title', 0 )->plaintext.'</a>';
+            ?>
         </div>
-        <?php $html = file_get_html($url);
-
-        echo '<a style=\'color:red;\' class="gsm-link" href="'.$url.'" >元のリンク'.$html->find( '.specs-phone-name-title', 0 )->plaintext.'</a>';
-        ?>
+        
         <?php //echo substr_count($html,'table');?>
         <?php
         global $data;
@@ -127,9 +128,9 @@
             document.getElementById(a).value = b;
         }
         </script>
-
-        <img src="<?php echo $html->find( '.specs-photo-main a img ', 0 )->src;?>">
-
+        <div style='text-align:center'>
+            <img src="<?php echo $html->find( '.specs-photo-main a img ', 0 )->src;?>">
+        </div>
         <?php //echo $html->find( 'table', 0 );?>
         <?php //echo $html->find( 'table', 0 )->find('th', 0);?>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -1700,8 +1701,7 @@ input[type=radio]:checked + .radio02::after {
                                     echo 'empty 2nd line';
                                         break;
                                 }
-                                //echo 'Speed';
-                                echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
+                                //echo "<p>".'out of index(('.$ot_html01->find('.nfo', $i)->plaintext."</p>";
                                 break;
                         }
                     }
@@ -4301,7 +4301,8 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <input type="checkbox" name="sp-launch-23" value="Yes"<?php if(data_ref('sp-launch-23') == 'Yes')echo ' checked';?>>ポンド£
                                 <input type="checkbox" name="sp-launch-24" value="Yes"<?php if(data_ref('sp-launch-24') == 'Yes')echo ' checked';?>>円¥
                                 <input type="checkbox" name="sp-launch-25" value="Yes"<?php if(data_ref('sp-launch-25') == 'Yes')echo ' checked';?>>香港ドル
-                                <input type="checkbox" name="sp-launch-26" value="Yes"<?php if(data_ref('sp-launch-26') == 'Yes')echo ' checked';?>>中国元<br>
+                                <input type="checkbox" name="sp-launch-26" value="Yes"<?php if(data_ref('sp-launch-26') == 'Yes')echo ' checked';?>>中国元
+                                <input type="checkbox" name="sp-launch-27" value="Yes"<?php if(data_ref('sp-launch-27') == 'Yes')echo ' checked';?>>ルピー₹<br>
                                 価格テキスト[$ 719.99 / £ 623.44みたいな感じに]
                                 <input type='text' name='sp-launch-19' value="<?php echo data_ref('sp-launch-19');?>" size='full'>
                             </td>
