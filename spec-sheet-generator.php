@@ -1460,6 +1460,10 @@
     position: relative;
     width: auto;
 }
+.w1p3{
+    max-width: 32%;
+    width: 30%;
+}
 .checkbox02::before {
     background: #fff;
     border: 1px solid #ccc;
@@ -1504,7 +1508,8 @@ input[type=radio] {
     display: inline-block;
     padding: 5px 30px;
     position: relative;
-    width: auto;
+    max-width: 32%;
+    width: 30%;
 }
 .radio02::before {
     background: #fff;
@@ -1544,38 +1549,38 @@ input[type=radio]:checked + .radio02::after {
                                 </style>
                                 
                                 <p class='sech'>Xiaomi</p>
-                                <input type="checkbox" name="sp-launch-40-3" value="Yes"<?php if(data_ref('sp-launch-40-3') == 'Yes')echo ' checked';?> class='cb1' id='sl403'><label for="sl403" class="checkbox02">xiaomi</label>
-                                <input type="checkbox" name="sp-launch-40-4" value="Yes"<?php if(data_ref('sp-launch-40-4') == 'Yes')echo ' checked';?> class='cb1' id='sl404'><label for="sl404" class="checkbox02">poco</label>
-                                <input type="checkbox" name="sp-launch-40-5" value="Yes"<?php if(data_ref('sp-launch-40-5') == 'Yes')echo ' checked';?> class='cb1' id='sl405'><label for="sl405" class="checkbox02">blackshark</label>
-                                <input type="checkbox" name="sp-launch-40-6" value="Yes"<?php if(data_ref('sp-launch-40-6') == 'Yes')echo ' checked';?> class='cb1' id='sl406'><label for="sl406" class="checkbox02">redmi</label>
+                                <input type="checkbox" name="sp-launch-40-3" value="Yes"<?php if(data_ref('sp-launch-40-3') == 'Yes')echo ' checked';?> class='cb1' id='sl403'><label for="sl403" class="checkbox02 w1p3">xiaomi</label>
+                                <input type="checkbox" name="sp-launch-40-4" value="Yes"<?php if(data_ref('sp-launch-40-4') == 'Yes')echo ' checked';?> class='cb1' id='sl404'><label for="sl404" class="checkbox02 w1p3">poco</label>
+                                <input type="checkbox" name="sp-launch-40-5" value="Yes"<?php if(data_ref('sp-launch-40-5') == 'Yes')echo ' checked';?> class='cb1' id='sl405'><label for="sl405" class="checkbox02 w1p3">blackshark</label>
+                                <input type="checkbox" name="sp-launch-40-6" value="Yes"<?php if(data_ref('sp-launch-40-6') == 'Yes')echo ' checked';?> class='cb1' id='sl406'><label for="sl406" class="checkbox02 w1p3">redmi</label>
                                 <p class='sech'>HUAWEI</p>
-                                <input type="checkbox" name="sp-launch-40-8" value="Yes"<?php if(data_ref('sp-launch-40-8') == 'Yes')echo ' checked';?> class='cb1' id='sl408'><label for="sl408" class="checkbox02">huawei</label>
-                                <input type="checkbox" name="sp-launch-40-9" value="Yes"<?php if(data_ref('sp-launch-40-9') == 'Yes')echo ' checked';?> class='cb1' id='sl409'><label for="sl409" class="checkbox02">honor</label>
+                                <input type="checkbox" name="sp-launch-40-8" value="Yes"<?php if(data_ref('sp-launch-40-8') == 'Yes')echo ' checked';?> class='cb1' id='sl408'><label for="sl408" class="checkbox02 w1p3">huawei</label>
+                                <input type="checkbox" name="sp-launch-40-9" value="Yes"<?php if(data_ref('sp-launch-40-9') == 'Yes')echo ' checked';?> class='cb1' id='sl409'><label for="sl409" class="checkbox02 w1p3">honor</label>
                                 <p class='sech'>BBK</p>
-                                <input type="checkbox" name="sp-launch-40-7" value="Yes"<?php if(data_ref('sp-launch-40-7') == 'Yes')echo ' checked';?> class='cb1' id='sl407'><label for="sl407" class="checkbox02">vivo</label>
-                                <input type="checkbox" name="sp-launch-40-10" value="Yes"<?php if(data_ref('sp-launch-40-10') == 'Yes')echo ' checked';?> class='cb1' id='sl4010'><label for="sl4010" class="checkbox02">oppo</label>
-                                <input type="checkbox" name="sp-launch-40-11" value="Yes"<?php if(data_ref('sp-launch-40-11') == 'Yes')echo ' checked';?> class='cb1' id='sl4011'><label for="sl4011" class="checkbox02">oneplus</label>
-                                <input type="checkbox" name="sp-launch-40-12" value="Yes"<?php if(data_ref('sp-launch-40-12') == 'Yes')echo ' checked';?> class='cb1' id='sl4012'><label for="sl4012" class="checkbox02">raalme</label>
+                                <input type="checkbox" name="sp-launch-40-7" value="Yes"<?php if(data_ref('sp-launch-40-7') == 'Yes')echo ' checked';?> class='cb1' id='sl407'><label for="sl407" class="checkbox02 w1p3">vivo</label>
+                                <input type="checkbox" name="sp-launch-40-10" value="Yes"<?php if(data_ref('sp-launch-40-10') == 'Yes')echo ' checked';?> class='cb1' id='sl4010'><label for="sl4010" class="checkbox02 w1p3">oppo</label>
+                                <input type="checkbox" name="sp-launch-40-11" value="Yes"<?php if(data_ref('sp-launch-40-11') == 'Yes')echo ' checked';?> class='cb1' id='sl4011'><label for="sl4011" class="checkbox02 w1p3">oneplus</label>
+                                <input type="checkbox" name="sp-launch-40-12" value="Yes"<?php if(data_ref('sp-launch-40-12') == 'Yes')echo ' checked';?> class='cb1' id='sl4012'><label for="sl4012" class="checkbox02 w1p3">raalme</label>
                                 
                                 <p class='sech'>国産</p>
-                                <input type="checkbox" name="sp-launch-40-17" value="Yes"<?php if(data_ref('sp-launch-40-17') == 'Yes')echo ' checked';?> class='cb1' id='sl4017'><label for="sl4017" class="checkbox02">sharp</label>
-                                <input type="checkbox" name="sp-launch-40-15" value="Yes"<?php if(data_ref('sp-launch-40-15') == 'Yes')echo ' checked';?> class='cb1' id='sl4015'><label for="sl4015" class="checkbox02">sony</label>
-                                <input type="checkbox" name="sp-launch-40-25" value="Yes"<?php if(data_ref('sp-launch-40-25') == 'Yes')echo ' checked';?> class='cb1' id='sl4025'><label for="sl4025" class="checkbox02">rakuten</label>
+                                <input type="checkbox" name="sp-launch-40-17" value="Yes"<?php if(data_ref('sp-launch-40-17') == 'Yes')echo ' checked';?> class='cb1' id='sl4017'><label for="sl4017" class="checkbox02 w1p3">sharp</label>
+                                <input type="checkbox" name="sp-launch-40-15" value="Yes"<?php if(data_ref('sp-launch-40-15') == 'Yes')echo ' checked';?> class='cb1' id='sl4015'><label for="sl4015" class="checkbox02 w1p3">sony</label>
+                                <input type="checkbox" name="sp-launch-40-25" value="Yes"<?php if(data_ref('sp-launch-40-25') == 'Yes')echo ' checked';?> class='cb1' id='sl4025'><label for="sl4025" class="checkbox02 w1p3">rakuten</label>
                                 <p class='sech'>ASUS</p>
-                                <input type="checkbox" name="sp-launch-40-19" value="Yes"<?php if(data_ref('sp-launch-40-19') == 'Yes')echo ' checked';?> class='cb1' id='sl4019'><label for="sl4019" class="checkbox02">ASUS</label>
-                                <input type="checkbox" name="sp-launch-40-26" value="Yes"<?php if(data_ref('sp-launch-40-26') == 'Yes')echo ' checked';?> class='cb1' id='sl4026'><label for="sl4026" class="checkbox02">ROG</label>
+                                <input type="checkbox" name="sp-launch-40-19" value="Yes"<?php if(data_ref('sp-launch-40-19') == 'Yes')echo ' checked';?> class='cb1' id='sl4019'><label for="sl4019" class="checkbox02 w1p3">ASUS</label>
+                                <input type="checkbox" name="sp-launch-40-26" value="Yes"<?php if(data_ref('sp-launch-40-26') == 'Yes')echo ' checked';?> class='cb1' id='sl4026'><label for="sl4026" class="checkbox02 w1p3">ROG</label>
                                 <p class='sech'>その他</p>
-                                <input type="checkbox" name="sp-launch-40-16" value="Yes"<?php if(data_ref('sp-launch-40-16') == 'Yes')echo ' checked';?> class='cb1' id='sl4016'><label for="sl4016" class="checkbox02">samsung</label>
-                                <input type="checkbox" name="sp-launch-40-18" value="Yes"<?php if(data_ref('sp-launch-40-18') == 'Yes')echo ' checked';?> class='cb1' id='sl4018'><label for="sl4018" class="checkbox02">leica</label>
-                                <input type="checkbox" name="sp-launch-40-1" value="Yes"<?php if(data_ref('sp-launch-40-1') == 'Yes')echo ' checked';?> class='cb1' id='sl401'><label for="sl401" class="checkbox02">Apple</label>
-                                <input type="checkbox" name="sp-launch-40-2" value="Yes"<?php if(data_ref('sp-launch-40-2') == 'Yes')echo ' checked';?> class='cb1' id='sl402'><label for="sl402" class="checkbox02">google</label>
-                                <input type="checkbox" name="sp-launch-40-20" value="Yes"<?php if(data_ref('sp-launch-40-20') == 'Yes')echo ' checked';?> class='cb1' id='sl4020'><label for="sl4020" class="checkbox02">motolora</label>
-                                <input type="checkbox" name="sp-launch-40-21" value="Yes"<?php if(data_ref('sp-launch-40-21') == 'Yes')echo ' checked';?> class='cb1' id='sl4021'><label for="sl4021" class="checkbox02">lenovo</label>
-                                <input type="checkbox" name="sp-launch-40-22" value="Yes"<?php if(data_ref('sp-launch-40-22') == 'Yes')echo ' checked';?> class='cb1' id='sl4022'><label for="sl4022" class="checkbox02">meizu</label>
-                                <input type="checkbox" name="sp-launch-40-23" value="Yes"<?php if(data_ref('sp-launch-40-23') == 'Yes')echo ' checked';?> class='cb1' id='sl4023'><label for="sl4023" class="checkbox02">tcl</label>
-                                <input type="checkbox" name="sp-launch-40-24" value="Yes"<?php if(data_ref('sp-launch-40-24') == 'Yes')echo ' checked';?> class='cb1' id='sl4024'><label for="sl4024" class="checkbox02">zte</label>
-                                <input type="checkbox" name="sp-launch-40-13" value="Yes"<?php if(data_ref('sp-launch-40-13') == 'Yes')echo ' checked';?> class='cb1' id='sl4013'><label for="sl4013" class="checkbox02">umidigi</label>
-                                <input type="checkbox" name="sp-launch-40-14" value="Yes"<?php if(data_ref('sp-launch-40-14') == 'Yes')echo ' checked';?> class='cb1' id='sl4014'><label for="sl4014" class="checkbox02">ouktel</label>
+                                <input type="checkbox" name="sp-launch-40-16" value="Yes"<?php if(data_ref('sp-launch-40-16') == 'Yes')echo ' checked';?> class='cb1' id='sl4016'><label for="sl4016" class="checkbox02 w1p3">samsung</label>
+                                <input type="checkbox" name="sp-launch-40-18" value="Yes"<?php if(data_ref('sp-launch-40-18') == 'Yes')echo ' checked';?> class='cb1' id='sl4018'><label for="sl4018" class="checkbox02 w1p3">leica</label>
+                                <input type="checkbox" name="sp-launch-40-1" value="Yes"<?php if(data_ref('sp-launch-40-1') == 'Yes')echo ' checked';?> class='cb1' id='sl401'><label for="sl401" class="checkbox02 w1p3">Apple</label>
+                                <input type="checkbox" name="sp-launch-40-2" value="Yes"<?php if(data_ref('sp-launch-40-2') == 'Yes')echo ' checked';?> class='cb1' id='sl402'><label for="sl402" class="checkbox02 w1p3">google</label>
+                                <input type="checkbox" name="sp-launch-40-20" value="Yes"<?php if(data_ref('sp-launch-40-20') == 'Yes')echo ' checked';?> class='cb1' id='sl4020'><label for="sl4020" class="checkbox02 w1p3">motolora</label>
+                                <input type="checkbox" name="sp-launch-40-21" value="Yes"<?php if(data_ref('sp-launch-40-21') == 'Yes')echo ' checked';?> class='cb1' id='sl4021'><label for="sl4021" class="checkbox02 w1p3">lenovo</label>
+                                <input type="checkbox" name="sp-launch-40-22" value="Yes"<?php if(data_ref('sp-launch-40-22') == 'Yes')echo ' checked';?> class='cb1' id='sl4022'><label for="sl4022" class="checkbox02 w1p3">meizu</label>
+                                <input type="checkbox" name="sp-launch-40-23" value="Yes"<?php if(data_ref('sp-launch-40-23') == 'Yes')echo ' checked';?> class='cb1' id='sl4023'><label for="sl4023" class="checkbox02 w1p3">tcl</label>
+                                <input type="checkbox" name="sp-launch-40-24" value="Yes"<?php if(data_ref('sp-launch-40-24') == 'Yes')echo ' checked';?> class='cb1' id='sl4024'><label for="sl4024" class="checkbox02 w1p3">zte</label>
+                                <input type="checkbox" name="sp-launch-40-13" value="Yes"<?php if(data_ref('sp-launch-40-13') == 'Yes')echo ' checked';?> class='cb1' id='sl4013'><label for="sl4013" class="checkbox02 w1p3">umidigi</label>
+                                <input type="checkbox" name="sp-launch-40-14" value="Yes"<?php if(data_ref('sp-launch-40-14') == 'Yes')echo ' checked';?> class='cb1' id='sl4014'><label for="sl4014" class="checkbox02 w1p3">ouktel</label>
                                 
                             </td>
                         </tr>
@@ -1792,7 +1797,8 @@ input[type=radio]:checked + .radio02::after {
                         <tr>
                             <th><?php echo $info1.".info37".$info2;?>防水防塵</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-6" value="Yes"<?php if(data_ref('sp-extra-6') == 'Yes')echo ' checked';?>>防水防塵対応
+                                <input type="checkbox" name="sp-extra-6" value="Yes"<?php if(data_ref('sp-extra-6') == 'Yes')echo ' checked';?> class='cb1' id='se6'><label for="se6" class="checkbox02">防水防塵対応</label>
+                                <p class='sech'>IP ?X</p>
                                 <input type="checkbox" name="sp-extra-11" value="Yes"<?php if(data_ref('sp-extra-11') == 'Yes')echo ' checked';?>>IP 6X
                                 <input type="checkbox" name="sp-extra-12" value="Yes"<?php if(data_ref('sp-extra-12') == 'Yes')echo ' checked';?>>IP 5X
                                 <input type="checkbox" name="sp-extra-13" value="Yes"<?php if(data_ref('sp-extra-13') == 'Yes')echo ' checked';?>>IP 4X
@@ -1800,6 +1806,7 @@ input[type=radio]:checked + .radio02::after {
                                 <input type="checkbox" name="sp-extra-15" value="Yes"<?php if(data_ref('sp-extra-15') == 'Yes')echo ' checked';?>>IP 2X
                                 <input type="checkbox" name="sp-extra-16" value="Yes"<?php if(data_ref('sp-extra-16') == 'Yes')echo ' checked';?>>IP 1X
                                 <input type="checkbox" name="sp-extra-17" value="Yes"<?php if(data_ref('sp-extra-17') == 'Yes')echo ' checked';?>>IP 0X
+                                <p class='sech'>IP X?</p>
                                 <input type="checkbox" name="sp-extra-18" value="Yes"<?php if(data_ref('sp-extra-18') == 'Yes')echo ' checked';?>>IP X0
                                 <input type="checkbox" name="sp-extra-19" value="Yes"<?php if(data_ref('sp-extra-19') == 'Yes')echo ' checked';?>>IP X1
                                 <input type="checkbox" name="sp-extra-20" value="Yes"<?php if(data_ref('sp-extra-20') == 'Yes')echo ' checked';?>>IP X2
@@ -1809,9 +1816,11 @@ input[type=radio]:checked + .radio02::after {
                                 <input type="checkbox" name="sp-extra-24" value="Yes"<?php if(data_ref('sp-extra-24') == 'Yes')echo ' checked';?>>IP X6
                                 <input type="checkbox" name="sp-extra-25" value="Yes"<?php if(data_ref('sp-extra-25') == 'Yes')echo ' checked';?>>IP X7
                                 <input type="checkbox" name="sp-extra-26" value="Yes"<?php if(data_ref('sp-extra-26') == 'Yes')echo ' checked';?>>IP X8
+                                <p class='sech'>MIL規格</p>
                                 <input type="checkbox" name="sp-extra-27" value="Yes"<?php if(data_ref('sp-extra-27') == 'Yes')echo ' checked';?>>MIL-STD-810G
                                 <input type="checkbox" name="sp-extra-29" value="Yes"<?php if(data_ref('sp-extra-29') == 'Yes')echo ' checked';?>>MIL-STD-810F
                                 <input type="checkbox" name="sp-extra-30" value="Yes"<?php if(data_ref('sp-extra-30') == 'Yes')echo ' checked';?>>MIL-STD-810D
+                                <p class='sech'>撥水</p>
                                 <input type="checkbox" name="sp-extra-10" value="Yes"<?php if(data_ref('sp-extra-10') == 'Yes')echo ' checked';?>>P2i撥水
                             </td>
                         </tr>
