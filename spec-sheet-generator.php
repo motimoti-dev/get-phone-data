@@ -6,7 +6,7 @@
         $info2 = '\'])"><path fill="gray" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>    </svg>';
         $close2 = '\'])"><path fill="gray" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z" class=""></path></svg>';
         ?>
-        <h1><?php echo $info0.".info0".$info2;?>スクレイピングの奴</h1>
+        <h1><?php echo $info0.".info0".$info2;?>スクレイピングの奴 </h1>
         <form method="post">
         
         <?php echo $info1.".info1".$info2;?>
@@ -14,14 +14,15 @@
         <?php echo $info1.".info2".$info2;?>
         途中から入力する場合(json)<textarea name='json' style='width:100%;'></textarea>
         </form>
-        数字は全部,ナシで入力
         <form id='form1'>
         <?php
 
         //繰り返したぐ生成するやつ　https://paiza.io/projects/iBS4BIH4fcK8_lyw0xAqjg?language=php
         ?>
-        <div class='hidebtn' onclick='opentd("#get-data");'><a>URLパラメータを表示</a></div>
-        <div id='get-data' class='hide'>
+        <div onclick='opentd("#get-info");' style='color:gray;'>詳細を表示</div>
+        <div id='get-info' class='hide'>
+            <div class='hidebtn' onclick='opentd("#get-data");'><a>URLパラメータを表示</a></div>
+            <div id='get-data' class='hide'>
             <?php
             global $arr;
             $arr = false;
@@ -38,63 +39,63 @@
             }
             ?>
         </div>
-        <div class='hidebtn' onclick='opentd("#get-data2")'><a>GETをJOSNに変換して<br>またデコードした奴</a></div>
-        <div id='get-data2' class='hide'>
-            <?php
-            //echo json_encode($arr);
-            if($arr != false){
-                foreach ( json_decode(json_encode($arr)) as $value ) {
-                    if($value[1] != ''){
-                        echo $value[0]. "：".$value[1]."<br>";
+            <div class='hidebtn' onclick='opentd("#get-data2")'><a>GETをJOSNに変換して<br>またデコードした奴</a></div>
+            <div id='get-data2' class='hide'>
+                <?php
+                //echo json_encode($arr);
+                if($arr != false){
+                    foreach ( json_decode(json_encode($arr)) as $value ) {
+                        if($value[1] != ''){
+                            echo $value[0]. "：".$value[1]."<br>";
+                        }
                     }
+                }else{
+                    echo '<p>Getパラメータがありません</p>';
                 }
-            }else{
-                echo '<p>Getパラメータがありません</p>';
+                ?>
+            </div>
+            <?php
+
+            //spec-sheetのジェネレーター、スクレイピングしたデータを出力
+            require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
+            error_reporting(E_ALL & ~E_NOTICE);
+            error_reporting(0);
+            //$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
+            //$url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
+            //$url = 'https://www.gsmarena.com/plum_optimax_10-8089.php';
+            //$url = 'https://www.gsmarena.com/huawei_p30_lite-9545.php';
+            //$url = 'https://www.gsmarena.com/samsung_galaxy_s21_ultra_5g-10596.php';
+            $url = 'https://www.gsmarena.com/asus_zenfone_8-10893.php';
+            if(array_key_exists('scurl',$_POST)){
+                if($_POST['scurl'] != ''){
+                    $url = $_POST['scurl'];
+                }
             }
-            ?>
+            if(array_key_exists('sp-memo-1',$_GET)){
+                if($_GET['sp-memo-1'] != ''){
+                    $url = $_GET['sp-memo-1'];
+                }
+            }
+            global $def_json;
+            $def_json = false;
+            if(array_key_exists('json',$_POST)){
+                if($_POST['json'] != ''){
+                    $def_json = json_decode($_POST['json']);
+                }
+            }?><div class='hidebtn' onclick='opentd("#post-json-data")'><a>初期JOSNの設定</a></div><?php
+            if($def_json != false){?>
+                <div id='post-json-data' class='hide'>
+                    <?php print_r($def_json);?>
+                </div>
+            <?php }else{?>
+                <div id='post-json-data' class='hide'>
+                    <p>jsonは設定されていません</p>
+                </div>
+            <?php }?>
         </div>
-        <?php
+        <?php $html = file_get_html($url);
 
-        //spec-sheetのジェネレーター、スクレイピングしたデータを出力
-        require_once "simple_html_dom.php";// PHP Simple HTML DOM Parser の読み込み
-        error_reporting(E_ALL & ~E_NOTICE);
-        error_reporting(0);
-        //$url = 'https://www.gsmarena.com/xiaomi_mi_11x-10775.php';
-        //$url = 'https://www.gsmarena.com/xiaomi_mi_9-9507.php';
-        //$url = 'https://www.gsmarena.com/plum_optimax_10-8089.php';
-        //$url = 'https://www.gsmarena.com/huawei_p30_lite-9545.php';
-        //$url = 'https://www.gsmarena.com/samsung_galaxy_s21_ultra_5g-10596.php';
-        $url = 'https://www.gsmarena.com/asus_zenfone_8-10893.php';
-        if(array_key_exists('scurl',$_POST)){
-            if($_POST['scurl'] != ''){
-                $url = $_POST['scurl'];
-            }
-        }
-        if(array_key_exists('sp-memo-1',$_GET)){
-            if($_GET['sp-memo-1'] != ''){
-                $url = $_GET['sp-memo-1'];
-            }
-        }
-        global $def_json;
-        $def_json = false;
-        if(array_key_exists('json',$_POST)){
-            if($_POST['json'] != ''){
-                $def_json = json_decode($_POST['json']);
-            }
-        }?><div class='hidebtn' onclick='opentd("#post-json-data")'><a>初期JOSNの設定</a></div><?php
-        if($def_json != false){?>
-            <div id='post-json-data' class='hide'>
-                <?php print_r($def_json);?>
-            </div>
-        <?php }else{?>
-            <div id='post-json-data' class='hide'>
-                <p>jsonは設定されていません</p>
-            </div>
-        <?php }
-
-        $html = file_get_html($url);
-
-        echo '<a class="gsm-link" href="'.$url.'" >元のリンク'.$html->find( '.specs-phone-name-title', 0 )->plaintext.'</a>';
+        echo '<a style=\'color:red;\' class="gsm-link" href="'.$url.'" >元のリンク'.$html->find( '.specs-phone-name-title', 0 )->plaintext.'</a>';
         ?>
         <?php //echo substr_count($html,'table');?>
         <?php
@@ -110,7 +111,7 @@
         <textarea id="copyTarget" style='width:100%;' readonly>
         <?php echo json_encode($arr);?>
         </textarea>
-        <div onclick="copyToClipboard()" style='background: #c8fdff;'>Copy text</div>
+        <div class='hidebtn' onclick='copyToClipboard()'><a>Jsonをコピーする</a></div>
         <script>
         function copyToClipboard() {
             // コピー対象をJavaScript上で変数として定義する
@@ -1398,10 +1399,10 @@
                         <tr>
                             <th><?php echo $info1.".info22".$info2;?>細かいやつら</th>
                             <td>
-                                <input type="checkbox" name="sp-launch-15" value="Yes"<?php if(data_ref('sp-launch-15') == 'Yes')echo ' checked';?>>これがメイン表示の場合
-                                <input type="checkbox" name="sp-launch-12" value="Yes"<?php if(data_ref('sp-launch-12') == 'Yes')echo ' checked';?>>リーク
-                                <input type="checkbox" name="sp-launch-14" value="Yes"<?php if(data_ref('sp-launch-14') == 'Yes')echo ' checked';?>>日本で発売されたやつ
-                                <input type="checkbox" name="sp-extra-5" value="Yes"<?php if(data_ref('sp-extra-5') == 'Yes')echo ' checked';?>>技適認証	
+                                <input type="checkbox" name="sp-launch-15" value="Yes"<?php if(data_ref('sp-launch-15') == 'Yes')echo ' checked';?> class='cb1' id='sl15'><label for="sl15" class="checkbox02">これがメイン表示の場合</label><br>
+                                <input type="checkbox" name="sp-launch-12" value="Yes"<?php if(data_ref('sp-launch-12') == 'Yes')echo ' checked';?> class='cb1' id='sl12'><label for="sl12" class="checkbox02">リーク</label><br>
+                                <input type="checkbox" name="sp-launch-14" value="Yes"<?php if(data_ref('sp-launch-14') == 'Yes')echo ' checked';?> class='cb1' id='sl14'><label for="sl14" class="checkbox02">日本で発売されたやつ</label><br>
+                                <input type="checkbox" name="sp-extra-5" value="Yes"<?php if(data_ref('sp-extra-5') == 'Yes')echo ' checked';?> class='cb1' id='se5'><label for="se5" class="checkbox02">技適認証</label><br>
                             </td>
                         </tr>
                         <tr>
@@ -1414,7 +1415,7 @@
                                         $input_check = explode(',',$input_check);
                                         echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
                                         if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1];
+                                        echo ' class=\'cb1\' id=\''.$input_check[0].'\'><label for="'.$input_check[0].'" class="checkbox02">'.$input_check[1].'</label><br>';
                                     }
                                 ?>
                             </td>
@@ -1445,31 +1446,123 @@
                                 メーカー
                             </th>
                             <td>
-                                <input type="checkbox" name="sp-launch-40-1" value="Yes"<?php if(data_ref('sp-launch-40-1') == 'Yes')echo ' checked';?>>Apple
-                                <input type="checkbox" name="sp-launch-40-2" value="Yes"<?php if(data_ref('sp-launch-40-2') == 'Yes')echo ' checked';?>>google
-                                <input type="checkbox" name="sp-launch-40-3" value="Yes"<?php if(data_ref('sp-launch-40-3') == 'Yes')echo ' checked';?>>xiaomi
-                                <input type="checkbox" name="sp-launch-40-4" value="Yes"<?php if(data_ref('sp-launch-40-4') == 'Yes')echo ' checked';?>>poco
-                                <input type="checkbox" name="sp-launch-40-5" value="Yes"<?php if(data_ref('sp-launch-40-5') == 'Yes')echo ' checked';?>>blackshark
-                                <input type="checkbox" name="sp-launch-40-6" value="Yes"<?php if(data_ref('sp-launch-40-6') == 'Yes')echo ' checked';?>>redmi
-                                <input type="checkbox" name="sp-launch-40-7" value="Yes"<?php if(data_ref('sp-launch-40-7') == 'Yes')echo ' checked';?>>vivo
-                                <input type="checkbox" name="sp-launch-40-8" value="Yes"<?php if(data_ref('sp-launch-40-8') == 'Yes')echo ' checked';?>>huawei
-                                <input type="checkbox" name="sp-launch-40-9" value="Yes"<?php if(data_ref('sp-launch-40-9') == 'Yes')echo ' checked';?>>honor
-                                <input type="checkbox" name="sp-launch-40-10" value="Yes"<?php if(data_ref('sp-launch-40-10') == 'Yes')echo ' checked';?>>oppo
-                                <input type="checkbox" name="sp-launch-40-11" value="Yes"<?php if(data_ref('sp-launch-40-11') == 'Yes')echo ' checked';?>>oneplus
-                                <input type="checkbox" name="sp-launch-40-12" value="Yes"<?php if(data_ref('sp-launch-40-12') == 'Yes')echo ' checked';?>>raalme
-                                <input type="checkbox" name="sp-launch-40-13" value="Yes"<?php if(data_ref('sp-launch-40-13') == 'Yes')echo ' checked';?>>umidigi
-                                <input type="checkbox" name="sp-launch-40-14" value="Yes"<?php if(data_ref('sp-launch-40-14') == 'Yes')echo ' checked';?>>ouktel
-                                <input type="checkbox" name="sp-launch-40-15" value="Yes"<?php if(data_ref('sp-launch-40-15') == 'Yes')echo ' checked';?>>sony
-                                <input type="checkbox" name="sp-launch-40-16" value="Yes"<?php if(data_ref('sp-launch-40-16') == 'Yes')echo ' checked';?>>samsung
-                                <input type="checkbox" name="sp-launch-40-17" value="Yes"<?php if(data_ref('sp-launch-40-17') == 'Yes')echo ' checked';?>>sharp
-                                <input type="checkbox" name="sp-launch-40-18" value="Yes"<?php if(data_ref('sp-launch-40-18') == 'Yes')echo ' checked';?>>leica
-                                <input type="checkbox" name="sp-launch-40-19" value="Yes"<?php if(data_ref('sp-launch-40-19') == 'Yes')echo ' checked';?>>ASUS
-                                <input type="checkbox" name="sp-launch-40-20" value="Yes"<?php if(data_ref('sp-launch-40-20') == 'Yes')echo ' checked';?>>motolora
-                                <input type="checkbox" name="sp-launch-40-21" value="Yes"<?php if(data_ref('sp-launch-40-21') == 'Yes')echo ' checked';?>>lenovo
-                                <input type="checkbox" name="sp-launch-40-22" value="Yes"<?php if(data_ref('sp-launch-40-22') == 'Yes')echo ' checked';?>>meizu
-                                <input type="checkbox" name="sp-launch-40-23" value="Yes"<?php if(data_ref('sp-launch-40-23') == 'Yes')echo ' checked';?>>tcl
-                                <input type="checkbox" name="sp-launch-40-24" value="Yes"<?php if(data_ref('sp-launch-40-24') == 'Yes')echo ' checked';?>>zte
-                                <input type="checkbox" name="sp-launch-40-25" value="Yes"<?php if(data_ref('sp-launch-40-25') == 'Yes')echo ' checked';?>>rakuten
+                                <style>
+                                    .cb1 {
+    display: none;
+}
+.checkbox02 {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 30px;
+    font-size:1em;
+    position: relative;
+    width: auto;
+}
+.checkbox02::before {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: 16px;
+    left: 5px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.checkbox02::after {
+    border-right: 6px solid #00cccc;
+    border-bottom: 3px solid #00cccc;
+    content: '';
+    display: block;
+    height: 20px;
+    left: 7px;
+    margin-top: -16px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 9px;
+}
+.cb1:checked + .checkbox02::before {
+    border-color: #666;
+}
+.cb1:checked + .checkbox02::after {
+    opacity: 1;
+}
+
+/* ラジオボタン02 */
+input[type=radio] {
+    display: none;
+}
+.radio02 {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 30px;
+    position: relative;
+    width: auto;
+}
+.radio02::before {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 16px;
+    left: 5px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.radio02::after {
+    background: #00cccc;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 8px;
+    left: 10px;
+    margin-top: -3px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    width: 8px;
+}
+input[type=radio]:checked + .radio02::before {
+    border-color: #666;
+}
+input[type=radio]:checked + .radio02::after {
+    opacity: 1;
+}
+                                </style>
+                                <input type="checkbox" name="sp-launch-40-1" value="Yes"<?php if(data_ref('sp-launch-40-1') == 'Yes')echo ' checked';?> class='cb1' id='sl401'><label for="sl401" class="checkbox02">Apple</label><br>
+                                <input type="checkbox" name="sp-launch-40-2" value="Yes"<?php if(data_ref('sp-launch-40-2') == 'Yes')echo ' checked';?> class='cb1' id='sl402'><label for="sl402" class="checkbox02">google</label><br>
+                                <input type="checkbox" name="sp-launch-40-3" value="Yes"<?php if(data_ref('sp-launch-40-3') == 'Yes')echo ' checked';?> class='cb1' id='sl403'><label for="sl403" class="checkbox02">xiaomi</label><br>
+                                <input type="checkbox" name="sp-launch-40-4" value="Yes"<?php if(data_ref('sp-launch-40-4') == 'Yes')echo ' checked';?> class='cb1' id='sl404'><label for="sl404" class="checkbox02">poco</label><br>
+                                <input type="checkbox" name="sp-launch-40-5" value="Yes"<?php if(data_ref('sp-launch-40-5') == 'Yes')echo ' checked';?> class='cb1' id='sl405'><label for="sl405" class="checkbox02">blackshark</label><br>
+                                <input type="checkbox" name="sp-launch-40-6" value="Yes"<?php if(data_ref('sp-launch-40-6') == 'Yes')echo ' checked';?> class='cb1' id='sl406'><label for="sl406" class="checkbox02">redmi</label><br>
+                                <input type="checkbox" name="sp-launch-40-7" value="Yes"<?php if(data_ref('sp-launch-40-7') == 'Yes')echo ' checked';?> class='cb1' id='sl407'><label for="sl407" class="checkbox02">vivo</label><br>
+                                <input type="checkbox" name="sp-launch-40-8" value="Yes"<?php if(data_ref('sp-launch-40-8') == 'Yes')echo ' checked';?> class='cb1' id='sl408'><label for="sl408" class="checkbox02">huawei</label><br>
+                                <input type="checkbox" name="sp-launch-40-9" value="Yes"<?php if(data_ref('sp-launch-40-9') == 'Yes')echo ' checked';?> class='cb1' id='sl409'><label for="sl409" class="checkbox02">honor</label><br>
+                                <input type="checkbox" name="sp-launch-40-10" value="Yes"<?php if(data_ref('sp-launch-40-10') == 'Yes')echo ' checked';?> class='cb1' id='sl4010'><label for="sl4010" class="checkbox02">oppo</label><br>
+                                <input type="checkbox" name="sp-launch-40-11" value="Yes"<?php if(data_ref('sp-launch-40-11') == 'Yes')echo ' checked';?> class='cb1' id='sl4011'><label for="sl4011" class="checkbox02">oneplus</label><br>
+                                <input type="checkbox" name="sp-launch-40-12" value="Yes"<?php if(data_ref('sp-launch-40-12') == 'Yes')echo ' checked';?> class='cb1' id='sl4012'><label for="sl4012" class="checkbox02">raalme</label><br>
+                                <input type="checkbox" name="sp-launch-40-13" value="Yes"<?php if(data_ref('sp-launch-40-13') == 'Yes')echo ' checked';?> class='cb1' id='sl4013'><label for="sl4013" class="checkbox02">umidigi</label><br>
+                                <input type="checkbox" name="sp-launch-40-14" value="Yes"<?php if(data_ref('sp-launch-40-14') == 'Yes')echo ' checked';?> class='cb1' id='sl4014'><label for="sl4014" class="checkbox02">ouktel</label><br>
+                                <input type="checkbox" name="sp-launch-40-15" value="Yes"<?php if(data_ref('sp-launch-40-15') == 'Yes')echo ' checked';?> class='cb1' id='sl4015'><label for="sl4015" class="checkbox02">sony</label><br>
+                                <input type="checkbox" name="sp-launch-40-16" value="Yes"<?php if(data_ref('sp-launch-40-16') == 'Yes')echo ' checked';?> class='cb1' id='sl4016'><label for="sl4016" class="checkbox02">samsung</label><br>
+                                <input type="checkbox" name="sp-launch-40-17" value="Yes"<?php if(data_ref('sp-launch-40-17') == 'Yes')echo ' checked';?> class='cb1' id='sl4017'><label for="sl4017" class="checkbox02">sharp</label><br>
+                                <input type="checkbox" name="sp-launch-40-18" value="Yes"<?php if(data_ref('sp-launch-40-18') == 'Yes')echo ' checked';?> class='cb1' id='sl4018'><label for="sl4018" class="checkbox02">leica</label><br>
+                                <input type="checkbox" name="sp-launch-40-19" value="Yes"<?php if(data_ref('sp-launch-40-19') == 'Yes')echo ' checked';?> class='cb1' id='sl4019'><label for="sl4019" class="checkbox02">ASUS</label><br>
+                                <input type="checkbox" name="sp-launch-40-20" value="Yes"<?php if(data_ref('sp-launch-40-20') == 'Yes')echo ' checked';?> class='cb1' id='sl4020'><label for="sl4020" class="checkbox02">motolora</label><br>
+                                <input type="checkbox" name="sp-launch-40-21" value="Yes"<?php if(data_ref('sp-launch-40-21') == 'Yes')echo ' checked';?> class='cb1' id='sl4021'><label for="sl4021" class="checkbox02">lenovo</label><br>
+                                <input type="checkbox" name="sp-launch-40-22" value="Yes"<?php if(data_ref('sp-launch-40-22') == 'Yes')echo ' checked';?> class='cb1' id='sl4022'><label for="sl4022" class="checkbox02">meizu</label><br>
+                                <input type="checkbox" name="sp-launch-40-23" value="Yes"<?php if(data_ref('sp-launch-40-23') == 'Yes')echo ' checked';?> class='cb1' id='sl4023'><label for="sl4023" class="checkbox02">tcl</label><br>
+                                <input type="checkbox" name="sp-launch-40-24" value="Yes"<?php if(data_ref('sp-launch-40-24') == 'Yes')echo ' checked';?> class='cb1' id='sl4024'><label for="sl4024" class="checkbox02">zte</label><br>
+                                <input type="checkbox" name="sp-launch-40-25" value="Yes"<?php if(data_ref('sp-launch-40-25') == 'Yes')echo ' checked';?> class='cb1' id='sl4025'><label for="sl4025" class="checkbox02">rakuten</label><br>
                                 
                             </td>
                         </tr>
@@ -4855,7 +4948,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
             width: 86px;
         }
         #specs-list td.nfo a, #specs-list th {
-            color: #d50000;
+            color:#d50000
         }
         .sc2 img{
             width:100%;
