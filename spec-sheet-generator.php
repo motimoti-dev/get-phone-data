@@ -539,6 +539,9 @@
         function after_setting(){
 
         }
+        function gen_ckbox($key,$value,$txt,$class,$id){
+            ?><input type="checkbox" name="<?php echo $key;?>" class="cb1" id="<?php echo $id;?>" value="<?php echo $value?>"<?php if(data_ref($key) == $value)echo ' checked';?>><label class="checkbox02 <?php echo $class;?>" for="<?php echo $id;?>"><?php echo $txt;?></label><?php
+        }
         ?>
         <style>
         .tagcloud a {
@@ -1142,10 +1145,10 @@
                                     $out_txt = '';
                                     foreach($b3gs as $bg){
                                         if(data_ref($bg[0]) == 'Yes'){
-                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="3gband'.$bg[0].'" value="Yes" checked><label class="checkbox02" for="3gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="3gband'.$bg[0].'" value="Yes" checked><label class="checkbox02 w1p2" for="3gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label>';
                                             $out_txt .= $bg[1][0].':'.$bg[1][1].', ';
                                         }else{
-                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="3gband'.$bg[0].'" value="Yes"><label class="checkbox02" for="3gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="3gband'.$bg[0].'" value="Yes"><label class="checkbox02 w1p2" for="3gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label>';
                                         }
                                     }
                                     //echo '<br><br>';.$out_txt
@@ -1173,10 +1176,10 @@
                                     $out_txt = '';
                                     foreach($b2gs as $bg){
                                         if(data_ref($bg[0]) == 'Yes'){
-                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="2gband'.$bg[0].'" value="Yes" checked><label class="checkbox02" for="2gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="2gband'.$bg[0].'" value="Yes" checked><label class="checkbox02 w1p2" for="2gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label>';
                                             $out_txt .= $bg[1][0].':'.$bg[1][1].', ';
                                         }else{
-                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="2gband'.$bg[0].'" value="Yes"><label class="checkbox02" for="2gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="2gband'.$bg[0].'" value="Yes"><label class="checkbox02 w1p2" for="2gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label>';
                                         }
                                     }?>
                                 </div>
@@ -1773,7 +1776,7 @@ input[type=radio]:checked + .radio02::after {
                         <tr>
                             <th><?php echo $info1.".info31a".$info2;?>折りたたみ時のサイズ<br><span style='color:red;'>(フォルダブルスマホの場合)</span></th>
                             <td>
-                                <input type="checkbox" name="sp-design-6" value="Yes"<?php if(data_ref('sp-design-6') == 'Yes')echo ' checked';?>>折り畳みができる場合<br>
+                            <input type="checkbox" name="sp-design-6" class="cb1" id="sp-design-6" value="Yes"<?php if(data_ref('sp-design-6') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-design-6">折り畳みができる場合</label><br>
                                 縦
                                 <input type='text' name='sp-design-7' value="<?php echo data_ref('sp-design-7');?>" size="mini">mm&nbsp;
                                 横
@@ -1833,29 +1836,29 @@ input[type=radio]:checked + .radio02::after {
                             <td>
                                 <input type="checkbox" name="sp-extra-6" value="Yes"<?php if(data_ref('sp-extra-6') == 'Yes')echo ' checked';?> class='cb1' id='se6'><label for="se6" class="checkbox02">防水防塵対応</label>
                                 <p class='sech'>IP ?X</p>
-                                <input type="checkbox" name="sp-extra-11" value="Yes"<?php if(data_ref('sp-extra-11') == 'Yes')echo ' checked';?>>IP 6X
-                                <input type="checkbox" name="sp-extra-12" value="Yes"<?php if(data_ref('sp-extra-12') == 'Yes')echo ' checked';?>>IP 5X
-                                <input type="checkbox" name="sp-extra-13" value="Yes"<?php if(data_ref('sp-extra-13') == 'Yes')echo ' checked';?>>IP 4X
-                                <input type="checkbox" name="sp-extra-14" value="Yes"<?php if(data_ref('sp-extra-14') == 'Yes')echo ' checked';?>>IP 3X
-                                <input type="checkbox" name="sp-extra-15" value="Yes"<?php if(data_ref('sp-extra-15') == 'Yes')echo ' checked';?>>IP 2X
-                                <input type="checkbox" name="sp-extra-16" value="Yes"<?php if(data_ref('sp-extra-16') == 'Yes')echo ' checked';?>>IP 1X
-                                <input type="checkbox" name="sp-extra-17" value="Yes"<?php if(data_ref('sp-extra-17') == 'Yes')echo ' checked';?>>IP 0X
+                                <input type="checkbox" name="sp-extra-11" class="cb1" id="sp-extra-11" value="Yes"<?php if(data_ref('sp-extra-11') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-11">IP 6X</label>
+                                <input type="checkbox" name="sp-extra-12" class="cb1" id="sp-extra-12" value="Yes"<?php if(data_ref('sp-extra-12') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-12">IP 5X</label>
+                                <input type="checkbox" name="sp-extra-13" class="cb1" id="sp-extra-13" value="Yes"<?php if(data_ref('sp-extra-13') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-13">IP 4X</label>
+                                <input type="checkbox" name="sp-extra-14" class="cb1" id="sp-extra-14" value="Yes"<?php if(data_ref('sp-extra-14') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-14">IP 3X</label>
+                                <input type="checkbox" name="sp-extra-15" class="cb1" id="sp-extra-15" value="Yes"<?php if(data_ref('sp-extra-15') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-15">IP 2X</label>
+                                <input type="checkbox" name="sp-extra-16" class="cb1" id="sp-extra-16" value="Yes"<?php if(data_ref('sp-extra-16') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-16">IP 1X</label>
+                                <input type="checkbox" name="sp-extra-17" class="cb1" id="sp-extra-17" value="Yes"<?php if(data_ref('sp-extra-17') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-17">IP 0X</label>
                                 <p class='sech'>IP X?</p>
-                                <input type="checkbox" name="sp-extra-18" value="Yes"<?php if(data_ref('sp-extra-18') == 'Yes')echo ' checked';?>>IP X0
-                                <input type="checkbox" name="sp-extra-19" value="Yes"<?php if(data_ref('sp-extra-19') == 'Yes')echo ' checked';?>>IP X1
-                                <input type="checkbox" name="sp-extra-20" value="Yes"<?php if(data_ref('sp-extra-20') == 'Yes')echo ' checked';?>>IP X2
-                                <input type="checkbox" name="sp-extra-21" value="Yes"<?php if(data_ref('sp-extra-21') == 'Yes')echo ' checked';?>>IP X3
-                                <input type="checkbox" name="sp-extra-22" value="Yes"<?php if(data_ref('sp-extra-22') == 'Yes')echo ' checked';?>>IP X4
-                                <input type="checkbox" name="sp-extra-23" value="Yes"<?php if(data_ref('sp-extra-23') == 'Yes')echo ' checked';?>>IP X5
-                                <input type="checkbox" name="sp-extra-24" value="Yes"<?php if(data_ref('sp-extra-24') == 'Yes')echo ' checked';?>>IP X6
-                                <input type="checkbox" name="sp-extra-25" value="Yes"<?php if(data_ref('sp-extra-25') == 'Yes')echo ' checked';?>>IP X7
-                                <input type="checkbox" name="sp-extra-26" value="Yes"<?php if(data_ref('sp-extra-26') == 'Yes')echo ' checked';?>>IP X8
+                                <input type="checkbox" name="sp-extra-18" class="cb1" id="sp-extra-18" value="Yes"<?php if(data_ref('sp-extra-18') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-18">IP X0</label>
+                                <input type="checkbox" name="sp-extra-19" class="cb1" id="sp-extra-19" value="Yes"<?php if(data_ref('sp-extra-19') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-19">IP X1</label>
+                                <input type="checkbox" name="sp-extra-20" class="cb1" id="sp-extra-20" value="Yes"<?php if(data_ref('sp-extra-20') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-20">IP X2</label>
+                                <input type="checkbox" name="sp-extra-21" class="cb1" id="sp-extra-21" value="Yes"<?php if(data_ref('sp-extra-21') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-21">IP X3</label>
+                                <input type="checkbox" name="sp-extra-22" class="cb1" id="sp-extra-22" value="Yes"<?php if(data_ref('sp-extra-22') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-22">IP X4</label>
+                                <input type="checkbox" name="sp-extra-23" class="cb1" id="sp-extra-23" value="Yes"<?php if(data_ref('sp-extra-23') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-23">IP X5</label>
+                                <input type="checkbox" name="sp-extra-24" class="cb1" id="sp-extra-24" value="Yes"<?php if(data_ref('sp-extra-24') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-24">IP X6</label>
+                                <input type="checkbox" name="sp-extra-25" class="cb1" id="sp-extra-25" value="Yes"<?php if(data_ref('sp-extra-25') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-25">IP X7</label>
+                                <input type="checkbox" name="sp-extra-26" class="cb1" id="sp-extra-26" value="Yes"<?php if(data_ref('sp-extra-26') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-26">IP X8</label>
                                 <p class='sech'>MIL規格</p>
-                                <input type="checkbox" name="sp-extra-27" value="Yes"<?php if(data_ref('sp-extra-27') == 'Yes')echo ' checked';?>>MIL-STD-810G
-                                <input type="checkbox" name="sp-extra-29" value="Yes"<?php if(data_ref('sp-extra-29') == 'Yes')echo ' checked';?>>MIL-STD-810F
-                                <input type="checkbox" name="sp-extra-30" value="Yes"<?php if(data_ref('sp-extra-30') == 'Yes')echo ' checked';?>>MIL-STD-810D
+                                <input type="checkbox" name="sp-extra-27" class="cb1" id="sp-extra-27" value="Yes"<?php if(data_ref('sp-extra-27') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-27">MIL-STD-810G</label>
+                                <input type="checkbox" name="sp-extra-29" class="cb1" id="sp-extra-29" value="Yes"<?php if(data_ref('sp-extra-29') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-29">MIL-STD-810F</label>
+                                <input type="checkbox" name="sp-extra-30" class="cb1" id="sp-extra-30" value="Yes"<?php if(data_ref('sp-extra-30') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-30">MIL-STD-810D</label>
                                 <p class='sech'>撥水</p>
-                                <input type="checkbox" name="sp-extra-10" value="Yes"<?php if(data_ref('sp-extra-10') == 'Yes')echo ' checked';?>>P2i撥水
+                                <input type="checkbox" name="sp-extra-10" class="cb1" id="sp-extra-10" value="Yes"<?php if(data_ref('sp-extra-10') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-extra-10">P2i撥水</label>
                             </td>
                         </tr>
                         <tr>
@@ -2280,11 +2283,11 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info59".$info2;?>OS</th>
                             <td>
-                                <input type="checkbox" name="sp-softwear-0" value="Yes"<?php if(data_ref('sp-softwear-0') == 'Yes')echo ' checked';?>>Android
-                                <input type="checkbox" name="sp-softwear-1" value="Yes"<?php if(data_ref('sp-softwear-1') == 'Yes')echo ' checked';?>>Harmony
-                                <input type="checkbox" name="sp-softwear-2" value="Yes"<?php if(data_ref('sp-softwear-2') == 'Yes')echo ' checked';?>>iOS
-                                <input type="checkbox" name="sp-softwear-3" value="Yes"<?php if(data_ref('sp-softwear-3') == 'Yes')echo ' checked';?>>Microsoft Windows 10
-                                <input type="checkbox" name="sp-softwear-4" value="Yes"<?php if(data_ref('sp-softwear-4') == 'Yes')echo ' checked';?>>Android Go
+                                <input type="checkbox" name="sp-softwear-0" class="cb1" id="sp-softwear-0" value="Yes"<?php if(data_ref('sp-softwear-0') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-0">Android</label>            
+                                <input type="checkbox" name="sp-softwear-1" class="cb1" id="sp-softwear-1" value="Yes"<?php if(data_ref('sp-softwear-1') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-1">Harmony</label>            
+                                <input type="checkbox" name="sp-softwear-2" class="cb1" id="sp-softwear-2" value="Yes"<?php if(data_ref('sp-softwear-2') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-2">iOS</label>            
+                                <input type="checkbox" name="sp-softwear-3" class="cb1" id="sp-softwear-3" value="Yes"<?php if(data_ref('sp-softwear-3') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-3">Microsoft Windows 10</label>            
+                                <input type="checkbox" name="sp-softwear-4" class="cb1" id="sp-softwear-4" value="Yes"<?php if(data_ref('sp-softwear-4') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-4">Android Go</label>            
                             </td>
                         </tr>
                         <tr>
@@ -2296,7 +2299,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info61".$info2;?>GMS非対応</th>
                             <td>
-                                <input type="checkbox" name="sp-softwear-6" value="Yes"<?php if(data_ref('sp-softwear-6') == 'Yes')echo ' checked';?>>非対応
+                                <input type="checkbox" name="sp-softwear-6" class="cb1" id="sp-softwear-6" value="Yes"<?php if(data_ref('sp-softwear-6') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-6">非対応</label>
                             </td>
                         </tr>	
                         <tr>
@@ -2308,26 +2311,26 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info63".$info2;?>UI</th>
                             <td>
-                                <input type="checkbox" name="sp-softwear-13" value="Yes"<?php if(data_ref('sp-softwear-13') == 'Yes')echo ' checked';?>>MIUI
-                                <input type="checkbox" name="sp-softwear-32" value="Yes"<?php if(data_ref('sp-softwear-32') == 'Yes')echo ' checked';?>>MIUI For POCO
-                                <input type="checkbox" name="sp-softwear-14" value="Yes"<?php if(data_ref('sp-softwear-14') == 'Yes')echo ' checked';?>>color OS
-                                <input type="checkbox" name="sp-softwear-15" value="Yes"<?php if(data_ref('sp-softwear-15') == 'Yes')echo ' checked';?>>Magic UI
-                                <input type="checkbox" name="sp-softwear-16" value="Yes"<?php if(data_ref('sp-softwear-16') == 'Yes')echo ' checked';?>>ZenUI
-                                <input type="checkbox" name="sp-softwear-17" value="Yes"<?php if(data_ref('sp-softwear-17') == 'Yes')echo ' checked';?>>One UI
-                                <input type="checkbox" name="sp-softwear-18" value="Yes"<?php if(data_ref('sp-softwear-18') == 'Yes')echo ' checked';?>>XOS
-                                <input type="checkbox" name="sp-softwear-19" value="Yes"<?php if(data_ref('sp-softwear-19') == 'Yes')echo ' checked';?>>Android One
-                                <input type="checkbox" name="sp-softwear-20" value="Yes"<?php if(data_ref('sp-softwear-20') == 'Yes')echo ' checked';?>>AOSP
-                                <input type="checkbox" name="sp-softwear-21" value="Yes"<?php if(data_ref('sp-softwear-21') == 'Yes')echo ' checked';?>>EMUI
-                                <input type="checkbox" name="sp-softwear-22" value="Yes"<?php if(data_ref('sp-softwear-22') == 'Yes')echo ' checked';?>>Redmagic
-                                <input type="checkbox" name="sp-softwear-23" value="Yes"<?php if(data_ref('sp-softwear-23') == 'Yes')echo ' checked';?>>Joy UI
-                                <input type="checkbox" name="sp-softwear-24" value="Yes"<?php if(data_ref('sp-softwear-24') == 'Yes')echo ' checked';?>>HIOS
-                                <input type="checkbox" name="sp-softwear-25" value="Yes"<?php if(data_ref('sp-softwear-25') == 'Yes')echo ' checked';?>>realme UI
-                                <input type="checkbox" name="sp-softwear-26" value="Yes"<?php if(data_ref('sp-softwear-26') == 'Yes')echo ' checked';?>>OxygenOS
-                                <input type="checkbox" name="sp-softwear-27" value="Yes"<?php if(data_ref('sp-softwear-27') == 'Yes')echo ' checked';?>>OriginOS
-                                <input type="checkbox" name="sp-softwear-28" value="Yes"<?php if(data_ref('sp-softwear-28') == 'Yes')echo ' checked';?>>Funtouch
-                                <input type="checkbox" name="sp-softwear-29" value="Yes"<?php if(data_ref('sp-softwear-29') == 'Yes')echo ' checked';?>>Flyme
-                                <input type="checkbox" name="sp-softwear-30" value="Yes"<?php if(data_ref('sp-softwear-30') == 'Yes')echo ' checked';?>>ZUI
-                                <input type="checkbox" name="sp-softwear-31" value="Yes"<?php if(data_ref('sp-softwear-31') == 'Yes')echo ' checked';?>>ROG UI
+                                <input type="checkbox" name="sp-softwear-13" class="cb1" id="sp-softwear-13" value="Yes"<?php if(data_ref('sp-softwear-13') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-13">MIUI</label>
+                                <input type="checkbox" name="sp-softwear-32" class="cb1" id="sp-softwear-32" value="Yes"<?php if(data_ref('sp-softwear-32') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-32">MIUI For P</label>
+                                <input type="checkbox" name="sp-softwear-14" class="cb1" id="sp-softwear-14" value="Yes"<?php if(data_ref('sp-softwear-14') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-14">color OS</label>
+                                <input type="checkbox" name="sp-softwear-15" class="cb1" id="sp-softwear-15" value="Yes"<?php if(data_ref('sp-softwear-15') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-15">Magic UI</label>
+                                <input type="checkbox" name="sp-softwear-16" class="cb1" id="sp-softwear-16" value="Yes"<?php if(data_ref('sp-softwear-16') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-16">ZenUI</label>
+                                <input type="checkbox" name="sp-softwear-17" class="cb1" id="sp-softwear-17" value="Yes"<?php if(data_ref('sp-softwear-17') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-17">One UI</label>
+                                <input type="checkbox" name="sp-softwear-18" class="cb1" id="sp-softwear-18" value="Yes"<?php if(data_ref('sp-softwear-18') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-18">XOS</label>
+                                <input type="checkbox" name="sp-softwear-19" class="cb1" id="sp-softwear-19" value="Yes"<?php if(data_ref('sp-softwear-19') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-19">Android On</label>
+                                <input type="checkbox" name="sp-softwear-20" class="cb1" id="sp-softwear-20" value="Yes"<?php if(data_ref('sp-softwear-20') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-20">AOSP</label>
+                                <input type="checkbox" name="sp-softwear-21" class="cb1" id="sp-softwear-21" value="Yes"<?php if(data_ref('sp-softwear-21') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-21">EMUI</label>
+                                <input type="checkbox" name="sp-softwear-22" class="cb1" id="sp-softwear-22" value="Yes"<?php if(data_ref('sp-softwear-22') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-22">Redmagic</label>
+                                <input type="checkbox" name="sp-softwear-23" class="cb1" id="sp-softwear-23" value="Yes"<?php if(data_ref('sp-softwear-23') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-23">Joy UI</label>
+                                <input type="checkbox" name="sp-softwear-24" class="cb1" id="sp-softwear-24" value="Yes"<?php if(data_ref('sp-softwear-24') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-24">HIOS</label>
+                                <input type="checkbox" name="sp-softwear-25" class="cb1" id="sp-softwear-25" value="Yes"<?php if(data_ref('sp-softwear-25') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-25">realme UI</label>
+                                <input type="checkbox" name="sp-softwear-26" class="cb1" id="sp-softwear-26" value="Yes"<?php if(data_ref('sp-softwear-26') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-26">OxygenOS</label>
+                                <input type="checkbox" name="sp-softwear-27" class="cb1" id="sp-softwear-27" value="Yes"<?php if(data_ref('sp-softwear-27') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-27">OriginOS</label>
+                                <input type="checkbox" name="sp-softwear-28" class="cb1" id="sp-softwear-28" value="Yes"<?php if(data_ref('sp-softwear-28') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-28">Funtouch</label>
+                                <input type="checkbox" name="sp-softwear-29" class="cb1" id="sp-softwear-29" value="Yes"<?php if(data_ref('sp-softwear-29') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-29">Flyme</label>
+                                <input type="checkbox" name="sp-softwear-30" class="cb1" id="sp-softwear-30" value="Yes"<?php if(data_ref('sp-softwear-30') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-30">ZUI</label>
+                                <input type="checkbox" name="sp-softwear-31" class="cb1" id="sp-softwear-31" value="Yes"<?php if(data_ref('sp-softwear-31') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-31">ROG UI</label>
                             </td>
                         </tr>
                         <tr>
@@ -2541,15 +2544,16 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info72".$info2;?>Micro SDカード</th>
                             <td>
-                                <input type="checkbox" name="sp-spec-12" value="Unknown"<?php if(data_ref('sp-spec-12') == 'Unknown')echo ' checked';?>>詳細不明な場合
-                                <input type="checkbox" name="sp-spec-12" value="Yes"<?php if(data_ref('sp-spec-12') == 'Yes')echo ' checked';?>>対応&nbsp;
+                                <?php //gen_ckbox($key,$value,$txt,$class,$id);?>
+                                <?php gen_ckbox('sp-spec-12','Unknown','詳細不明な場合','w1p2','sp-spec-12u');?>
+                                <?php gen_ckbox('sp-spec-12','Yes','対応','w1p2','sp-spec-12y');?><br>
                                 <input type='text' name='sp-spec-14' value="<?php echo data_ref('sp-spec-14');?>" size='mini'>GB Micro SD最大容量
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info73".$info2;?>NMカード</th>
                             <td>
-                                <input type="checkbox" name="sp-spec-20" value="Yes"<?php if(data_ref('sp-spec-20') == 'Yes')echo ' checked';?>>対応&nbsp;
+                                <?php gen_ckbox('sp-spec-20','Yes','対応','w1p2','sp-spec-20');?>
                                 <input type='text' name='sp-spec-21' value="<?php echo data_ref('sp-spec-21');?>" size='mini'>GB NMカード最大容量
                             </td>
                         </tr>
@@ -2774,27 +2778,56 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             <td>
                                 <div class='socida' onclick='opentd("#camera1");'>表示非表示</div>
                                 <div id='camera1'>
-                                    画素数<input type='text' name='sp-camera-19' value="<?php echo data_ref('sp-camera-19');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-20' value="<?php echo data_ref('sp-camera-20');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-21' value="<?php echo data_ref('sp-camera-21');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-22' value="<?php echo data_ref('sp-camera-22');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-23' value="<?php echo data_ref('sp-camera-23');?>" size='mini'>µm&nbsp;
+                                    <table style='width:100%;'>
+                                        <tr>
+                                            <td>
+                                                画素数
+                                            </td>
+                                            <td>
+                                                F値
+                                            </td>
+                                            <td>
+                                                焦点距離
+                                            </td>
+                                            <td>
+                                                センサーサイズ
+                                            </td>
+                                            <td>
+                                                ピクセルサイズ
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type='text' name='sp-camera-19' value="<?php echo data_ref('sp-camera-19');?>" size='mini'>MP
+                                            </td>
+                                            <td>
+                                                <input type='text' name='sp-camera-20' value="<?php echo data_ref('sp-camera-20');?>" size='mini'>
+                                            </td>
+                                            <td>
+                                                <input type='text' name='sp-camera-21' value="<?php echo data_ref('sp-camera-21');?>" size='mini'>mm
+                                            </td>
+                                            <td>
+                                                <input type='text' name='sp-camera-22' value="<?php echo data_ref('sp-camera-22');?>" size='mini'>"
+                                            </td>
+                                            <td>
+                                                <input type='text' name='sp-camera-23' value="<?php echo data_ref('sp-camera-23');?>" size='mini'>µm
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
                                     カメラ<input id='maincamera1' type='text' name='sp-camera-24' value="<?php echo data_ref('sp-camera-24');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera1',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera1',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera1',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera1',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera1',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera1',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera1',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera1',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera1',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera1',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera1',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera1',13)">13(深度)</a>
-                                    </div>
+                                    <a class='socida' onclick="ckinput('maincamera1',1)">[1]メインカメラ</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',2)">[2]望遠</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',3)">[3]ペリスコープ</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',5)">[5]ズーム</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',6)">[6]広角</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',7)">[7]超広角</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',8)">[8]ToF</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',9)">[9]赤外線</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',10)">[10]マクロ</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',11)">[11]モノクロ</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',12)">[12]ポートレート</a>
+                                    <a class='socida' onclick="ckinput('maincamera1',13)">[13]深度</a>
                                     <br>
                                     機能(,区切りで定義)PDAF, OIS<br>
                                     <input type='text' name='sp-camera-25' value="<?php echo data_ref('sp-camera-25');?>" size='full'>
@@ -3450,15 +3483,15 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info90".$info2;?>3.5mmイヤホンジャック</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-4" value="Yes"<?php if(data_ref('sp-extra-4') == 'Yes')echo ' checked';?>>対応
-                                <input type="checkbox" name="sp-extra-4" value="Unknown"<?php if(data_ref('sp-extra-37') == 'Unknown')echo ' checked';?>>不明
+                                <input type="checkbox" name="sp-extra-4" value="Yes"<?php if(data_ref('sp-extra-4') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-4n'><label for="sp-extra-4n" class="checkbox02">対応</label>
+                                <input type="checkbox" name="sp-extra-4" value="Unknown"<?php if(data_ref('sp-extra-4') == 'Unknown')echo ' checked';?> class='cb1' id='sp-extra-4u'><label for="sp-extra-4u" class="checkbox02">不明</label>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info91".$info2;?>通話用スピーカー(Loudspeaker)</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-37" value="Yes"<?php if(data_ref('sp-extra-37') == 'Yes')echo ' checked';?>>対応
-                                <input type="checkbox" name="sp-extra-37" value="Unknown"<?php if(data_ref('sp-extra-37') == 'Unknown')echo ' checked';?>>不明
+                                <input type="checkbox" name="sp-extra-37" value="Yes"<?php if(data_ref('sp-extra-37') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-37n'><label for="sp-extra-37n" class="checkbox02">対応</label>
+                                <input type="checkbox" name="sp-extra-37" value="Unknown"<?php if(data_ref('sp-extra-37') == 'Unknown')echo ' checked';?> class='cb1' id='sp-extra-37u'><label for="sp-extra-37u" class="checkbox02">不明</label>
                             </td>
                         </tr>
                         <tr>
@@ -3817,17 +3850,17 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info104".$info2;?>Wi-Fi</th>
                             <td>
-                                <input type="checkbox" name="sp-network-0" value="Yes"<?php if(data_ref('sp-network-0') == 'Yes')echo ' checked';?>>Wi-Fi対応
-                                <input type="checkbox" name="sp-network-0" value="Unknown"<?php if(data_ref('sp-network-0') == 'Unknown')echo ' checked';?>>Wi-Fi不明
-                                <br>
+                                <?php gen_ckbox('sp-network-0','Yes','Wi-Fi対応','w1p2','sp-network-0y');?>
+                                <?php gen_ckbox('sp-network-0','Unknown','Wi-Fi不明','w1p2','sp-network-0u');?>
                                 <?php
                                     $input_checks = explode(':','sp-network-10,a:sp-network-11,b:sp-network-12,g:sp-network-13,n:sp-network-14,ac:sp-network-15,ax:sp-network-16,6e');
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1];
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?><br>
                                 <?php
@@ -3835,9 +3868,10 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?>
                             </td>
@@ -3846,8 +3880,8 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             <th><?php echo $info1.".info105".$info2;?>ポート情報</th>
                             <td>
                                 ポート形状<br>
-                                <input type="checkbox" name="sp-extra-62" value="Yes"<?php if(data_ref('sp-extra-62') == 'Yes')echo ' checked';?>>USB Type-C
-                                <input type="checkbox" name="sp-extra-63" value="Yes"<?php if(data_ref('sp-extra-63') == 'Yes')echo ' checked';?>>USB Micro-b<br>
+                                <?php gen_ckbox('sp-extra-62','Yes','USB Type-C','w1p2','sp-extra-62');?>
+                                <?php gen_ckbox('sp-extra-63','Yes','USB Micro-b','w1p2','sp-extra-63');?>
                                 ポート補足情報[mini hdmiがあるとかそういうやつ]
                                 <input type='text' name='' value="<?php echo data_ref('');?>"><br>
                                 <?php
@@ -3855,9 +3889,10 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1];
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?>
                             </td>
@@ -3865,25 +3900,25 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info106".$info2;?>USB On-The-Go</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-74" value="Yes"<?php if(data_ref('sp-extra-74') == 'Yes')echo ' checked';?>>対応
+                                <?php gen_ckbox('sp-extra-74','Yes','対応','','sp-extra-74');?>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info107".$info2;?>bluetooth</th>
                             <td>
-                                <input type="checkbox" name="sp-network-1" value="Yes"<?php if(data_ref('sp-network-1') == 'Yes')echo ' checked';?>>bluetooth対応
-                                <input type="checkbox" name="sp-network-1" value="Unknown"<?php if(data_ref('sp-network-1') == 'Unknown')echo ' checked';?>>bluetooth不明
-                                <br>
-                                bluetooth ver<br>
+                                <?php gen_ckbox('sp-network-1','Yes','bluetooth対応','w1p2','sp-network-1y');?>
+                                <?php gen_ckbox('sp-network-1','Unknown','bluetooth不明','w1p2','sp-network-1u');?>
+                                <h2>bluetooth ver</h2>
                                 <input type='text' name='sp-network-2' value="<?php echo data_ref('sp-network-2');?>"><br>
                                 <?php
                                     $input_checks = explode(':','sp-network-19,bluetooth-A2DP:sp-network-20,bluetooth-LE:sp-network-21,bluetooth-aptX HD:sp-network-22,bluetooth-aptX Adaptive');
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?>
                             </td>
@@ -3891,41 +3926,40 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info108".$info2;?>NFC</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-0" value="Yes"<?php if(data_ref('sp-extra-0') == 'Yes')echo ' checked';?>>対応
-                                <input type="checkbox" name="sp-extra-0" value="Unknown"<?php if(data_ref('sp-extra-0') == 'Unknown')echo ' checked';?>>不明
+                                <?php gen_ckbox('sp-extra-0','Yes','対応','w1p2','sp-extra-9y');?>
+                                <?php gen_ckbox('sp-extra-0','Unknowm','不明','w1p2','sp-extra-9u');?>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info109".$info2;?>赤外線ポート[Infrared port]</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-9" value="Yes"<?php if(data_ref('sp-extra-9') == 'Yes')echo ' checked';?>>対応
+                                <?php gen_ckbox('sp-extra-9','Yes','対応','','sp-extra-9');?>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info110".$info2;?>ラジオ</th>
                             <td>
-                                <input type="checkbox" name="sp-network-26" value="Yes"<?php if(data_ref('sp-network-26') == 'Yes')echo ' checked';?>>ラジオ対応
-                                <input type="checkbox" name="sp-network-26" value="Unknown"<?php if(data_ref('sp-network-26') == 'Unknown')echo ' checked';?>>ラジオ不明
-                                <input type="checkbox" name="sp-network-27" value="Yes"<?php if(data_ref('sp-network-27') == 'Yes')echo ' checked';?>>FM radio対応<br>
-                                ラジオ説明<br>
+                                <?php gen_ckbox('sp-network-26','Yes','ラジオ対応','w1p2','sp-network-26y');?>
+                                <?php gen_ckbox('sp-network-26','Unknown','ラジオ不明','w1p2','sp-network-26u');?>
+                                <?php gen_ckbox('sp-network-27','Yes','FM radio対応','w1p2','sp-network-27');?>
+                                <h3>ラジオ説明</h3>
                                 <input type='text' name='sp-network-28' value="<?php echo data_ref('sp-network-28');?>">
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info111".$info2;?>GPS</th>
                             <td>
-                                <input type="checkbox" name="sp-network-29" value="Yes"<?php if(data_ref('sp-network-29') == 'Yes')echo ' checked';?>>GPS対応
-                                <input type="checkbox" name="sp-network-29" value="Unknown"<?php if(data_ref('sp-network-29') == 'Unknown')echo ' checked';?>>GPS不明
+                                <?php gen_ckbox('sp-network-29','Yes','GPS対応','w1p2','sp-network-29y');?>
+                                <?php gen_ckbox('sp-network-29','Unknown','GPS不明','w1p2','sp-network-29u');?>
                                 <br>
-                                ・GPS機能<br>
+                                <h2>GPS機能</h2>
                                 <?php
                                     $input_checks = explode(':','sp-network-37,dual-band A-GPS:sp-network-30,GPS-A-GPS:sp-network-31,GPS-GLONASS:sp-network-32,GPS-BDS:sp-network-33,GPS-BDS (tri-band):sp-network-34,GPS-GALILEO:sp-network-35,GPS-QZSS:sp-network-36,GPS-NavIC');
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        gen_ckbox($input_check[0],'Yes',$input_check[1],'',$input_check[0]);
+                                        echo '<br>';
                                     }
                                 ?>
                             </td>
@@ -4029,9 +4063,8 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        gen_ckbox($input_check[0],'Yes',$input_check[1],'',$input_check[0]);
+                                        echo '<br>';
                                     }
                                 ?>
                             </td>
@@ -4044,9 +4077,8 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        gen_ckbox($input_check[0],'Yes',$input_check[1],'',$input_check[0]);
+                                        echo '<br>';
                                     }
                                 ?>
                             </td>
@@ -4170,8 +4202,8 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info117".$info2;?>バッテリー取り外し可能</th>
                             <td>
-                                <input type="checkbox" name="sp-battery-9" value="Yes"<?php if(data_ref('sp-battery-9') == 'Yes')echo ' checked';?>>可能
-                                <input type="checkbox" name="sp-battery-9" value="No"<?php if(data_ref('sp-battery-9') == 'No')echo ' checked';?>>不可能
+                                <?php gen_ckbox('sp-battery-9','Yes','可能','w1p2','sp-battery-9y');?>
+                                <?php gen_ckbox('sp-battery-9','No','不可能','w1p2','sp-battery-9n');?>
                             </td>
                         </tr>
                         <tr>
@@ -4185,7 +4217,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info119".$info2;?>ワイヤレス充電</th>
                             <td>
-                                <input type="checkbox" name="sp-battery-5" value="Yes"<?php if(data_ref('sp-battery-5') == 'Yes')echo ' checked';?>>対応
+                                <?php gen_ckbox('sp-battery-5','Yes','対応','','sp-battery-5');?>
                             </td>
                         </tr>
                         <tr>
@@ -4197,7 +4229,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info121".$info2;?>ワイヤレス逆充電</th>
                             <td>
-                                <input type="checkbox" name="sp-battery-20" value="Yes"<?php if(data_ref('sp-battery-20') == 'Yes')echo ' checked';?>>対応
+                                <?php gen_ckbox('sp-battery-20','Yes','対応','','sp-battery-20');?>
                             </td>
                         </tr>
                         <tr>
@@ -4221,7 +4253,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info125".$info2;?>リチウムイオン電池</th>
                             <td>
-                                <input type="checkbox" name="sp-battery-17" value="Yes"<?php if(data_ref('sp-battery-17') == 'Yes')echo ' checked';?>>バッテリーがリチウムイオン電池の場合チェック
+                                <?php gen_ckbox('sp-battery-17','Yes','バッテリーがリチウムイオン電池の場合チェック','','sp-battery-17');?>
                             </td>
                         </tr>
                         <tr>
@@ -4233,21 +4265,21 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info127".$info2;?>充電規格</th>
                             <td>
-                                <input type="checkbox" name="sp-battery-26" value="Yes"<?php if(data_ref('sp-battery-26') == 'Yes')echo ' checked';?>>Power Delivery 3.0
-                                <input type="checkbox" name="sp-battery-29" value="Yes"<?php if(data_ref('sp-battery-29') == 'Yes')echo ' checked';?>>QuickCharge 4+
-                                <input type="checkbox" name="sp-battery-30" value="Yes"<?php if(data_ref('sp-battery-30') == 'Yes')echo ' checked';?>>QuickCharge 4
-                                <input type="checkbox" name="sp-battery-31" value="Yes"<?php if(data_ref('sp-battery-31') == 'Yes')echo ' checked';?>>Quick Charge 3+
-                                <input type="checkbox" name="sp-battery-32" value="Yes"<?php if(data_ref('sp-battery-32') == 'Yes')echo ' checked';?>>Quick Charge 3
-                                <input type="checkbox" name="sp-battery-33" value="Yes"<?php if(data_ref('sp-battery-33') == 'Yes')echo ' checked';?>>Quick Charge 2+
-                                <input type="checkbox" name="sp-battery-34" value="Yes"<?php if(data_ref('sp-battery-34') == 'Yes')echo ' checked';?>>Quick Charge 2
-                                <input type="checkbox" name="sp-battery-36" value="Yes"<?php if(data_ref('sp-battery-36') == 'Yes')echo ' checked';?>>Pump Express+ 2.0
-                                <input type="checkbox" name="sp-battery-37" value="Yes"<?php if(data_ref('sp-battery-37') == 'Yes')echo ' checked';?>>PumpExpress 3.0
-                                <input type="checkbox" name="sp-battery-39" value="Yes"<?php if(data_ref('sp-battery-39') == 'Yes')echo ' checked';?>>VOOC Flash charge
-                                <input type="checkbox" name="sp-battery-40" value="Yes"<?php if(data_ref('sp-battery-40') == 'Yes')echo ' checked';?>>Dual-Engine Fast Charge
-                                <input type="checkbox" name="sp-battery-41" value="Yes"<?php if(data_ref('sp-battery-41') == 'Yes')echo ' checked';?>>Super VOOC Flash charge
-                                <input type="checkbox" name="sp-battery-42" value="Yes"<?php if(data_ref('sp-battery-42') == 'Yes')echo ' checked';?>>Dash charge
-                                <input type="checkbox" name="sp-battery-43" value="Yes"<?php if(data_ref('sp-battery-43') == 'Yes')echo ' checked';?>>SuperCharge
-                                <input type="checkbox" name="sp-battery-44" value="Yes"<?php if(data_ref('sp-battery-44') == 'Yes')echo ' checked';?>>mCharge
+                                <input type="checkbox" name="sp-battery-26" class="cb1" id="sp-battery-26" value="Yes"<?php if(data_ref('sp-battery-26') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-26">Power Delivery 3.0</label>
+                                <input type="checkbox" name="sp-battery-29" class="cb1" id="sp-battery-29" value="Yes"<?php if(data_ref('sp-battery-29') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-29">QuickCharge 4+</label>
+                                <input type="checkbox" name="sp-battery-30" class="cb1" id="sp-battery-30" value="Yes"<?php if(data_ref('sp-battery-30') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-30">QuickCharge 4</label>
+                                <input type="checkbox" name="sp-battery-31" class="cb1" id="sp-battery-31" value="Yes"<?php if(data_ref('sp-battery-31') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-31">Quick Charge 3+</label>
+                                <input type="checkbox" name="sp-battery-32" class="cb1" id="sp-battery-32" value="Yes"<?php if(data_ref('sp-battery-32') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-32">Quick Charge 3</label>
+                                <input type="checkbox" name="sp-battery-33" class="cb1" id="sp-battery-33" value="Yes"<?php if(data_ref('sp-battery-33') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-33">Quick Charge 2+</label>
+                                <input type="checkbox" name="sp-battery-34" class="cb1" id="sp-battery-34" value="Yes"<?php if(data_ref('sp-battery-34') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-34">Quick Charge 2</label>
+                                <input type="checkbox" name="sp-battery-36" class="cb1" id="sp-battery-36" value="Yes"<?php if(data_ref('sp-battery-36') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-36">Pump Express+ 2.0</label>
+                                <input type="checkbox" name="sp-battery-37" class="cb1" id="sp-battery-37" value="Yes"<?php if(data_ref('sp-battery-37') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-37">PumpExpress 3.0</label>
+                                <input type="checkbox" name="sp-battery-39" class="cb1" id="sp-battery-39" value="Yes"<?php if(data_ref('sp-battery-39') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-39">VOOC Flash charge</label>
+                                <input type="checkbox" name="sp-battery-40" class="cb1" id="sp-battery-40" value="Yes"<?php if(data_ref('sp-battery-40') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-40">Dual-Engine Fast Charge</label>
+                                <input type="checkbox" name="sp-battery-41" class="cb1" id="sp-battery-41" value="Yes"<?php if(data_ref('sp-battery-41') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-41">Super VOOC Flash charge</label>
+                                <input type="checkbox" name="sp-battery-42" class="cb1" id="sp-battery-42" value="Yes"<?php if(data_ref('sp-battery-42') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-42">Dash charge</label>
+                                <input type="checkbox" name="sp-battery-43" class="cb1" id="sp-battery-43" value="Yes"<?php if(data_ref('sp-battery-43') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-43">SuperCharge</label>
+                                <input type="checkbox" name="sp-battery-44" class="cb1" id="sp-battery-44" value="Yes"<?php if(data_ref('sp-battery-44') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-44">mCharge</label>
                             </td>
                         </tr>
 
@@ -4363,14 +4395,14 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <input type='text' name='sp-launch-17' value="<?php echo data_ref('sp-launch-17');?>" size='full'>
                                 現地価格 このモデルの価格、単位ナシ
                                 <input type='text' name='sp-launch-20' value="<?php echo data_ref('sp-launch-20');?>" size='full'>
-                                単位
-                                <input type="checkbox" name="sp-launch-21" value="Yes"<?php if(data_ref('sp-launch-21') == 'Yes')echo ' checked';?>>USD$
-                                <input type="checkbox" name="sp-launch-22" value="Yes"<?php if(data_ref('sp-launch-22') == 'Yes')echo ' checked';?>>ユーロ€
-                                <input type="checkbox" name="sp-launch-23" value="Yes"<?php if(data_ref('sp-launch-23') == 'Yes')echo ' checked';?>>ポンド£
-                                <input type="checkbox" name="sp-launch-24" value="Yes"<?php if(data_ref('sp-launch-24') == 'Yes')echo ' checked';?>>円¥
-                                <input type="checkbox" name="sp-launch-25" value="Yes"<?php if(data_ref('sp-launch-25') == 'Yes')echo ' checked';?>>香港ドル
-                                <input type="checkbox" name="sp-launch-26" value="Yes"<?php if(data_ref('sp-launch-26') == 'Yes')echo ' checked';?>>中国元
-                                <input type="checkbox" name="sp-launch-27" value="Yes"<?php if(data_ref('sp-launch-27') == 'Yes')echo ' checked';?>>ルピー₹<br>
+                                単位<br>
+                                <input type="checkbox" name="sp-launch-21" class="cb1" id="sp-launch-21" value="Yes"<?php if(data_ref('sp-launch-21') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-launch-21">USD$</label>
+                                <input type="checkbox" name="sp-launch-22" class="cb1" id="sp-launch-22" value="Yes"<?php if(data_ref('sp-launch-22') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-launch-22">ユーロ€</label>
+                                <input type="checkbox" name="sp-launch-23" class="cb1" id="sp-launch-23" value="Yes"<?php if(data_ref('sp-launch-23') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-launch-23">ポンド£</label>
+                                <input type="checkbox" name="sp-launch-24" class="cb1" id="sp-launch-24" value="Yes"<?php if(data_ref('sp-launch-24') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-launch-24">円¥</label>
+                                <input type="checkbox" name="sp-launch-25" class="cb1" id="sp-launch-25" value="Yes"<?php if(data_ref('sp-launch-25') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-launch-25">香港ドル</label>
+                                <input type="checkbox" name="sp-launch-26" class="cb1" id="sp-launch-26" value="Yes"<?php if(data_ref('sp-launch-26') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-launch-26">中国元</label>
+                                <input type="checkbox" name="sp-launch-27" class="cb1" id="sp-launch-27" value="Yes"<?php if(data_ref('sp-launch-27') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-launch-27">ルピー₹</label><br>
                                 価格テキスト[$ 719.99 / £ 623.44みたいな感じに]
                                 <input type='text' name='sp-launch-19' value="<?php echo data_ref('sp-launch-19');?>" size='full'>
                             </td>
