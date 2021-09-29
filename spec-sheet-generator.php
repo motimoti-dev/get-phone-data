@@ -1044,134 +1044,142 @@
                         <tr>
                             <th><?php echo $info1.".info10".$info2;?>バンド</th>
                             <td>
-                                <?php echo $info1.".info10a".$info2;?>・表示される5G<br><br>
-                                <input type='text' name='sp-band-7' value="<?php echo data_ref('sp-band-7');?>" size="full"><br><br>
+                            <input type="checkbox" name="sp-launch-40-4" value="Yes" class="cb1" id="sl404">
+                                <div style='background:#88EAB7;'>
+                                    <?php echo $info1.".info10a".$info2;?>・表示される5G<br><br>
+                                    <input type='text' name='sp-band-7' value="<?php echo data_ref('sp-band-7');?>" size="full"><br><br>
 
-                                <?php echo $info1.".info11".$info2;?>・5G各バンド<br><br>
-                                <?php 
-                                $b5gs = [ 
-                                    ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
-                                    ['sp-band-5g-n5',5],['sp-band-5g-n7',7],['sp-band-5g-n8',8],
-                                    ['sp-band-5g-n12',12],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
-                                    ['sp-band-5g-n20',20],['sp-band-5g-n25',25],['sp-band-5g-n28',28],
-                                    ['sp-band-5g-n29',29],['sp-band-5g-n30',30],['sp-band-5g-n34',34],
-                                    ['sp-band-5g-n38',38],['sp-band-5g-n39',39],['sp-band-5g-n40',40],
-                                    ['sp-band-5g-n41',41],['sp-band-5g-n48',48],['sp-band-5g-n50',50],
-                                    ['sp-band-5g-n51',51],['sp-band-5g-n65',65],['sp-band-5g-n66',66],
-                                    ['sp-band-5g-n70',70],['sp-band-5g-n71',71],['sp-band-5g-n74',74],
-                                    ['sp-band-5g-n75',75],['sp-band-5g-n76',76],['sp-band-5g-n77',77],
-                                    ['sp-band-5g-n78',78],['sp-band-5g-n79',79],['sp-band-5g-n80',80],
-                                    ['sp-band-5g-n81',81],['sp-band-5g-n82',82],['sp-band-5g-n83',83],
-                                    ['sp-band-5g-n84',84],['sp-band-5g-n86',86],['sp-band-5g-n89',89],
-                                    ['sp-band-5g-n90',90],['sp-band-5g-n257',257],['sp-band-5g-n258',258],
-                                    ['sp-band-5g-n260',260],['sp-band-5g-n261',261]
-                                ];
-                                $out_txt = '';
-                                foreach($b5gs as $b5g){
-                                    if(data_ref($b5g[0]) == 'Yes'){
-                                        echo '<input type="checkbox" name="'.$b5g[0].'" value="Yes" checked>'.$b5g[1];
-                                        $out_txt .= $b5g[1].', ';
-                                    }else{
-                                        echo '<input type="checkbox" name="'.$b5g[0].'" value="Yes">'.$b5g[1];
+                                    <?php echo $info1.".info11".$info2;?>・5G各バンド<br><br>
+                                    <?php //echo '<label class="checkbox02 w1p5" for="'.$b5g[0].'"><input type="checkbox" name="'.$b5g[0].'" class="cb1" id="'.$b5g[0].'" value="Yes" checked>'.$b5g[1].'</label>';
+                                    $b5gs = [ 
+                                        ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
+                                        ['sp-band-5g-n5',5],['sp-band-5g-n7',7],['sp-band-5g-n8',8],
+                                        ['sp-band-5g-n12',12],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
+                                        ['sp-band-5g-n20',20],['sp-band-5g-n25',25],['sp-band-5g-n28',28],
+                                        ['sp-band-5g-n29',29],['sp-band-5g-n30',30],['sp-band-5g-n34',34],
+                                        ['sp-band-5g-n38',38],['sp-band-5g-n39',39],['sp-band-5g-n40',40],
+                                        ['sp-band-5g-n41',41],['sp-band-5g-n48',48],['sp-band-5g-n50',50],
+                                        ['sp-band-5g-n51',51],['sp-band-5g-n65',65],['sp-band-5g-n66',66],
+                                        ['sp-band-5g-n70',70],['sp-band-5g-n71',71],['sp-band-5g-n74',74],
+                                        ['sp-band-5g-n75',75],['sp-band-5g-n76',76],['sp-band-5g-n77',77],
+                                        ['sp-band-5g-n78',78],['sp-band-5g-n79',79],['sp-band-5g-n80',80],
+                                        ['sp-band-5g-n81',81],['sp-band-5g-n82',82],['sp-band-5g-n83',83],
+                                        ['sp-band-5g-n84',84],['sp-band-5g-n86',86],['sp-band-5g-n89',89],
+                                        ['sp-band-5g-n90',90],['sp-band-5g-n257',257],['sp-band-5g-n258',258],
+                                        ['sp-band-5g-n260',260],['sp-band-5g-n261',261]
+                                    ];
+                                    $out_txt = '';
+                                    foreach($b5gs as $b5g){
+                                        if(data_ref($b5g[0]) == 'Yes'){
+                                            echo '<input type="checkbox" name="'.$b5g[0].'" class="cb1" id="5gband'.$b5g[0].'" value="Yes" checked><label class="checkbox02 w1p5" for="5gband'.$b5g[0].'">'.$b5g[1].'</label>';
+                                            $out_txt .= $b5g[1].', ';
+                                        }else{
+                                            echo '<input type="checkbox" name="'.$b5g[0].'" class="cb1" id="5gband'.$b5g[0].'" value="Yes"><label class="checkbox02 w1p5" for="5gband'.$b5g[0].'">'.$b5g[1].'</label>';
+
+                                        }
                                     }
-                                }
-                                echo '<br><br>'.$out_txt;
-                                ?><br><br>
-                                <?php echo $info1.".info12".$info2;?>・表示される4G<br><br>
-                                <input type='text' name='sp-band-6' value="<?php echo data_ref('sp-band-6');?>" size="full">
-                                <?php echo $info1.".info13".$info2;?>・4G各バンド<br><br>
-                                <?php
-                                $b4gs = [
-                                    ['sp-band-4g-1',1],['sp-band-4g-2',2],['sp-band-4g-3',3],
-                                    ['sp-band-4g-4',4],['sp-band-4g-5',5],['sp-band-4g-6',6],
-                                    ['sp-band-4g-7',7],['sp-band-4g-8',8],['sp-band-4g-10',10],
-                                    ['sp-band-4g-11',11],['sp-band-4g-12',12],['sp-band-4g-13',13],
-                                    ['sp-band-4g-14',14],['sp-band-4g-17',17],['sp-band-4g-18',18],
-                                    ['sp-band-4g-19',19],['sp-band-4g-20',20],['sp-band-4g-21',21],
-                                    ['sp-band-4g-22',22],['sp-band-4g-23',23],['sp-band-4g-24',24],
-                                    ['sp-band-4g-25',25],['sp-band-4g-26',26],['sp-band-4g-27',27],
-                                    ['sp-band-4g-28',28],['sp-band-4g-29',29],['sp-band-4g-30',30],
-                                    ['sp-band-4g-31',31],['sp-band-4g-32',32],['sp-band-4g-33',33],
-                                    ['sp-band-4g-34',34],['sp-band-4g-35',35],['sp-band-4g-36',36],
-                                    ['sp-band-4g-37',37],['sp-band-4g-38',38],['sp-band-4g-39',39],
-                                    ['sp-band-4g-40',40],['sp-band-4g-41',41],['sp-band-4g-42',42],
-                                    ['sp-band-4g-43',43],['sp-band-4g-44',44],['sp-band-4g-45',45],
-                                    ['sp-band-4g-46',46],['sp-band-4g-47',47],['sp-band-4g-48',48],
-                                    ['sp-band-4g-49',49],['sp-band-4g-50',50],['sp-band-4g-51',51],
-                                    ['sp-band-4g-52',52],['sp-band-4g-65',65],['sp-band-4g-66',66],
-                                    ['sp-band-4g-67',67],['sp-band-4g-68',68],['sp-band-4g-69',69],
-                                    ['sp-band-4g-70',70],['sp-band-4g-71',71],['sp-band-4g-72',72],
-                                    ['sp-band-4g-73',73],['sp-band-4g-74',74],['sp-band-4g-75',75],
-                                    ['sp-band-4g-76',76],['sp-band-4g-85',85],['sp-band-4g-252',252],
-                                    ['sp-band-4g-255',255]
-                                ];
-                                $out_txt = '';
-                                foreach($b4gs as $bg){
-                                    if(data_ref($bg[0]) == 'Yes'){
-                                        echo '<input type="checkbox" name="'.$bg[0].'" value="Yes" checked>'.$bg[1];
-                                        $out_txt .= $bg[1].', ';
-                                    }else{
-                                        echo '<input type="checkbox" name="'.$bg[0].'" value="Yes">'.$bg[1];
+                                    //echo '<br><br>';.$out_txt
+                                    ?><br>
+                                </div>
+                                <div style='background:white;'>
+                                    <?php echo $info1.".info12".$info2;?>・表示される4G<br><br>
+                                    <input type='text' name='sp-band-6' value="<?php echo data_ref('sp-band-6');?>" size="full">
+                                    <?php echo $info1.".info13".$info2;?>・4G各バンド<br><br>
+                                    <?php
+                                    $b4gs = [
+                                        ['sp-band-4g-1',1],['sp-band-4g-2',2],['sp-band-4g-3',3],
+                                        ['sp-band-4g-4',4],['sp-band-4g-5',5],['sp-band-4g-6',6],
+                                        ['sp-band-4g-7',7],['sp-band-4g-8',8],['sp-band-4g-10',10],
+                                        ['sp-band-4g-11',11],['sp-band-4g-12',12],['sp-band-4g-13',13],
+                                        ['sp-band-4g-14',14],['sp-band-4g-17',17],['sp-band-4g-18',18],
+                                        ['sp-band-4g-19',19],['sp-band-4g-20',20],['sp-band-4g-21',21],
+                                        ['sp-band-4g-22',22],['sp-band-4g-23',23],['sp-band-4g-24',24],
+                                        ['sp-band-4g-25',25],['sp-band-4g-26',26],['sp-band-4g-27',27],
+                                        ['sp-band-4g-28',28],['sp-band-4g-29',29],['sp-band-4g-30',30],
+                                        ['sp-band-4g-31',31],['sp-band-4g-32',32],['sp-band-4g-33',33],
+                                        ['sp-band-4g-34',34],['sp-band-4g-35',35],['sp-band-4g-36',36],
+                                        ['sp-band-4g-37',37],['sp-band-4g-38',38],['sp-band-4g-39',39],
+                                        ['sp-band-4g-40',40],['sp-band-4g-41',41],['sp-band-4g-42',42],
+                                        ['sp-band-4g-43',43],['sp-band-4g-44',44],['sp-band-4g-45',45],
+                                        ['sp-band-4g-46',46],['sp-band-4g-47',47],['sp-band-4g-48',48],
+                                        ['sp-band-4g-49',49],['sp-band-4g-50',50],['sp-band-4g-51',51],
+                                        ['sp-band-4g-52',52],['sp-band-4g-65',65],['sp-band-4g-66',66],
+                                        ['sp-band-4g-67',67],['sp-band-4g-68',68],['sp-band-4g-69',69],
+                                        ['sp-band-4g-70',70],['sp-band-4g-71',71],['sp-band-4g-72',72],
+                                        ['sp-band-4g-73',73],['sp-band-4g-74',74],['sp-band-4g-75',75],
+                                        ['sp-band-4g-76',76],['sp-band-4g-85',85],['sp-band-4g-252',252],
+                                        ['sp-band-4g-255',255]
+                                    ];
+                                    $out_txt = '';
+                                    foreach($b4gs as $bg){
+                                        if(data_ref($bg[0]) == 'Yes'){
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="4gband'.$bg[0].'" value="Yes" checked><label class="checkbox02 w1p5" for="4gband'.$bg[0].'">'.$bg[1].'</label>';
+                                            $out_txt .= $bg[1].', ';
+                                        }else{
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="4gband'.$bg[0].'" value="Yes"><label class="checkbox02 w1p5" for="4gband'.$bg[0].'">'.$bg[1].'</label>';
+                                        }
                                     }
-                                }
-                                echo '<br><br>'.$out_txt;
-                                ?><br><br>
-                                <?php echo $info1.".info14".$info2;?>・表示される3G<br><br>
-                                <input type='text' name='sp-band-5' value="<?php echo data_ref('sp-band-5');?>" size="full">
-                                <?php echo $info1.".info15".$info2;?>・3G各バンド<br><br>
-                                <?php
-                                $b3gs = [
-                                    ["sp-band-3g-hsdpa-800",["HSDPA",800]],
-                                    ["sp-band-3g-hsdpa-850",["HSDPA",850]],
-                                    ["sp-band-3g-hsdpa-900",["HSDPA",900]],
-                                    ["sp-band-3g-hsdpa-1000",["HSDPA",1000]],
-                                    ["sp-band-3g-hsdpa-1700",["HSDPA",1700]],
-                                    ["sp-band-3g-hsdpa-1700-aws",["HSDPA",'1700(AWS)']],
-                                    ["sp-band-3g-hsdpa-1500",["HSDPA",1500]],
-                                    ["sp-band-3g-hsdpa-1900",["HSDPA",1900]],
-                                    ["sp-band-3g-hsdpa-2100",["HSDPA",2100]],
-                                    ["sp-band-3g-cdma2000-1xev-do",["CDMA2000",'1xEV-DO']],
-                                ];
-                                $out_txt = '';
-                                foreach($b3gs as $bg){
-                                    if(data_ref($bg[0]) == 'Yes'){
-                                        echo '<input type="checkbox" name="'.$bg[0].'" value="Yes" checked>'.$bg[1][0].':'.$bg[1][1];
-                                        $out_txt .= $bg[1][0].':'.$bg[1][1].', ';
-                                    }else{
-                                        echo '<input type="checkbox" name="'.$bg[0].'" value="Yes">'.$bg[1][0].':'.$bg[1][1];
+                                    //echo '<br><br>';.$out_txt
+                                    ?><br>
+                                </div>
+                                <div style='background:#92E8C2;'>
+                                    <?php echo $info1.".info14".$info2;?>・表示される3G<br><br>
+                                    <input type='text' name='sp-band-5' value="<?php echo data_ref('sp-band-5');?>" size="full">
+                                    <?php echo $info1.".info15".$info2;?>・3G各バンド<br><br>
+                                    <?php
+                                    $b3gs = [
+                                        ["sp-band-3g-hsdpa-800",["HSDPA",800]],
+                                        ["sp-band-3g-hsdpa-850",["HSDPA",850]],
+                                        ["sp-band-3g-hsdpa-900",["HSDPA",900]],
+                                        ["sp-band-3g-hsdpa-1000",["HSDPA",1000]],
+                                        ["sp-band-3g-hsdpa-1700",["HSDPA",1700]],
+                                        ["sp-band-3g-hsdpa-1700-aws",["HSDPA",'1700(AWS)']],
+                                        ["sp-band-3g-hsdpa-1500",["HSDPA",1500]],
+                                        ["sp-band-3g-hsdpa-1900",["HSDPA",1900]],
+                                        ["sp-band-3g-hsdpa-2100",["HSDPA",2100]],
+                                        ["sp-band-3g-cdma2000-1xev-do",["CDMA2000",'1xEV-DO']],
+                                    ];
+                                    $out_txt = '';
+                                    foreach($b3gs as $bg){
+                                        if(data_ref($bg[0]) == 'Yes'){
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="3gband'.$bg[0].'" value="Yes" checked><label class="checkbox02" for="3gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                            $out_txt .= $bg[1][0].':'.$bg[1][1].', ';
+                                        }else{
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="3gband'.$bg[0].'" value="Yes"><label class="checkbox02" for="3gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                        }
                                     }
-                                }
-                                echo '<br><br>'.$out_txt;
-                                ?><br><br>
-                                <?php echo $info1.".info16".$info2;?>・表示される2G<br><br>
-                                <input type='text' name='sp-band-4' value="<?php echo data_ref('sp-band-4');?>" size="full">
-                                <?php echo $info1.".info17".$info2;?>・2G各バンド<br><br>
-                                <?php
-                                $b2gs = [
-                                    ["sp-band-2g-gsm-400",["GSM",400]],
-                                    ["sp-band-2g-gsm-700",["GSM",700]],
-                                    ["sp-band-2g-gsm-800",["GSM",800]],
-                                    ["sp-band-2g-gsm-850",["GSM",850]],
-                                    ["sp-band-2g-gsm-900",["GSM",900]],
-                                    ["sp-band-2g-gsm-1700",["GSM",1700]],
-                                    ["sp-band-2g-gsm-1800",["GSM",1800]],
-                                    ["sp-band-2g-gsm-1900",["GSM",1900]],
-                                    ["sp-band-2g-gsm-2000",["GSM",2000]],
-                                    ["sp-band-2g-cdma-800",["CDMA",800]],
-                                    ["sp-band-2g-cdma-2000",["CDMA",2000]],
-                                    ["sp-band-2g-TD-SCDMA",["TD SCDMA",0]],
-                                ];
-                                $out_txt = '';
-                                foreach($b2gs as $bg){
-                                    if(data_ref($bg[0]) == 'Yes'){
-                                        echo '<input type="checkbox" name="'.$bg[0].'" value="Yes" checked>'.$bg[1][0].':'.$bg[1][1];
-                                        $out_txt .= $bg[1][0].':'.$bg[1][1].', ';
-                                    }else{
-                                        echo '<input type="checkbox" name="'.$bg[0].'" value="Yes">'.$bg[1][0].':'.$bg[1][1];
-                                    }
-                                }
-                                echo '<br><br>'.$out_txt;
-                                ?><br><br>
+                                    //echo '<br><br>';.$out_txt
+                                    ?><br>
+                                </div>
+                                <div style='background:white;'>
+                                    <?php echo $info1.".info16".$info2;?>・表示される2G<br><br>
+                                    <input type='text' name='sp-band-4' value="<?php echo data_ref('sp-band-4');?>" size="full">
+                                    <?php echo $info1.".info17".$info2;?>・2G各バンド<br><br>
+                                    <?php
+                                    $b2gs = [
+                                        ["sp-band-2g-gsm-400",["GSM",400]],
+                                        ["sp-band-2g-gsm-700",["GSM",700]],
+                                        ["sp-band-2g-gsm-800",["GSM",800]],
+                                        ["sp-band-2g-gsm-850",["GSM",850]],
+                                        ["sp-band-2g-gsm-900",["GSM",900]],
+                                        ["sp-band-2g-gsm-1700",["GSM",1700]],
+                                        ["sp-band-2g-gsm-1800",["GSM",1800]],
+                                        ["sp-band-2g-gsm-1900",["GSM",1900]],
+                                        ["sp-band-2g-gsm-2000",["GSM",2000]],
+                                        ["sp-band-2g-cdma-800",["CDMA",800]],
+                                        ["sp-band-2g-cdma-2000",["CDMA",2000]],
+                                        ["sp-band-2g-TD-SCDMA",["TD SCDMA",0]],
+                                    ];
+                                    $out_txt = '';
+                                    foreach($b2gs as $bg){
+                                        if(data_ref($bg[0]) == 'Yes'){
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="2gband'.$bg[0].'" value="Yes" checked><label class="checkbox02" for="2gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                            $out_txt .= $bg[1][0].':'.$bg[1][1].', ';
+                                        }else{
+                                            echo '<input type="checkbox" name="'.$bg[0].'" class="cb1" id="2gband'.$bg[0].'" value="Yes"><label class="checkbox02" for="2gband'.$bg[0].'">'.$bg[1][0].':'.$bg[1][1].'</label><br>';
+                                        }
+                                    }?>
+                                </div>
                             </td>
                         </tr>
                     </table>    
@@ -1416,7 +1424,7 @@
                                         $input_check = explode(',',$input_check);
                                         echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
                                         if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo ' class=\'cb1\' id=\''.$input_check[0].'\'><label for="'.$input_check[0].'" class="checkbox02">'.$input_check[1].'</label><br>';
+                                        echo ' class=\'cb1\' id=\''.$input_check[0].'\'><label for="'.$input_check[0].'" class="checkbox02 w1p2">'.$input_check[1].'</label>';
                                     }
                                 ?>
                             </td>
@@ -1460,9 +1468,34 @@
     position: relative;
     width: auto;
 }
+.w1p8{
+    max-width: calc(100%/8);
+    width: calc(100%/8);
+}
+.w1p7{
+    max-width: calc(100%/7.1);
+    width: calc(100%/7.1);
+}
+.w1p6{
+    max-width: calc(100%/6.1);
+    width: calc(100%/6.1);
+}
+.w1p5{
+    max-width: calc(100%/5.1);
+    width: calc(100%/5.1);
+}
+.w1p4{
+    max-width: calc(100%/4.1);
+    width: calc(100%/4.1);
+}
+
 .w1p3{
     max-width: 32%;
     width: 30%;
+}
+.w1p2{
+    max-width: 48%;
+    width: 48%;
 }
 .checkbox02::before {
     background: #fff;
@@ -1727,7 +1760,7 @@ input[type=radio]:checked + .radio02::after {
                     <?php data_viewer();?>
                     <table class='data-table'>
                         <tr>
-                            <th><?php echo $info1.".info31".$info2;?>サイズ(フォルダブルスマホの場合は展開時)</th>
+                            <th><?php echo $info1.".info31".$info2;?>サイズ<br><span style='color:red;'>(フォルダブルスマホの場合は展開時)</span></th>
                             <td>
                                 縦
                                 <input type='text' name='sp-design-0' value="<?php echo data_ref('sp-design-0');?>" size="mini">mm&nbsp;
@@ -1738,7 +1771,7 @@ input[type=radio]:checked + .radio02::after {
                             </td>
                         </tr>
                         <tr>
-                            <th><?php echo $info1.".info31a".$info2;?>折りたたみ時のサイズ(フォルダブルスマホの場合)</th>
+                            <th><?php echo $info1.".info31a".$info2;?>折りたたみ時のサイズ<br><span style='color:red;'>(フォルダブルスマホの場合)</span></th>
                             <td>
                                 <input type="checkbox" name="sp-design-6" value="Yes"<?php if(data_ref('sp-design-6') == 'Yes')echo ' checked';?>>折り畳みができる場合<br>
                                 縦
@@ -1791,7 +1824,8 @@ input[type=radio]:checked + .radio02::after {
                         <tr>
                             <th><?php echo $info1.".info36".$info2;?>Dual stand by</th>
                             <td>
-                                <input type="checkbox" name="sp-network-7" value="Yes"<?php if(data_ref('sp-network-7') == 'Yes')echo ' checked';?>>Dual stand byに対応
+                                <input type="checkbox" name="sp-network-7" class="cb1" id="sp-network-7" value="Yes"<?php if(data_ref('sp-network-7') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02" for="sp-network-7">Dual stand byに対応</label>
                             </td>
                         </tr>
                         <tr>
@@ -1833,11 +1867,16 @@ input[type=radio]:checked + .radio02::after {
                         <tr>
                             <th><?php echo $info1.".info39".$info2;?>その他のやつ</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-28" value="Yes"<?php if(data_ref('sp-extra-28') == 'Yes')echo ' checked';?>>Apple Pay
-                                <input type="checkbox" name="sp-extra-31" value="Yes"<?php if(data_ref('sp-extra-31') == 'Yes')echo ' checked';?>>ポップアップゲーミングボタン
-                                <input type="checkbox" name="sp-extra-32" value="Yes"<?php if(data_ref('sp-extra-32') == 'Yes')echo ' checked';?>>スタイラスペン対応
-                                <input type="checkbox" name="sp-extra-33" value="Yes"<?php if(data_ref('sp-extra-33') == 'Yes')echo ' checked';?>>プロ・ショルダー・トリガー3.0(400Hz)
-                                <input type="checkbox" name="sp-extra-33" value="Yes"<?php if(data_ref('sp-extra-34') == 'Yes')echo ' checked';?>>内蔵冷却ファン
+                                <input type="checkbox" name="sp-extra-28" class="cb1" id="sp-extra-28" value="Yes"<?php if(data_ref('sp-extra-28') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02" for="sp-extra-28">Apple Pay</label><br>
+                                <input type="checkbox" name="sp-extra-31" class="cb1" id="sp-extra-31" value="Yes"<?php if(data_ref('sp-extra-31') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02" for="sp-extra-31">ポップアップゲーミングボタン</label><br>
+                                <input type="checkbox" name="sp-extra-32" class="cb1" id="sp-extra-32" value="Yes"<?php if(data_ref('sp-extra-32') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02" for="sp-extra-32">スタイラスペン対応</label><br>
+                                <input type="checkbox" name="sp-extra-33" class="cb1" id="sp-extra-33" value="Yes"<?php if(data_ref('sp-extra-33') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02" for="sp-extra-33">プロ・ショルダー・トリガー3.0(400Hz)</label><br>
+                                <input type="checkbox" name="sp-extra-33" class="cb1" id="sp-extra-33" value="Yes"<?php if(data_ref('sp-extra-33') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02" for="sp-extra-33">内蔵冷却ファン</label><br>
                             </td>
                         </tr>
                     </table>
@@ -2095,35 +2134,45 @@ input[type=radio]:checked + .radio02::after {
                         <tr>
                             <th><?php echo $info1.".info55".$info2;?>インカメラタイプ</th>
                             <td>
-                                <input type="checkbox" name="sp-screen-29" value="Yes"<?php if(data_ref('sp-screen-29') == 'Yes')echo ' checked';?>>水滴ノッチ
-                                <input type="checkbox" name="sp-screen-30" value="Yes"<?php if(data_ref('sp-screen-30') == 'Yes')echo ' checked';?>>スライドカメラ
-                                <input type="checkbox" name="sp-screen-31" value="Yes"<?php if(data_ref('sp-screen-31') == 'Yes')echo ' checked';?>>フリップカメラ
-                                <input type="checkbox" name="sp-screen-32" value="Yes"<?php if(data_ref('sp-screen-32') == 'Yes')echo ' checked';?>>中央パンチホール
-                                <input type="checkbox" name="sp-screen-33" value="Yes"<?php if(data_ref('sp-screen-33') == 'Yes')echo ' checked';?>>左上パンチホール
-                                <input type="checkbox" name="sp-screen-34" value="Yes"<?php if(data_ref('sp-screen-34') == 'Yes')echo ' checked';?>>右上パンチホール
-                                <input type="checkbox" name="sp-screen-35" value="Yes"<?php if(data_ref('sp-screen-35') == 'Yes')echo ' checked';?>>ディスプレイ下
-                                <input type="checkbox" name="sp-screen-36" value="Yes"<?php if(data_ref('sp-screen-36') == 'Yes')echo ' checked';?>>ベゼル内
-                                <input type="checkbox" name="sp-screen-37" value="Yes"<?php if(data_ref('sp-screen-37') == 'Yes')echo ' checked';?>>カメラなし
-                                <input type="checkbox" name="sp-screen-38" value="Yes"<?php if(data_ref('sp-screen-38') == 'Yes')echo ' checked';?>>ポップアップ
+                                <input type="checkbox" name="sp-screen-29" class="cb1" id="sp-screen-29" value="Yes"<?php if(data_ref('sp-screen-29') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-29">水滴ノッチ</label>
+                                <input type="checkbox" name="sp-screen-30" class="cb1" id="sp-screen-30" value="Yes"<?php if(data_ref('sp-screen-30') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-30">スライドカメラ</label>
+                                <input type="checkbox" name="sp-screen-31" class="cb1" id="sp-screen-31" value="Yes"<?php if(data_ref('sp-screen-31') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-31">フリップカメラ</label>
+                                <input type="checkbox" name="sp-screen-32" class="cb1" id="sp-screen-32" value="Yes"<?php if(data_ref('sp-screen-32') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-32">中央パンチホール</label>
+                                <input type="checkbox" name="sp-screen-33" class="cb1" id="sp-screen-33" value="Yes"<?php if(data_ref('sp-screen-33') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-33">左上パンチホール</label>
+                                <input type="checkbox" name="sp-screen-34" class="cb1" id="sp-screen-34" value="Yes"<?php if(data_ref('sp-screen-34') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-34">右上パンチホール</label>
+                                <input type="checkbox" name="sp-screen-35" class="cb1" id="sp-screen-35" value="Yes"<?php if(data_ref('sp-screen-35') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-35">ディスプレイ下</label>
+                                <input type="checkbox" name="sp-screen-36" class="cb1" id="sp-screen-36" value="Yes"<?php if(data_ref('sp-screen-36') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-36">ベゼル内</label>
+                                <input type="checkbox" name="sp-screen-37" class="cb1" id="sp-screen-37" value="Yes"<?php if(data_ref('sp-screen-37') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-37">カメラなし</label>
+                                <input type="checkbox" name="sp-screen-38" class="cb1" id="sp-screen-38" value="Yes"<?php if(data_ref('sp-screen-38') == 'Yes')echo ' checked';?>>
+                                <label class="checkbox02 w1p2" for="sp-screen-38">ポップアップ</label>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info56".$info2;?>画面タイプ</th>
                             <td>
-                                <input type="checkbox" name="sp-screen-23" value="Yes"<?php if(data_ref('sp-screen-23') == 'Yes')echo ' checked';?>>有機EL
-                                <input type="checkbox" name="sp-screen-24" value="Yes"<?php if(data_ref('sp-screen-24') == 'Yes')echo ' checked';?>>IPS
-                                <input type="checkbox" name="sp-screen-25" value="Yes"<?php if(data_ref('sp-screen-25') == 'Yes')echo ' checked';?>>TFT
-                                <input type="checkbox" name="sp-screen-26" value="Yes"<?php if(data_ref('sp-screen-26') == 'Yes')echo ' checked';?>>TN
+                                <input type="checkbox" name="sp-screen-23" class="cb1" id="sp-screen-23" value="Yes"<?php if(data_ref('sp-screen-23') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p4" for="sp-screen-23">有機EL</label>
+                                <input type="checkbox" name="sp-screen-24" class="cb1" id="sp-screen-24" value="Yes"<?php if(data_ref('sp-screen-24') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p4" for="sp-screen-24">IPS</label>
+                                <input type="checkbox" name="sp-screen-25" class="cb1" id="sp-screen-25" value="Yes"<?php if(data_ref('sp-screen-25') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p4" for="sp-screen-25">TFT</label>
+                                <input type="checkbox" name="sp-screen-26" class="cb1" id="sp-screen-26" value="Yes"<?php if(data_ref('sp-screen-26') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p4" for="sp-screen-26">TN</label>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info57".$info2;?>細かいやつら</th>
                             <td>
-                                <input type="checkbox" name="sp-screen-39" value="Yes"<?php if(data_ref('sp-screen-39') == 'Yes')echo ' checked';?>>湾曲ディスプレイ    
-                                <input type="checkbox" name="sp-screen-27" value="Yes"<?php if(data_ref('sp-screen-27') == 'Yes')echo ' checked';?>>HDR10+
-                                <input type="checkbox" name="sp-screen-28" value="Yes"<?php if(data_ref('sp-screen-28') == 'Yes')echo ' checked';?>>HDR10
-                                <input type="checkbox" name="sp-screen-22" value="Yes"<?php if(data_ref('sp-screen-22') == 'Yes')echo ' checked';?>>Dolby Vision
-                                <input type="checkbox" name="sp-screen-20" value="Yes"<?php if(data_ref('sp-screen-20') == 'Yes')echo ' checked';?>>Always-on display    
+                                <input type="checkbox" name="sp-screen-39" class="cb1" id="sp-screen-39" value="Yes"<?php if(data_ref('sp-screen-39') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p2" for="sp-screen-39">湾曲ディスプレイ</label>
+                                <input type="checkbox" name="sp-screen-27" class="cb1" id="sp-screen-27" value="Yes"<?php if(data_ref('sp-screen-27') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p2" for="sp-screen-27">HDR10+</label>
+                                <input type="checkbox" name="sp-screen-28" class="cb1" id="sp-screen-28" value="Yes"<?php if(data_ref('sp-screen-28') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p2" for="sp-screen-28">HDR10</label>
+                                <input type="checkbox" name="sp-screen-22" class="cb1" id="sp-screen-22" value="Yes"<?php if(data_ref('sp-screen-22') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p2" for="sp-screen-22">Dolby Vision</label>
+                                <input type="checkbox" name="sp-screen-20" class="cb1" id="sp-screen-20" value="Yes"<?php if(data_ref('sp-screen-20') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p2" for="sp-screen-20">Always-on display</label>
                             </td>
                         </tr>
                         <tr>
@@ -2312,9 +2361,112 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             </td>
                         </tr>
                         <tr>
+                            <style>
+                                .socida{
+                                    background:gray;
+                                    display: inline-block;
+                                    font-weight:800;
+                                    color:white;
+                                    margin:2px;
+                                    padding:0 4px;
+                                    border-radius:4px;
+                                }
+                            </style>
                             <th><?php echo $info1.".info68".$info2;?>SoC ID</th>
                             <td>
                                 <input type='text' name='sp-spec-11' value="<?php echo data_ref('sp-spec-11');?>" size='mini' id='socid'>
+                                <p>Q押したら自動入力されます(SoC iD)</p>
+                                <h2>Snapdragon 2xx</h2>
+                                <a class='socida' onclick="ckinput('socid',0)">215</a>
+                                <h2>Snapdragon 4xx</h2>
+                                <a class='socida' onclick="ckinput('socid',1)">425</a>
+                                <a class='socida' onclick="ckinput('socid',2)">429</a>
+                                <a class='socida' onclick="ckinput('socid',3)">430</a>
+                                <a class='socida' onclick="ckinput('socid',4)">435</a>
+                                <a class='socida' onclick="ckinput('socid',5)">439</a>
+                                <a class='socida' onclick="ckinput('socid',6)">450</a>
+                                <a class='socida' onclick="ckinput('socid',7)">460</a>
+                                <a class='socida' onclick="ckinput('socid',8)">480</a>
+                                <h2>Snapdragon 6xx</h2>
+                                <a class='socida' onclick="ckinput('socid',9)">617</a>
+                                <a class='socida' onclick="ckinput('socid',10)">625</a>
+                                <a class='socida' onclick="ckinput('socid',11)">626</a>
+                                <a class='socida' onclick="ckinput('socid',12)">630</a>
+                                <a class='socida' onclick="ckinput('socid',13)">632</a>
+                                <a class='socida' onclick="ckinput('socid',14)">636</a>
+                                <a class='socida' onclick="ckinput('socid',15)">650</a>
+                                <a class='socida' onclick="ckinput('socid',16)">660</a>
+                                <a class='socida' onclick="ckinput('socid',17)">662</a>
+                                <a class='socida' onclick="ckinput('socid',18)">665</a>
+                                <a class='socida' onclick="ckinput('socid',19)">670</a>
+                                <a class='socida' onclick="ckinput('socid',20)">675</a>
+                                <a class='socida' onclick="ckinput('socid',21)">678</a>
+                                <a class='socida' onclick="ckinput('socid',22)">690</a>
+                                <h2>Snapdragon 7xx</h2>
+                                <a class='socida' onclick="ckinput('socid',23)">710</a>
+                                <a class='socida' onclick="ckinput('socid',24)">712</a>
+                                <a class='socida' onclick="ckinput('socid',25)">720G</a>
+                                <a class='socida' onclick="ckinput('socid',26)">730</a>
+                                <a class='socida' onclick="ckinput('socid',27)">730G</a>
+                                <a class='socida' onclick="ckinput('socid',28)">732G</a>
+                                <a class='socida' onclick="ckinput('socid',29)">750G</a>
+                                <a class='socida' onclick="ckinput('socid',30)">765</a>
+                                <a class='socida' onclick="ckinput('socid',31)">765G</a>
+                                <a class='socida' onclick="ckinput('socid',32)">768G</a>
+                                <a class='socida' onclick="ckinput('socid',33)">778G</a>
+                                <a class='socida' onclick="ckinput('socid',34)">780G</a>
+                                <h2>Snapdragon 8xx</h2>
+                                <a class='socida' onclick="ckinput('socid',35)">810</a>
+                                <a class='socida' onclick="ckinput('socid',36)">820</a>
+                                <a class='socida' onclick="ckinput('socid',37)">835</a>
+                                <a class='socida' onclick="ckinput('socid',38)">845</a>
+                                <a class='socida' onclick="ckinput('socid',39)">855</a>
+                                <a class='socida' onclick="ckinput('socid',40)">855+</a>
+                                <a class='socida' onclick="ckinput('socid',41)">860</a>
+                                <a class='socida' onclick="ckinput('socid',42)">865</a>
+                                <a class='socida' onclick="ckinput('socid',43)">865+</a>
+                                <a class='socida' onclick="ckinput('socid',44)">870</a>
+                                <a class='socida' onclick="ckinput('socid',45)">888</a>
+
+                                <h2>MediaTek MT</h2>
+                                <a class='socida' onclick="ckinput('socid',81)">MT6737</a>
+                                <a class='socida' onclick="ckinput('socid',82)">MT6750</a>
+                                <h2>MediaTek P</h2>
+                                <a class='socida' onclick="ckinput('socid',83)">P10</a>
+                                <a class='socida' onclick="ckinput('socid',84)">P18</a>
+                                <a class='socida' onclick="ckinput('socid',85)">P20</a>
+                                <a class='socida' onclick="ckinput('socid',87)">P22</a>
+                                <a class='socida' onclick="ckinput('socid',88)">P23</a>
+                                <a class='socida' onclick="ckinput('socid',90)">P35</a>
+                                <a class='socida' onclick="ckinput('socid',92)">P60</a>
+                                <a class='socida' onclick="ckinput('socid',93)">P65</a>
+                                <a class='socida' onclick="ckinput('socid',94)">P70</a>
+                                <a class='socida' onclick="ckinput('socid',98)">P90</a>
+                                <a class='socida' onclick="ckinput('socid',99)">P95</a>
+                                <h2>MediaTek G</h2>
+                                <a class='socida' onclick="ckinput('socid',91)">G35</a>
+                                <a class='socida' onclick="ckinput('socid',89)">G25</a>
+                                <a class='socida' onclick="ckinput('socid',95)">G70</a>
+                                <a class='socida' onclick="ckinput('socid',96)">G80</a>
+                                <a class='socida' onclick="ckinput('socid',97)">G85</a>
+                                <a class='socida' onclick="ckinput('socid',100)">G90</a>
+                                <a class='socida' onclick="ckinput('socid',101)">G90T</a>
+                                <a class='socida' onclick="ckinput('socid',102)">G95</a>
+                                <h2>MediaTek A</h2>
+                                <a class='socida' onclick="ckinput('socid',86)">A22</a>
+                                <h2>MediaTek Dimensity</h2>
+                                <a class='socida' onclick="ckinput('socid',103)">700</a>
+                                <a class='socida' onclick="ckinput('socid',104)">720</a>
+                                <a class='socida' onclick="ckinput('socid',105)">800U</a>
+                                <a class='socida' onclick="ckinput('socid',106)">800</a>
+                                <a class='socida' onclick="ckinput('socid',107)">820</a>
+                                <a class='socida' onclick="ckinput('socid',108)">900</a>
+                                <a class='socida' onclick="ckinput('socid',109)">1000C</a>
+                                <a class='socida' onclick="ckinput('socid',110)">1000L</a>
+                                <a class='socida' onclick="ckinput('socid',111)">1000</a>
+                                <a class='socida' onclick="ckinput('socid',112)">1000+</a>
+                                <a class='socida' onclick="ckinput('socid',113)">1100</a>
+                                <a class='socida' onclick="ckinput('socid',114)">1200</a>
                             </td>
                         </tr>
                         <tr>
@@ -2332,92 +2484,6 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             </td>
                         </tr>
                     </table>
-                    <h4>QualComm(押したら自動入力)</h4>
-                    <div class="tagcloud2">
-                        <a onclick="ckinput('socid',0)">(0)SD215</a>
-                        <a onclick="ckinput('socid',1)">(1)SD425</a>
-                        <a onclick="ckinput('socid',2)">(2)SD429</a>
-                        <a onclick="ckinput('socid',3)">(3)SD430</a>
-                        <a onclick="ckinput('socid',4)">(4)SD435</a>
-                        <a onclick="ckinput('socid',5)">(5)SD439</a>
-                        <a onclick="ckinput('socid',6)">(6)SD450</a>
-                        <a onclick="ckinput('socid',7)">(7)SD460</a>
-                        <a onclick="ckinput('socid',8)">(8)SD480</a>
-                        <a onclick="ckinput('socid',9)">(9)SD617</a>
-                        <a onclick="ckinput('socid',10)">(10)SD625</a>
-                        <a onclick="ckinput('socid',11)">(11)SD626</a>
-                        <a onclick="ckinput('socid',12)">(12)SD630</a>
-                        <a onclick="ckinput('socid',13)">(13)SD632</a>
-                        <a onclick="ckinput('socid',14)">(14)SD636</a>
-                        <a onclick="ckinput('socid',15)">(15)SD650</a>
-                        <a onclick="ckinput('socid',16)">(16)SD660</a>
-                        <a onclick="ckinput('socid',17)">(17)SD662</a>
-                        <a onclick="ckinput('socid',18)">(18)SD665</a>
-                        <a onclick="ckinput('socid',19)">(19)SD670</a>
-                        <a onclick="ckinput('socid',20)">(20)SD675</a>
-                        <a onclick="ckinput('socid',21)">(21)SD678</a>
-                        <a onclick="ckinput('socid',22)">(22)SD690</a>
-                        <a onclick="ckinput('socid',23">(23)SD710</a>
-                        <a onclick="ckinput('socid',24)">(24)SD712</a>
-                        <a onclick="ckinput('socid',25)">(25)SD720G</a>
-                        <a onclick="ckinput('socid',26)">(26)SD730</a>
-                        <a onclick="ckinput('socid',27)">(27)SD730G</a>
-                        <a onclick="ckinput('socid',28)">(28)SD732G</a>
-                        <a onclick="ckinput('socid',29)">(29)SD750G</a>
-                        <a onclick="ckinput('socid',30)">(30)SD765</a>
-                        <a onclick="ckinput('socid',31)">(31)SD765G</a>
-                        <a onclick="ckinput('socid',32)">(32)SD768G</a>
-                        <a onclick="ckinput('socid',33)">(33)SD778G</a>
-                        <a onclick="ckinput('socid',34)">(34)SD780G</a>
-                        <a onclick="ckinput('socid',35)">(35)SD810</a>
-                        <a onclick="ckinput('socid',36)">(36)SD820</a>
-                        <a onclick="ckinput('socid',37)">(37)SD835</a>
-                        <a onclick="ckinput('socid',38)">(38)SD845</a>
-                        <a onclick="ckinput('socid',39)">(39)SD855</a>
-                        <a onclick="ckinput('socid',40)">(40)SD855+</a>
-                        <a onclick="ckinput('socid',41)">(41)SD860</a>
-                        <a onclick="ckinput('socid',42)">(42)SD865</a>
-                        <a onclick="ckinput('socid',43)">(43)SD865+</a>
-                        <a onclick="ckinput('socid',44)">(44)SD870</a>
-                        <a onclick="ckinput('socid',45)">(45)SD888</a>
-                    </div>
-                    <h4>MediaTek(押したら自動入力)</h4>
-                    <div class="tagcloud2">
-                        <a onclick="ckinput('socid',81)">(81)MT6737</a>
-                        <a onclick="ckinput('socid',82)">(82)MT6750</a>
-                        <a onclick="ckinput('socid',83)">(83)P10</a>
-                        <a onclick="ckinput('socid',84)">(84)P18</a>
-                        <a onclick="ckinput('socid',85)">(85)P20</a>
-                        <a onclick="ckinput('socid',86)">(86)A22</a>
-                        <a onclick="ckinput('socid',87)">(87)P22</a>
-                        <a onclick="ckinput('socid',88)">(88)P23</a>
-                        <a onclick="ckinput('socid',89)">(89)G25</a>
-                        <a onclick="ckinput('socid',90)">(90)P35</a>
-                        <a onclick="ckinput('socid',91)">(91)G35</a>
-                        <a onclick="ckinput('socid',92)">(92)P60</a>
-                        <a onclick="ckinput('socid',93)">(93)P65</a>
-                        <a onclick="ckinput('socid',94)">(94)P70</a>
-                        <a onclick="ckinput('socid',95)">(95)G70</a>
-                        <a onclick="ckinput('socid',96)">(96)G80</a>
-                        <a onclick="ckinput('socid',97)">(97)G85</a>
-                        <a onclick="ckinput('socid',98)">(98)P90</a>
-                        <a onclick="ckinput('socid',99)">(99)P95</a>
-                        <a onclick="ckinput('socid',100)">(100)G90</a>
-                        <a onclick="ckinput('socid',101)">(101)G90T</a>
-                        <a onclick="ckinput('socid',102)">(102)G95</a>
-                        <a onclick="ckinput('socid',103)">(103)Dim.700</a>
-                        <a onclick="ckinput('socid',104)">(104)Dim.720</a>
-                        <a onclick="ckinput('socid',105)">(105)Dim.800U</a>
-                        <a onclick="ckinput('socid',106)">(106)Dim.800</a>
-                        <a onclick="ckinput('socid',107)">(107)Dim.820</a>
-                        <a onclick="ckinput('socid',108)">(108)Dim.900</a>
-                        <a onclick="ckinput('socid',109)">(109)Dim.1000C</a>
-                        <a onclick="ckinput('socid',110)">(110)Dim.1000L</a>
-                        <a onclick="ckinput('socid',111)">(111)Dim.1000</a>
-                        <a onclick="ckinput('socid',112)">(112)Dim.1000+</a>
-                        <a onclick="ckinput('socid',113)">(113)Dim.1100</a>
-                        <a onclick="ckinput('socid',114)">(114)Dim.1200</a>
-                    </div>
                     <?php
                     
                     for($i = 0 ; $i <= $table_num - 1 ; $i++){
@@ -2491,29 +2557,27 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             <th><?php echo $info1.".info74".$info2;?>メモリGB(この構成のものだけ)</th>
                             <td>
                                 <input type='text' id="storage0" name='sp-spec-7' value="<?php echo data_ref('sp-spec-7');?>" size='mini'>GB<br>
-                                <div class="tagcloud2">
-                                    <a onclick="ckinput('storage0',1)">1GB</a>
-                                    <a onclick="ckinput('storage0',2)">2GB</a>
-                                    <a onclick="ckinput('storage0',3)">3GB</a>
-                                    <a onclick="ckinput('storage0',4)">4GB</a>
-                                    <a onclick="ckinput('storage0',5)">5GB</a>
-                                    <a onclick="ckinput('storage0',6)">6GB</a>
-                                    <a onclick="ckinput('storage0',7)">7GB</a>
-                                    <a onclick="ckinput('storage0',8)">8GB</a>
-                                    <a onclick="ckinput('storage0',9)">9GB</a>
-                                    <a onclick="ckinput('storage0',10)">10GB</a>
-                                    <a onclick="ckinput('storage0',11)">11GB</a>
-                                    <a onclick="ckinput('storage0',12)">12GB</a>
-                                    <a onclick="ckinput('storage0',13)">13GB</a>
-                                    <a onclick="ckinput('storage0',14)">14GB</a>
-                                    <a onclick="ckinput('storage0',15)">15GB</a>
-                                    <a onclick="ckinput('storage0',16)">16GB</a>
-                                    <a onclick="ckinput('storage0',17)">17GB</a>
-                                    <a onclick="ckinput('storage0',18)">18GB</a>
-                                    <a onclick="ckinput('storage0',19)">19GB</a>
-                                    <a onclick="ckinput('storage0',20)">20GB</a>
-                                    <a onclick="ckinput('storage0',21)">21GB</a>
-                                </div>
+                                <a class='socida' onclick="ckinput('storage0',1)">1GB</a>
+                                <a class='socida' onclick="ckinput('storage0',2)">2GB</a>
+                                <a class='socida' onclick="ckinput('storage0',3)">3GB</a>
+                                <a class='socida' onclick="ckinput('storage0',4)">4GB</a>
+                                <a class='socida' onclick="ckinput('storage0',5)">5GB</a>
+                                <a class='socida' onclick="ckinput('storage0',6)">6GB</a>
+                                <a class='socida' onclick="ckinput('storage0',7)">7GB</a>
+                                <a class='socida' onclick="ckinput('storage0',8)">8GB</a>
+                                <a class='socida' onclick="ckinput('storage0',9)">9GB</a>
+                                <a class='socida' onclick="ckinput('storage0',10)">10GB</a>
+                                <a class='socida' onclick="ckinput('storage0',11)">11GB</a>
+                                <a class='socida' onclick="ckinput('storage0',12)">12GB</a>
+                                <a class='socida' onclick="ckinput('storage0',13)">13GB</a>
+                                <a class='socida' onclick="ckinput('storage0',14)">14GB</a>
+                                <a class='socida' onclick="ckinput('storage0',15)">15GB</a>
+                                <a class='socida' onclick="ckinput('storage0',16)">16GB</a>
+                                <a class='socida' onclick="ckinput('storage0',17)">17GB</a>
+                                <a class='socida' onclick="ckinput('storage0',18)">18GB</a>
+                                <a class='socida' onclick="ckinput('storage0',19)">19GB</a>
+                                <a class='socida' onclick="ckinput('storage0',20)">20GB</a>
+                                <a class='socida' onclick="ckinput('storage0',21)">21GB</a>
                             </td>
                         </tr>
                         <tr>
@@ -2532,20 +2596,19 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             <th><?php echo $info1.".info77".$info2;?>ストレージGB(この構成のものだけ)</th>
                             <td>
                                 <input id="storage1" type='text' name='sp-spec-9' value="<?php echo data_ref('sp-spec-9');?>" size='mini'>GB<br>
-                                <div class="tagcloud2">
-                                    <a onclick="ckinput('storage1',1)">1GB</a>
-                                    <a onclick="ckinput('storage1',2)">2GB</a>
-                                    <a onclick="ckinput('storage1',3)">3GB</a>
-                                    <a onclick="ckinput('storage1',4)">4GB</a>
-                                    <a onclick="ckinput('storage1',8)">8GB</a>
-                                    <a onclick="ckinput('storage1',16)">16GB</a>
-                                    <a onclick="ckinput('storage1',32)">32GB</a>
-                                    <a onclick="ckinput('storage1',64)">64GB</a>
-                                    <a onclick="ckinput('storage1',128)">128GB</a>
-                                    <a onclick="ckinput('storage1',256)">256GB</a>
-                                    <a onclick="ckinput('storage1',512)">512GB</a>
-                                    <a onclick="ckinput('storage1',1024)">1024GB</a>
-                                </div> 
+                                <a class='socida' onclick="ckinput('storage1',1)">1GB</a>
+                                <a class='socida' onclick="ckinput('storage1',2)">2GB</a>
+                                <a class='socida' onclick="ckinput('storage1',3)">3GB</a>
+                                <a class='socida' onclick="ckinput('storage1',4)">4GB</a>
+                                <a class='socida' onclick="ckinput('storage1',8)">8GB</a>
+                                <a class='socida' onclick="ckinput('storage1',16)">16GB</a>
+                                <a class='socida' onclick="ckinput('storage1',32)">32GB</a>
+                                <a class='socida' onclick="ckinput('storage1',64)">64GB</a>
+                                <a class='socida' onclick="ckinput('storage1',128)">128GB</a>
+                                <a class='socida' onclick="ckinput('storage1',256)">256GB</a>
+                                <a class='socida' onclick="ckinput('storage1',512)">512GB</a>
+                                <a class='socida' onclick="ckinput('storage1',1000)">1000GB</a>
+                                <a class='socida' onclick="ckinput('storage1',1024)">1024GB</a>
                             </td>
                         </tr>
                         <tr>
@@ -2709,7 +2772,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ1</th>
                             <td>
-                                <div onclick='opentd("#camera1");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera1");'>表示非表示</div>
                                 <div id='camera1'>
                                     画素数<input type='text' name='sp-camera-19' value="<?php echo data_ref('sp-camera-19');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-20' value="<?php echo data_ref('sp-camera-20');?>" size='mini'>&nbsp;
@@ -2743,7 +2806,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ2</th>
                             <td>
-                                <div onclick='opentd("#camera2");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera2");'>表示非表示</div>
                                 <div id='camera2' class='hide'>
                                     画素数<input type='text' name='sp-camera-29' value="<?php echo data_ref('sp-camera-29');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-30' value="<?php echo data_ref('sp-camera-30');?>" size='mini'>&nbsp;
@@ -2775,7 +2838,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ3</th>
                             <td>
-                                <div onclick='opentd("#camera3");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera3");'>表示非表示</div>
                                 <div id='camera3' class='hide'>
                                     画素数<input type='text' name='sp-camera-39' value="<?php echo data_ref('sp-camera-39');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-40' value="<?php echo data_ref('sp-camera-40');?>" size='mini'>&nbsp;
@@ -2808,7 +2871,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ4</th>
                             <td>
-                                <div onclick='opentd("#camera4");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera4");'>表示非表示</div>
                                 <div id='camera4' class='hide'>
                                     画素数<input type='text' name='sp-camera-49' value="<?php echo data_ref('sp-camera-49');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-50' value="<?php echo data_ref('sp-camera-50');?>" size='mini'>&nbsp;
@@ -2841,7 +2904,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ5</th>
                             <td>
-                                <div onclick='opentd("#camera5");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera5");'>表示非表示</div>
                                 <div id='camera5' class='hide'>
                                     画素数<input type='text' name='sp-camera-59' value="<?php echo data_ref('sp-camera-59');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-60' value="<?php echo data_ref('sp-camera-60');?>" size='mini'>&nbsp;
@@ -2874,7 +2937,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ6</th>
                             <td>
-                                <div onclick='opentd("#camera6");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera6");'>表示非表示</div>
                                 <div id='camera6' class='hide'>
                                     画素数<input type='text' name='sp-camera-69' value="<?php echo data_ref('sp-camera-69');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-70' value="<?php echo data_ref('sp-camera-70');?>" size='mini'>&nbsp;
@@ -2907,7 +2970,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ7</th>
                             <td>
-                                <div onclick='opentd("#camera7");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera7");'>表示非表示</div>
                                 <div id='camera7' class='hide'>
                                     画素数<input type='text' name='sp-camera-79' value="<?php echo data_ref('sp-camera-79');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-80' value="<?php echo data_ref('sp-camera-80');?>" size='mini'>&nbsp;
@@ -2940,7 +3003,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info81".$info2;?>カメラ8</th>
                             <td>
-                                <div onclick='opentd("#camera8");'>表示非表示</div>
+                                <div class='socida' onclick='opentd("#camera8");'>表示非表示</div>
                                 <div id='camera8' class='hide'>
                                     画素数<input type='text' name='sp-camera-89' value="<?php echo data_ref('sp-camera-89');?>" size='mini'>MP&nbsp;
                                     F値 f/<input type='text' name='sp-camera-90' value="<?php echo data_ref('sp-camera-90');?>" size='mini'>&nbsp;
@@ -3397,61 +3460,41 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info92".$info2;?>デュアルスピーカー</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-38" value="Yes"<?php if(data_ref('sp-extra-38') == 'Yes')echo ' checked';?>>
+                                <input type="checkbox" name="sp-extra-38" value="Yes"<?php if(data_ref('sp-extra-38') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-38'><label for="sp-extra-38" class="checkbox02">対応</label>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info93".$info2;?>ステレオスピーカー</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-42" value="Yes"<?php if(data_ref('sp-extra-42') == 'Yes')echo ' checked';?>>
+                                <input type="checkbox" name="sp-extra-42" value="Yes"<?php if(data_ref('sp-extra-42') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-42'><label for="sp-extra-42" class="checkbox02">対応</label>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info94".$info2;?>デュアルスピーカー（ステレオ）</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-39" value="Yes"<?php if(data_ref('sp-extra-39') == 'Yes')echo ' checked';?>>
+                                <input type="checkbox" name="sp-extra-39" value="Yes"<?php if(data_ref('sp-extra-39') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-39'><label for="sp-extra-39" class="checkbox02">対応</label>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info95".$info2;?>トリプルスピーカー（ステレオ）</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-40" value="Yes"<?php if(data_ref('sp-extra-40') == 'Yes')echo ' checked';?>>
+                                <input type="checkbox" name="sp-extra-40" value="Yes"<?php if(data_ref('sp-extra-40') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-40'><label for="sp-extra-40" class="checkbox02">対応</label>
                             </td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info96".$info2;?>クアッドスピーカー(ステレオ)</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-41" value="Yes"<?php if(data_ref('sp-extra-41') == 'Yes')echo ' checked';?>>
+                                <input type="checkbox" name="sp-extra-41" value="Yes"<?php if(data_ref('sp-extra-41') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-41'><label for="sp-extra-41" class="checkbox02">対応</label>
                             </td>
                         </tr>
                         <tr>
-                            <th><?php echo $info1.".info97".$info2;?>24-bit/192kHz</th>
+                            <th><?php echo $info1.".info97".$info2;?>その他</th>
                             <td>
-                                <input type="checkbox" name="sp-extra-44" value="Yes"<?php if(data_ref('sp-extra-44') == 'Yes')echo ' checked';?>>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info98".$info2;?>32-bit/384kHz</th>
-                            <td>
-                                <input type="checkbox" name="sp-extra-45" value="Yes"<?php if(data_ref('sp-extra-45') == 'Yes')echo ' checked';?>>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info99".$info2;?>Tuned by AKG</th>
-                            <td>
-                                <input type="checkbox" name="sp-extra-49" value="Yes"<?php if(data_ref('sp-extra-49') == 'Yes')echo ' checked';?>>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info100".$info2;?>Tuned by JBL</th>
-                            <td>
-                                <input type="checkbox" name="sp-extra-48" value="Yes"<?php if(data_ref('sp-extra-48') == 'Yes')echo ' checked';?>>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info101".$info2;?>Tuned by Harman Kardon</th>
-                            <td>
-                                <input type="checkbox" name="sp-extra-47" value="Yes"<?php if(data_ref('sp-extra-47') == 'Yes')echo ' checked';?>>
+                                <input type="checkbox" name="sp-extra-44" value="Yes"<?php if(data_ref('sp-extra-44') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-44'><label for="sp-extra-44" class="checkbox02">24-bit/192kHz</label><br>
+                                <input type="checkbox" name="sp-extra-45" value="Yes"<?php if(data_ref('sp-extra-45') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-45'><label for="sp-extra-45" class="checkbox02">32-bit/384kHz</label><br>
+                                <input type="checkbox" name="sp-extra-49" value="Yes"<?php if(data_ref('sp-extra-49') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-49'><label for="sp-extra-49" class="checkbox02">Tuned by AKG</label><br>
+                                <input type="checkbox" name="sp-extra-48" value="Yes"<?php if(data_ref('sp-extra-48') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-48'><label for="sp-extra-48" class="checkbox02">Tuned by JBL</label><br>
+                                <input type="checkbox" name="sp-extra-47" value="Yes"<?php if(data_ref('sp-extra-47') == 'Yes')echo ' checked';?> class='cb1' id='sp-extra-47'><label for="sp-extra-47" class="checkbox02">Tuned by Harman Kardon</label>
                             </td>
                         </tr>
                         <tr>
