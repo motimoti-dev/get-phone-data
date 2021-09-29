@@ -3041,9 +3041,10 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?>
                             </td>
@@ -3060,9 +3061,10 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?>
                             </td>
@@ -3328,9 +3330,10 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?>
                             </td>
@@ -3347,9 +3350,10 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
-                                        echo '<input type="checkbox" name="'.$input_check[0].'" value="Yes"';
-                                        if(data_ref($input_check[0]) == 'Yes')echo ' checked';
-                                        echo '>'.$input_check[1].'<br>';
+                                        ?>
+                                        <input type="checkbox" name="<?php echo $input_check[0];?>" class="cb1" id="<?php echo $input_check[0];?>" value="Yes"<?php if(data_ref($input_check[0]) == 'Yes')echo ' checked';?>>
+                                        <label class="checkbox02" for="<?php echo $input_check[0];?>"><?php echo $input_check[1];?></label><br>
+                                        <?php
                                     }
                                 ?>
                             </td>
@@ -4173,9 +4177,9 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info118".$info2;?>ワイヤレス規格</th>
                             <td>
-                                <input type="checkbox" name="sp-battery-23" value="Yes"<?php if(data_ref('sp-battery-23') == 'Yes')echo ' checked';?>>Qi
-                                <input type="checkbox" name="sp-battery-24" value="Yes"<?php if(data_ref('sp-battery-24') == 'Yes')echo ' checked';?>>PMA
-                                <input type="checkbox" name="sp-battery-25" value="Yes"<?php if(data_ref('sp-battery-25') == 'Yes')echo ' checked';?>>A4WP
+                                <input type="checkbox" name="sp-battery-23" class="cb1" id="sp-battery-23" value="Yes"<?php if(data_ref('sp-battery-23') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-23">Qi</label>
+                                <input type="checkbox" name="sp-battery-24" class="cb1" id="sp-battery-24" value="Yes"<?php if(data_ref('sp-battery-24') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-24">PMA</label>
+                                <input type="checkbox" name="sp-battery-25" class="cb1" id="sp-battery-25" value="Yes"<?php if(data_ref('sp-battery-25') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-25">A4WP</label>
                             </td>
                         </tr>
                         <tr>
