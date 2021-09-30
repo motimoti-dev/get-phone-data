@@ -2773,299 +2773,72 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <input type='text' name='sp-camera-14' value="<?php echo data_ref('sp-camera-14');?>" size='full'>
                             </td>
                         </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ1</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera1");'>表示非表示</div>
-                                <div id='camera1'>
-                                    <table style='width:100%;'>
-                                        <tr>
-                                            <td>
-                                                画素数
-                                            </td>
-                                            <td>
-                                                F値
-                                            </td>
-                                            <td>
-                                                焦点距離
-                                            </td>
-                                            <td>
-                                                センサーサイズ
-                                            </td>
-                                            <td>
-                                                ピクセルサイズ
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type='text' name='sp-camera-19' value="<?php echo data_ref('sp-camera-19');?>" size='mini'>MP
-                                            </td>
-                                            <td>
-                                                <input type='text' name='sp-camera-20' value="<?php echo data_ref('sp-camera-20');?>" size='mini'>
-                                            </td>
-                                            <td>
-                                                <input type='text' name='sp-camera-21' value="<?php echo data_ref('sp-camera-21');?>" size='mini'>mm
-                                            </td>
-                                            <td>
-                                                <input type='text' name='sp-camera-22' value="<?php echo data_ref('sp-camera-22');?>" size='mini'>"
-                                            </td>
-                                            <td>
-                                                <input type='text' name='sp-camera-23' value="<?php echo data_ref('sp-camera-23');?>" size='mini'>µm
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
-                                    カメラ<input id='maincamera1' type='text' name='sp-camera-24' value="<?php echo data_ref('sp-camera-24');?>" size='mini'><br>
-                                    <a class='socida' onclick="ckinput('maincamera1',1)">[1]メインカメラ</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',2)">[2]望遠</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',3)">[3]ペリスコープ</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',5)">[5]ズーム</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',6)">[6]広角</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',7)">[7]超広角</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',8)">[8]ToF</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',9)">[9]赤外線</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',10)">[10]マクロ</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',11)">[11]モノクロ</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',12)">[12]ポートレート</a>
-                                    <a class='socida' onclick="ckinput('maincamera1',13)">[13]深度</a>
-                                    <br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-25' value="<?php echo data_ref('sp-camera-25');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-26' value="<?php echo data_ref('sp-camera-26');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ2</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera2");'>表示非表示</div>
-                                <div id='camera2' class='hide'>
-                                    画素数<input type='text' name='sp-camera-29' value="<?php echo data_ref('sp-camera-29');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-30' value="<?php echo data_ref('sp-camera-30');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-31' value="<?php echo data_ref('sp-camera-31');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-32' value="<?php echo data_ref('sp-camera-32');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-33' value="<?php echo data_ref('sp-camera-33');?>" size='mini'>µm&nbsp;
-                                    カメラ<input  id='maincamera2' type='text' name='sp-camera-34' value="<?php echo data_ref('sp-camera-34');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera2',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera2',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera2',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera2',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera2',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera2',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera2',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera2',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera2',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera2',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera2',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera2',13)">13(深度)</a>
-                                    </div><br>
-                                    <input type='text' name='sp-camera-35' value="<?php echo data_ref('sp-camera-35');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-36' value="<?php echo data_ref('sp-camera-36');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ3</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera3");'>表示非表示</div>
-                                <div id='camera3' class='hide'>
-                                    画素数<input type='text' name='sp-camera-39' value="<?php echo data_ref('sp-camera-39');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-40' value="<?php echo data_ref('sp-camera-40');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-41' value="<?php echo data_ref('sp-camera-41');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-42' value="<?php echo data_ref('sp-camera-42');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-43' value="<?php echo data_ref('sp-camera-43');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='maincamera3' type='text' name='sp-camera-44' value="<?php echo data_ref('sp-camera-44');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera3',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera3',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera3',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera3',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera3',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera3',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera3',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera3',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera3',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera3',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera3',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera3',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-45' value="<?php echo data_ref('sp-camera-45');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-46' value="<?php echo data_ref('sp-camera-46');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ4</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera4");'>表示非表示</div>
-                                <div id='camera4' class='hide'>
-                                    画素数<input type='text' name='sp-camera-49' value="<?php echo data_ref('sp-camera-49');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-50' value="<?php echo data_ref('sp-camera-50');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-51' value="<?php echo data_ref('sp-camera-51');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-52' value="<?php echo data_ref('sp-camera-52');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-53' value="<?php echo data_ref('sp-camera-53');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='maincamera4' type='text' name='sp-camera-54' value="<?php echo data_ref('sp-camera-54');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera4',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera4',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera4',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera4',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera4',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera4',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera4',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera4',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera4',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera4',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera4',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera4',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-55' value="<?php echo data_ref('sp-camera-55');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-56' value="<?php echo data_ref('sp-camera-56');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ5</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera5");'>表示非表示</div>
-                                <div id='camera5' class='hide'>
-                                    画素数<input type='text' name='sp-camera-59' value="<?php echo data_ref('sp-camera-59');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-60' value="<?php echo data_ref('sp-camera-60');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-61' value="<?php echo data_ref('sp-camera-61');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-62' value="<?php echo data_ref('sp-camera-62');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-63' value="<?php echo data_ref('sp-camera-63');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='maincamera5' type='text' name='sp-camera-64' value="<?php echo data_ref('sp-camera-64');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera5',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera5',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera5',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera5',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera5',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera5',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera5',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera5',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera5',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera5',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera5',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera5',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-65' value="<?php echo data_ref('sp-camera-65');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-66' value="<?php echo data_ref('sp-camera-66');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ6</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera6");'>表示非表示</div>
-                                <div id='camera6' class='hide'>
-                                    画素数<input type='text' name='sp-camera-69' value="<?php echo data_ref('sp-camera-69');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-70' value="<?php echo data_ref('sp-camera-70');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-71' value="<?php echo data_ref('sp-camera-71');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-72' value="<?php echo data_ref('sp-camera-72');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-73' value="<?php echo data_ref('sp-camera-73');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='maincamera6'type='text' name='sp-camera-74' value="<?php echo data_ref('sp-camera-74');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera6',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera6',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera6',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera6',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera6',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera6',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera6',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera6',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera6',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera6',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera6',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera6',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-75' value="<?php echo data_ref('sp-camera-75');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-76' value="<?php echo data_ref('sp-camera-76');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ7</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera7");'>表示非表示</div>
-                                <div id='camera7' class='hide'>
-                                    画素数<input type='text' name='sp-camera-79' value="<?php echo data_ref('sp-camera-79');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-80' value="<?php echo data_ref('sp-camera-80');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-81' value="<?php echo data_ref('sp-camera-81');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-82' value="<?php echo data_ref('sp-camera-82');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-83' value="<?php echo data_ref('sp-camera-83');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='maincamera7' type='text' name='sp-camera-84' value="<?php echo data_ref('sp-camera-84');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera7',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera7',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera7',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera7',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera7',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera7',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera7',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera7',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera7',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera7',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera7',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera7',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-85' value="<?php echo data_ref('sp-camera-85');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-86' value="<?php echo data_ref('sp-camera-86');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info81".$info2;?>カメラ8</th>
-                            <td>
-                                <div class='socida' onclick='opentd("#camera8");'>表示非表示</div>
-                                <div id='camera8' class='hide'>
-                                    画素数<input type='text' name='sp-camera-89' value="<?php echo data_ref('sp-camera-89');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-90' value="<?php echo data_ref('sp-camera-90');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-91' value="<?php echo data_ref('sp-camera-91');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-92' value="<?php echo data_ref('sp-camera-92');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-93' value="<?php echo data_ref('sp-camera-93');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='maincamera8' type='text' name='sp-camera-94' value="<?php echo data_ref('sp-camera-94');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('maincamera8',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('maincamera8',2)">2(望遠)</a>
-                                        <a onclick="ckinput('maincamera8',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('maincamera8',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('maincamera8',6)">6(広角)</a>
-                                        <a onclick="ckinput('maincamera8',7)">7(超広角)</a>
-                                        <a onclick="ckinput('maincamera8',8)">8(ToF)</a>
-                                        <a onclick="ckinput('maincamera8',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('maincamera8',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('maincamera8',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('maincamera8',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('maincamera8',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-95' value="<?php echo data_ref('sp-camera-95');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-96' value="<?php echo data_ref('sp-camera-96');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php for($s = 1;8 >= $s;$s++){?>
+                            <tr>
+                                <th><?php echo $info1.".info81".$info2;?>カメラ<?php echo $s;?></th>
+                                <td>
+                                    <div class='socida' onclick='opentd("#camera<?php echo $s;?>");'>表示非表示</div>
+                                    <div id='camera<?php echo $s;?>' class='<?php if( $s != 1)echo 'hide';?>'>
+                                        <table style='width:100%;'>
+                                            <tr>
+                                                <td>
+                                                    画素数
+                                                </td>
+                                                <td>
+                                                    F値
+                                                </td>
+                                                <td>
+                                                    焦点距離
+                                                </td>
+                                                <td>
+                                                    センサーサイズ
+                                                </td>
+                                                <td>
+                                                    ピクセルサイズ
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s;?>9' value="<?php echo data_ref('sp-camera-'.($s).'9');?>" size='mini'>MP
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+1;?>0' value="<?php echo data_ref('sp-camera-'.($s+1).'0');?>" size='mini'>
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+1;?>1' value="<?php echo data_ref('sp-camera-'.($s+1).'1');?>" size='mini'>mm
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+1;?>2' value="<?php echo data_ref('sp-camera-'.($s+1).'2');?>" size='mini'>"
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+1;?>3' value="<?php echo data_ref('sp-camera-'.($s+1).'3');?>" size='mini'>µm
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
+                                        カメラ<input id='maincamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+1;?>4' value="<?php echo data_ref('sp-camera-'.($s+1).'4');?>" size='mini'><br>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',1)">[1]メインカメラ</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',2)">[2]望遠</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',5)">[5]ズーム</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',6)">[6]広角</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',7)">[7]超広角</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',8)">[8]ToF</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',9)">[9]赤外線</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',10)">[10]マクロ</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',11)">[11]モノクロ</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',12)">[12]ポートレート</a>
+                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',13)">[13]深度</a>
+                                        <br>
+                                        機能(,区切りで定義)PDAF, OIS<br>
+                                        <input type='text' name='sp-camera-<?php echo $s+1;?>5' value="<?php echo data_ref('sp-camera-'.($s+1).'5');?>" size='full'>
+                                        機能-英語<br>
+                                        <input type='text' name='sp-camera-<?php echo $s+1;?>6' value="<?php echo data_ref('sp-camera-'.($s+1).'6');?>" size='full'>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        
                         <tr>
                             <th><?php echo $info1.".info82".$info2;?>特徴(Features)</th>
                             <td>
@@ -3223,137 +2996,72 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <input type='text' name='sp-camera-18' value="<?php echo data_ref('sp-camera-18');?>" size='full'>
                             </td>
                         </tr>
-                        <tr>
-                            <th><?php echo $info1.".info86".$info2;?>カメラ1</th>
-                            <td>
-                                <div onclick='opentd("#incamera1");'>表示非表示</div>
-                                <div id='incamera1'>
-                                    画素数<input type='text' name='sp-camera-121' value="<?php echo data_ref('sp-camera-121');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-122' value="<?php echo data_ref('sp-camera-122');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-123' value="<?php echo data_ref('sp-camera-123');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-124' value="<?php echo data_ref('sp-camera-124');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-125' value="<?php echo data_ref('sp-camera-125');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='in1' type='text' name='sp-camera-126' value="<?php echo data_ref('sp-camera-126');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('in1',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('in1',2)">2(望遠)</a>
-                                        <a onclick="ckinput('in1',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('in1',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('in1',6)">6(広角)</a>
-                                        <a onclick="ckinput('in1',7)">7(超広角)</a>
-                                        <a onclick="ckinput('in1',8)">8(ToF)</a>
-                                        <a onclick="ckinput('in1',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('in1',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('in1',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('in1',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('in1',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-127' value="<?php echo data_ref('sp-camera-127');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-128' value="<?php echo data_ref('sp-camera-128');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info86".$info2;?>カメラ2</th>
-                            <td>
-                                <div onclick='opentd("#incamera2");'>表示非表示</div>
-                                <div id='incamera2' class='hide'>
-                                    画素数<input type='text' name='sp-camera-131' value="<?php echo data_ref('sp-camera-131');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-132' value="<?php echo data_ref('sp-camera-132');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-133' value="<?php echo data_ref('sp-camera-133');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-134' value="<?php echo data_ref('sp-camera-134');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-135' value="<?php echo data_ref('sp-camera-135');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='in2' type='text' name='sp-camera-136' value="<?php echo data_ref('sp-camera-136');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('in2',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('in2',2)">2(望遠)</a>
-                                        <a onclick="ckinput('in2',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('in2',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('in2',6)">6(広角)</a>
-                                        <a onclick="ckinput('in2',7)">7(超広角)</a>
-                                        <a onclick="ckinput('in2',8)">8(ToF)</a>
-                                        <a onclick="ckinput('in2',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('in2',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('in2',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('in2',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('in2',13)">13(深度)</a>
-                                    </div><br>
-                                    <input type='text' name='sp-camera-137' value="<?php echo data_ref('sp-camera-137');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-138' value="<?php echo data_ref('sp-camera-138');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info86".$info2;?>カメラ3</th>
-                            <td>
-                                <div onclick='opentd("#incamera3");'>表示非表示</div>
-                                <div id='incamera3' class='hide'>
-                                    画素数<input type='text' name='sp-camera-141' value="<?php echo data_ref('sp-camera-141');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-142' value="<?php echo data_ref('sp-camera-142');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-143' value="<?php echo data_ref('sp-camera-143');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-144' value="<?php echo data_ref('sp-camera-144');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-145' value="<?php echo data_ref('sp-camera-145');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='in3' type='text' name='sp-camera-146' value="<?php echo data_ref('sp-camera-146');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('in3',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('in3',2)">2(望遠)</a>
-                                        <a onclick="ckinput('in3',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('in3',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('in3',6)">6(広角)</a>
-                                        <a onclick="ckinput('in3',7)">7(超広角)</a>
-                                        <a onclick="ckinput('in3',8)">8(ToF)</a>
-                                        <a onclick="ckinput('in3',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('in3',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('in3',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('in3',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('in3',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-147' value="<?php echo data_ref('sp-camera-147');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-148' value="<?php echo data_ref('sp-camera-148');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info86".$info2;?>カメラ4</th>
-                            <td>
-                                <div onclick='opentd("#incamera4");'>表示非表示</div>
-                                <div id='incamera4' class='hide'>
-                                    画素数<input type='text' name='sp-camera-151' value="<?php echo data_ref('sp-camera-151');?>" size='mini'>MP&nbsp;
-                                    F値 f/<input type='text' name='sp-camera-152' value="<?php echo data_ref('sp-camera-152');?>" size='mini'>&nbsp;
-                                    焦点距離<input type='text' name='sp-camera-153' value="<?php echo data_ref('sp-camera-153');?>" size='mini'>mm&nbsp;
-                                    センサーサイズ<input type='text' name='sp-camera-154' value="<?php echo data_ref('sp-camera-154');?>" size='mini'>"&nbsp;
-                                    ピクセルサイズ<input type='text' name='sp-camera-155' value="<?php echo data_ref('sp-camera-155');?>" size='mini'>µm&nbsp;
-                                    カメラ<input id='in4' type='text' name='sp-camera-156' value="<?php echo data_ref('sp-camera-156');?>" size='mini'><br>
-                                    複数兼ねてる場合は,で入力<br>
-                                    <div class="tagcloud2">
-                                        <a onclick="ckinput('in4',1)">1(メインカメラ)</a>
-                                        <a onclick="ckinput('in4',2)">2(望遠)</a>
-                                        <a onclick="ckinput('in4',3)">3(ペリスコープ)</a>
-                                        <a onclick="ckinput('in4',5)">5(ズーム)</a>
-                                        <a onclick="ckinput('in4',6)">6(広角)</a>
-                                        <a onclick="ckinput('in4',7)">7(超広角)</a>
-                                        <a onclick="ckinput('in4',8)">8(ToF)</a>
-                                        <a onclick="ckinput('in4',9)">9(赤外線)</a>
-                                        <a onclick="ckinput('in4',10)">10(マクロ)</a>
-                                        <a onclick="ckinput('in4',11)">11(モノクロ)</a>
-                                        <a onclick="ckinput('in4',12)">12(ポートレート)</a>
-                                        <a onclick="ckinput('in4',13)">13(深度)</a>
-                                    </div><br>
-                                    機能(,区切りで定義)PDAF, OIS<br>
-                                    <input type='text' name='sp-camera-157' value="<?php echo data_ref('sp-camera-157');?>" size='full'>
-                                    機能-英語<br>
-                                    <input type='text' name='sp-camera-158' value="<?php echo data_ref('sp-camera-158');?>" size='full'>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php for($s = 1;4 >= $s;$s++){?>
+                            <tr>
+                                <th><?php echo $info1.".info81".$info2;?>インカメラ<?php echo $s;?></th>
+                                <td>
+                                    <div class='socida' onclick='opentd("#incamera<?php echo $s;?>");'>表示非表示</div>
+                                    <div id='incamera<?php echo $s;?>' class='<?php if( $s != 1)echo 'hide';?>'>
+                                        <table style='width:100%;'>
+                                            <tr>
+                                                <td>
+                                                    画素数
+                                                </td>
+                                                <td>
+                                                    F値
+                                                </td>
+                                                <td>
+                                                    焦点距離
+                                                </td>
+                                                <td>
+                                                    センサーサイズ
+                                                </td>
+                                                <td>
+                                                    ピクセルサイズ
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>9' value="<?php echo data_ref('sp-camera-'.($s+11).'1');?>" size='mini'>MP
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>0' value="<?php echo data_ref('sp-camera-'.($s+11).'2');?>" size='mini'>
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>1' value="<?php echo data_ref('sp-camera-'.($s+11).'3');?>" size='mini'>mm
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>2' value="<?php echo data_ref('sp-camera-'.($s+11).'4');?>" size='mini'>"
+                                                </td>
+                                                <td>
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>3' value="<?php echo data_ref('sp-camera-'.($s+11).'5');?>" size='mini'>µm
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
+                                        カメラ<input id='incamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+11;?>4' value="<?php echo data_ref('sp-camera-'.($s+11).'6');?>" size='mini'><br>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',1)">[1]メインカメラ</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',2)">[2]望遠</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',5)">[5]ズーム</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',6)">[6]広角</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',7)">[7]超広角</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',8)">[8]ToF</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',9)">[9]赤外線</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',10)">[10]マクロ</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',11)">[11]モノクロ</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',12)">[12]ポートレート</a>
+                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',13)">[13]深度</a>
+                                        <br>
+                                        機能(,区切りで定義)PDAF, OIS<br>
+                                        <input type='text' name='sp-camera-<?php echo $s+11;?>5' value="<?php echo data_ref('sp-camera-'.($s+11).'7');?>" size='full'>
+                                        機能-英語<br>
+                                        <input type='text' name='sp-camera-<?php echo $s+11;?>6' value="<?php echo data_ref('sp-camera-'.($s+11).'8');?>" size='full'>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        
                         <tr>
                             <th><?php echo $info1.".info87".$info2;?>特徴(Features)</th>
                             <td>
