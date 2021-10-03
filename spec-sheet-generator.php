@@ -1047,7 +1047,6 @@
                         <tr>
                             <th><?php echo $info1.".info10".$info2;?>バンド</th>
                             <td>
-                            <input type="checkbox" name="sp-launch-40-4" value="Yes" class="cb1" id="sl404">
                                 <div style='background:#88EAB7;'>
                                     <?php echo $info1.".info10a".$info2;?>・表示される5G<br><br>
                                     <input type='text' name='sp-band-7' value="<?php echo data_ref('sp-band-7');?>" size="full"><br><br>
@@ -1586,7 +1585,7 @@ input[type=radio]:checked + .radio02::after {
                                 
                                 <p class='sech'>Xiaomi</p>
                                 <input type="checkbox" name="sp-launch-40-3" value="Yes"<?php if(data_ref('sp-launch-40-3') == 'Yes')echo ' checked';?> class='cb1' id='sl403'><label for="sl403" class="checkbox02 w1p3">xiaomi</label>
-                                <input type="checkbox" name="sp-launch-40-4" value="Yes"<?php if(data_ref('sp-launch-40-4') == 'Yes')echo ' checked';?> class='cb1' id='sl404'><label for="sl404" class="checkbox02 w1p3">poco</label>
+                                <input type="checkbox" name="sp-launch-40-4" value="Yes"<?php if(data_ref('sp-launch-40-4') == 'Yes')echo ' checked';?> class='cb1' id='sl404a'><label for="sl404a" class="checkbox02 w1p3">poco</label>
                                 <input type="checkbox" name="sp-launch-40-5" value="Yes"<?php if(data_ref('sp-launch-40-5') == 'Yes')echo ' checked';?> class='cb1' id='sl405'><label for="sl405" class="checkbox02 w1p3">blackshark</label>
                                 <input type="checkbox" name="sp-launch-40-6" value="Yes"<?php if(data_ref('sp-launch-40-6') == 'Yes')echo ' checked';?> class='cb1' id='sl406'><label for="sl406" class="checkbox02 w1p3">redmi</label>
                                 <p class='sech'>HUAWEI</p>
