@@ -1433,7 +1433,7 @@
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info24".$info2;?>端末名</th>
-                            <td><input type='text' name='sp-launch-4' value="<?php echo data_ref('sp-launch-4');?>"></td>
+                            <td><input type='text' name='sp-launch-4' value="<?php echo data_ref('sp-launch-4');?>" required></td>
                         </tr>
                         <tr>
                             <th><?php echo $info1.".info25".$info2;?>端末id(一意のid)</th>
@@ -3021,19 +3021,19 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>9' value="<?php echo data_ref('sp-camera-'.($s+11).'1');?>" size='mini'>MP
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>1' value="<?php echo data_ref('sp-camera-'.($s+11).'1');?>" size='mini'>MP
                                                 </td>
                                                 <td>
-                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>0' value="<?php echo data_ref('sp-camera-'.($s+11).'2');?>" size='mini'>
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>2' value="<?php echo data_ref('sp-camera-'.($s+11).'2');?>" size='mini'>
                                                 </td>
                                                 <td>
-                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>1' value="<?php echo data_ref('sp-camera-'.($s+11).'3');?>" size='mini'>mm
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>3' value="<?php echo data_ref('sp-camera-'.($s+11).'3');?>" size='mini'>mm
                                                 </td>
                                                 <td>
-                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>2' value="<?php echo data_ref('sp-camera-'.($s+11).'4');?>" size='mini'>"
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>4' value="<?php echo data_ref('sp-camera-'.($s+11).'4');?>" size='mini'>"
                                                 </td>
                                                 <td>
-                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>3' value="<?php echo data_ref('sp-camera-'.($s+11).'5');?>" size='mini'>µm
+                                                    <input type='text' name='sp-camera-<?php echo $s+11;?>5' value="<?php echo data_ref('sp-camera-'.($s+11).'5');?>" size='mini'>µm
                                                 </td>
                                             </tr>
                                         </table>
