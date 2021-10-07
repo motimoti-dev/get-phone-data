@@ -2429,6 +2429,74 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',43)">865+</a>
                                 <a class='socida' onclick="ckinput('socid',44)">870</a>
                                 <a class='socida' onclick="ckinput('socid',45)">888</a>
+                                <a class='socida' onclick="ckinput('socid',46)">888+</a>
+
+                                <h2>Unisoc</h2>
+                                <a class='socida' onclick="ckinput('socid',59)">Unisoc T610</a>
+                                <a class='socida' onclick="ckinput('socid',60)">Unisoc SC9832E</a>
+                                <a class='socida' onclick="ckinput('socid',619)">Unisoc SC9863A</a>
+
+                                <h2>Samsung Exynos</h2>
+                                <a class='socida' onclick="ckinput('socid',137)">7570</a>
+                                <a class='socida' onclick="ckinput('socid',138)">7870</a>
+                                <a class='socida' onclick="ckinput('socid',139)">7880</a>
+                                <a class='socida' onclick="ckinput('socid',140)">7885</a>
+                                <a class='socida' onclick="ckinput('socid',140)">850</a>
+                                <a class='socida' onclick="ckinput('socid',141)">8890</a>
+                                <a class='socida' onclick="ckinput('socid',142)">8895</a>
+                                <a class='socida' onclick="ckinput('socid',143)">9810</a>
+                                <a class='socida' onclick="ckinput('socid',144)">880</a>
+                                <a class='socida' onclick="ckinput('socid',145)">980</a>
+                                <a class='socida' onclick="ckinput('socid',146)">1080</a>
+                                <a class='socida' onclick="ckinput('socid',147)">2100</a>
+
+                                <h2>HiSilicon Kirin</h2>
+                                <a class='socida' onclick="ckinput('socid',161)">9000e</a>
+                                <a class='socida' onclick="ckinput('socid',162)">9000</a>
+                                <a class='socida' onclick="ckinput('socid',163)">990E</a>
+                                <a class='socida' onclick="ckinput('socid',164)">990</a>
+                                <a class='socida' onclick="ckinput('socid',165)">985</a>
+                                <a class='socida' onclick="ckinput('socid',166)">980</a>
+                                <a class='socida' onclick="ckinput('socid',167)">970</a>
+                                <a class='socida' onclick="ckinput('socid',168)">960</a>
+                                <a class='socida' onclick="ckinput('socid',169)">955</a>
+                                <a class='socida' onclick="ckinput('socid',170)">950</a>
+                                <a class='socida' onclick="ckinput('socid',171)">935</a>
+                                <a class='socida' onclick="ckinput('socid',172)">930</a>
+                                <a class='socida' onclick="ckinput('socid',173)">925</a>
+                                <a class='socida' onclick="ckinput('socid',174)">920</a>
+                                <a class='socida' onclick="ckinput('socid',175)">910</a>
+                                <a class='socida' onclick="ckinput('socid',176)">810</a>
+                                <a class='socida' onclick="ckinput('socid',177)">820</a>
+                                <a class='socida' onclick="ckinput('socid',178)">710</a>
+                                <a class='socida' onclick="ckinput('socid',179)">659</a>
+                                <a class='socida' onclick="ckinput('socid',180)">658</a>
+                                <a class='socida' onclick="ckinput('socid',181)">655</a>
+                                <a class='socida' onclick="ckinput('socid',182)">650</a>
+                                <a class='socida' onclick="ckinput('socid',183)">620</a>
+
+                                <h2>HiSilicon</h2>
+                                <a class='socida' onclick="ckinput('socid',185)">K3V2 Hi3620</a>
+
+                                <h2>Apple</h2>
+                                <a class='socida' onclick="ckinput('socid',208)">A10</a>
+                                <a class='socida' onclick="ckinput('socid',209)">A10X</a>
+                                <a class='socida' onclick="ckinput('socid',210)">A11</a>
+                                <a class='socida' onclick="ckinput('socid',211)">A12</a>
+                                <a class='socida' onclick="ckinput('socid',212)">A12X</a>
+                                <a class='socida' onclick="ckinput('socid',213)">A12Z</a>
+                                <a class='socida' onclick="ckinput('socid',214)">A13</a>
+                                <a class='socida' onclick="ckinput('socid',215)">A14</a>
+                                <a class='socida' onclick="ckinput('socid',216)">A15</a>
+                                <a class='socida' onclick="ckinput('socid',217)">A4</a>
+                                <a class='socida' onclick="ckinput('socid',218)">A5</a>
+                                <a class='socida' onclick="ckinput('socid',219)">A6</a>
+                                <a class='socida' onclick="ckinput('socid',220)">A7</a>
+                                <a class='socida' onclick="ckinput('socid',221)">A8</a>
+                                <a class='socida' onclick="ckinput('socid',222)">A8X</a>
+                                <a class='socida' onclick="ckinput('socid',223)">A9</a>
+                                <a class='socida' onclick="ckinput('socid',224)">A9X</a>
+                                <a class='socida' onclick="ckinput('socid',225)">M1</a>
 
                                 <h2>MediaTek MT</h2>
                                 <a class='socida' onclick="ckinput('socid',81)">MT6737</a>
