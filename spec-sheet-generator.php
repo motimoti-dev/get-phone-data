@@ -3106,7 +3106,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             </tr>
                                         </table>
                                         <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
-                                        カメラ<input id='incamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+11;?>4' value="<?php echo data_ref('sp-camera-'.($s+11).'6');?>" size='mini'><br>
+                                        カメラ<input id='incamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+11;?>6' value="<?php echo data_ref('sp-camera-'.($s+11).'6');?>" size='mini'><br>
                                         <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',1)">[1]メインカメラ</a>
                                         <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',2)">[2]望遠</a>
                                         <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
@@ -3121,9 +3121,9 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                         <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',13)">[13]深度</a>
                                         <br>
                                         機能(,区切りで定義)PDAF, OIS<br>
-                                        <input type='text' name='sp-camera-<?php echo $s+11;?>5' value="<?php echo data_ref('sp-camera-'.($s+11).'7');?>" size='full'>
+                                        <input type='text' name='sp-camera-<?php echo $s+11;?>7' value="<?php echo data_ref('sp-camera-'.($s+11).'7');?>" size='full'>
                                         機能-英語<br>
-                                        <input type='text' name='sp-camera-<?php echo $s+11;?>6' value="<?php echo data_ref('sp-camera-'.($s+11).'8');?>" size='full'>
+                                        <input type='text' name='sp-camera-<?php echo $s+11;?>8' value="<?php echo data_ref('sp-camera-'.($s+11).'8');?>" size='full'>
                                     </div>
                                 </td>
                             </tr>
