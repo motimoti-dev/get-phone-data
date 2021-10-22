@@ -127,6 +127,13 @@
         function ckinput(a,b){
             document.getElementById(a).value = b;
         }
+        function ckinput2(a,b){
+            if(document.getElementById(a).value != ''){
+                document.getElementById(a).value = document.getElementById(a).value + ',' + b;
+            }else{
+                document.getElementById(a).value = b;
+            }
+        }
         </script>
         <div style='text-align:center'>
             <img src="<?php echo $html->find( '.specs-photo-main a img ', 0 )->src;?>">
@@ -2884,18 +2891,18 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                         </table>
                                         <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
                                         カメラ<input id='maincamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+1;?>4' value="<?php echo data_ref('sp-camera-'.($s+1).'4');?>" size='mini'><br>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',1)">[1]メインカメラ</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',2)">[2]望遠</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',5)">[5]ズーム</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',6)">[6]広角</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',7)">[7]超広角</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',8)">[8]ToF</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',9)">[9]赤外線</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',10)">[10]マクロ</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',11)">[11]モノクロ</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',12)">[12]ポートレート</a>
-                                        <a class='socida' onclick="ckinput('maincamera<?php echo $s;?>',13)">[13]深度</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',1)">[1]メインカメラ</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',2)">[2]望遠</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',5)">[5]ズーム</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',6)">[6]広角</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',7)">[7]超広角</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',8)">[8]ToF</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',9)">[9]赤外線</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',10)">[10]マクロ</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',11)">[11]モノクロ</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',12)">[12]ポートレート</a>
+                                        <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',13)">[13]深度</a>
                                         <br>
                                         機能(,区切りで定義)PDAF, OIS<br>
                                         <input type='text' name='sp-camera-<?php echo $s+1;?>5' value="<?php echo data_ref('sp-camera-'.($s+1).'5');?>" size='full'>
@@ -3107,18 +3114,18 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                         </table>
                                         <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
                                         カメラ<input id='incamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+11;?>6' value="<?php echo data_ref('sp-camera-'.($s+11).'6');?>" size='mini'><br>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',1)">[1]メインカメラ</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',2)">[2]望遠</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',5)">[5]ズーム</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',6)">[6]広角</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',7)">[7]超広角</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',8)">[8]ToF</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',9)">[9]赤外線</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',10)">[10]マクロ</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',11)">[11]モノクロ</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',12)">[12]ポートレート</a>
-                                        <a class='socida' onclick="ckinput('incamera<?php echo $s;?>',13)">[13]深度</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',1)">[1]メインカメラ</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',2)">[2]望遠</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',5)">[5]ズーム</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',6)">[6]広角</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',7)">[7]超広角</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',8)">[8]ToF</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',9)">[9]赤外線</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',10)">[10]マクロ</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',11)">[11]モノクロ</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',12)">[12]ポートレート</a>
+                                        <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',13)">[13]深度</a>
                                         <br>
                                         機能(,区切りで定義)PDAF, OIS<br>
                                         <input type='text' name='sp-camera-<?php echo $s+11;?>7' value="<?php echo data_ref('sp-camera-'.($s+11).'7');?>" size='full'>
