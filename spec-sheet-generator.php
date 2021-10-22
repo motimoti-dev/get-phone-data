@@ -677,6 +677,116 @@
         <input type='text' name='sp-memo-0' value="<?php echo data_ref('sp-memo-0');?>" size="full">
         <?php echo $info1.".info6".$info2;?>URL
         <input type='text' name='sp-memo-1' value="<?php echo data_ref('sp-memo-1');?>" size="full">
+        <h2>添付ファイル</h2>
+        サムネ画像
+        <input type='text' name='sp-files-1' value="<?php echo data_ref('sp-files-1');?>" size="full">
+        <table style='width:100%;'>
+            <tr>
+                <td>
+                サムネ画像の例
+                </td>
+                <td>
+                入力された画像
+                </td>
+            </tr>
+            <tr>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='https://sumahotektek.com/i/Xiaomi-mi-10-5g-thum.jpg'>
+                </td>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='<?php echo data_ref('sp-files-1');?>'>
+                </td>
+            </tr>
+        </table>
+        <br>
+        端末画像(,区切りで)
+        <input type='text' name='sp-files-0' value="<?php echo data_ref('sp-image-0');?>" size="full">
+        背景透過表側-full
+        <input type='text' name='sp-image-1' value="<?php echo data_ref('sp-image-1');?>" size="full">
+        <table style='width:100%;'>
+            <tr>
+                <td>
+                背景透過表側-fullの例
+                </td>
+                <td>
+                入力された画像
+                </td>
+            </tr>
+            <tr>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th1-full.png'>
+                </td>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='<?php echo data_ref('sp-image-1');?>'>
+                </td>
+            </tr>
+        </table>
+        <br>
+        nomal
+        <input type='text' name='sp-image-2' value="<?php echo data_ref('sp-image-2');?>" size="full">
+        <table style='width:100%;'>
+            <tr>
+                <td>
+                nomalの例
+                </td>
+                <td>
+                入力された画像
+                </td>
+            </tr>
+            <tr>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th1-nor.png'>
+                </td>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='<?php echo data_ref('sp-image-2');?>'>
+                </td>
+            </tr>
+        </table>
+        <br>
+        mini
+        <input type='text' name='sp-image-3' value="<?php echo data_ref('sp-image-3');?>" size="full">
+        <table style='width:100%;'>
+            <tr>
+                <td>
+                miniの例
+                </td>
+                <td>
+                入力された画像
+                </td>
+            </tr>
+            <tr>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th-min.png'>
+                </td>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='<?php echo data_ref('sp-image-3');?>'>
+                </td>
+            </tr>
+        </table>
+        <br>
+        両面見えるやつ
+        <input type='text' name='sp-image-4' value="<?php echo data_ref('sp-image-4');?>" size="full">
+        <table style='width:100%;'>
+            <tr>
+                <td>
+                両面見えるやつ6の例
+                </td>
+                <td>
+                入力された画像
+                </td>
+            </tr>
+            <tr>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th-full.png'>
+                </td>
+                <td style='width:50%;'>
+                    <img style='width:100%;' src='<?php echo data_ref('sp-image-4');?>'>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        //todo 管理画面で表示される画像がずれてる
         <?php
                     //発売日とメーカーのデータ
                     //$data[] = ["sp-launch-0",''];
@@ -4033,9 +4143,10 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             </td>
                         </tr>
                         <tr>
-                            <th><?php echo $info1.".info125".$info2;?>リチウムイオン電池</th>
+                            <th><?php echo $info1.".info125".$info2;?>バッテリー</th>
                             <td>
-                                <?php gen_ckbox('sp-battery-17','Yes','バッテリーがリチウムイオン電池の場合チェック','','sp-battery-17');?>
+                                <?php gen_ckbox('sp-battery-16','Yes','リチウムポリマー','','sp-battery-16');?>
+                                <?php gen_ckbox('sp-battery-17','Yes','リチウムイオン','','sp-battery-17');?>
                             </td>
                         </tr>
                         <tr>
@@ -5990,8 +6101,3 @@ Discontinuedは製造中止
         </div>
     </div>
 </div>
-
-
-スクリーン
-USB On-The-Go
-リチウムポリマー
