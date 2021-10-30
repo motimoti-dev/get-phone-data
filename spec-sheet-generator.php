@@ -678,114 +678,116 @@
         <?php echo $info1.".info6".$info2;?>URL
         <input type='text' name='sp-memo-1' value="<?php echo data_ref('sp-memo-1');?>" size="full">
         <h2>添付ファイル</h2>
-        サムネ画像
-        <input type='text' name='sp-files-1' value="<?php echo data_ref('sp-files-1');?>" size="full">
-        <table style='width:100%;'>
-            <tr>
-                <td>
-                サムネ画像の例
-                </td>
-                <td>
-                入力された画像
-                </td>
-            </tr>
-            <tr>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='https://sumahotektek.com/i/Xiaomi-mi-10-5g-thum.jpg'>
-                </td>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='<?php echo data_ref('sp-files-1');?>'>
-                </td>
-            </tr>
-        </table>
-        <br>
-        端末画像(,区切りで)
-        <input type='text' name='sp-files-0' value="<?php echo data_ref('sp-image-0');?>" size="full">
-        背景透過表側-full
-        <input type='text' name='sp-image-1' value="<?php echo data_ref('sp-image-1');?>" size="full">
-        <table style='width:100%;'>
-            <tr>
-                <td>
-                背景透過表側-fullの例
-                </td>
-                <td>
-                入力された画像
-                </td>
-            </tr>
-            <tr>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th1-full.png'>
-                </td>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='<?php echo data_ref('sp-image-1');?>'>
-                </td>
-            </tr>
-        </table>
-        <br>
-        nomal
-        <input type='text' name='sp-image-2' value="<?php echo data_ref('sp-image-2');?>" size="full">
-        <table style='width:100%;'>
-            <tr>
-                <td>
-                nomalの例
-                </td>
-                <td>
-                入力された画像
-                </td>
-            </tr>
-            <tr>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th1-nor.png'>
-                </td>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='<?php echo data_ref('sp-image-2');?>'>
-                </td>
-            </tr>
-        </table>
-        <br>
-        mini
-        <input type='text' name='sp-image-3' value="<?php echo data_ref('sp-image-3');?>" size="full">
-        <table style='width:100%;'>
-            <tr>
-                <td>
-                miniの例
-                </td>
-                <td>
-                入力された画像
-                </td>
-            </tr>
-            <tr>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th-min.png'>
-                </td>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='<?php echo data_ref('sp-image-3');?>'>
-                </td>
-            </tr>
-        </table>
-        <br>
-        両面見えるやつ
-        <input type='text' name='sp-image-4' value="<?php echo data_ref('sp-image-4');?>" size="full">
-        <table style='width:100%;'>
-            <tr>
-                <td>
-                両面見えるやつ6の例
-                </td>
-                <td>
-                入力された画像
-                </td>
-            </tr>
-            <tr>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th-full.png'>
-                </td>
-                <td style='width:50%;'>
-                    <img style='width:100%;' src='<?php echo data_ref('sp-image-4');?>'>
-                </td>
-            </tr>
-        </table>
-        <br>
-
+        <div class="hidebtn" onclick="openinfo(['.thum-edit'])"><a>添付ファイルを入力する</a></div>
+        <div class='thum-edit hide'>
+            サムネ画像
+            <input type='text' name='sp-files-1' value="<?php echo data_ref('sp-files-1');?>" size="full">
+            <table style='width:100%;'>
+                <tr>
+                    <td>
+                    サムネ画像の例
+                    </td>
+                    <td>
+                    入力された画像
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='https://sumahotektek.com/i/Xiaomi-mi-10-5g-thum.jpg'>
+                    </td>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='<?php echo data_ref('sp-files-1');?>'>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            端末画像(,区切りで)
+            <input type='text' name='sp-files-0' value="<?php echo data_ref('sp-image-0');?>" size="full">
+            背景透過表側-full
+            <input type='text' name='sp-image-1' value="<?php echo data_ref('sp-image-1');?>" size="full">
+            <table style='width:100%;'>
+                <tr>
+                    <td>
+                    背景透過表側-fullの例
+                    </td>
+                    <td>
+                    入力された画像
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th1-full.png'>
+                    </td>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='<?php echo data_ref('sp-image-1');?>'>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            nomal
+            <input type='text' name='sp-image-2' value="<?php echo data_ref('sp-image-2');?>" size="full">
+            <table style='width:100%;'>
+                <tr>
+                    <td>
+                    nomalの例
+                    </td>
+                    <td>
+                    入力された画像
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th1-nor.png'>
+                    </td>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='<?php echo data_ref('sp-image-2');?>'>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            mini
+            <input type='text' name='sp-image-3' value="<?php echo data_ref('sp-image-3');?>" size="full">
+            <table style='width:100%;'>
+                <tr>
+                    <td>
+                    miniの例
+                    </td>
+                    <td>
+                    入力された画像
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th-min.png'>
+                    </td>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='<?php echo data_ref('sp-image-3');?>'>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            両面見えるやつ
+            <input type='text' name='sp-image-4' value="<?php echo data_ref('sp-image-4');?>" size="full">
+            <table style='width:100%;'>
+                <tr>
+                    <td>
+                    両面見えるやつ6の例
+                    </td>
+                    <td>
+                    入力された画像
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='https://sumahotektek.com/img/xiaomi-mi10-5g-th-full.png'>
+                    </td>
+                    <td style='width:50%;'>
+                        <img style='width:100%;' src='<?php echo data_ref('sp-image-4');?>'>
+                    </td>
+                </tr>
+            </table>
+            <br>
+    </div>
         //todo 管理画面で表示される画像がずれてる
         <?php
                     //発売日とメーカーのデータ
@@ -2399,17 +2401,74 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info59".$info2;?>OS</th>
                             <td>
-                                <input type="checkbox" name="sp-softwear-0" class="cb1" id="sp-softwear-0" value="Yes"<?php if(data_ref('sp-softwear-0') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-0">Android</label>            
-                                <input type="checkbox" name="sp-softwear-1" class="cb1" id="sp-softwear-1" value="Yes"<?php if(data_ref('sp-softwear-1') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-1">Harmony</label>            
-                                <input type="checkbox" name="sp-softwear-2" class="cb1" id="sp-softwear-2" value="Yes"<?php if(data_ref('sp-softwear-2') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-2">iOS</label>            
-                                <input type="checkbox" name="sp-softwear-3" class="cb1" id="sp-softwear-3" value="Yes"<?php if(data_ref('sp-softwear-3') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-3">Microsoft Windows 10</label>            
-                                <input type="checkbox" name="sp-softwear-4" class="cb1" id="sp-softwear-4" value="Yes"<?php if(data_ref('sp-softwear-4') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-4">Android Go</label>            
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><?php echo $info1.".info60".$info2;?>OS ver</th>
-                            <td>
-                                <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-7');?>" size='mini'>
+                                <table style='width:100%;'>
+                                    <tr>
+                                        <th>
+                                            OS名
+                                        </th>
+                                        <td>
+                                            ver
+                                        </td> 
+                                        <td>
+                                            更新可能ver
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <th style='text-align:left;'>
+                                            <input type="checkbox" name="sp-softwear-0" class="cb1" id="sp-softwear-0" value="Yes"<?php if(data_ref('sp-softwear-0') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-0">Android</label>            
+                                        </th>
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-7');?>" size='mini'>
+                                        </td> 
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-9');?>" size='mini'>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <th style='text-align:left;'>
+                                            <input type="checkbox" name="sp-softwear-1" class="cb1" id="sp-softwear-1" value="Yes"<?php if(data_ref('sp-softwear-1') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-1">Harmony</label>
+                                        </th>
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-39');?>" size='mini'>
+                                        </td> 
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-40');?>" size='mini'>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <th style='text-align:left;'>
+                                            <input type="checkbox" name="sp-softwear-2" class="cb1" id="sp-softwear-2" value="Yes"<?php if(data_ref('sp-softwear-2') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-2">iOS</label>            
+                                        </th>
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-41');?>" size='mini'>
+                                        </td> 
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-42');?>" size='mini'>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <th style='text-align: left;'>
+                                            <input type="checkbox" name="sp-softwear-3" class="cb1" id="sp-softwear-3" value="Yes"<?php if(data_ref('sp-softwear-3') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-3">Windows 10</label>            
+                                        </th>
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-43');?>" size='mini'>
+                                        </td> 
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-44');?>" size='mini'>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <th style='text-align: left;'>
+                                        <input type="checkbox" name="sp-softwear-4" class="cb1" id="sp-softwear-4" value="Yes"<?php if(data_ref('sp-softwear-4') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-4">Android Go</label>            
+                                        </th>
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-45');?>" size='mini'>
+                                        </td> 
+                                        <td style='text-align:left;'>
+                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-46');?>" size='mini'>
+                                        </td> 
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                         <tr>
@@ -2418,12 +2477,6 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <input type="checkbox" name="sp-softwear-6" class="cb1" id="sp-softwear-6" value="Yes"<?php if(data_ref('sp-softwear-6') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-softwear-6">非対応</label>
                             </td>
                         </tr>	
-                        <tr>
-                            <th><?php echo $info1.".info62".$info2;?>OS更新可能なバージョン</th>
-                            <td>
-                                <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-9');?>" size='mini'>
-                            </td>
-                        </tr>
                         <tr>
                             <th><?php echo $info1.".info63".$info2;?>UI</th>
                             <td>
@@ -3000,7 +3053,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             </tr>
                                         </table>
                                         <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
-                                        カメラ<input id='maincamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+1;?>4' value="<?php echo data_ref('sp-camera-'.($s+1).'4');?>" size='mini'><br>
+                                        カメラ<input id='maincamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+1;?>4' value="<?php echo data_ref('sp-camera-'.($s+1).'4');?>" size='mini'><a class='socida' onclick="ckinput('maincamera<?php echo $s;?>','')">リセット</a><br>
                                         <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',1)">[1]メインカメラ</a>
                                         <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',2)">[2]望遠</a>
                                         <a class='socida' onclick="ckinput2('maincamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
@@ -3184,8 +3237,8 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             <tr>
                                 <th><?php echo $info1.".info81".$info2;?>インカメラ<?php echo $s;?></th>
                                 <td>
-                                    <div class='socida' onclick='opentd("#incamera<?php echo $s;?>");'>表示非表示</div>
-                                    <div id='incamera<?php echo $s;?>' class='<?php if( $s != 1)echo 'hide';?>'>
+                                    <div class='socida' onclick='opentd("#divincamera<?php echo $s;?>");'>表示非表示</div>
+                                    <div id='divincamera<?php echo $s;?>' class='<?php if( $s != 1)echo 'hide';?>'>
                                         <table style='width:100%;'>
                                             <tr>
                                                 <td>
@@ -3223,7 +3276,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             </tr>
                                         </table>
                                         <p style='margin-bottom:0;'>該当するカメラ機能をクリック(複数兼ねてる場合は,で入力)</p>
-                                        カメラ<input id='incamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+11;?>6' value="<?php echo data_ref('sp-camera-'.($s+11).'6');?>" size='mini'><br>
+                                        カメラ<input id='incamera<?php echo $s;?>' type='text' name='sp-camera-<?php echo $s+11;?>6' value="<?php echo data_ref('sp-camera-'.($s+11).'6');?>" size='mini'><a class='socida' onclick="ckinput('incamera<?php echo $s;?>','')">リセット</a><br>
                                         <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',1)">[1]メインカメラ</a>
                                         <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',2)">[2]望遠</a>
                                         <a class='socida' onclick="ckinput2('incamera<?php echo $s;?>',3)">[3]ペリスコープ</a>
@@ -5642,8 +5695,32 @@ Discontinuedは製造中止
         </div>
         <div class="info34 hide">
             <h1>SIM<?php echo $info0.".info34".$close2;?></h1>
-            Single SIM (Nano-SIM and/or eSIM) or Dual SIM (Nano-SIM and/or eSIM, dual stand-by)
-            //TODO
+            ここではSIMの説明を入力します。<br>
+            英語版、日本語版の入力欄があります、英語版については手を加える必要はありません。<br>
+            日本語版は下の表のように変換して入力してください。<br>
+            正式名称は無理に日本語に変換しないようにお願いします、「eSIM」を「イーシム」としたり、「Nano-SIM」を「ナノSIM」にしたりする必要はありません。
+            <table style='width:100%;'>
+                <tr>
+                    <th>Single SIM</th>
+                    <td>シングルSIM</td>
+                </tr>
+                <tr>
+                    <th>Dual SIM</th>
+                    <td>デュアルSIM</td>
+                </tr>
+                <tr>
+                    <th>or</th>
+                    <td>または</td>
+                </tr>
+                <tr>
+                    <th>and</th>
+                    <td>と</td>
+                </tr>
+                <tr>
+                    <th>dual stand-by</th>
+                    <td>デュアルスタンバイ</td>
+                </tr>
+            </table>
             <img src='images/55.png'>
             <img src='images/56.png'>
         </div>
@@ -5785,6 +5862,8 @@ Discontinuedは製造中止
         <div class="info44 hide">
             <h1>インチ<?php echo $info0.".info44".$close2;?></h1>
             <p>元の表のSizeのinhesの部分です、半角数字で入力してください。</p>
+            <img src='images/71.png'>
+            <img src='images/72.png'>
         </div>
         <div class="info45 hide">
             <h1>リフレッシュレート<?php echo $info0.".info45".$close2;?></h1>
@@ -5804,20 +5883,23 @@ Discontinuedは製造中止
         </div>
         <div class="info48 hide">
             <h1>画面占有率<?php echo $info0.".info48".$close2;?></h1>
-            <p>Sizeの (~数字% screen-to-body ratio)部分です。数字の部分を半角数字で入力してください。</p>
+            <p>Sizeの (~数字% screen-to-body ratio)部分です。数字の部分を半角数字で入力してください。<br>基本的に自動で入力されます間違っている場合は修正してください。</p>
         </div>
         <div class="info49 hide">
             <h1>pixel<?php echo $info0.".info49".$close2;?></h1>
+            <p>元の表のResolutionの部分のpixelsの部分です。<br>縦横あります、縦>横になるように入力してください。<br>基本的に自動で入力されます間違っている場合は修正してください。</p>
         </div>
         <div class="info50 hide">
             <h1>アスペクト比<?php echo $info0.".info50".$close2;?></h1>
-            
+            <p>元の表のResolutionの部分のratioの部分です。<br>縦横あります、縦>横になるように入力してください。<br>基本的に自動で入力されます間違っている場合は修正してください。</p>
         </div>
         <div class="info51 hide">
             <h1>DPI<?php echo $info0.".info51".$close2;?></h1>
+            <p>元の表のResolutionの部分のppiの部分です。<br>dpi=ppiです。<br>基本的に自動で入力されます間違っている場合は修正してください。</p>
         </div>
         <div class="info52 hide">
             <h1>表示色<?php echo $info0.".info52".$close2;?></h1>
+            <p>表示可能な色の種類を入力してください。24bitカラーや、1B、フルカラー、sRGB 100%などのように入力を御願いします。数値のみ等の指定はありません。</p>
         </div>
         <div class="info53 hide">
             <h1>コントラスト比<?php echo $info0.".info53".$close2;?></h1>
@@ -5827,23 +5909,29 @@ Discontinuedは製造中止
         </div>
         <div class="info54 hide">
             <h1>湾曲ディスプレイの場合の角度<?php echo $info0.".info54".$close2;?></h1>
+            <p>湾曲ディスプレイのエッジの角度が分かる場合に入力してください。<br>フラットなディスプレイ場合は入力しないでください。</p>
         </div>
         <div class="info55 hide">
             <h1>インカメラタイプ<?php echo $info0.".info55".$close2;?></h1>
+            <p>インカメラの場所をチェックしてください、GSMarenaの画像を見て判断してください、リークされた端末の情報の場合はGSMarena側の画像が</p>
         </div>
         <div class="info56 hide">
             <h1>画面タイプ<?php echo $info0.".info56".$close2;?></h1>
+            <p>使用されている画面の種類を選択して下さい。</p>
         </div>
         <div class="info57 hide">
             <h1>細かいやつら<?php echo $info0.".info57".$close2;?></h1>
+            <p>対応しているもの該当しているものにチェックして下さい。</p>
         </div>
         <div class="info58 hide">
             <h1>ソフトウェア<?php echo $info0.".info58".$close2;?></h1>
-
+            <p>ここではOSの情報や、SoCの情報などを入力します。</p>
         </div>
         <div class="info59 hide">
             <h1>OS<?php echo $info0.".info59".$close2;?></h1>
             <p>該当するOSをクリックして入力してください、基本的にこの項目は自動補完されませんのでご注意ください。</p>
+            <p>複数OSインストールされている場合は片方チェックして下さい。</p>
+            <p>対応している二つ目のOSは追加説明で入力して下さい。</p>
         </div>
         <div class="info60 hide">
             <h1>OS ver<?php echo $info0.".info60".$close2;?></h1>
