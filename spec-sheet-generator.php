@@ -2573,6 +2573,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',19)">670</a>
                                 <a class='socida' onclick="ckinput('socid',20)">675</a>
                                 <a class='socida' onclick="ckinput('socid',21)">678</a>
+                                <a class='socida' onclick="ckinput('socid',48)">680</a>
                                 <a class='socida' onclick="ckinput('socid',22)">690</a>
                                 <h2>Snapdragon 7xx</h2>
                                 <a class='socida' onclick="ckinput('socid',23)">710</a>
