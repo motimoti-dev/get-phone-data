@@ -4100,6 +4100,9 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             
                             case 'Type':
                                 if(strpos($plaintext,'Li-Po') !== false){
+                                    add_data(["sp-battery-16",'Yes']);
+                                }
+                                if(strpos($plaintext,'Li-Ion') !== false){
                                     add_data(["sp-battery-17",'Yes']);
                                 }
                                 if(strpos($plaintext,'non-removable') !== false){
