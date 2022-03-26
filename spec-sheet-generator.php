@@ -2429,7 +2429,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             <input type="checkbox" name="sp-softwear-1" class="cb1" id="sp-softwear-1" value="Yes"<?php if(data_ref('sp-softwear-1') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-1">Harmony</label>
                                         </th>
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-39');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-39' value="<?php echo data_ref('sp-softwear-39');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
                                             <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-40');?>" size='mini'>
@@ -2440,7 +2440,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             <input type="checkbox" name="sp-softwear-2" class="cb1" id="sp-softwear-2" value="Yes"<?php if(data_ref('sp-softwear-2') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-2">iOS</label>            
                                         </th>
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-41');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-41' value="<?php echo data_ref('sp-softwear-41');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
                                             <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-42');?>" size='mini'>
@@ -2451,7 +2451,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             <input type="checkbox" name="sp-softwear-3" class="cb1" id="sp-softwear-3" value="Yes"<?php if(data_ref('sp-softwear-3') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-3">Windows 10</label>            
                                         </th>
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-43');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-43' value="<?php echo data_ref('sp-softwear-43');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
                                             <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-44');?>" size='mini'>
@@ -2462,7 +2462,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                         <input type="checkbox" name="sp-softwear-4" class="cb1" id="sp-softwear-4" value="Yes"<?php if(data_ref('sp-softwear-4') == 'Yes')echo ' checked';?>><label class="checkbox02" for="sp-softwear-4">Android Go</label>            
                                         </th>
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-7' value="<?php echo data_ref('sp-softwear-45');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-45' value="<?php echo data_ref('sp-softwear-45');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
                                             <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-46');?>" size='mini'>
