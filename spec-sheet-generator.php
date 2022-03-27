@@ -4061,7 +4061,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                             <th><?php echo $info1.".info113a".$info2;?>指紋センサー</th>
                             <td>
                                 <?php
-                                    $input_checks = explode(':','sp-sensor-14,指紋センサー:sp-sensor-15,指紋センサー-背面:sp-sensor-16,指紋センサー-側面:sp-sensor-17,指紋センサー-右側面:sp-sensor-18,指紋センサー-左側面:sp-sensor-19,指紋センサー-カメラユニットに付属:sp-sensor-20,指紋センサー-画面内:sp-sensor-21,紋センサー-画面内光学式:sp-sensor-22,指紋センサー-画面内超音波式:sp-sensor-23,指紋センサー-ToutchID');
+                                    $input_checks = explode(':','sp-sensor-13,指紋センサー不明:sp-sensor-14,指紋センサー:sp-sensor-15,指紋センサー-背面:sp-sensor-16,指紋センサー-側面:sp-sensor-17,指紋センサー-右側面:sp-sensor-18,指紋センサー-左側面:sp-sensor-19,指紋センサー-カメラユニットに付属:sp-sensor-20,指紋センサー-画面内:sp-sensor-21,指紋センサー-画面内光学式(under display, optical):sp-sensor-22,指紋センサー-画面内超音波式:sp-sensor-23,指紋センサー-ToutchID');
 
                                     foreach($input_checks as $input_check ){
                                         $input_check = explode(',',$input_check);
