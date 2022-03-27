@@ -3976,7 +3976,15 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             add_data(["sp-sensor-1",'Yes']);
                                             break;
 
+                                        case 'Compass':
+                                            add_data(["sp-sensor-1",'Yes']);
+                                            break;
+
                                         case 'proximity':
+                                            add_data(["sp-sensor-2",'Yes']);
+                                            break;
+
+                                        case 'Proximity':
                                             add_data(["sp-sensor-2",'Yes']);
                                             break;
 
@@ -3984,7 +3992,15 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             add_data(["sp-sensor-3",'Yes']);
                                             break;
 
+                                        case 'Accelerometer':
+                                                add_data(["sp-sensor-3",'Yes']);
+                                                break;
+
                                         case 'gyro':
+                                            add_data(["sp-sensor-4",'Yes']);
+                                            break;
+
+                                        case 'Gyro':
                                             add_data(["sp-sensor-4",'Yes']);
                                             break;
 
@@ -3992,11 +4008,23 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             add_data(["sp-sensor-5",'Yes']);
                                             break;
 
+                                        case 'Barometer':
+                                            add_data(["sp-sensor-5",'Yes']);
+                                            break;
+
+                                        case 'iris scanner':
+                                            add_data(["sp-sensor-6",'Yes']);
+                                            break;
+
                                         case 'Iris scanner':
                                             add_data(["sp-sensor-6",'Yes']);
                                             break;
 
                                         case 'color spectrum':
+                                            add_data(["sp-sensor-10",'Yes']);
+                                            break;
+
+                                        case 'Color spectrum':
                                             add_data(["sp-sensor-10",'Yes']);
                                             break;
 
