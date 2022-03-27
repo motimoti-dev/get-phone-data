@@ -2575,6 +2575,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',21)">678</a>
                                 <a class='socida' onclick="ckinput('socid',48)">680</a>
                                 <a class='socida' onclick="ckinput('socid',22)">690</a>
+                                <a class='socida' onclick="ckinput('socid',50)">695</a>
                                 <h2>Snapdragon 7xx</h2>
                                 <a class='socida' onclick="ckinput('socid',23)">710</a>
                                 <a class='socida' onclick="ckinput('socid',24)">712</a>
@@ -2583,6 +2584,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',27)">730G</a>
                                 <a class='socida' onclick="ckinput('socid',28)">732G</a>
                                 <a class='socida' onclick="ckinput('socid',29)">750G</a>
+                                <a class='socida' onclick="ckinput('socid',49)">750</a>
                                 <a class='socida' onclick="ckinput('socid',30)">765</a>
                                 <a class='socida' onclick="ckinput('socid',31)">765G</a>
                                 <a class='socida' onclick="ckinput('socid',32)">768G</a>
@@ -2601,6 +2603,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',44)">870</a>
                                 <a class='socida' onclick="ckinput('socid',45)">888</a>
                                 <a class='socida' onclick="ckinput('socid',46)">888+</a>
+                                <a class='socida' onclick="ckinput('socid',47)">8 Gen 1</a>
 
                                 <h2>Unisoc</h2>
                                 <a class='socida' onclick="ckinput('socid',59)">Unisoc T610</a>
@@ -2608,18 +2611,27 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',619)">Unisoc SC9863A</a>
 
                                 <h2>Samsung Exynos</h2>
+                                <a class='socida' onclick="ckinput('socid',131)">7420</a>
                                 <a class='socida' onclick="ckinput('socid',137)">7570</a>
+                                <a class='socida' onclick="ckinput('socid',132)">7580</a>
                                 <a class='socida' onclick="ckinput('socid',138)">7870</a>
                                 <a class='socida' onclick="ckinput('socid',139)">7880</a>
+                                <a class='socida' onclick="ckinput('socid',133)">7884</a>
                                 <a class='socida' onclick="ckinput('socid',140)">7885</a>
-                                <a class='socida' onclick="ckinput('socid',140)">850</a>
-                                <a class='socida' onclick="ckinput('socid',141)">8890</a>
-                                <a class='socida' onclick="ckinput('socid',142)">8895</a>
-                                <a class='socida' onclick="ckinput('socid',143)">9810</a>
-                                <a class='socida' onclick="ckinput('socid',144)">880</a>
-                                <a class='socida' onclick="ckinput('socid',145)">980</a>
-                                <a class='socida' onclick="ckinput('socid',146)">1080</a>
-                                <a class='socida' onclick="ckinput('socid',147)">2100</a>
+                                <a class='socida' onclick="ckinput('socid',134)">7904</a>
+                                <a class='socida' onclick="ckinput('socid',141)">850</a>
+                                <a class='socida' onclick="ckinput('socid',142)">8890</a>
+                                <a class='socida' onclick="ckinput('socid',143)">8895</a>
+                                <a class='socida' onclick="ckinput('socid',135)">9610</a>
+                                <a class='socida' onclick="ckinput('socid',136)">9611</a>
+                                <a class='socida' onclick="ckinput('socid',144)">9810</a>
+                                <a class='socida' onclick="ckinput('socid',149)">9820</a>
+                                <a class='socida' onclick="ckinput('socid',150)">9825</a>
+                                <a class='socida' onclick="ckinput('socid',145)">880</a>
+                                <a class='socida' onclick="ckinput('socid',146)">980</a>
+                                <a class='socida' onclick="ckinput('socid',151)">990</a>
+                                <a class='socida' onclick="ckinput('socid',147)">1080</a>
+                                <a class='socida' onclick="ckinput('socid',148)">2100</a>
 
                                 <h2>HiSilicon Kirin</h2>
                                 <a class='socida' onclick="ckinput('socid',161)">9000e</a>
@@ -2672,7 +2684,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <h2>MediaTek MT</h2>
                                 <a class='socida' onclick="ckinput('socid',81)">MT6737</a>
                                 <a class='socida' onclick="ckinput('socid',82)">MT6750</a>
-                                <h2>MediaTek P</h2>
+                                <h2>MediaTek Helio P</h2>
                                 <a class='socida' onclick="ckinput('socid',83)">P10</a>
                                 <a class='socida' onclick="ckinput('socid',84)">P18</a>
                                 <a class='socida' onclick="ckinput('socid',85)">P20</a>
@@ -2684,7 +2696,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',94)">P70</a>
                                 <a class='socida' onclick="ckinput('socid',98)">P90</a>
                                 <a class='socida' onclick="ckinput('socid',99)">P95</a>
-                                <h2>MediaTek G</h2>
+                                <h2>MediaTek Helio G</h2>
                                 <a class='socida' onclick="ckinput('socid',91)">G35</a>
                                 <a class='socida' onclick="ckinput('socid',89)">G25</a>
                                 <a class='socida' onclick="ckinput('socid',95)">G70</a>
@@ -2693,7 +2705,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <a class='socida' onclick="ckinput('socid',100)">G90</a>
                                 <a class='socida' onclick="ckinput('socid',101)">G90T</a>
                                 <a class='socida' onclick="ckinput('socid',102)">G95</a>
-                                <h2>MediaTek A</h2>
+                                <h2>MediaTek Helio A</h2>
                                 <a class='socida' onclick="ckinput('socid',86)">A22</a>
                                 <h2>MediaTek Dimensity</h2>
                                 <a class='socida' onclick="ckinput('socid',103)">700</a>
