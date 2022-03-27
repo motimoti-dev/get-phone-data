@@ -2432,7 +2432,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             <input type='text' name='sp-softwear-39' value="<?php echo data_ref('sp-softwear-39');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-40');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-40' value="<?php echo data_ref('sp-softwear-40');?>" size='mini'>
                                         </td> 
                                     </tr>
                                     <tr>
@@ -2443,7 +2443,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             <input type='text' name='sp-softwear-41' value="<?php echo data_ref('sp-softwear-41');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-42');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-42' value="<?php echo data_ref('sp-softwear-42');?>" size='mini'>
                                         </td> 
                                     </tr>
                                     <tr>
@@ -2454,7 +2454,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             <input type='text' name='sp-softwear-43' value="<?php echo data_ref('sp-softwear-43');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-44');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-44' value="<?php echo data_ref('sp-softwear-44');?>" size='mini'>
                                         </td> 
                                     </tr>
                                     <tr>
@@ -2465,7 +2465,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                             <input type='text' name='sp-softwear-45' value="<?php echo data_ref('sp-softwear-45');?>" size='mini'>
                                         </td> 
                                         <td style='text-align:left;'>
-                                            <input type='text' name='sp-softwear-9' value="<?php echo data_ref('sp-softwear-46');?>" size='mini'>
+                                            <input type='text' name='sp-softwear-46' value="<?php echo data_ref('sp-softwear-46');?>" size='mini'>
                                         </td> 
                                     </tr>
                                 </table>
