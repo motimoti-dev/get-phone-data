@@ -1008,7 +1008,7 @@
                                     $forcus_ot_5g = [
                                         ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
                                         ['sp-band-5g-n5',5],['sp-band-5g-n7',7],['sp-band-5g-n8',8],
-                                        ['sp-band-5g-n12',12],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
+                                        ['sp-band-5g-n12',12],['sp-band-5g-n13',13],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
                                         ['sp-band-5g-n20',20],['sp-band-5g-n25',25],['sp-band-5g-n28',28],
                                         ['sp-band-5g-n29',29],['sp-band-5g-n30',30],['sp-band-5g-n34',34],
                                         ['sp-band-5g-n38',38],['sp-band-5g-n39',39],['sp-band-5g-n40',40],
@@ -1175,7 +1175,7 @@
                                     $b5gs = [ 
                                         ['sp-band-5g-n1',1],['sp-band-5g-n2',2],['sp-band-5g-n3',3],
                                         ['sp-band-5g-n5',5],['sp-band-5g-n7',7],['sp-band-5g-n8',8],
-                                        ['sp-band-5g-n12',12],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
+                                        ['sp-band-5g-n12',12],['sp-band-5g-n13',13],['sp-band-5g-n14',14],['sp-band-5g-n18',18],
                                         ['sp-band-5g-n20',20],['sp-band-5g-n25',25],['sp-band-5g-n28',28],
                                         ['sp-band-5g-n29',29],['sp-band-5g-n30',30],['sp-band-5g-n34',34],
                                         ['sp-band-5g-n38',38],['sp-band-5g-n39',39],['sp-band-5g-n40',40],
