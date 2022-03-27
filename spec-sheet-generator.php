@@ -4189,6 +4189,19 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <input type='text' name='sp-battery-6' value="<?php echo data_ref('sp-battery-6');?>" size='mini'>w
                             </td>
                         </tr>
+                        
+                        <tr>
+                            <th><?php echo $info1.".info120a".$info2;?>有線逆充電(Reverse charging )</th>
+                            <td>
+                                <?php gen_ckbox('sp-battery-50','Yes','対応','','sp-battery-50');?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><?php echo $info1.".info120b".$info2;?>有線逆充電速度</th>
+                            <td>
+                                <input type='text' name='sp-battery-51' value="<?php echo data_ref('sp-battery-51');?>" size='mini'>w
+                            </td>
+                        </tr>
                         <tr>
                             <th><?php echo $info1.".info121".$info2;?>ワイヤレス逆充電</th>
                             <td>
