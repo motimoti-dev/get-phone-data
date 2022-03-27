@@ -2798,6 +2798,8 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                                 <?php gen_ckbox('sp-spec-12','Unknown','詳細不明な場合','w1p2','sp-spec-12u');?>
                                 <?php gen_ckbox('sp-spec-12','Yes','対応','w1p2','sp-spec-12y');?><br>
                                 <input type='text' name='sp-spec-14' value="<?php echo data_ref('sp-spec-14');?>" size='mini'>GB Micro SD最大容量
+                                <?php gen_ckbox('sp-spec-23','Yes','SDカードスロットが排他的(simスロットと兼用)[分からない場合はチェックしない]','','sp-spec-23');?><br>
+                                <?php gen_ckbox('sp-spec-24','Yes','SDカード単体用スロット(simスロットと兼用できない)[分からない場合はチェックしない]','','sp-spec-24');?>
                             </td>
                         </tr>
                         <tr>
