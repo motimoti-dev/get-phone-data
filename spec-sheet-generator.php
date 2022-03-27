@@ -5866,6 +5866,7 @@ Discontinuedは製造中止
             <p>元の表のProtection部分です、日本語版と英語版両方とも「,」区切りでそれぞれ入力してください。</p>
             <p>元の表が英語なので、英語版は基本的にProtectionのままで大丈夫ですが、日本語版の部分は英語を日本語に変換してください。</p>
             <p>下にある程度参考の英単語と日本語訳を用意しておきます。正式名称が英語のものは翻訳しなくて大丈夫です(例:Gorilla Glass 5など)</p>
+            <p>下に載っていない場合も意味が通じるように翻訳していただけると助かります、スマホのデザイン-素材の部分に表示されます。</p>
             <p>二行ある場合に自動で英語版が補完されていない場合がありますので注意してください。</p>
             <p>glass back (Gorilla Glass 5) or ceramic backのようにorなどを含む場合orは「または」と変換して下さい</p>
             <table>
@@ -5874,12 +5875,20 @@ Discontinuedは製造中止
                     <td>アルミニウムフレーム</td>
                 </tr>
                 <tr>
+                    <th>Corning Gorilla Glass 3</th>
+                    <td>Gorilla Glass 3で保護</td>
+                </tr>
+                <tr>
+                    <th>ceramic back or eco leather back</th>
+                    <td>セラミックもしくはエコレザー背面</td>
+                </tr>
+                <tr>
                     <th>Glass front</th>
                     <td>フロントガラス</td>
                 </tr>
                 <tr>
                     <th>ceramic back</th>
-                    <td>ブラックセラミック</td>
+                    <td>背面セラミック</td>
                 </tr>
                 <tr>
                     <th>Glass front (Gorilla Glass Victus)</th>
