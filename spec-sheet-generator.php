@@ -4229,6 +4229,7 @@ sp-screen-64 画面タイプ　sp-screen-69 有機EL　sp-screen-70 IPS　sp-scr
                         <tr>
                             <th><?php echo $info1.".info127".$info2;?>充電規格</th>
                             <td>
+                                <input type="checkbox" name="sp-battery-27" class="cb1" id="sp-battery-27" value="Yes"<?php if(data_ref('sp-battery-27') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-27">Power Delivery</label>
                                 <input type="checkbox" name="sp-battery-26" class="cb1" id="sp-battery-26" value="Yes"<?php if(data_ref('sp-battery-26') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-26">Power Delivery 3.0</label>
                                 <input type="checkbox" name="sp-battery-29" class="cb1" id="sp-battery-29" value="Yes"<?php if(data_ref('sp-battery-29') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-29">QuickCharge 4+</label>
                                 <input type="checkbox" name="sp-battery-30" class="cb1" id="sp-battery-30" value="Yes"<?php if(data_ref('sp-battery-30') == 'Yes')echo ' checked';?>><label class="checkbox02 w1p3" for="sp-battery-30">QuickCharge 4</label>
